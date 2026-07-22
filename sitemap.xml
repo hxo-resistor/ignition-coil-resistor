@@ -132,4 +132,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/article_installation_guide.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/thankyou.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.1</priority>
+  </url>
 </urlset>
