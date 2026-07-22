@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="国产点火线圈抑制电阻替代VISHAY/TE/KOA需要改电路吗？详细解答替代兼容性、引脚间距、性能对标和验证流程，附替代对照表。">
+    <title>国产点火线圈抑制电阻替代VISHAY需要改电路吗？ | HXO Resistor</title>
+    <link rel="sitemap" type="application/xml" href="https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; }
+        .nav { background: rgba(26,26,46,0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
+        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; }
+        .nav-links a:hover { color: #fff; background: rgba(233,69,96,0.15); }
+        .article-header { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; padding: 100px 24px 50px; text-align: center; }
+        .article-header h1 { font-size: 1.8em; font-weight: 800; max-width: 800px; margin: 0 auto 10px; }
+        .article-header .meta { color: #8899b4; font-size: 0.85em; }
+        .container { max-width: 800px; margin: 0 auto; padding: 50px 24px; }
+        .container h2 { font-size: 1.3em; color: #0f3460; margin: 36px 0 12px; }
+        .container h3 { font-size: 1.1em; color: #e94560; margin: 24px 0 8px; }
+        .container p { margin-bottom: 14px; color: #444; }
+        .container ul, .container ol { margin: 10px 0 16px 20px; }
+        .container li { margin-bottom: 6px; color: #444; }
+        .container strong { color: #1a1a2e; }
+        .highlight-box { background: #f0faf0; border-left: 4px solid #27ae60; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .warn-box { background: #fff5f5; border-left: 4px solid #e94560; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .table-wrap { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
+        th { background: #1a1a2e; color: #fff; padding: 10px 14px; text-align: left; font-size: 0.85em; }
+        td { padding: 10px 14px; border-bottom: 1px solid #eee; font-size: 0.9em; }
+        tr:nth-child(even) { background: #fafafa; }
+        .cta { background: #f8f9fa; border-radius: 12px; padding: 28px; text-align: center; margin: 40px 0; border: 1px solid #eee; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9em; background: #e94560; color: #fff; margin: 4px; }
+        .btn:hover { background: #d63851; }
+        .btn-secondary { background: #0f3460; }
+        .btn-secondary:hover { background: #0a2540; }
+        .back-link { display: inline-block; margin-top: 30px; color: #e94560; text-decoration: none; font-weight: 600; }
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; }
+        .footer a { color: #e94560; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .article-header h1 { font-size: 1.4em; }
+            .container { padding: 30px 16px; }
+        }
+    </style>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">HXO<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="./">首页</a></li>
+            <li><a href="./articles.html">技术文章</a></li>
+            <li><a href="./faq.html">FAQ</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="article-header">
+    <h1>国产点火线圈抑制电阻替代VISHAY需要改电路吗？</h1>
+    <div class="meta">HXO Resistor · 国产替代方案 · 2026-07-22</div>
+</div>
+<div class="container">
+
+<p>"换国产替代会不会要改电路板？"这是我们收到最多的咨询之一。很多客户习惯了进口品牌，对国产替代有顾虑——<strong>担心装上不匹配、要改设计、增加工作量。</strong></p>
+
+<p><strong>直接回答：</strong>HXO IG系列替代VISHAY/TE/KOA等进口品牌，<strong>在绝大多数情况下不需要改电路</strong>。引脚间距、外形尺寸、阻值功率完全对标，直接替换即可。</p>
+
+<h2>为什么不需要改电路？</h2>
+<p>点火线圈抑制电阻是标准化元件，不像IC芯片有几百种封装。抑制电阻的引脚间距、外形尺寸、阻值标称值在全球范围内基本统一：</p>
+<ul>
+    <li><strong>引脚间距：</strong>标准5mm/10mm/15mm，HXO覆盖所有常见间距</li>
+    <li><strong>外形尺寸：</strong>轴向引线型，与进口品牌完全一致</li>
+    <li><strong>阻值标称值：</strong>4.7kΩ/5.1kΩ/10kΩ等E系列标准值，全球通用</li>
+    <li><strong>功率等级：</strong>3W/5W/7W/10W，与进口品牌同功率直接替换</li>
+</ul>
+
+<div class="highlight-box">
+    <p><strong>✅ 已有客户验证数据：</strong>HXO已完成3家点火线圈厂商的替代验证，替换通过率100%。客户将IG系列直接焊接到原有的PCB引脚孔中，无需修改任何电路设计，测试结果完全达标。</p>
+</div>
+
+<h2>替代流程（三步搞定）</h2>
+<ol>
+    <li><strong>提供进口型号</strong>：告诉我们您当前使用的进口品牌和型号（如VISHAY RTO系列、TE CPF系列等）</li>
+    <li><strong>匹配替代方案</strong>：我们根据您的型号推荐IG系列对应型号，提供引脚间距、阻值、功率、认证级别对照表</li>
+    <li><strong>样品验证</strong>：免费寄送5颗样品，您装机测试，确认性能达标后再批量采购</li>
+</ol>
+
+<h2>替代对照表（部分示例）</h2>
+<div class="table-wrap">
+<table>
+    <tr><th>进口品牌型号</th><th>阻值/功率</th><th>HXO替代型号</th><th>认证等级</th><th>替代验证</th></tr>
+    <tr><td>VISHAY RTO 5W 4.7kΩ</td><td>4.7kΩ / 5W</td><td>IG-C 5W 4.7kΩ</td><td>AEC-Q200标准级</td><td>✅ 已完成</td></tr>
+    <tr><td>TE CPF 3W 10kΩ</td><td>10kΩ / 3W</td><td>IG-C 3W 10kΩ</td><td>AEC-Q200标准级</td><td>✅ 已完成</td></tr>
+    <tr><td>KOA RK 5W 5.1kΩ</td><td>5.1kΩ / 5W</td><td>IG-C 5W 5.1kΩ</td><td>AEC-Q200标准级</td><td>✅ 已完成</td></tr>
+    <tr><td>VISHAY RTO 7W 10kΩ</td><td>10kΩ / 7W</td><td>IG-S 7W 10kΩ</td><td>AEC-Q200完整级</td><td>✅ 已完成</td></tr>
+    <tr><td>TE 高温型 10W 5kΩ</td><td>5kΩ / 10W</td><td>IG-S 10W 5kΩ</td><td>AEC-Q200完整级</td><td>✅ 已完成</td></tr>
+</table>
+</div>
+
+<h2>唯一需要留意的情况</h2>
+<div class="warn-box">
+    <p><strong>⚠️ 特殊情况：</strong>部分进口品牌采用非标引脚间距（如6.35mm的英制尺寸），或阻值在E系列标准值之外（如3.3kΩ、6.8kΩ以外的不常见数值）。这种情况需要先确认引脚间距是否兼容。</p>
+    <p>解决方案：HXO支持定制引脚间距和阻值，非标需求7-10天出样，研发阶段即可配合。</p>
+</div>
+
+<h2>综合对比</h2>
+<div class="table-wrap">
+<table>
+    <tr><th>对比项</th><th>进口品牌</th><th>HXO IG系列</th></tr>
+    <tr><td>价格</td><td>基准</td><td>低30%~50%</td></tr>
+    <tr><td>交期</td><td>8-12周</td><td>7-15天</td></tr>
+    <tr><td>AEC-Q200认证</td><td>有</td><td>有（标准级/完整级）</td></tr>
+    <tr><td>脉冲耐压</td><td>30kV~40kV</td><td>25kV~40kV</td></tr>
+    <tr><td>样品支持</td><td>流程长，收费</td><td>免费5颗，快速出样</td></tr>
+    <tr><td>技术支持</td><td>邮件为主，响应慢</td><td>微信/电话/邮件，2小时回复</td></tr>
+    <tr><td>定制服务</td><td>门槛高，周期长</td><td>7-10天出样，灵活配合</td></tr>
+</table>
+</div>
+
+<div class="cta">
+    <p><strong>需要替代方案？告诉我们您的型号</strong></p>
+    <p>提供您当前使用的进口品牌型号，我们免费匹配替代方案+寄送样品</p>
+    <a href="mailto:resistor@hxo-lcr.cn?subject=国产替代方案咨询" class="btn">📧 发送型号信息</a>
+    <a href="tel:+8613510200650" class="btn btn-secondary">📞 拨打电话咨询</a>
+</div>
+
+<a href="./articles.html" class="back-link">← 返回技术文章列表</a>
+</div>
+<div class="footer">
+    <p>© 2026 HXO Resistor / 华星欧电子（深圳）有限公司 — 专注点火线圈抑制电阻</p>
+</div>
+</body>
+</html>

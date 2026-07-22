@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="点火线圈抑制电阻FAQ——交期、MOQ、样品、认证、选型、替代、故障排查等15+常见问题解答，HXO Resistor专业技术团队为您解答。">
+    <title>点火线圈抑制电阻常见问题 FAQ | HXO Resistor</title>
+    <link rel="sitemap" type="application/xml" href="https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"交期多久？能加急吗？","acceptedAnswer":{"@type":"Answer","text":"常规交期7-15天。急单可加急，3-5天出货，需提前沟通产能。月产能500万颗，大部分型号有常备库存。"}},
+        {"@type":"Question","name":"最小起订量（MOQ）是多少？","acceptedAnswer":{"@type":"Answer","text":"样品订单无MOQ，1颗起发。批量订单MOQ视型号而定，常规型号1000颗起订，定制型号需协商。"}},
+        {"@type":"Question","name":"AEC-Q200认证对点火线圈电阻意味着什么？","acceptedAnswer":{"@type":"Answer","text":"AEC-Q200是汽车电子委员会制定的无源元件应力测试认证标准，是进入汽车前装市场的准入门槛。通过认证意味着电阻经过了20+项严格测试，包括高温寿命、温度循环、湿度偏压、振动、冲击、可焊性等，确保在-55°C~+155°C温度范围内、振动冲击等恶劣工况下长期可靠。没有认证的电阻在车载环境中可能出现阻值漂移、开路、断裂等故障，导致点火线圈失效。HXO的IG-C/IG-F通过AEC-Q200标准级认证，IG-S通过完整级认证。"}},
+        {"@type":"Question","name":"国产点火线圈电阻与进口品牌的主要差异在哪里？","acceptedAnswer":{"@type":"Answer","text":"主要差异有三点：①价格：国产比进口品牌低30%-50%，同性能下成本优势明显；②交期：进口品牌普遍8-12周，国产7-15天，差距4-8倍；③技术门槛：抑制电阻本身不是高精尖元件，国产产品在AEC-Q200认证、脉冲耐压、耐温等核心指标上已完全对标进口品牌。HXO的IG系列已完成多款VISHAY/TE/KOA型号的替代验证，性能一致，价格更低，交期更快。"}},
+        {"@type":"Question","name":"如何判断一个点火线圈电阻供应商是否可靠？","acceptedAnswer":{"@type":"Answer","text":"四步判断法：①看认证：是否通过AEC-Q200认证，这是汽车级的基本门槛；②看测试：是否100%逐支高压测试，还是抽检；③看专业度：是否专注点火线圈电阻，还是什么都做的通用电阻厂；④看服务：是否提供免费样品、选型指导和失效分析。建议先申请样品做装机验证，测试高温、振动、脉冲等实际工况后做决定。"}}
+      ]
+    }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.6; background: #fff; }
+        .nav { background: rgba(26, 26, 46, 0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
+        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: 1px; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; transition: 0.2s; white-space: nowrap; }
+        .nav-links a:hover { color: #fff; background: rgba(233, 69, 96, 0.15); }
+        .nav-links a.active { color: #e94560; background: rgba(233, 69, 96, 0.12); }
+        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5em; cursor: pointer; padding: 4px; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #1a1a2e; flex-direction: column; padding: 12px; gap: 2px; }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+        }
+        .page-header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%); color: #fff; padding: 100px 24px 60px; text-align: center; }
+        .page-header h1 { font-size: 2.2em; font-weight: 800; margin-bottom: 8px; }
+        .page-header h1 span { color: #e94560; }
+        .page-header p { color: #8899b4; font-size: 1em; max-width: 600px; margin: 0 auto; }
+        .container { max-width: 860px; margin: 0 auto; padding: 60px 24px; }
+        .faq-section { margin-bottom: 40px; }
+        .faq-category { font-size: 1.3em; font-weight: 700; color: #0f3460; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid #e94560; display: inline-block; }
+        .faq-item { margin-bottom: 20px; border: 1px solid #eee; border-radius: 12px; overflow: hidden; transition: 0.2s; }
+        .faq-item:hover { border-color: #e94560; box-shadow: 0 2px 12px rgba(233,69,96,0.06); }
+        .faq-q { padding: 18px 24px; background: #fafafa; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.95em; }
+        .faq-q .toggle { color: #e94560; font-size: 1.2em; transition: 0.2s; }
+        .faq-item.open .faq-q .toggle { transform: rotate(45deg); }
+        .faq-a { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-item.open .faq-a { padding: 18px 24px; max-height: 1000px; }
+        .faq-a p { color: #555; font-size: 0.93em; line-height: 1.7; margin-bottom: 6px; }
+        .faq-a ul { margin: 8px 0; padding-left: 20px; }
+        .faq-a li { color: #555; font-size: 0.93em; line-height: 1.7; margin-bottom: 4px; }
+        .faq-a strong { color: #333; }
+        .faq-tag { display: inline-block; background: rgba(233,69,96,0.08); color: #e94560; padding: 2px 10px; border-radius: 10px; font-size: 0.7em; margin-left: 8px; }
+        .back-link { display: inline-block; margin-top: 40px; color: #e94560; text-decoration: none; font-weight: 600; font-size: 0.9em; }
+        .back-link:hover { text-decoration: underline; }
+        .cta-box { background: #f8f9fa; border-radius: 16px; padding: 36px; text-align: center; margin-top: 40px; border: 1px solid #eee; }
+        .cta-box h3 { font-size: 1.15em; margin-bottom: 6px; }
+        .cta-box p { color: #666; font-size: 0.9em; margin-bottom: 16px; }
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9em; transition: 0.3s; }
+        .btn-primary { background: #e94560; color: #fff; }
+        .btn-primary:hover { background: #d63851; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(233,69,96,0.3); }
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; }
+        .footer a { color: #e94560; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">HXO<span>.</span></a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+        <ul class="nav-links">
+            <li><a href="./">首页</a></li>
+            <li><a href="./ig-c.html">IG-C</a></li>
+            <li><a href="./ig-f.html">IG-F</a></li>
+            <li><a href="./ig-s.html">IG-S</a></li>
+            <li><a href="./comparison.html">产品对比</a></li>
+            <li><a href="./specifications.html">技术参数</a></li>
+            <li><a href="./gallery.html">产品图库</a></li>
+            <li><a href="./articles.html">技术文章</a></li>
+            <li><a href="./faq.html" class="active">FAQ</a></li>
+            <li><a href="./en/products.html">EN</a></li>
+            <li><a href="./#inquiry">询价/联系</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>常见问题 <span>FAQ</span></h1>
+    <p>关于点火线圈抑制电阻的常见问题，涵盖选型、认证、交期、样品、替代方案等</p>
+</div>
+
+<div class="container">
+
+    <!-- 产品与订单 -->
+    <div class="faq-section">
+        <div class="faq-category">📦 产品与订单</div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">1. 交期多久？能加急吗？<span class="toggle">+</span></div>
+            <div class="faq-a"><p>常规交期7-15天。急单可加急，3-5天出货，需提前沟通产能。月产能500万颗，大部分型号有常备库存。</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">2. 最小起订量（MOQ）是多少？<span class="toggle">+</span></div>
+            <div class="faq-a"><p>样品订单无MOQ，1颗起发。批量订单MOQ视型号而定，常规型号1000颗起订，定制型号需协商。</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">3. 可以免费申请样品吗？<span class="toggle">+</span></div>
+            <div class="faq-a"><p>可以。免费提供5颗样品，运费到付。需提供企业邮箱或公司信息完成资质审核。样品附完整测试报告。</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">4. 支持定制阻值、功率、引脚长度吗？<span class="toggle">+</span></div>
+            <div class="faq-a">
+                <p>支持。IG系列三个平台均可定制：</p>
+                <ul>
+                    <li>阻值范围：0.5Ω~20kΩ</li>
+                    <li>功率范围：3W~10W</li>
+                    <li>引脚长度：可按客户图纸定制</li>
+                    <li>定制交期：7-10天出样</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">5. 发货方式是什么？支持海运吗？<span class="toggle">+</span></div>
+            <div class="faq-a">
+                <p>样品/小批量走顺丰或京东快递；批量订单走顺丰物流或德邦；外贸订单支持海运、空运、国际快递（DHL/FedEx/UPS）。国内订单款到发货，长期合作客户可申请月结。</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">6. 付款方式有哪些？<span class="toggle">+</span></div>
+            <div class="faq-a">
+                <p>国内：银行对公转账、微信、支付宝。外贸：T/T（电汇，30%定金+70%尾款）、L/C（信用证）。长期合作客户可申请账期（月结30/60天）。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 认证与质量 -->
+    <div class="faq-section">
+        <div class="faq-category">✅ 认证与质量</div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">7. 有AEC-Q200认证吗？<span class="toggle">+</span></div>
+            <div class="faq-a"><p>有。IG-C和IG-F系列通过AEC-Q200标准级认证，IG-S系列通过完整级认证（全项测试）。可提供第三方检测报告原件。</p></div>
+        </div>
+
+        <div class="faq-item open">
+            <div class="faq-q" onclick="toggleFAQ(this)">8. AEC-Q200认证对点火线圈电阻意味着什么？<span class="faq-tag">新</span><span class="toggle">+</span></div>
+            <div class="faq-a">
+                <p><strong>AEC-Q200</strong> 是汽车电子委员会（Automotive Electronics Council）制定的无源元件应力测试认证标准，是电子元件进入汽车前装市场的准入门槛。</p>
+                <p>通过AEC-Q200认证，意味着电阻经过了<strong>20+项严格的应力测试</strong>，包括：</p>
+                <ul>
+                    <li><strong>高温寿命测试</strong>（125°C~155°C，1000小时）— 模拟发动机舱长期高温工况</li>
+                    <li><strong>温度循环测试</strong>（-55°C~+155°C，1000次循环）— 模拟冷热交替冲击</li>
+                    <li><strong>湿度偏压测试</strong>（85°C/85%RH，1000小时）— 模拟高湿环境</li>
+                    <li><strong>振动/冲击测试</strong>— 模拟行车过程中的机械应力</li>
+                    <li><strong>可焊性/耐焊接热</strong>— 确保生产装配可靠性</li>
+                </ul>
+                <p><strong>没有认证的电阻在车载环境中会怎样？</strong> 阻值漂移、开路、断裂、绝缘失效——这些故障会导致点火线圈缺火、发动机抖动甚至无法启动。HXO的IG-C/IG-F通过AEC-Q200标准级认证，IG-S通过完整级认证（全项测试），确保每颗电阻在汽车严苛环境中稳定运行。</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">9. 你们工厂通过什么体系认证？<span class="toggle">+</span></div>
+            <div class="faq-a"><p>产品通过AEC-Q200认证，工厂质量管理体系符合ISO 9001标准。可根据客户要求提供COA（出厂检验报告）、批次追溯码、RoHS/REACH合规声明。</p></div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">10. 电阻的保质期是多久？<span class="toggle">+</span></div>
+            <div class="faq-a"><p>正常存储条件下（温度-10°C~40°C，湿度≤70%RH），保质期2年。建议存放在原包装内，避免高温高湿环境。</p></div>
+        </div>
+    </div>
+
+    <!-- 选型与技术 -->
+    <div class="faq-section">
+        <div class="faq-category">🔬 选型与技术</div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">11. IG-C、IG-F、IG-S三个系列怎么选？<span class="toggle">+</span></div>
+            <div class="faq-a">
+                <p>简单选型：</p>
+                <ul>
+                    <li><strong>IG-C陶瓷芯</strong>：通用型，性价比最高，200°C耐温，适合大多数摩托车和汽车应用</li>
+                    <li><strong>IG-F玻纤芯</strong>：抗振性最强，适合越野车、单缸高振动机型</li>
+                    <li><strong>IG-S陶瓷实心</strong>：旗舰型，350°C耐温，TCR<100ppm，适合赛车、极端高温、严苛品控项目</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">12. 你们的电阻可以用在哪些车型上？<span class="toggle">+</span></div>
+            <div class="faq-a">
+                <p>覆盖主流摩托车和汽车点火线圈：</p>
+                <ul>
+                    <li>摩托车：本田、雅马哈、铃木、川崎、宗申、隆鑫、力帆等</li>
+                    <li>汽车：通用替代件、售后市场</li>
+                    <li>适配阻值：次级4.7kΩ~10kΩ，初级0.5Ω~1.5Ω</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">13. 阻值4.7kΩ、5kΩ、10kΩ有什么区别？<span class="toggle">+</span></div>
+            <div class="faq-a">
+                <p>这三个阻值都属于次级抑制电阻，区别在于EMI抑制强度：</p>
+                <ul>
+                    <li><strong>4.7kΩ</strong>：通用型，EMI抑制适中，点火能量损失最小</li>
+                    <li><strong>5kΩ~6.8kΩ</strong>：最常用区间，兼顾EMI抑制和点火能量</li>
+                    <li><strong>10kΩ</strong>：强EMI抑制，适用于对电磁干扰敏感的车载电子系统</li>
+                </ul>
+                <p>阻值越高，EMI抑制越强，但点火能量略有损失。绝大多数摩托车应用推荐4.7kΩ~5.1kΩ。</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">14. 陶瓷芯和陶瓷实心有什么区别？<span class="toggle">+</span></div>
+            <div class="faq-a">
+                <p>虽然都叫"陶瓷"，但工艺完全不同：</p>
+                <ul>
+                    <li><strong>IG-C陶瓷芯</strong>：陶瓷管骨架上绕线，中空结构，散热好，成本低，但抗振性一般</li>
+                    <li><strong>IG-S陶瓷实心</strong>：实心陶瓷基体+薄膜/厚膜工艺，一体化结构，耐温更高（350°C），TCR更低，抗振性更强，成本较高</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">15. 技术支持怎么提供？<span class="toggle">+</span></div>
+            <div class="faq-a">
+                <ul>
+                    <li>在线选型咨询：微信/电话/邮件，工作时间2小时内回复</li>
+                    <li>失效分析：客户寄回故障样品，免费分析并出具报告</li>
+                    <li>现场支持：大客户可安排工程师上门技术交流</li>
+                    <li>培训服务：提供电阻选型培训、AEC-Q200标准解读</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 国产替代与供应商评估 -->
+    <div class="faq-section">
+        <div class="faq-category">🔄 国产替代与供应商评估</div>
+
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFAQ(this)">16. 进口品牌替代需要注意什么？<span class="toggle">+</span></div>
+            <div class="faq-a">
+                <p>替代进口品牌（VISHAY/TE/KOA等）时注意三点：</p>
+                <ol>
+                    <li>确认引脚间距和外形尺寸是否兼容</li>
+                    <li>先申请样品试装验证</li>
+                    <li>功率留30%余量，确保长期可靠性</li>
+                </ol>
+                <p>HXO IG系列已完成多款进口型号的替代验证，可提供替代对照表。</p>
+            </div>
+        </div>
+
+        <div class="faq-item open">
+            <div class="faq-q" onclick="toggleFAQ(this)">17. 国产点火线圈电阻与进口品牌的主要差异在哪里？<span class="faq-tag">新</span><span class="toggle">+</span></div>
+            <div class="faq-a">
+                <p><strong>核心差异不在性能，在供应链和成本。</strong> 点火线圈抑制电阻不是高精尖半导体，技术门槛在材料配方和工艺一致性上。以下是主要差异：</p>
+                <ul>
+                    <li><strong>💰 价格</strong>：国产比进口品牌低30%-50%，同性能下成本优势明显</li>
+                    <li><strong>⏱️ 交期</strong>：进口品牌普遍8-12周，国产7-15天，差距4-8倍</li>
+                    <li><strong>✅ 认证</strong>：HXO的IG-C/IG-F/IG-S全部通过AEC-Q200认证，性能指标与进口品牌完全对标</li>
+                    <li><strong>🔧 服务</strong>：国产品牌提供免费样品+选型指导+失效分析，进口品牌技术服务响应慢</li>
+                    <li><strong>⚙️ 定制</strong>：国产品牌支持非标阻值、引脚长度定制，进口品牌定制门槛高、周期长</li>
+                </ul>
+                <p>HXO的IG系列已完成多款VISHAY、TE、KOA等进口品牌型号的替代验证，客户实测通过率100%。</p>
+            </div>
+        </div>
+
+        <div class="faq-item open">
+            <div class="faq-q" onclick="toggleFAQ(this)">18. 如何判断一个点火线圈电阻供应商是否可靠？<span class="faq-tag">新</span><span class="toggle">+</span></div>
+            <div class="faq-a">
+                <p><strong>四步判断法，缺一不可：</strong></p>
+                <ul>
+                    <li><strong>① 看认证</strong>：是否通过AEC-Q200认证？这是汽车级电阻的基本门槛。没有认证的电阻，再便宜也白搭——在车载高温振动环境下迟早出问题。</li>
+                    <li><strong>② 看测试</strong>：是否100%逐支高压测试，还是抽检？点火线圈抑制电阻在高压脉冲下工作，逐支全检才能做到0缺陷出厂。HXO执行100%逐支高压测试标准。</li>
+                    <li><strong>③ 看专业度</strong>：是专注点火线圈电阻的专业厂，还是什么都做的通用电阻厂？专业厂在工艺、材料、测试上更有深度。HXO是100%专注点火线圈抑制电阻的制造商。</li>
+                    <li><strong>④ 看服务</strong>：是否提供免费样品、选型指导、失效分析？好的供应商不是卖电阻，而是帮你解决点火线圈的EMI和可靠性问题。</li>
+                </ul>
+                <p><strong>建议行动：</strong> 先申请样品做装机验证，测试高温（100°C以上）、振动、脉冲等实际工况，确认没问题再批量采购。不要只看价格。</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-box">
+        <h3>还有问题？我们帮您解答</h3>
+        <p>如需选型建议、样品申请或技术咨询，请随时联系我们</p>
+        <a href="mailto:resistor@hxo-lcr.cn?subject=FAQ%20咨询" class="btn btn-primary">📧 发送邮件</a>
+        <a href="tel:+8613510200650" class="btn btn-primary" style="background: #0f3460;">📞 拨打电话</a>
+    </div>
+
+    <a href="./" class="back-link">← 返回首页</a>
+</div>
+
+<div class="footer" style="text-align:center;padding:32px 24px;font-size:0.85em;">
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:12px;">
+        <a href="./" style="color:#e94560;text-decoration:none;">首页</a>
+        <a href="./ig-c.html" style="color:#e94560;text-decoration:none;">IG-C</a>
+        <a href="./ig-f.html" style="color:#e94560;text-decoration:none;">IG-F</a>
+        <a href="./ig-s.html" style="color:#e94560;text-decoration:none;">IG-S</a>
+        <a href="./comparison.html" style="color:#e94560;text-decoration:none;">产品对比</a>
+        <a href="./specifications.html" style="color:#e94560;text-decoration:none;">技术参数</a>
+        <a href="./gallery.html" style="color:#e94560;text-decoration:none;">产品图库</a>
+        <a href="./articles.html" style="color:#e94560;text-decoration:none;">技术文章</a>
+        <a href="./faq.html" style="color:#e94560;text-decoration:none;">FAQ</a>
+        <a href="./en/products.html" style="color:#e94560;text-decoration:none;">English</a>
+        <a href="https://www.hxo-lcr.cn" target="_blank" style="color:#e94560;text-decoration:none;">官网</a>
+        <a href="mailto:resistor@hxo-lcr.cn" style="color:#e94560;text-decoration:none;">resistor@hxo-lcr.cn</a>
+    </div>
+    <p>© 2026 HXO Resistor / 华星欧电子（深圳）有限公司 — 专注点火线圈抑制电阻</p>
+</div>
+
+<script>
+function toggleFAQ(el) {
+    const item = el.parentElement;
+    item.classList.toggle('open');
+    const toggle = el.querySelector('.toggle');
+    if (item.classList.contains('open')) {
+        toggle.textContent = '−';
+    } else {
+        toggle.textContent = '+';
+    }
+}
+</script>
+
+</body>
+</html>

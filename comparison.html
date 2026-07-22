@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HXO Resistor 点火线圈抑制电阻三系列（IG-C陶瓷芯/IG-F玻纤芯/IG-S陶瓷实心）详细参数对比、适用场景推荐与选型指引，助您精准匹配最优方案。">
+    <title>产品对比 | IG-C vs IG-F vs IG-S 点火线圈抑制电阻 | HXO Resistor</title>
+    <link rel="sitemap" type="application/xml" href="https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "HXO IG系列点火线圈抑制电阻产品对比",
+      "description": "IG-C陶瓷芯、IG-F玻纤芯、IG-S陶瓷实心三系列详细参数对比、适用场景推荐与选型指引",
+      "brand": {"@type": "Brand", "name": "HXO Resistor"},
+      "about": {
+        "@type": "Product",
+        "name": "点火线圈抑制电阻",
+        "category": "Automotive Ignition Resistor"
+      }
+    }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.6; background: #fff; }
+        .nav { background: rgba(26,26,46,0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
+        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: 1px; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; transition: 0.2s; white-space: nowrap; }
+        .nav-links a:hover { color: #fff; background: rgba(233,69,96,0.15); }
+        .nav-links a.active { color: #e94560; background: rgba(233,69,96,0.12); }
+        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5em; cursor: pointer; padding: 4px; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #1a1a2e; flex-direction: column; padding: 12px; gap: 2px; }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+        }
+        .page-hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; padding: 120px 24px 60px; text-align: center; }
+        .page-hero h1 { font-size: 2.4em; font-weight: 800; margin-bottom: 10px; }
+        .page-hero h1 span { color: #e94560; }
+        .page-hero p { color: #8899b4; max-width: 700px; margin: 0 auto 16px; font-size: 1.05em; }
+        .page-hero .badge { display: inline-block; background: rgba(233,69,96,0.15); border: 1px solid rgba(233,69,96,0.3); color: #e94560; padding: 4px 16px; border-radius: 20px; font-size: 0.8em; margin-bottom: 16px; letter-spacing: 1px; }
+        section { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+        .section-alt { background: #f8f9fa; }
+        .section-alt > div { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+        .section-title { font-size: 1.8em; font-weight: 700; margin-bottom: 10px; color: #1a1a2e; }
+        .section-subtitle { color: #666; font-size: 1em; margin-bottom: 30px; max-width: 600px; }
+        .section-label { display: inline-block; background: rgba(233,69,96,0.08); color: #e94560; padding: 2px 12px; border-radius: 12px; font-size: 0.75em; font-weight: 600; margin-bottom: 8px; letter-spacing: 1px; }
+
+        /* Comparison Table */
+        .comp-table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid #e0e0e0; }
+        .comp-table { width: 100%; border-collapse: collapse; font-size: 0.9em; min-width: 700px; }
+        .comp-table thead th { background: #1a1a2e; color: #fff; padding: 14px 16px; text-align: center; font-weight: 700; font-size: 1em; }
+        .comp-table thead th:first-child { text-align: left; background: #1a1a2e; }
+        .comp-table thead th.col-igc { background: #0f3460; }
+        .comp-table thead th.col-igf { background: #c06a1e; }
+        .comp-table thead th.col-igs { background: #c72e48; }
+        .comp-table tbody td { padding: 11px 16px; border-bottom: 1px solid #eee; vertical-align: middle; }
+        .comp-table tbody td:first-child { font-weight: 600; color: #333; background: #fafafa; white-space: nowrap; }
+        .comp-table tbody td.cell-igc { text-align: center; color: #0f3460; }
+        .comp-table tbody td.cell-igf { text-align: center; color: #8b5a00; }
+        .comp-table tbody td.cell-igs { text-align: center; color: #b02a3e; }
+        .comp-table tbody tr:hover td { background: #fff5f5; }
+        .comp-table tbody tr:hover td:first-child { background: #f0e6e6; }
+        .comp-table .highlight-row { background: #fff8f0; }
+        .comp-table .highlight-row td { font-weight: 500; }
+        .comp-table .best-value { display: inline-block; background: #e94560; color: #fff; padding: 1px 8px; border-radius: 3px; font-size: 0.7em; font-weight: 700; margin-left: 4px; }
+
+        /* Selection Guide */
+        .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .guide-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.06); transition: 0.3s; border: 1px solid #eee; }
+        .guide-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+        .guide-card .card-top { padding: 24px; text-align: center; }
+        .guide-card .card-top .icon { font-size: 2.5em; margin-bottom: 8px; }
+        .guide-card .card-top h3 { font-size: 1.2em; font-weight: 700; }
+        .guide-card .card-top .tag { display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 0.75em; font-weight: 600; margin-top: 6px; }
+        .guide-card .card-body { padding: 0 24px 20px; }
+        .guide-card .card-body ul { list-style: none; }
+        .guide-card .card-body li { padding: 5px 0; font-size: 0.88em; color: #555; border-bottom: 1px solid #f5f5f5; }
+        .guide-card .card-body li:last-child { border: none; }
+        .guide-card .card-body li::before { content: '✓ '; color: #e94560; font-weight: 700; }
+        .guide-card .card-foot { padding: 14px 24px; text-align: center; border-top: 1px solid #f0f0f0; }
+        .guide-card .card-foot a { color: #e94560; text-decoration: none; font-weight: 600; font-size: 0.9em; }
+        .guide-card .card-foot a:hover { text-decoration: underline; }
+        .card-igc { border-top: 4px solid #0f3460; }
+        .card-igc .tag { background: rgba(15,52,96,0.1); color: #0f3460; }
+        .card-igf { border-top: 4px solid #e67e22; }
+        .card-igf .tag { background: rgba(230,126,34,0.1); color: #e67e22; }
+        .card-igs { border-top: 4px solid #e94560; }
+        .card-igs .tag { background: rgba(233,69,96,0.1); color: #e94560; }
+
+        /* Scenario Matrix */
+        .matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+        .matrix-item { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 20px; transition: 0.3s; }
+        .matrix-item:hover { border-color: #e94560; box-shadow: 0 4px 16px rgba(233,69,96,0.06); }
+        .matrix-item h3 { font-size: 1em; margin-bottom: 6px; }
+        .matrix-item .rec { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 0.78em; font-weight: 600; margin: 4px 2px; }
+        .rec-igc { background: rgba(15,52,96,0.1); color: #0f3460; }
+        .rec-igf { background: rgba(230,126,34,0.1); color: #e67e22; }
+        .rec-igs { background: rgba(233,69,96,0.1); color: #e94560; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .guide-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 1.8em; }
+            section { padding: 40px 16px; }
+            .section-alt > div { padding: 40px 16px; }
+            .section-title { font-size: 1.4em; }
+            .comp-table { font-size: 0.8em; }
+        }
+
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.95em; transition: 0.3s; }
+        .btn-primary { background: #e94560; color: #fff; }
+        .btn-primary:hover { background: #d63851; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(233,69,96,0.3); }
+        .btn-outline { background: transparent; border: 2px solid rgba(255,255,255,0.3); color: #fff; }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; transform: translateY(-2px); }
+        .btn-sm { padding: 8px 20px; font-size: 0.85em; }
+
+        .cta { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; text-align: center; padding: 60px 24px; }
+        .cta h2 { font-size: 1.8em; margin-bottom: 10px; }
+        .cta p { opacity: 0.85; margin-bottom: 24px; }
+        .cta .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer a { color: #e94560; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        .footer .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 12px; }
+
+        .quick-nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 24px 0; }
+        .quick-nav a { background: #f0f0f0; color: #333; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85em; font-weight: 500; transition: 0.2s; }
+        .quick-nav a:hover { background: #e94560; color: #fff; }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">HXO<span>.</span></a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+        <ul class="nav-links">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="ig-c.html">IG-C</a></li>
+            <li><a href="ig-f.html">IG-F</a></li>
+            <li><a href="ig-s.html">IG-S</a></li>
+            <li><a href="comparison.html" class="active">产品对比</a></li>
+            <li><a href="specifications.html">技术参数</a></li>
+            <li><a href="gallery.html">产品图库</a></li>
+            <li><a href="articles.html">技术文章</a></li>
+            <li><a href="faq.html">常见问题</a></li>
+            <li><a href="en/products.html">EN</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="page-hero">
+    <div class="hero-content">
+        <div class="badge">⚖️ PRODUCT COMPARISON</div>
+        <h1>IG-C · IG-F · IG-S <span>三系列对比</span></h1>
+        <p>从电气参数、机械性能、认证等级到适用场景，全方位对比 HXO 三大工艺平台，助您快速选型</p>
+        <div class="quick-nav">
+            <a href="#full-compare">📊 完整参数对比表</a>
+            <a href="#scenarios">🎯 场景推荐</a>
+            <a href="#guide">📋 选型指引</a>
+        </div>
+    </div>
+</div>
+
+<section id="full-compare">
+    <span class="section-label">FULL SPECIFICATION COMPARISON</span>
+    <h2 class="section-title">完整参数对比表</h2>
+    <p class="section-subtitle">三款产品在同一起跑线上横向对比，关键差异一目了然</p>
+
+    <div class="comp-table-wrap">
+        <table class="comp-table">
+            <thead>
+                <tr>
+                    <th>参数项</th>
+                    <th class="col-igc">IG-C 陶瓷芯绕线型</th>
+                    <th class="col-igf">IG-F 玻纤芯绕线型</th>
+                    <th class="col-igs">IG-S 陶瓷实心型 <span class="best-value">旗舰</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>工艺平台</td><td class="cell-igc">陶瓷芯绕线</td><td class="cell-igf">玻纤芯绕线</td><td class="cell-igs">陶瓷实心（薄膜/厚膜）</td></tr>
+                <tr><td>定位</td><td class="cell-igc">标准主力 · 性价比之选</td><td class="cell-igf">经济型 · 高抗振</td><td class="cell-igs">旗舰性能 · 极端环境</td></tr>
+                <tr class="highlight-row"><td>脉冲耐压（峰值）</td><td class="cell-igc">30kV</td><td class="cell-igf">25kV</td><td class="cell-igs">40kV <span class="best-value">最高</span></td></tr>
+                <tr><td>连续工作电压</td><td class="cell-igc">最高 28kV</td><td class="cell-igf">最高 20kV</td><td class="cell-igs">最高 28kV</td></tr>
+                <tr class="highlight-row"><td>工作温度范围</td><td class="cell-igc">-55°C ~ +275°C</td><td class="cell-igf">-55°C ~ +155°C</td><td class="cell-igs">-55°C ~ +350°C <span class="best-value">最宽</span></td></tr>
+                <tr><td>存储温度范围</td><td class="cell-igc">-55°C ~ +300°C</td><td class="cell-igf">-55°C ~ +185°C</td><td class="cell-igs">-55°C ~ +400°C</td></tr>
+                <tr class="highlight-row"><td>阻值范围</td><td class="cell-igc">1kΩ ~ 20kΩ</td><td class="cell-igf">1kΩ ~ 15kΩ</td><td class="cell-igs">1kΩ ~ 20kΩ</td></tr>
+                <tr><td>最常用阻值</td><td class="cell-igc">4.7kΩ / 5.1kΩ / 10kΩ</td><td class="cell-igf">3.3kΩ / 4.7kΩ / 10kΩ</td><td class="cell-igs">5kΩ~10kΩ / 10kΩ~15kΩ</td></tr>
+                <tr class="highlight-row"><td>额定功率 (25°C)</td><td class="cell-igc">1W ~ 15W <span class="best-value">最高</span></td><td class="cell-igf">1W ~ 10W</td><td class="cell-igs">2W ~ 10W</td></tr>
+                <tr><td>公差等级</td><td class="cell-igc">J(±5%) / K(±10%) / M(±20%)</td><td class="cell-igf">K(±10%) / M(±20%)</td><td class="cell-igs">K(±10%) / M(±20%)，可筛选±5%</td></tr>
+                <tr class="highlight-row"><td>温度系数 (TCR)</td><td class="cell-igc">±100 ~ ±300 ppm/°C <span class="best-value">最稳定</span></td><td class="cell-igf">±200 ~ ±500 ppm/°C</td><td class="cell-igs">-900±300 ppm/°C (NTC)</td></tr>
+                <tr><td>TCR 特性</td><td class="cell-igc">正温度系数 (PTC)</td><td class="cell-igf">正温度系数 (PTC)</td><td class="cell-igs">负温度系数 (NTC) <span class="best-value">独特</span></td></tr>
+                <tr class="highlight-row"><td>绝缘电阻</td><td class="cell-igc">≥1,000 MΩ</td><td class="cell-igf">≥500 MΩ</td><td class="cell-igs">≥1,000 MΩ</td></tr>
+                <tr><td>寄生电感</td><td class="cell-igc">1~5 μH</td><td class="cell-igf">1~5 μH</td><td class="cell-igs">&lt;0.1 μH <span class="best-value">无感</span></td></tr>
+                <tr><td>骨架材料</td><td class="cell-icg">高纯氧化铝陶瓷 (Al₂O₃≥96%)</td><td class="cell-igf">玻纤芯 (GFRP)</td><td class="cell-igs">实心陶瓷基体</td></tr>
+                <tr class="highlight-row"><td>抗振性</td><td class="cell-igc">标准</td><td class="cell-igf">比陶瓷芯高 30% <span class="best-value">最优</span></td><td class="cell-igs">标准（实心结构）</td></tr>
+                <tr><td>抗弯强度</td><td class="cell-igc">≥100 MPa</td><td class="cell-igf">≥200 MPa</td><td class="cell-igs">≥150 MPa</td></tr>
+                <tr><td>AEC-Q200 认证</td><td class="cell-igc">标准级 (Standard Grade)</td><td class="cell-igf">标准级 (Standard Grade)</td><td class="cell-igs">完整级 (Full Grade) <span class="best-value">最高</span></td></tr>
+                <tr><td>专利技术</td><td class="cell-igc">—</td><td class="cell-igf">—</td><td class="cell-igs">CN 113016042 A <span class="best-value">独有</span></td></tr>
+                <tr><td>RoHS / REACH</td><td class="cell-igc">✅ 合规</td><td class="cell-igf">✅ 合规</td><td class="cell-igs">✅ 合规</td></tr>
+                <tr><td>ISO 9001</td><td class="cell-igc">✅ 认证</td><td class="cell-igf">✅ 认证</td><td class="cell-igs">✅ 认证</td></tr>
+                <tr class="highlight-row"><td>价格水平</td><td class="cell-igc">中等（基准）</td><td class="cell-igf">比 IG-C 低约 30% <span class="best-value">最低</span></td><td class="cell-igs">比 IG-C 高 30-50%</td></tr>
+                <tr><td>标准交期</td><td class="cell-igc">7-15 天</td><td class="cell-igf">7-15 天</td><td class="cell-igs">10-20 天</td></tr>
+                <tr><td>加急交期</td><td class="cell-igc">3-7 天</td><td class="cell-igf">3-7 天</td><td class="cell-igs">5-10 天</td></tr>
+                <tr><td>样品 (免费)</td><td class="cell-igc">5 颗免费</td><td class="cell-igf">5 颗免费</td><td class="cell-igs">5 颗免费</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<div class="section-alt" id="scenarios">
+    <div>
+        <span class="section-label">SCENARIO RECOMMENDATION</span>
+        <h2 class="section-title">场景推荐矩阵</h2>
+        <p class="section-subtitle">根据您的具体应用场景，快速找到最适合的系列</p>
+
+        <div class="matrix-grid">
+            <div class="matrix-item">
+                <h3>🏍️ 通用摩托车点火线圈</h3>
+                <p style="color:#666;font-size:0.85em;margin-bottom:8px;">城市通勤/越野/赛车，需稳定可靠</p>
+                <span class="rec rec-igc">推荐 IG-C</span>
+                <span class="rec rec-igs">IG-S（高性能）</span>
+            </div>
+            <div class="matrix-item">
+                <h3>🚗 汽车点火线圈维修替换</h3>
+                <p style="color:#666;font-size:0.85em;margin-bottom:8px;">售后市场，要求兼容性强、交期快</p>
+                <span class="rec rec-igc">推荐 IG-C</span>
+            </div>
+            <div class="matrix-item">
+                <h3>🏎️ 赛车/高性能改装</h3>
+                <p style="color:#666;font-size:0.85em;margin-bottom:8px;">高转速、极端工况，需无感设计</p>
+                <span class="rec rec-igs">推荐 IG-S</span>
+            </div>
+            <div class="matrix-item">
+                <h3>🌄 越野摩托车/高振动环境</h3>
+                <p style="color:#666;font-size:0.85em;margin-bottom:8px;">单缸、大排量越野，振动剧烈</p>
+                <span class="rec rec-igf">推荐 IG-F</span>
+                <span class="rec rec-igc">IG-C</span>
+            </div>
+            <div class="matrix-item">
+                <h3>🔥 极端高温环境</h3>
+                <p style="color:#666;font-size:0.85em;margin-bottom:8px;">涡轮增压、工业燃烧器、发动机近场</p>
+                <span class="rec rec-igs">推荐 IG-S</span>
+            </div>
+            <div class="matrix-item">
+                <h3>🔧 售后替换市场/通用型</h3>
+                <p style="color:#666;font-size:0.85em;margin-bottom:8px;">追求性价比，快速替换</p>
+                <span class="rec rec-igf">推荐 IG-F</span>
+                <span class="rec rec-igc">IG-C</span>
+            </div>
+            <div class="matrix-item">
+                <h3>⚙️ 工业/高频多点点火</h3>
+                <p style="color:#666;font-size:0.85em;margin-bottom:8px;">需高脉冲耐压、无感纯阻性</p>
+                <span class="rec rec-igs">推荐 IG-S</span>
+            </div>
+            <div class="matrix-item">
+                <h3>🌿 通用汽油机（割草机/油锯）</h3>
+                <p style="color:#666;font-size:0.85em;margin-bottom:8px;">成本敏感，轻便高抗振</p>
+                <span class="rec rec-igf">推荐 IG-F</span>
+            </div>
+            <div class="matrix-item">
+                <h3>⚡ 工业应用（连续工作）</h3>
+                <p style="color:#666;font-size:0.85em;margin-bottom:8px;">15,000+小时连续工作寿命</p>
+                <span class="rec rec-igc">推荐 IG-C</span>
+                <span class="rec rec-igs">IG-S（严苛环境）</span>
+            </div>
+            <div class="matrix-item">
+                <h3>🛡️ 军用/航空级需求</h3>
+                <p style="color:#666;font-size:0.85em;margin-bottom:8px;">最高可靠性、极端环境认证</p>
+                <span class="rec rec-igs">推荐 IG-S</span>
+            </div>
+            <div class="matrix-item">
+                <h3>💲 成本优先项目</h3>
+                <p style="color:#666;font-size:0.85em;margin-bottom:8px;">大批量采购，极致性价比</p>
+                <span class="rec rec-igf">推荐 IG-F</span>
+            </div>
+            <div class="matrix-item">
+                <h3>📋 OEM/ODM 定制</h3>
+                <p style="color:#666;font-size:0.85em;margin-bottom:8px;">非标阻值、特殊引线、定制包装</p>
+                <span class="rec rec-igc">IG-C 可定制</span>
+                <span class="rec rec-igf">IG-F 可定制</span>
+                <span class="rec rec-igs">IG-S 可定制</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="guide">
+    <span class="section-label">SELECTION GUIDE</span>
+    <h2 class="section-title">选型指引</h2>
+    <p class="section-subtitle">三步找到最适合您的点火线圈抑制电阻</p>
+
+    <div style="background:#f8f9fa;border-radius:16px;padding:28px;margin-bottom:30px;border:1px solid #eee;">
+        <h3 style="font-size:1.1em;margin-bottom:16px;color:#0f3460;">第一步：明确应用场景</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:0.9em;">
+            <div style="background:#fff;padding:16px;border-radius:8px;border:1px solid #eee;">
+                <strong>🧊 常规环境（-55°C~+155°C）</strong><br>
+                <span style="color:#888;">摩托车、汽车售后、通用汽油机 →</span>
+                <span style="color:#e94560;font-weight:600;"> IG-C / IG-F</span>
+            </div>
+            <div style="background:#fff;padding:16px;border-radius:8px;border:1px solid #eee;">
+                <strong>🔥 高温环境（>155°C）</strong><br>
+                <span style="color:#888;">涡轮增压、赛车、工业燃烧器 →</span>
+                <span style="color:#e94560;font-weight:600;"> IG-S / IG-C</span>
+            </div>
+            <div style="background:#fff;padding:16px;border-radius:8px;border:1px solid #eee;">
+                <strong>💪 高振动环境</strong><br>
+                <span style="color:#888;">越野摩托车、单缸发动机 →</span>
+                <span style="color:#e94560;font-weight:600;"> IG-F</span>
+            </div>
+            <div style="background:#fff;padding:16px;border-radius:8px;border:1px solid #eee;">
+                <strong>⚡ 高性能需求（>30kV）</strong><br>
+                <span style="color:#888;">赛车、高频点火、军用 →</span>
+                <span style="color:#e94560;font-weight:600;"> IG-S</span>
+            </div>
+        </div>
+    </div>
+
+    <div style="background:#f8f9fa;border-radius:16px;padding:28px;margin-bottom:30px;border:1px solid #eee;">
+        <h3 style="font-size:1.1em;margin-bottom:16px;color:#0f3460;">第二步：确定阻值和功率</h3>
+        <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.9em;">
+                <thead>
+                    <tr><th style="text-align:left;padding:8px 12px;background:#0f3460;color:#fff;">应用场景</th><th style="text-align:left;padding:8px 12px;background:#0f3460;color:#fff;">推荐阻值</th><th style="text-align:left;padding:8px 12px;background:#0f3460;color:#fff;">推荐功率</th><th style="text-align:left;padding:8px 12px;background:#0f3460;color:#fff;">推荐系列</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">小排量摩托车（≤125cc）</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">4.7kΩ~10kΩ</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">3W</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">IG-C / IG-F</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">中大排量摩托车</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">5kΩ~10kΩ</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">5W</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">IG-C</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">汽车点火线圈</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">5kΩ~10kΩ</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">5W~7W</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">IG-C / IG-S</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">赛车/高性能</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">5kΩ~10kΩ</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">7W~10W</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">IG-S</td></tr>
+                    <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;">工业应用</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">5kΩ~15kΩ</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">10W</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">IG-C / IG-S</td></tr>
+                    <tr><td style="padding:8px 12px;">通用汽油机</td><td style="padding:8px 12px;">4.7kΩ~10kΩ</td><td style="padding:8px 12px;">3W~5W</td><td style="padding:8px 12px;">IG-F</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div style="background:#f8f9fa;border-radius:16px;padding:28px;border:1px solid #eee;">
+        <h3 style="font-size:1.1em;margin-bottom:16px;color:#0f3460;">第三步：选择系列</h3>
+        <div class="guide-grid">
+            <div class="guide-card card-igc">
+                <div class="card-top">
+                    <div class="icon">🎯</div>
+                    <h3>IG-C 陶瓷芯绕线型</h3>
+                    <div class="tag">🌟 标准主力 · 性价比之选</div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>脉冲耐压 30kV，覆盖大多数民用点火系统</li>
+                        <li>工作温度 -55°C~+275°C，高温稳定</li>
+                        <li>TCR ±100~±300 ppm/°C，最稳定</li>
+                        <li>功率最高 15W，大功率首选</li>
+                        <li>AEC-Q200 标准级认证</li>
+                        <li>7-15 天标准交期</li>
+                    </ul>
+                </div>
+                <div class="card-foot">
+                    <a href="ig-c.html">查看 IG-C 详情 →</a>
+                </div>
+            </div>
+            <div class="guide-card card-igf">
+                <div class="card-top">
+                    <div class="icon">💪</div>
+                    <h3>IG-F 玻纤芯绕线型</h3>
+                    <div class="tag">💰 经济型 · 高抗振</div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>价格比 IG-C 低约 30%，极致性价比</li>
+                        <li>抗振性比陶瓷芯高 30%，振动环境首选</li>
+                        <li>脉冲耐压 25kV，满足基本需求</li>
+                        <li>工作温度 -55°C~+155°C</li>
+                        <li>AEC-Q200 标准级认证</li>
+                        <li>售后替换市场首选方案</li>
+                    </ul>
+                </div>
+                <div class="card-foot">
+                    <a href="ig-f.html">查看 IG-F 详情 →</a>
+                </div>
+            </div>
+            <div class="guide-card card-igs">
+                <div class="card-top">
+                    <div class="icon">🏆</div>
+                    <h3>IG-S 陶瓷实心型</h3>
+                    <div class="tag">⚡ 旗舰性能 · 极端环境</div>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>脉冲耐压 40kV，行业最高水平</li>
+                        <li>工作温度 -55°C~+350°C，极限高温</li>
+                        <li>寄生电感 <0.1 μH，无感纯阻性</li>
+                        <li>NTC 负温度系数，冷启动优势</li>
+                        <li>专利技术 CN 113016042 A</li>
+                        <li>AEC-Q200 完整级认证</li>
+                    </ul>
+                </div>
+                <div class="card-foot">
+                    <a href="ig-s.html">查看 IG-S 详情 →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="cta">
+    <h2>选型仍有疑问？我们帮您匹配</h2>
+    <p>提供您的应用场景和需求，技术团队将在 24 小时内推荐最优方案并免费寄送样品</p>
+    <div class="btn-group">
+        <a href="index.html#inquiry" class="btn btn-primary">📝 在线填写询价单</a>
+        <a href="mailto:resistor@hxo-lcr.cn?subject=选型咨询%20-%20HXO%20Resistor" class="btn btn-outline">📧 发送邮件咨询</a>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-links">
+        <a href="index.html">首页</a>
+        <a href="ig-c.html">IG-C</a>
+        <a href="ig-f.html">IG-F</a>
+        <a href="ig-s.html">IG-S</a>
+        <a href="comparison.html">产品对比</a>
+        <a href="specifications.html">技术参数</a>
+        <a href="gallery.html">产品图库</a>
+        <a href="articles.html">技术文章</a>
+        <a href="faq.html">常见问题</a>
+        <a href="en/products.html">English</a>
+        <a href="https://www.hxo-lcr.cn" target="_blank">官网</a>
+        <a href="mailto:resistor@hxo-lcr.cn">resistor@hxo-lcr.cn</a>
+    </div>
+    <p>© 2026 HXO Resistor / 华星欧电子（深圳）有限公司 — 专注点火线圈抑制电阻</p>
+</div>
+
+<script>
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.nav-links')?.classList.remove('open');
+    });
+});
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+</script>
+</body>
+</html>

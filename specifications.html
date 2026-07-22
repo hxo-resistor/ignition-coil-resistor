@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HXO Resistor 点火线圈抑制电阻技术参数总汇 — 电气参数、尺寸图表、材料规格、认证标准全系列汇总，工程师选型必备参考。">
+    <title>技术参数总汇 | 点火线圈抑制电阻规格大全 | HXO Resistor</title>
+    <link rel="sitemap" type="application/xml" href="https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "HXO 点火线圈抑制电阻技术参数总汇",
+      "description": "IG-C/IG-F/IG-S全系列电气参数、尺寸图表、材料规格、认证标准汇总",
+      "brand": {"@type": "Brand", "name": "HXO Resistor"}
+    }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.6; background: #fff; }
+        .nav { background: rgba(26,26,46,0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
+        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: 1px; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; transition: 0.2s; white-space: nowrap; }
+        .nav-links a:hover { color: #fff; background: rgba(233,69,96,0.15); }
+        .nav-links a.active { color: #e94560; background: rgba(233,69,96,0.12); }
+        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5em; cursor: pointer; padding: 4px; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #1a1a2e; flex-direction: column; padding: 12px; gap: 2px; }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+        }
+        .page-hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; padding: 120px 24px 60px; text-align: center; }
+        .page-hero h1 { font-size: 2.4em; font-weight: 800; margin-bottom: 10px; }
+        .page-hero h1 span { color: #e94560; }
+        .page-hero p { color: #8899b4; max-width: 700px; margin: 0 auto; font-size: 1.05em; }
+        .page-hero .badge { display: inline-block; background: rgba(233,69,96,0.15); border: 1px solid rgba(233,69,96,0.3); color: #e94560; padding: 4px 16px; border-radius: 20px; font-size: 0.8em; margin-bottom: 16px; letter-spacing: 1px; }
+        section { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+        .section-alt { background: #f8f9fa; }
+        .section-alt > div { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+        .section-title { font-size: 1.8em; font-weight: 700; margin-bottom: 10px; color: #1a1a2e; }
+        .section-subtitle { color: #666; font-size: 1em; margin-bottom: 30px; max-width: 600px; }
+        .section-label { display: inline-block; background: rgba(233,69,96,0.08); color: #e94560; padding: 2px 12px; border-radius: 12px; font-size: 0.75em; font-weight: 600; margin-bottom: 8px; letter-spacing: 1px; }
+
+        .spec-table { width: 100%; border-collapse: collapse; margin: 16px 0 30px; border-radius: 12px; overflow: hidden; }
+        .spec-table thead th { background: #1a1a2e; color: #fff; padding: 13px 16px; text-align: left; font-size: 0.9em; font-weight: 600; }
+        .spec-table tbody td { padding: 11px 16px; border-bottom: 1px solid #eee; font-size: 0.88em; }
+        .spec-table tbody tr:nth-child(even) { background: #fafafa; }
+        .spec-table tbody tr:hover { background: #fff5f5; }
+        .spec-table tbody td:first-child { font-weight: 600; color: #333; white-space: nowrap; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+        .feature-card { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); border: 1px solid #f0f0f0; transition: 0.3s; }
+        .feature-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .feature-card .icon { font-size: 2em; margin-bottom: 8px; }
+        .feature-card h3 { font-size: 1.05em; margin-bottom: 8px; color: #0f3460; }
+        .feature-card ul { list-style: none; }
+        .feature-card li { padding: 4px 0; font-size: 0.9em; color: #555; }
+        .feature-card li::before { content: '✓ '; color: #e94560; font-weight: 700; }
+
+        .dimension-box { background: #f8f9fa; border-radius: 12px; padding: 24px; border: 1px solid #eee; margin: 16px 0; }
+        .dimension-box h3 { font-size: 1.1em; color: #0f3460; margin-bottom: 12px; }
+
+        .btn { display: inline-flex; align-items: center; gap: 6px; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.95em; transition: 0.3s; }
+        .btn-primary { background: #e94560; color: #fff; }
+        .btn-primary:hover { background: #d63851; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(233,69,96,0.3); }
+        .btn-outline { background: transparent; border: 2px solid rgba(255,255,255,0.3); color: #fff; }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #fff; transform: translateY(-2px); }
+
+        .cta { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; text-align: center; padding: 60px 24px; }
+        .cta h2 { font-size: 1.8em; margin-bottom: 10px; }
+        .cta p { opacity: 0.85; margin-bottom: 24px; }
+        .cta .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer a { color: #e94560; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        .footer .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 12px; }
+
+        .tab-nav { display: flex; gap: 4px; margin-bottom: 30px; background: #f0f0f0; border-radius: 12px; padding: 4px; }
+        .tab-nav button { flex: 1; padding: 12px 20px; border: none; background: transparent; border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 0.9em; color: #666; transition: 0.2s; }
+        .tab-nav button:hover { background: rgba(255,255,255,0.5); }
+        .tab-nav button.active { background: #fff; color: #1a1a2e; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 1.8em; }
+            section { padding: 40px 16px; }
+            .section-alt > div { padding: 40px 16px; }
+            .section-title { font-size: 1.4em; }
+            .tab-nav { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">HXO<span>.</span></a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+        <ul class="nav-links">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="ig-c.html">IG-C</a></li>
+            <li><a href="ig-f.html">IG-F</a></li>
+            <li><a href="ig-s.html">IG-S</a></li>
+            <li><a href="comparison.html">产品对比</a></li>
+            <li><a href="specifications.html" class="active">技术参数</a></li>
+            <li><a href="gallery.html">产品图库</a></li>
+            <li><a href="articles.html">技术文章</a></li>
+            <li><a href="faq.html">常见问题</a></li>
+            <li><a href="en/products.html">EN</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="page-hero">
+    <div class="hero-content">
+        <div class="badge">📐 TECHNICAL SPECIFICATIONS</div>
+        <h1>技术参数总汇 <span>大全</span></h1>
+        <p>IG-C / IG-F / IG-S 全系列电气参数、尺寸图表、材料规格、认证标准 — 工程师选型必备参考手册</p>
+    </div>
+</div>
+
+<!-- Tab Navigation -->
+<section>
+    <span class="section-label">SPECIFICATION CATALOG</span>
+    <h2 class="section-title">参数分类浏览</h2>
+    <p class="section-subtitle">使用标签页切换查看各系列参数，或滚动浏览完整内容</p>
+
+    <div class="tab-nav">
+        <button data-tab="all" class="active" onclick="switchTab('all')">📋 完整参数总汇</button>
+        <button data-tab="igc" onclick="switchTab('igc')">🔵 IG-C 陶瓷芯</button>
+        <button data-tab="igf" onclick="switchTab('igf')">🟠 IG-F 玻纤芯</button>
+        <button data-tab="igs" onclick="switchTab('igs')">🔴 IG-S 陶瓷实心</button>
+    </div>
+
+    <!-- All tab -->
+    <div id="tab-all" class="tab-content active">
+        <h3 style="font-size:1.3em;margin-bottom:16px;color:#0f3460;">📋 全系列参数总汇</h3>
+        <table class="spec-table">
+            <thead><tr><th>参数项</th><th>IG-C 陶瓷芯绕线型</th><th>IG-F 玻纤芯绕线型</th><th>IG-S 陶瓷实心型</th></tr></thead>
+            <tbody>
+                <tr><td>脉冲耐压（峰值）</td><td>30kV</td><td>25kV</td><td>40kV</td></tr>
+                <tr><td>连续工作电压</td><td>28kV</td><td>20kV</td><td>28kV</td></tr>
+                <tr><td>工作温度范围</td><td>-55°C ~ +275°C</td><td>-55°C ~ +155°C</td><td>-55°C ~ +350°C</td></tr>
+                <tr><td>存储温度范围</td><td>-55°C ~ +300°C</td><td>-55°C ~ +185°C</td><td>-55°C ~ +400°C</td></tr>
+                <tr><td>阻值范围</td><td>1kΩ ~ 20kΩ</td><td>1kΩ ~ 15kΩ</td><td>1kΩ ~ 20kΩ</td></tr>
+                <tr><td>额定功率 (@25°C)</td><td>1W / 3W / 5W / 7W / 10W / 15W</td><td>1W / 3W / 5W / 8W / 10W</td><td>2W / 3W / 5W / 7W / 10W</td></tr>
+                <tr><td>公差等级</td><td>J(±5%) / K(±10%) / M(±20%)</td><td>K(±10%) / M(±20%)</td><td>K(±10%) / M(±20%)</td></tr>
+                <tr><td>温度系数 (TCR)</td><td>±100 ~ ±300 ppm/°C</td><td>±200 ~ ±500 ppm/°C</td><td>-900±300 ppm/°C (NTC)</td></tr>
+                <tr><td>绝缘电阻</td><td>≥1,000 MΩ</td><td>≥500 MΩ</td><td>≥1,000 MΩ</td></tr>
+                <tr><td>绝缘电阻（湿热后）</td><td>≥100 MΩ</td><td>≥50 MΩ</td><td>≥500 MΩ</td></tr>
+                <tr><td>寄生电感</td><td>1~5 μH</td><td>1~5 μH</td><td>&lt;0.1 μH</td></tr>
+                <tr><td>抗弯强度</td><td>≥100 MPa</td><td>≥200 MPa</td><td>≥150 MPa</td></tr>
+                <tr><td>抗振性</td><td>标准</td><td>比陶瓷芯高 30%</td><td>标准（实心结构）</td></tr>
+                <tr><td>骨架材料</td><td>高纯氧化铝陶瓷 (Al₂O₃≥96%)</td><td>玻纤芯 (GFRP)</td><td>实心陶瓷基体</td></tr>
+                <tr><td>引线材料</td><td>镀锡铜线 / 镍线</td><td>镀锡铜线</td><td>镀镍铁线 / 银钯端电极</td></tr>
+                <tr><td>封装形式</td><td>轴向引线 / 引线成型</td><td>轴向引线</td><td>SMD / 轴向引线 / 定制</td></tr>
+                <tr><td>高温负载寿命</td><td>275°C / 1000h / ≤±2%</td><td>155°C / 1000h / ≤±3%</td><td>350°C / 1000h / ≤±1%</td></tr>
+                <tr><td>温度循环</td><td>-55°C~+155°C / 1000次</td><td>-55°C~+155°C / 1000次</td><td>-55°C~+350°C / 1000次</td></tr>
+                <tr><td>湿度偏压测试</td><td>85°C / 85%RH / 1000h</td><td>85°C / 85%RH / 1000h</td><td>85°C / 85%RH / 1000h</td></tr>
+                <tr><td>AEC-Q200 等级</td><td>标准级 (Standard Grade)</td><td>标准级 (Standard Grade)</td><td>完整级 (Full Grade)</td></tr>
+                <tr><td>专利</td><td>—</td><td>—</td><td>CN 113016042 A</td></tr>
+                <tr><td>RoHS 合规</td><td>✅</td><td>✅</td><td>✅</td></tr>
+                <tr><td>REACH 合规</td><td>✅</td><td>✅</td><td>✅</td></tr>
+                <tr><td>ISO 9001</td><td>✅</td><td>✅</td><td>✅</td></tr>
+                <tr><td>标准交期</td><td>7-15 天</td><td>7-15 天</td><td>10-20 天</td></tr>
+                <tr><td>免费样品</td><td>5 颗</td><td>5 颗</td><td>5 颗</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- IG-C tab -->
+    <div id="tab-igc" class="tab-content">
+        <h3 style="font-size:1.3em;margin-bottom:16px;color:#0f3460;">🔵 IG-C 陶瓷芯绕线型 — 详细参数</h3>
+        <table class="spec-table">
+            <thead><tr><th>参数项</th><th>规格</th><th>备注</th></tr></thead>
+            <tbody>
+                <tr><td>标称阻值范围</td><td>1kΩ ~ 20kΩ</td><td>E系列标准值，非标可定制</td></tr>
+                <tr><td>最常用阻值</td><td>4.7kΩ / 5.1kΩ / 10kΩ</td><td>摩托车/日系车/电喷车</td></tr>
+                <tr><td>额定功率</td><td>1W / 3W / 5W / 7W / 10W / 15W</td><td>25°C 环境温度下</td></tr>
+                <tr><td>最高脉冲耐压</td><td>30kV（峰值）</td><td>1.2/50μs 标准雷电冲击波</td></tr>
+                <tr><td>连续工作电压</td><td>最高 28kV</td><td>AC/DC</td></tr>
+                <tr><td>工作温度范围</td><td>-55°C ~ +275°C</td><td>存储：-55°C ~ +300°C</td></tr>
+                <tr><td>温度系数 (TCR)</td><td>±100 ~ ±300 ppm/°C</td><td>中阻值段最稳定</td></tr>
+                <tr><td>公差等级</td><td>J(±5%) / K(±10%) / M(±20%)</td><td>推荐 K 级</td></tr>
+                <tr><td>绝缘电阻</td><td>≥1,000 MΩ (500V DC)</td><td>湿热后 ≥100 MΩ</td></tr>
+                <tr><td>寄生电感</td><td>1~5 μH</td><td>绕线结构固有</td></tr>
+                <tr><td>骨架材料</td><td>高纯氧化铝陶瓷 (Al₂O₃≥96%)</td><td>热导率 20-30 W/mK</td></tr>
+                <tr><td>引线材料</td><td>镀锡铜线 / 镍线</td><td>可定制引线长度和成型</td></tr>
+                <tr><td>封装类型</td><td>轴向引线</td><td>可成型为卧式/立式</td></tr>
+                <tr><td>高温负载寿命</td><td>275°C / 1000h</td><td>阻值变化 ≤ ±2%</td></tr>
+                <tr><td>温度循环</td><td>-55°C~+155°C / 1000次</td><td>阻值变化 ≤ ±1%</td></tr>
+                <tr><td>湿度偏压</td><td>85°C / 85%RH / 1000h</td><td>阻值变化 ≤ ±2%</td></tr>
+                <tr><td>振动测试</td><td>1.5g / 3小时/轴</td><td>三轴测试</td></tr>
+                <tr><td>可焊性</td><td>245°C / 3秒 / ≥95%覆盖</td><td>符合 IPC/JEDEC J-STD-002</td></tr>
+                <tr><td>耐溶剂性</td><td>异丙醇 / 超声波清洗</td><td>标记和涂层无变化</td></tr>
+            </tbody>
+        </table>
+
+        <div class="dimension-box">
+            <h3>📏 IG-C 尺寸规格</h3>
+            <table class="spec-table" style="margin:0;">
+                <thead><tr><th>功率等级</th><th>主体长度 L (mm)</th><th>主体直径 D (mm)</th><th>引线直径 d (mm)</th><th>引线长度 l (mm)</th></tr></thead>
+                <tbody>
+                    <tr><td>1W</td><td>8.0 ± 0.5</td><td>3.5 ± 0.3</td><td>0.6 ± 0.05</td><td>28 ± 3</td></tr>
+                    <tr><td>3W</td><td>10.0 ± 0.5</td><td>4.5 ± 0.3</td><td>0.6 ± 0.05</td><td>28 ± 3</td></tr>
+                    <tr><td>5W</td><td>12.0 ± 0.5</td><td>5.5 ± 0.3</td><td>0.8 ± 0.05</td><td>28 ± 3</td></tr>
+                    <tr><td>7W</td><td>15.0 ± 0.5</td><td>6.5 ± 0.3</td><td>0.8 ± 0.05</td><td>28 ± 3</td></tr>
+                    <tr><td>10W</td><td>18.0 ± 0.5</td><td>7.5 ± 0.3</td><td>1.0 ± 0.05</td><td>30 ± 3</td></tr>
+                    <tr><td>15W</td><td>22.0 ± 0.5</td><td>8.5 ± 0.3</td><td>1.0 ± 0.05</td><td>30 ± 3</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- IG-F tab -->
+    <div id="tab-igf" class="tab-content">
+        <h3 style="font-size:1.3em;margin-bottom:16px;color:#e67e22;">🟠 IG-F 玻纤芯绕线型 — 详细参数</h3>
+        <table class="spec-table">
+            <thead><tr><th>参数项</th><th>规格</th><th>备注</th></tr></thead>
+            <tbody>
+                <tr><td>标称阻值范围</td><td>1kΩ ~ 15kΩ</td><td>E系列标准值，非标可定制</td></tr>
+                <tr><td>最常用阻值</td><td>3.3kΩ / 4.7kΩ / 10kΩ</td><td>小排量/通用/电喷经济型</td></tr>
+                <tr><td>额定功率</td><td>1W / 3W / 5W / 8W / 10W</td><td>25°C 环境温度下</td></tr>
+                <tr><td>最高脉冲耐压</td><td>25kV（峰值）</td><td>1.2/50μs 标准雷电冲击波</td></tr>
+                <tr><td>连续工作电压</td><td>最高 20kV</td><td>AC/DC</td></tr>
+                <tr><td>工作温度范围</td><td>-55°C ~ +155°C</td><td>存储：-55°C ~ +185°C</td></tr>
+                <tr><td>温度系数 (TCR)</td><td>±200 ~ ±500 ppm/°C</td><td>中阻值段最稳定</td></tr>
+                <tr><td>公差等级</td><td>K(±10%) / M(±20%)</td><td>不提供 J 级 ±5%</td></tr>
+                <tr><td>绝缘电阻</td><td>≥500 MΩ (500V DC)</td><td>湿热后 ≥50 MΩ</td></tr>
+                <tr><td>抗弯强度</td><td>≥200 MPa</td><td>玻纤芯韧性优异</td></tr>
+                <tr><td>骨架材料</td><td>玻纤芯 (GFRP)</td><td>玻璃纤维增强塑料</td></tr>
+                <tr><td>引线材料</td><td>镀锡铜线</td><td>可定制引线长度和成型</td></tr>
+                <tr><td>封装类型</td><td>轴向引线</td><td>可成型为卧式/立式</td></tr>
+                <tr><td>高温负载寿命</td><td>155°C / 1000h</td><td>阻值变化 ≤ ±3%</td></tr>
+                <tr><td>温度循环</td><td>-55°C~+155°C / 1000次</td><td>阻值变化 ≤ ±2%</td></tr>
+                <tr><td>湿度偏压</td><td>85°C / 85%RH / 1000h</td><td>阻值变化 ≤ ±3%</td></tr>
+                <tr><td>振动测试</td><td>2.0g / 3小时/轴</td><td>比 IG-C 更严苛</td></tr>
+                <tr><td>可焊性</td><td>245°C / 3秒 / ≥95%覆盖</td><td>符合 IPC/JEDEC J-STD-002</td></tr>
+                <tr><td>耐溶剂性</td><td>异丙醇 / 超声波清洗</td><td>标记和涂层无变化</td></tr>
+            </tbody>
+        </table>
+
+        <div class="dimension-box">
+            <h3>📏 IG-F 尺寸规格</h3>
+            <table class="spec-table" style="margin:0;">
+                <thead><tr><th>功率等级</th><th>主体长度 L (mm)</th><th>主体直径 D (mm)</th><th>引线直径 d (mm)</th><th>引线长度 l (mm)</th></tr></thead>
+                <tbody>
+                    <tr><td>1W</td><td>8.0 ± 0.5</td><td>3.5 ± 0.3</td><td>0.6 ± 0.05</td><td>28 ± 3</td></tr>
+                    <tr><td>3W</td><td>10.0 ± 0.5</td><td>4.5 ± 0.3</td><td>0.6 ± 0.05</td><td>28 ± 3</td></tr>
+                    <tr><td>5W</td><td>12.0 ± 0.5</td><td>5.5 ± 0.3</td><td>0.8 ± 0.05</td><td>28 ± 3</td></tr>
+                    <tr><td>8W</td><td>15.0 ± 0.5</td><td>6.5 ± 0.3</td><td>0.8 ± 0.05</td><td>28 ± 3</td></tr>
+                    <tr><td>10W</td><td>18.0 ± 0.5</td><td>7.5 ± 0.3</td><td>1.0 ± 0.05</td><td>30 ± 3</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- IG-S tab -->
+    <div id="tab-igs" class="tab-content">
+        <h3 style="font-size:1.3em;margin-bottom:16px;color:#e94560;">🔴 IG-S 陶瓷实心型 — 详细参数</h3>
+        <table class="spec-table">
+            <thead><tr><th>参数项</th><th>规格</th><th>备注</th></tr></thead>
+            <tbody>
+                <tr><td>标称阻值范围</td><td>1kΩ ~ 20kΩ</td><td>E系列标准值，非标可定制</td></tr>
+                <tr><td>最常用阻值</td><td>5kΩ~10kΩ / 10kΩ~15kΩ</td><td>高性能/工业应用</td></tr>
+                <tr><td>额定功率</td><td>2W / 3W / 5W / 7W / 10W</td><td>25°C 环境温度下</td></tr>
+                <tr><td>最高脉冲耐压</td><td>40kV（峰值）</td><td>专利陶瓷区域导通技术</td></tr>
+                <tr><td>连续工作电压</td><td>最高 28kV</td><td>AC/DC</td></tr>
+                <tr><td>工作温度范围</td><td>-55°C ~ +350°C</td><td>存储：-55°C ~ +400°C</td></tr>
+                <tr><td>温度系数 (TCR)</td><td>-900 ± 300 ppm/°C (NTC)</td><td>负温度系数，冷启动优势</td></tr>
+                <tr><td>公差等级</td><td>K(±10%) / M(±20%)</td><td>可筛选 ±5%</td></tr>
+                <tr><td>绝缘电阻</td><td>≥1,000 MΩ (500V DC)</td><td>高温后 ≥500 MΩ</td></tr>
+                <tr><td>寄生电感</td><td>&lt;0.1 μH</td><td>无感，宽频纯阻性</td></tr>
+                <tr><td>基体材料</td><td>实心陶瓷基体</td><td>专利表面导通区域处理</td></tr>
+                <tr><td>端电极材料</td><td>银钯 (AgPd) / 镀镍铁线</td><td>高温抗氧化</td></tr>
+                <tr><td>封装类型</td><td>SMD / 轴向引线 / 定制</td><td>灵活封装选项</td></tr>
+                <tr><td>专利技术</td><td>CN 113016042 A</td><td>陶瓷区域导通技术</td></tr>
+                <tr><td>高温负载寿命</td><td>350°C / 1000h</td><td>阻值变化 ≤ ±1%</td></tr>
+                <tr><td>温度循环</td><td>-55°C~+350°C / 1000次</td><td>阻值变化 ≤ ±1%</td></tr>
+                <tr><td>湿度偏压</td><td>85°C / 85%RH / 1000h</td><td>阻值变化 ≤ ±1%</td></tr>
+                <tr><td>振动测试</td><td>1.5g / 3小时/轴</td><td>三轴测试</td></tr>
+                <tr><td>可焊性</td><td>260°C / 5秒 / ≥95%覆盖</td><td>无铅焊接兼容</td></tr>
+                <tr><td>耐溶剂性</td><td>异丙醇 / 超声波清洗</td><td>标记和涂层无变化</td></tr>
+            </tbody>
+        </table>
+
+        <div class="dimension-box">
+            <h3>📏 IG-S 尺寸规格</h3>
+            <table class="spec-table" style="margin:0;">
+                <thead><tr><th>功率等级</th><th>主体长度 L (mm)</th><th>主体宽度 W (mm)</th><th>主体高度 H (mm)</th><th>端电极宽度</th></tr></thead>
+                <tbody>
+                    <tr><td>2W</td><td>6.0 ± 0.3</td><td>3.2 ± 0.2</td><td>2.5 ± 0.2</td><td>0.8 ± 0.2</td></tr>
+                    <tr><td>3W</td><td>8.0 ± 0.3</td><td>4.0 ± 0.2</td><td>3.0 ± 0.2</td><td>1.0 ± 0.2</td></tr>
+                    <tr><td>5W</td><td>10.0 ± 0.3</td><td>5.0 ± 0.2</td><td>3.5 ± 0.2</td><td>1.2 ± 0.2</td></tr>
+                    <tr><td>7W</td><td>12.0 ± 0.3</td><td>6.0 ± 0.2</td><td>4.0 ± 0.2</td><td>1.5 ± 0.2</td></tr>
+                    <tr><td>10W</td><td>15.0 ± 0.3</td><td>7.0 ± 0.2</td><td>5.0 ± 0.2</td><td>1.5 ± 0.2</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Material Specifications -->
+<div class="section-alt" id="materials">
+    <div>
+        <span class="section-label">MATERIALS</span>
+        <h2 class="section-title">材料规格</h2>
+        <p class="section-subtitle">三大系列所用核心材料详细规格说明</p>
+
+        <div class="grid-3">
+            <div class="feature-card">
+                <div class="icon">🏺</div>
+                <h3>IG-C 陶瓷芯材料</h3>
+                <ul>
+                    <li>骨架：高纯氧化铝陶瓷 (Al₂O₃≥96%)</li>
+                    <li>热导率：20-30 W/mK</li>
+                    <li>体积电阻率：≥10¹⁴ Ω·cm @25°C</li>
+                    <li>介电强度：≥15 kV/mm</li>
+                    <li>线膨胀系数：6-8 ×10⁻⁶/°C</li>
+                    <li>绕线：精密电阻合金线</li>
+                    <li>涂层：阻燃绝缘漆 (UL 94 V-0)</li>
+                    <li>引线：镀锡铜线 / 镍线</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🧵</div>
+                <h3>IG-F 玻纤芯材料</h3>
+                <ul>
+                    <li>骨架：玻纤增强塑料 (GFRP)</li>
+                    <li>玻璃纤维含量：60-70%</li>
+                    <li>热变形温度：≥200°C</li>
+                    <li>抗弯强度：≥200 MPa</li>
+                    <li>线膨胀系数：10-15 ×10⁻⁶/°C</li>
+                    <li>绕线：精密电阻合金线</li>
+                    <li>涂层：阻燃绝缘漆 (UL 94 V-0)</li>
+                    <li>引线：镀锡铜线</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔬</div>
+                <h3>IG-S 陶瓷实心材料</h3>
+                <ul>
+                    <li>基体：高纯氧化铝陶瓷 (Al₂O₃≥99%)</li>
+                    <li>热导率：25-35 W/mK</li>
+                    <li>体积电阻率：≥10¹⁴ Ω·cm @25°C</li>
+                    <li>介电强度：≥20 kV/mm</li>
+                    <li>线膨胀系数：6-8 ×10⁻⁶/°C</li>
+                    <li>导通区域：专利陶瓷表面处理</li>
+                    <li>端电极：银钯 (AgPd) / 镀镍铁线</li>
+                    <li>阻值层：薄膜/厚膜工艺</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Certifications -->
+<section>
+    <span class="section-label">CERTIFICATIONS</span>
+    <h2 class="section-title">认证标准</h2>
+    <p class="section-subtitle">HXO 产品通过的主要认证与测试标准</p>
+    <div class="grid-3">
+        <div class="feature-card">
+            <div class="icon">📜</div>
+            <h3>AEC-Q200</h3>
+            <p style="color:#666;font-size:0.9em;">汽车电子委员会无源元件应力测试认证标准</p>
+            <ul>
+                <li>IG-C / IG-F：标准级 (Standard Grade)</li>
+                <li>IG-S：完整级 (Full Grade)</li>
+                <li>覆盖 20+ 项应力测试</li>
+                <li>可提供第三方检测报告</li>
+            </ul>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🌿</div>
+            <h3>RoHS / REACH</h3>
+            <p style="color:#666;font-size:0.9em;">有害物质限制与化学品注册合规</p>
+            <ul>
+                <li>RoHS 2011/65/EU 合规</li>
+                <li>REACH SVHC 233项合规</li>
+                <li>无铅焊接兼容</li>
+                <li>可提供合规声明</li>
+            </ul>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🏅</div>
+            <h3>ISO 9001</h3>
+            <p style="color:#666;font-size:0.9em;">质量管理体系认证</p>
+            <ul>
+                <li>质量管理体系认证</li>
+                <li>100% 逐支高压全检</li>
+                <li>可追溯批次管理</li>
+                <li>持续改进流程</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div class="cta">
+    <h2>需要完整技术规格书？</h2>
+    <p>下载 PDF 版本的完整技术参数，或联系我们获取更多技术支持</p>
+    <div class="btn-group">
+        <a href="./IG-C_Datasheet.pdf" class="btn btn-primary">📄 下载 IG-C 规格书</a>
+        <a href="./IG-F_Datasheet.pdf" class="btn btn-primary">📄 下载 IG-F 规格书</a>
+        <a href="./IG-S_Datasheet.pdf" class="btn btn-outline">📄 下载 IG-S 规格书</a>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-links">
+        <a href="index.html">首页</a>
+        <a href="ig-c.html">IG-C</a>
+        <a href="ig-f.html">IG-F</a>
+        <a href="ig-s.html">IG-S</a>
+        <a href="comparison.html">产品对比</a>
+        <a href="specifications.html">技术参数</a>
+        <a href="gallery.html">产品图库</a>
+        <a href="articles.html">技术文章</a>
+        <a href="faq.html">常见问题</a>
+        <a href="en/products.html">English</a>
+        <a href="https://www.hxo-lcr.cn" target="_blank">官网</a>
+        <a href="mailto:resistor@hxo-lcr.cn">resistor@hxo-lcr.cn</a>
+    </div>
+    <p>© 2026 HXO Resistor / 华星欧电子（深圳）有限公司 — 专注点火线圈抑制电阻</p>
+</div>
+
+<script>
+function switchTab(tab) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-nav button').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    document.querySelector('.tab-nav button[data-tab="' + tab + '"]').classList.add('active');
+}
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.nav-links')?.classList.remove('open');
+    });
+});
+</script>
+</body>
+</html>

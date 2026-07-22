@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="点火线圈抑制电阻烧了是什么原因？详细分析过压击穿、过热老化、振动断裂、绝缘失效等4种常见烧毁原因及预防措施。">
+    <title>点火线圈抑制电阻烧了是什么原因？4种常见故障分析 | HXO Resistor</title>
+    <link rel="sitemap" type="application/xml" href="https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; }
+        .nav { background: rgba(26,26,46,0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
+        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; }
+        .nav-links a:hover { color: #fff; background: rgba(233,69,96,0.15); }
+        .article-header { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; padding: 100px 24px 50px; text-align: center; }
+        .article-header h1 { font-size: 1.8em; font-weight: 800; max-width: 800px; margin: 0 auto 10px; }
+        .article-header .meta { color: #8899b4; font-size: 0.85em; }
+        .container { max-width: 800px; margin: 0 auto; padding: 50px 24px; }
+        .container h2 { font-size: 1.3em; color: #0f3460; margin: 36px 0 12px; }
+        .container h3 { font-size: 1.1em; color: #e94560; margin: 24px 0 8px; }
+        .container p { margin-bottom: 14px; color: #444; }
+        .container ul, .container ol { margin: 10px 0 16px 20px; }
+        .container li { margin-bottom: 6px; color: #444; }
+        .container strong { color: #1a1a2e; }
+        .fail-card { border: 1px solid #eee; border-radius: 12px; padding: 24px; margin: 20px 0; }
+        .fail-card .fail-icon { font-size: 2em; margin-bottom: 8px; }
+        .fail-card h3 { margin: 0 0 8px; }
+        .fail-card .cause { color: #e94560; font-weight: 600; margin-bottom: 8px; }
+        .fail-card .prevent { color: #27ae60; font-weight: 600; }
+        .highlight-box { background: #fff5f5; border-left: 4px solid #e94560; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .table-wrap { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
+        th { background: #1a1a2e; color: #fff; padding: 10px 14px; text-align: left; font-size: 0.85em; }
+        td { padding: 10px 14px; border-bottom: 1px solid #eee; font-size: 0.9em; }
+        tr:nth-child(even) { background: #fafafa; }
+        .cta { background: #f8f9fa; border-radius: 12px; padding: 28px; text-align: center; margin: 40px 0; border: 1px solid #eee; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9em; background: #e94560; color: #fff; margin: 4px; }
+        .btn:hover { background: #d63851; }
+        .btn-secondary { background: #0f3460; }
+        .btn-secondary:hover { background: #0a2540; }
+        .back-link { display: inline-block; margin-top: 30px; color: #e94560; text-decoration: none; font-weight: 600; }
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; }
+        .footer a { color: #e94560; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .article-header h1 { font-size: 1.4em; }
+            .container { padding: 30px 16px; }
+        }
+    </style>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">HXO<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="./">首页</a></li>
+            <li><a href="./articles.html">技术文章</a></li>
+            <li><a href="./faq.html">FAQ</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="article-header">
+    <h1>点火线圈抑制电阻烧了是什么原因？4种常见故障分析</h1>
+    <div class="meta">HXO Resistor · 故障分析 · 2026-07-22</div>
+</div>
+<div class="container">
+
+<p>抑制电阻烧了，不要只换一个完事——<strong>找到烧的原因，才能避免下次再烧。</strong>同一个点火线圈连续烧电阻，说明根因没找到。</p>
+<p>下面分析4种最常见的烧毁原因，以及对应的排查和预防方法。</p>
+
+<div class="fail-card">
+    <div class="fail-icon">⚡</div>
+    <h3>原因一：过压击穿</h3>
+    <p class="cause">🔴 最常见的原因，占烧毁案例的60%以上</p>
+    <p><strong>现象：</strong>电阻表面有黑点或裂纹，用万用表测为开路（无穷大）。</p>
+    <p><strong>根因：</strong>火花塞间隙过大、高压线老化漏电、点火线圈次级输出电压异常升高，导致抑制电阻承受的瞬时电压超过其额定脉冲耐压。</p>
+    <p><strong>自查：</strong>检查火花塞电极间隙是否在标准范围内（通常0.6~1.0mm），检查高压线是否有破损或漏电痕迹。</p>
+    <p class="prevent">🟢 预防：选用脉冲耐压更高的系列（如IG-C的30kV或IG-S的40kV），定期检查火花塞和高压线状态。</p>
+</div>
+
+<div class="fail-card">
+    <div class="fail-icon">🔥</div>
+    <h3>原因二：过热老化</h3>
+    <p class="cause">🔴 长期累积型，占烧毁案例的20%</p>
+    <p><strong>现象：</strong>电阻表面颜色变深、发黄发黑，阻值逐渐变大（比标称值大20%以上），最终超过容差范围。</p>
+    <p><strong>根因：</strong>电阻长期工作在接近或超过额定温度上限的环境中。点火线圈靠近发动机，温度可达120°C~200°C，如果散热不良或选用的电阻耐温等级不够，就会加速老化。</p>
+    <p><strong>自查：</strong>测量电阻安装位置的温度（可用红外测温枪），确认是否超过电阻的额定工作温度。</p>
+    <p class="prevent">🟢 预防：根据实际工作温度选择合适耐温等级的系列。IG-C耐温200°C，IG-S耐温350°C。</p>
+</div>
+
+<div class="fail-card">
+    <div class="fail-icon">💥</div>
+    <h3>原因三：振动断裂</h3>
+    <p class="cause">🔴 摩托车损坏中占比高</p>
+    <p><strong>现象：</strong>电阻外观完好，但轻摇引脚时阻值跳动，或者引脚根部有细微裂纹。</p>
+    <p><strong>根因：</strong>摩托车发动机振动频率高、振幅大，长期振动导致电阻引脚根部金属疲劳断裂，或内部焊接点脱落。单缸机（如CG125、CB125）振动最剧烈。</p>
+    <p><strong>自查：</strong>用手轻摇电阻引脚，看是否有松动感；用万用表测量时轻敲电阻外壳，看阻值是否跳动。</p>
+    <p class="prevent">🟢 预防：高振动机型选IG-F玻纤芯系列，抗振性比陶瓷芯高30%。</p>
+</div>
+
+<div class="fail-card">
+    <div class="fail-icon">🌧️</div>
+    <h3>原因四：绝缘失效</h3>
+    <p class="cause">🔴 潮湿环境或进水导致</p>
+    <p><strong>现象：</strong>电阻外观正常，但阻值偏小或绝缘电阻很低（<100MΩ）。</p>
+    <p><strong>根因：</strong>水分或盐雾侵入电阻内部，导致绝缘性能下降，在高压下产生漏电或爬电，最终烧毁。常见于洗车后、雨天涉水行驶或高湿度地区。</p>
+    <p><strong>自查：</strong>用兆欧表或万用表高阻档测量引脚与外壳之间的绝缘电阻，正常应≥1,000MΩ。</p>
+    <p class="prevent">🟢 预防：选用绝缘电阻≥1,000MΩ的系列，安装时注意密封防水，避免高压水枪直接冲洗点火线圈区域。</p>
+</div>
+
+<h2>烧毁后如何处理？</h2>
+<ol>
+    <li><strong>第一步：判断烧毁类型</strong>——看外观（黑点/裂纹→过压；变色→过热；引脚松动→振动）</li>
+    <li><strong>第二步：排查根因</strong>——检查火花塞、高压线、安装位置温度、振动情况</li>
+    <li><strong>第三步：选择更合适的系列</strong>——根据根因选择对应抗性更强的系列</li>
+    <li><strong>第四步：装机验证</strong>——更换后试车500公里，确认不再烧毁</li>
+</ol>
+
+<div class="highlight-box">
+    <p><strong>📌 选型对照表：</strong></p>
+    <p>• 怕过压 → 选IG-C（30kV）或IG-S（40kV脉冲耐压）</p>
+    <p>• 怕高温 → 选IG-C（200°C）或IG-S（350°C）</p>
+    <p>• 怕振动 → 选IG-F（抗振性比陶瓷芯高30%）</p>
+    <p>• 怕潮湿 → 选IG-C或IG-S（绝缘电阻≥1,000MΩ）</p>
+</div>
+
+<div class="cta">
+    <p><strong>需要失效分析？</strong></p>
+    <p>寄回烧毁的电阻样品，HXO免费分析并出具报告，帮您找到根因</p>
+    <a href="mailto:resistor@hxo-lcr.cn?subject=失效分析申请" class="btn">📧 申请失效分析</a>
+    <a href="tel:+8613510200650" class="btn btn-secondary">📞 拨打电话</a>
+</div>
+
+<a href="./articles.html" class="back-link">← 返回技术文章列表</a>
+</div>
+<div class="footer">
+    <p>© 2026 HXO Resistor / 华星欧电子（深圳）有限公司 — 专注点火线圈抑制电阻</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="摩托车点火线圈抑制电阻4.7kΩ和10kΩ能否通用？详细对比两种阻值的EMI抑制效果、点火能量损失和对发动机的影响，附快速判断方法。">
+    <title>摩托车点火线圈抑制电阻4.7kΩ和10kΩ能通用吗？ | HXO Resistor</title>
+    <link rel="sitemap" type="application/xml" href="https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; }
+        .nav { background: rgba(26, 26, 46, 0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
+        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; }
+        .nav-links a:hover { color: #fff; background: rgba(233,69,96,0.15); }
+        .article-header { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; padding: 100px 24px 50px; text-align: center; }
+        .article-header h1 { font-size: 1.8em; font-weight: 800; max-width: 800px; margin: 0 auto 10px; }
+        .article-header .meta { color: #8899b4; font-size: 0.85em; }
+        .container { max-width: 800px; margin: 0 auto; padding: 50px 24px; }
+        .container h2 { font-size: 1.3em; color: #0f3460; margin: 36px 0 12px; }
+        .container h3 { font-size: 1.1em; color: #e94560; margin: 24px 0 8px; }
+        .container p { margin-bottom: 14px; color: #444; }
+        .container ul, .container ol { margin: 10px 0 16px 20px; }
+        .container li { margin-bottom: 6px; color: #444; }
+        .container strong { color: #1a1a2e; }
+        .highlight-box { background: #f8f9fa; border-left: 4px solid #e94560; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .highlight-box p { margin: 0; color: #333; }
+        .table-wrap { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
+        th { background: #1a1a2e; color: #fff; padding: 10px 14px; text-align: left; font-size: 0.85em; }
+        td { padding: 10px 14px; border-bottom: 1px solid #eee; font-size: 0.9em; }
+        tr:nth-child(even) { background: #fafafa; }
+        .cta { background: #f8f9fa; border-radius: 12px; padding: 28px; text-align: center; margin: 40px 0; border: 1px solid #eee; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9em; background: #e94560; color: #fff; margin: 4px; }
+        .btn:hover { background: #d63851; }
+        .btn-secondary { background: #0f3460; }
+        .btn-secondary:hover { background: #0a2540; }
+        .back-link { display: inline-block; margin-top: 30px; color: #e94560; text-decoration: none; font-weight: 600; }
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; }
+        .footer a { color: #e94560; text-decoration: none; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .article-header h1 { font-size: 1.4em; }
+            .container { padding: 30px 16px; }
+        }
+    </style>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">HXO<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="./">首页</a></li>
+            <li><a href="./articles.html">技术文章</a></li>
+            <li><a href="./faq.html">FAQ</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="article-header">
+    <h1>摩托车点火线圈抑制电阻4.7kΩ和10kΩ能通用吗？</h1>
+    <div class="meta">HXO Resistor · 技术科普 · 2026-07-22</div>
+</div>
+<div class="container">
+
+<p>这是摩托车维修师傅和配件采购最常问的问题之一。4.7kΩ和10kΩ的抑制电阻，外形一样，引脚一样，价格也差不多，<strong>到底能不能混着用？</strong></p>
+<p><strong>直接说结论：</strong>大多数情况下可以通用，但有前提条件。用错了可能影响发动机性能，严重时会导致ECU误判或点火能量不足。</p>
+
+<h2>4.7kΩ和10kΩ的核心差异</h2>
+<div class="table-wrap">
+<table>
+    <tr><th>对比项</th><th>4.7kΩ</th><th>10kΩ</th></tr>
+    <tr><td>EMI抑制效果</td><td>中等，抑制60%~70%的高频振荡</td><td>强，抑制80%~90%</td></tr>
+    <tr><td>点火能量损失</td><td>约5%~8%</td><td>约10%~15%</td></tr>
+    <tr><td>适用车型</td><td>化油器/电喷摩托车、通用汽车</td><td>电喷车、高压缩比、带ECU的车型</td></tr>
+    <tr><td>阻值偏大后果</td><td>—</td><td>高速时点火能量不足，可能缺火</td></tr>
+    <tr><td>阻值偏小后果</td><td>EMI抑制不足，干扰ECU/音响</td><td>—</td></tr>
+</table>
+</div>
+
+<h2>什么时候可以通用？</h2>
+<p>如果只是临时替换，且满足以下条件，可以通用：</p>
+<ul>
+    <li><strong>化油器摩托车</strong>：无ECU，对EMI不敏感，4.7kΩ和10kΩ通用，差异几乎感觉不到</li>
+    <li><strong>电喷摩托车排量＜250cc</strong>：4.7kΩ优先，10kΩ可临时替代，但注意怠速稳定性</li>
+</ul>
+
+<h2>什么时候不能用？</h2>
+<ul>
+    <li><strong>大排量电喷（400cc以上）</strong>：10kΩ替换4.7kΩ可能导致高速缺火，因为点火能量损失过大</li>
+    <li><strong>原厂标注10kΩ的车型</strong>：用4.7kΩ替换会导致EMI超标，干扰氧传感器信号，ECU误判空燃比</li>
+    <li><strong>带CAN总线的现代车型</strong>：对EMI极其敏感，必须按原厂阻值，不可随意替换</li>
+</ul>
+
+<div class="highlight-box">
+    <p><strong>⚡ 快速判断方法</strong>：看原车火花塞帽内的电阻颜色编码。日系车（本田/雅马哈/铃木）多用4.7kΩ（绿色或蓝色标记），欧系车（比亚乔/标致）多用5kΩ~10kΩ（红色或黄色标记）。不确定时先拆下来用万用表测量原车阻值。</p>
+</div>
+
+<h2>选型建议</h2>
+<ul>
+    <li><strong>通用替换</strong>：选4.7kΩ，覆盖绝大多数摩托车应用</li>
+    <li><strong>EMI敏感场景</strong>（车载音响/通讯设备）：选10kΩ，更强抑制</li>
+    <li><strong>大排量/高转速</strong>：选5kΩ~6.8kΩ，兼顾EMI抑制和点火能量</li>
+    <li><strong>不确定时</strong>：选原厂同阻值，或直接联系我们免费获取选型建议</li>
+</ul>
+
+<div class="cta">
+    <p><strong>免费样品申请</strong></p>
+    <p>不确定选哪个阻值？申请免费样品，实测验证后再批量采购</p>
+    <a href="mailto:resistor@hxo-lcr.cn?subject=4.7kΩ%2F10kΩ%20选型咨询" class="btn">📧 发送邮件</a>
+    <a href="tel:+8613510200650" class="btn btn-secondary">📞 拨打电话</a>
+</div>
+
+<a href="./articles.html" class="back-link">← 返回技术文章列表</a>
+</div>
+<div class="footer">
+    <p>© 2026 HXO Resistor / 华星欧电子（深圳）有限公司 — 专注点火线圈抑制电阻</p>
+</div>
+</body>
+</html>
