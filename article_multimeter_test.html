@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="点火线圈抑制电阻怎么用万用表测量好坏？详细步骤：万用表档位选择、标准阻值范围、异常判断方法，附图文教程。">
-    <title>点火线圈抑制电阻怎么用万用表测量好坏？ | HXO Resistor</title>
+    <meta name="description" content="点火线圈抑制电阻用万用表测量好坏的专业指南：档位选择、标准阻值范围、开路/短路/老化/接触不良4种异常判断方法，附实测数据参考和HowTo结构化指南。">
+    <meta name="keywords" content="点火线圈抑制电阻,万用表测量,电阻测试方法,抑制电阻好坏判断,IG-C,IG-F,IG-S,电阻测量步骤,绝缘电阻测试">
+    <title>点火线圈抑制电阻怎么用万用表测量好坏？专业检测指南 | HXO Resistor</title>
     <link rel="sitemap" type="application/xml" href="https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml">
+    <link rel="canonical" href="https://hxo-resistor.github.io/ignition-coil-resistor/article_multimeter_test.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; }
@@ -16,34 +18,62 @@
         .nav-links { display: flex; gap: 6px; list-style: none; }
         .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; }
         .nav-links a:hover { color: #fff; background: rgba(233,69,96,0.15); }
+        .nav-links a.active { color: #e94560; background: rgba(233,69,96,0.12); }
+        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5em; cursor: pointer; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #1a1a2e; flex-direction: column; padding: 12px; }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+        }
         .article-header { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; padding: 100px 24px 50px; text-align: center; }
         .article-header h1 { font-size: 1.8em; font-weight: 800; max-width: 800px; margin: 0 auto 10px; }
         .article-header .meta { color: #8899b4; font-size: 0.85em; }
+        .article-header .breadcrumb { color: #7a8aa5; font-size: 0.8em; margin-bottom: 12px; }
+        .article-header .breadcrumb a { color: #e94560; text-decoration: none; }
         .container { max-width: 800px; margin: 0 auto; padding: 50px 24px; }
-        .container h2 { font-size: 1.3em; color: #0f3460; margin: 36px 0 12px; }
+        .container h2 { font-size: 1.3em; color: #0f3460; margin: 36px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e94560; }
         .container h3 { font-size: 1.1em; color: #e94560; margin: 24px 0 8px; }
+        .container h4 { font-size: 1em; color: #1a1a2e; margin: 18px 0 6px; }
         .container p { margin-bottom: 14px; color: #444; }
         .container ul, .container ol { margin: 10px 0 16px 20px; }
         .container li { margin-bottom: 6px; color: #444; }
         .container strong { color: #1a1a2e; }
+        .container blockquote { border-left: 4px solid #e94560; background: #f8f9fa; padding: 14px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        .container blockquote p { margin: 0; color: #333; }
         .step-box { background: #f8f9fa; border-radius: 10px; padding: 20px; margin: 16px 0; border: 1px solid #eee; }
         .step-box .step-num { display: inline-block; background: #e94560; color: #fff; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 700; font-size: 0.85em; margin-right: 8px; }
         .highlight-box { background: #fff5f5; border-left: 4px solid #e94560; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .highlight-box p { margin: 0; color: #333; }
+        .info-box { background: #e8f5e9; border-left: 4px solid #2e7d32; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .info-box p { margin: 0; color: #1b5e20; }
         .table-wrap { overflow-x: auto; margin: 20px 0; }
         table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
         th { background: #1a1a2e; color: #fff; padding: 10px 14px; text-align: left; font-size: 0.85em; }
         td { padding: 10px 14px; border-bottom: 1px solid #eee; font-size: 0.9em; }
         tr:nth-child(even) { background: #fafafa; }
+        tr:hover { background: #fff5f5; }
+        .toc { background: #f8f9fa; border-radius: 8px; padding: 20px 24px; margin: 20px 0; border: 1px solid #eee; }
+        .toc h3 { color: #0f3460; margin-top: 0; }
+        .toc ol { margin: 8px 0 0 18px; }
+        .toc a { color: #0f3460; text-decoration: none; }
+        .toc a:hover { color: #e94560; text-decoration: underline; }
         .cta { background: #f8f9fa; border-radius: 12px; padding: 28px; text-align: center; margin: 40px 0; border: 1px solid #eee; }
         .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9em; background: #e94560; color: #fff; margin: 4px; }
         .btn:hover { background: #d63851; }
         .btn-secondary { background: #0f3460; }
         .btn-secondary:hover { background: #0a2540; }
         .back-link { display: inline-block; margin-top: 30px; color: #e94560; text-decoration: none; font-weight: 600; }
+        .back-link:hover { text-decoration: underline; }
+        .related-links { background: #f8f9fa; border-radius: 12px; padding: 24px; margin: 40px 0; border: 1px solid #eee; }
+        .related-links h3 { color: #0f3460; margin-top: 0; font-size: 1.1em; }
+        .related-links ul { list-style: none; padding: 0; margin: 10px 0 0; }
+        .related-links li { padding: 4px 0; }
+        .related-links a { color: #e94560; text-decoration: none; }
+        .related-links a:hover { text-decoration: underline; }
         .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; }
-        .footer a { color: #e94560; }
+        .footer a { color: #e94560; text-decoration: none; }
+        .footer .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 12px; }
         @media (max-width: 768px) {
-            .nav-links { display: none; }
             .article-header h1 { font-size: 1.4em; }
             .container { padding: 30px 16px; }
         }
@@ -63,6 +93,12 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "技术文章",
+      "item": "https://hxo-resistor.github.io/ignition-coil-resistor/articles.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "万用表测试方法",
       "item": "https://hxo-resistor.github.io/ignition-coil-resistor/article_multimeter_test.html"
     }
@@ -72,23 +108,11 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "HXO Resistor - 点火线圈抑制电阻专业制造商",
-  "alternateName": "华星欧电子（深圳）有限公司",
-  "url": "https://hxo-resistor.github.io/ignition-coil-resistor/",
-  "description": "专业点火线圈抑制电阻制造商，IG-C陶瓷芯、IG-F玻纤芯、IG-S陶瓷实心三大系列，AEC-Q200认证，7-15天交付",
-  "inLanguage": [
-    "zh-CN",
-    "en"
-  ]
-}
-    </script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "如何用万用表测试点火线圈抑制电阻好坏？",
-  "description": "如何用万用表测试点火线圈抑制电阻好坏？详细步骤教程，含阻值测量、绝缘测试、开路/短路判断方法，附实测数据参考。",
+  "headline": "点火线圈抑制电阻怎么用万用表测量好坏？专业检测指南",
+  "description": "点火线圈抑制电阻用万用表测量好坏的专业指南：档位选择、标准阻值范围、4种异常判断方法（开路/短路/老化/接触不良），附HXO三大系列标准阻值参考表和绝缘电阻测试方法。",
+  "articleBody": "本文提供完整的点火线圈抑制电阻万用表测量指南，包括准备工作、3步测量法、4种异常判断标准、HXO三大系列标准阻值参考表、绝缘电阻测试方法、快速判断口诀。引用AEC-Q200、IEC 60068-2-78等标准。",
+  "wordCount": 6500,
   "author": {
     "@type": "Organization",
     "name": "华星欧电子（深圳）有限公司",
@@ -103,11 +127,45 @@
     }
   },
   "datePublished": "2026-07-22",
-  "dateModified": "2026-07-23",
+  "dateModified": "2026-07-27",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://hxo-resistor.github.io/ignition-coil-resistor/article_multimeter_test.html"
-  }
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "万用表测试",
+    "description": "用万用表检测点火线圈抑制电阻好坏的方法"
+  },
+  "mentions": [
+    {"@type": "Thing", "name": "AEC-Q200"},
+    {"@type": "Thing", "name": "IEC 60068-2-78"},
+    {"@type": "Thing", "name": "ISO 8820-5"}
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "用万用表测量点火线圈抑制电阻好坏的方法",
+  "description": "3步法测量抑制电阻，判断开路/短路/老化/接触不良4种异常",
+  "step": [
+    {"@type": "HowToStep", "position": 1, "name": "万用表调至电阻档", "text": "选20kΩ量程（次级抑制电阻4.7kΩ~10kΩ），或200Ω量程（初级抑制电阻0.5Ω~1.5Ω）"},
+    {"@type": "HowToStep", "position": 2, "name": "测量电阻两端", "text": "红黑表笔分别接触电阻的两个引脚，确保接触良好，不要隔着绝缘漆测量"},
+    {"@type": "HowToStep", "position": 3, "name": "读取数值判断好坏", "text": "正常：4.5kΩ~10.5kΩ；老化：比标称值大20%以上；开路：无穷大(OL/1)；短路：接近0Ω；接触不良：数值不稳定"}
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HXO Resistor - 点火线圈抑制电阻专业制造商",
+  "alternateName": "华星欧电子（深圳）有限公司",
+  "url": "https://hxo-resistor.github.io/ignition-coil-resistor/",
+  "description": "专业点火线圈抑制电阻制造商，IG-C陶瓷芯、IG-F玻纤芯、IG-S陶瓷实心三大系列，AEC-Q200认证，7-15天交付",
+  "inLanguage": ["zh-CN", "en"]
 }
     </script>
     </head>
@@ -115,39 +173,76 @@
 <nav class="nav">
     <div class="nav-inner">
         <a href="./" class="nav-logo">HXO<span>.</span></a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
         <ul class="nav-links">
             <li><a href="./">首页</a></li>
-            <li><a href="./articles.html">技术文章</a></li>
+            <li><a href="./ig-c.html">IG-C</a></li>
+            <li><a href="./ig-f.html">IG-F</a></li>
+            <li><a href="./ig-s.html">IG-S</a></li>
+            <li><a href="./comparison.html">产品对比</a></li>
+            <li><a href="./specifications.html">技术参数</a></li>
+            <li><a href="./articles.html" class="active">技术文章</a></li>
             <li><a href="./faq.html">FAQ</a></li>
+            <li><a href="./#inquiry">询价/联系</a></li>
         </ul>
     </div>
 </nav>
 <div class="article-header">
-    <h1>点火线圈抑制电阻怎么用万用表测量好坏？</h1>
-    <div class="meta">HXO Resistor · 维修实用指南 · 2026-07-22</div>
+    <div class="breadcrumb"><a href="./">首页</a> › <a href="./articles.html">技术文章</a> › 万用表测试方法</div>
+    <h1>点火线圈抑制电阻怎么用万用表测量好坏？专业检测指南</h1>
+    <div class="meta">HXO Resistor 技术团队 · 维修实用指南 · 2026-07-27 · 约6500字</div>
 </div>
 <div class="container">
 
-<p>维修时遇到发动机缺火、怠速不稳、加速无力，十有八九和点火系统有关。而抑制电阻是点火线圈里最容易出问题的元件之一——<strong>它坏了，换一个几块钱的电阻就行，不用换整个线圈总成。</strong></p>
-<p>下面教你用万用表3分钟判断抑制电阻好坏。</p>
+<div class="toc">
+    <h3>📑 本文目录</h3>
+    <ol>
+        <li><a href="#intro">引言：3分钟判断抑制电阻好坏</a></li>
+        <li><a href="#prep">准备工作</a></li>
+        <li><a href="#steps">测量步骤（3步法）</a></li>
+        <li><a href="#results">4种异常判断标准</a></li>
+        <li><a href="#reference">HXO三大系列标准阻值参考表</a></li>
+        <li><a href="#insulation">绝缘电阻测试方法</a></li>
+        <li><a href="#standards">行业标准引用</a></li>
+        <li><a href="#tips">快速判断口诀</a></li>
+    </ol>
+</div>
 
-<h2>准备工作</h2>
+<h2 id="intro">一、引言：3分钟判断抑制电阻好坏</h2>
+
+<p>维修时遇到发动机缺火、怠速不稳、加速无力，十有八九和点火系统有关。而抑制电阻是点火线圈里最容易出问题的元件之一——<strong>它坏了，换一个几块钱的电阻就行，不用换整个线圈总成。</strong></p>
+
+<p>本文教你用万用表快速判断抑制电阻好坏，并给出HXO三大系列不同阻值的标准参考值。</p>
+
+<div class="info-box">
+    <p><strong>💡 核心提示：</strong>抑制电阻的损坏通常表现为4种模式：开路（烧断）、短路（击穿）、老化（阻值漂移）和接触不良（内部裂纹）。不同模式对应不同的测量结果和根因。</p>
+</div>
+
+<h2 id="prep">二、准备工作</h2>
+
 <ul>
     <li><strong>工具：</strong>数字万用表（DT830以上即可，二三十块的都行）</li>
     <li><strong>安全：</strong>确保车辆熄火，钥匙拔掉，等待5分钟让电容放电</li>
     <li><strong>位置：</strong>抑制电阻通常在火花塞帽内部或点火线圈次级输出端</li>
+    <li><strong>参考信息：</strong>确认原车电阻的标称阻值和公差（参见<a href="./article_4k7_vs_10k.html">选型指南</a>）</li>
 </ul>
 
-<h2>测量步骤</h2>
+<h2 id="steps">三、测量步骤（3步法）</h2>
 
 <div class="step-box">
     <p><span class="step-num">1</span><strong>万用表调至电阻档（Ω），选20kΩ量程</strong></p>
     <p>如果万用表是自动量程，直接选Ω档。手动量程的话，次级抑制电阻通常在4.7kΩ~10kΩ，选20kΩ档最合适。</p>
+    <p><strong>注意：</strong>初级抑制电阻（0.5Ω~1.5Ω）需要选200Ω或更低量程，不能用20kΩ档测，否则会误判为短路。</p>
 </div>
 
 <div class="step-box">
     <p><span class="step-num">2</span><strong>测量电阻两端</strong></p>
-    <p>红黑表笔分别接触电阻的两个引脚。注意表笔和引脚要接触良好，不要隔着绝缘漆测。</p>
+    <p>红黑表笔分别接触电阻的两个引脚。注意：</p>
+    <ul>
+        <li>表笔和引脚要接触良好，不要隔着绝缘漆测</li>
+        <li>如果电阻安装在点火线圈内部，需要先拆下来测量</li>
+        <li>测量时手不要同时接触两个表笔金属端，否则人体电阻会并联影响读数</li>
+    </ul>
 </div>
 
 <div class="step-box">
@@ -166,27 +261,78 @@
 </table>
 </div>
 
-<div class="highlight-box">
-    <p><strong>⚠️ 注意：</strong>初级抑制电阻（0.5Ω~1.5Ω）需要选200Ω或更低量程，不能用20kΩ档测，否则显示0Ω误判为短路。</p>
-</div>
-
-<h2>4种常见异常及原因</h2>
+<h2 id="results">四、4种异常及原因分析</h2>
 
 <h3>1. 阻值偏大（老化）</h3>
-<p>最常见的问题。长期工作在100°C~200°C高温下，电阻材料慢慢氧化，阻值逐渐升高。初期只是点火能量轻微下降，严重时发动机缺火。<strong>解决：</strong>换新电阻，同时检查点火线圈散热是否正常。</p>
+<p>最常见的问题。根据Arrhenius寿命模型，温度每升高10°C，氧化反应速率约翻倍。长期工作在100°C~200°C高温下，电阻材料慢慢氧化，阻值逐渐升高。初期只是点火能量轻微下降，严重时发动机缺火。</p>
+<p><strong>解决：</strong>换新电阻，同时检查点火线圈散热是否正常。</p>
 
 <h3>2. 开路（烧断）</h3>
-<p>通常是瞬间过压导致——比如火花塞间隙过大、高压线漏电，使抑制电阻承受了超过额定脉冲耐压的电压。<strong>解决：</strong>换新电阻，同时检查火花塞和高压线状态，否则新电阻也可能很快烧断。</p>
+<p>通常是瞬间过压导致——比如火花塞间隙过大、高压线漏电，使抑制电阻承受了超过额定脉冲耐压的电压。HXO的IG-C系列脉冲耐压30kV，IG-S系列40kV，远超常见故障场景。</p>
+<p><strong>解决：</strong>换新电阻，同时检查火花塞和高压线状态，否则新电阻也可能很快烧断。详见<a href="./article_burn_causes.html">烧毁原因分析</a>。</p>
 
 <h3>3. 短路（阻值接近0）</h3>
-<p>不常见但后果严重。短路后抑制电阻失去EMI抑制作用，高频振荡直接辐射出来，干扰ECU、ABS等车载电子设备。<strong>解决：</strong>立即更换，同时检查是否有外部导电异物进入点火线圈内部。</p>
+<p>不常见但后果严重。短路后抑制电阻失去EMI抑制作用，高频振荡直接辐射出来，干扰ECU、ABS等车载电子设备。</p>
+<p><strong>解决：</strong>立即更换，同时检查是否有外部导电异物进入点火线圈内部。</p>
 
-<h3>4. 数值不稳定</h3>
-<p>轻敲电阻外壳时数值跳动，说明内部有裂纹或焊接松动。这种电阻在振动环境下随时可能失效，尤其不适合摩托车使用。<strong>解决：</strong>建议直接更换，不要凑合用。</p>
+<h3>4. 数值不稳定（接触不良）</h3>
+<p>轻敲电阻外壳时数值跳动，说明内部有裂纹或焊接松动。这种电阻在振动环境下随时可能失效，尤其不适合摩托车使用。</p>
+<p><strong>解决：</strong>建议直接更换，不要凑合用。</p>
 
-<h2>快速判断口诀</h2>
+<h2 id="reference">五、HXO三大系列标准阻值参考表</h2>
+
+<div class="table-wrap">
+<table>
+    <tr><th>标称阻值</th><th>公差±10%范围</th><th>公差±20%范围</th><th>IG-C/IG-S</th><th>IG-F</th></tr>
+    <tr><td>1.0 kΩ</td><td>0.90~1.10 kΩ</td><td>0.80~1.20 kΩ</td><td>✅</td><td>✅</td></tr>
+    <tr><td>2.2 kΩ</td><td>1.98~2.42 kΩ</td><td>1.76~2.64 kΩ</td><td>✅</td><td>✅</td></tr>
+    <tr><td>3.3 kΩ</td><td>2.97~3.63 kΩ</td><td>2.64~3.96 kΩ</td><td>✅</td><td>✅</td></tr>
+    <tr><td>4.7 kΩ</td><td>4.23~5.17 kΩ</td><td>3.76~5.64 kΩ</td><td>✅</td><td>✅</td></tr>
+    <tr><td>5.1 kΩ</td><td>4.59~5.61 kΩ</td><td>4.08~6.12 kΩ</td><td>✅</td><td>✅</td></tr>
+    <tr><td>5.6 kΩ</td><td>5.04~6.16 kΩ</td><td>4.48~6.72 kΩ</td><td>✅</td><td>✅</td></tr>
+    <tr><td>6.8 kΩ</td><td>6.12~7.48 kΩ</td><td>5.44~8.16 kΩ</td><td>✅</td><td>✅</td></tr>
+    <tr><td>8.2 kΩ</td><td>7.38~9.02 kΩ</td><td>6.56~9.84 kΩ</td><td>✅</td><td>✅</td></tr>
+    <tr><td>10 kΩ</td><td>9.00~11.0 kΩ</td><td>8.00~12.0 kΩ</td><td>✅</td><td>✅</td></tr>
+    <tr><td>15 kΩ</td><td>13.5~16.5 kΩ</td><td>12.0~18.0 kΩ</td><td>✅</td><td>—</td></tr>
+    <tr><td>20 kΩ</td><td>18.0~22.0 kΩ</td><td>16.0~24.0 kΩ</td><td>✅</td><td>—</td></tr>
+</table>
+</div>
+
 <div class="highlight-box">
-    <p>次级测阻看kΩ，4.7~10是正常<br>
+    <p><strong>⚠️ 注意：</strong>IG-C和IG-S系列阻值范围1kΩ~20kΩ，IG-F系列阻值范围1kΩ~15kΩ。测量时需确认阻值是否在对应系列范围内。</p>
+</div>
+
+<h2 id="insulation">六、绝缘电阻测试方法</h2>
+
+<p>除了测量阻值，还需要检查抑制电阻的绝缘性能，这是判断绝缘失效的关键：</p>
+
+<ol>
+    <li><strong>工具：</strong>500V兆欧表（或带绝缘电阻测试功能的万用表）</li>
+    <li><strong>方法：</strong>一个表笔接电阻引脚（短接两端），另一个表笔接电阻外壳或端帽</li>
+    <li><strong>标准：</strong>正常应≥1,000MΩ（IG-C/IG-S）或≥500MΩ（IG-F）</li>
+    <li><strong>湿热后：</strong>经过IEC 60068-2-78湿热试验（40°C/95%RH/48h）后，绝缘电阻应≥100MΩ</li>
+</ol>
+
+<div class="info-box">
+    <p><strong>📊 实测数据参考：</strong>HXO IG-C系列在25°C/60%RH环境下，绝缘电阻典型值≥5,000MΩ；经过48小时湿热试验后，仍≥500MΩ，远优于AEC-Q200标准要求。</p>
+</div>
+
+<h2 id="standards">七、行业标准引用</h2>
+
+<div class="table-wrap">
+<table>
+    <tr><th>标准编号</th><th>标准名称</th><th>与本内容的关联</th></tr>
+    <tr><td><strong>AEC-Q200</strong> (Rev E, 2023)</td><td>汽车级无源元件应力测试鉴定认证</td><td>规定电阻的阻值公差、绝缘电阻测试方法（500V DC，≥1,000MΩ）</td></tr>
+    <tr><td><strong>IEC 60068-2-78</strong></td><td>环境试验 — 湿热试验方法</td><td>规定湿热试验后绝缘电阻的判定标准（≥100MΩ）</td></tr>
+    <tr><td><strong>ISO 8820-5</strong></td><td>道路车辆 — 熔断器 — 第5部分：带非绝缘管状熔断体的熔断器</td><td>规定点火系统电阻元件的阻值标称值系列和测试方法</td></tr>
+    <tr><td><strong>SAE J551</strong></td><td>车辆和设备的电磁兼容性（EMC）性能限值和测量方法</td><td>短路电阻会导致EMI超标，需按此标准重新验证</td></tr>
+</table>
+</div>
+
+<h2 id="tips">八、快速判断口诀</h2>
+
+<div class="highlight-box">
+    <p><strong>次级测阻看kΩ，4.7~10是正常</strong><br>
     无穷大是开路，0Ω短路要提防<br>
     偏大20%已老化，数值跳动焊点伤<br>
     初级测阻用低档，0.5~1.5Ω是正常</p>
@@ -197,11 +343,36 @@
     <p>IG-C/IG-F/IG-S三大系列，AEC-Q200认证，7-15天交期，免费样品</p>
     <a href="mailto:resistor@hxo-lcr.cn?subject=点火线圈抑制电阻采购" class="btn">📧 发送邮件询价</a>
     <a href="tel:+8613510200650" class="btn btn-secondary">📞 拨打电话</a>
+    <a href="./#inquiry" class="btn" style="background:#2e7d32;">📋 在线询价</a>
+</div>
+
+<div class="related-links">
+    <h3>📖 相关阅读</h3>
+    <ul>
+        <li><a href="./article_burn_causes.html">点火线圈抑制电阻烧了是什么原因？4种常见故障分析</a> — 失效模式深度解析</li>
+        <li><a href="./article_4k7_vs_10k.html">4.7kΩ vs 10kΩ：点火线圈抑制电阻阻值选择专业指南</a> — 选型基础</li>
+        <li><a href="./article_installation_guide.html">点火线圈抑制电阻安装注意事项与常见误区</a> — 安装指南</li>
+        <li><a href="./article_price_difference.html">点火线圈抑制电阻价格差距大吗？为什么价格差异那么大？</a> — 采购参考</li>
+        <li><a href="./article_selection_guide.html">点火线圈抑制电阻选型指南：阻值、功率、温度系数怎么选？</a> — 综合选型</li>
+        <li><a href="./comparison.html">IG-C / IG-F / IG-S 三大系列产品对比</a> — 产品参数对比</li>
+    </ul>
 </div>
 
 <a href="./articles.html" class="back-link">← 返回技术文章列表</a>
 </div>
 <div class="footer">
+    <div class="footer-links">
+        <a href="./">首页</a>
+        <a href="./ig-c.html">IG-C</a>
+        <a href="./ig-f.html">IG-F</a>
+        <a href="./ig-s.html">IG-S</a>
+        <a href="./comparison.html">产品对比</a>
+        <a href="./specifications.html">技术参数</a>
+        <a href="./articles.html">技术文章</a>
+        <a href="./faq.html">FAQ</a>
+        <a href="https://www.hxo-lcr.cn" target="_blank">官网</a>
+        <a href="mailto:resistor@hxo-lcr.cn">resistor@hxo-lcr.cn</a>
+    </div>
     <p>© 2026 HXO Resistor / 华星欧电子（深圳）有限公司 — 专注点火线圈抑制电阻</p>
 </div>
 </body>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Replacing VISHAY/TE/KOA ignition coil suppressor resistors with HXO IG series? No circuit board changes needed. Complete drop-in replacement guide with cross-reference table.">
+    <title>Replacing VISHAY/TE/KOA with HXO: Complete Drop-In Guide | HXO Resistor</title>
+    <link rel="sitemap" type="application/xml" href="https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; }
+        .nav { background: rgba(26,26,46,0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
+        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; }
+        .nav-links a:hover { color: #fff; background: rgba(233,69,96,0.15); }
+        .nav-links a.active { color: #e94560; }
+        .lang-switch { background: rgba(233,69,96,0.15); color: #e94560 !important; border: 1px solid rgba(233,69,96,0.3); border-radius: 4px; }
+        .article-header { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; padding: 100px 24px 50px; text-align: center; }
+        .article-header h1 { font-size: 1.8em; font-weight: 800; max-width: 800px; margin: 0 auto 10px; }
+        .article-header .meta { color: #8899b4; font-size: 0.85em; }
+        .container { max-width: 800px; margin: 0 auto; padding: 50px 24px; }
+        .container h2 { font-size: 1.3em; color: #0f3460; margin: 36px 0 12px; }
+        .container h3 { font-size: 1.1em; color: #e94560; margin: 24px 0 8px; }
+        .container p { margin-bottom: 14px; color: #444; }
+        .container ul, .container ol { margin: 10px 0 16px 20px; }
+        .container li { margin-bottom: 6px; color: #444; }
+        .container strong { color: #1a1a2e; }
+        .highlight-box { background: #f0faf0; border-left: 4px solid #27ae60; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .warn-box { background: #fff5f5; border-left: 4px solid #e94560; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .table-wrap { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
+        th { background: #1a1a2e; color: #fff; padding: 10px 14px; text-align: left; font-size: 0.85em; }
+        td { padding: 10px 14px; border-bottom: 1px solid #eee; font-size: 0.9em; }
+        tr:nth-child(even) { background: #fafafa; }
+        .cta { background: #f8f9fa; border-radius: 12px; padding: 28px; text-align: center; margin: 40px 0; border: 1px solid #eee; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9em; background: #e94560; color: #fff; margin: 4px; }
+        .btn:hover { background: #d63851; }
+        .btn-secondary { background: #0f3460; }
+        .btn-secondary:hover { background: #0a2540; }
+        .back-link { display: inline-block; margin-top: 30px; color: #e94560; text-decoration: none; font-weight: 600; }
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; }
+        .footer a { color: #e94560; }
+        @media (max-width: 768px) { .nav-links { display: none; } .article-header h1 { font-size: 1.4em; } .container { padding: 30px 16px; } }
+    </style>
+    </head>
+<body>
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">HXO<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ig-c.html">IG-C</a></li>
+            <li><a href="ig-f.html">IG-F</a></li>
+            <li><a href="ig-s.html">IG-S</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="article_4k7_vs_10k.html" class="active">Articles</a></li>
+            <li><a href="../index.html" class="lang-switch">中文</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="article-header">
+    <h1>Replacing VISHAY/TE/KOA with HXO: Do You Need to Modify Your Circuit Board?</h1>
+    <div class="meta">HXO Resistor · Import Substitution Guide · July 2026</div>
+</div>
+<div class="container">
+<p>"Will switching to a Chinese alternative require circuit board modifications?" This is one of the most common questions we receive from overseas buyers. Many customers are accustomed to imported brands and have concerns about compatibility — <strong>worried it won't fit, will require redesign, or add extra work.</strong></p>
+<p><strong>Direct answer:</strong> HXO IG series replaces VISHAY/TE/KOA and other imported brands <strong>in the vast majority of cases without any circuit board modifications.</strong> Pin spacing, dimensions, resistance, and power ratings are fully compatible — direct drop-in replacement.</p>
+
+<h2>Why No Circuit Changes Are Needed</h2>
+<p>Ignition coil suppressor resistors are standardized components. Unlike IC chips with hundreds of package types, suppressor resistor dimensions, pin spacing, and nominal values are globally standardized:</p>
+<ul>
+    <li><strong>Pin spacing:</strong> Standard 5mm/10mm/15mm — HXO covers all common spacings</li>
+    <li><strong>Dimensions:</strong> Axial lead type, identical to imported brands</li>
+    <li><strong>Nominal resistance:</strong> 4.7kΩ/5.1kΩ/10kΩ etc. — E-series standard values, globally used</li>
+    <li><strong>Power ratings:</strong> 3W/5W/7W/10W — same ratings, direct replacement</li>
+</ul>
+
+<div class="highlight-box">
+    <p><strong>✅ Verified by customers:</strong> HXO has completed substitution validation with 3 ignition coil manufacturers, with 100% pass rate. Customers soldered IG series directly into existing PCB holes — no circuit design changes needed, all test results passed.</p>
+</div>
+
+<h2>Three-Step Replacement Process</h2>
+<ol>
+    <li><strong>Provide your current model number</strong> — Tell us the imported brand and model you're using (e.g., VISHAY RTO series, TE CPF series, etc.)</li>
+    <li><strong>Get matched replacement</strong> — We recommend the corresponding IG series model, with pin spacing, resistance, power, and certification comparison</li>
+    <li><strong>Sample validation</strong> — Free 5-piece sample shipment. Test in your application, then proceed with bulk ordering</li>
+</ol>
+
+<h2>Cross-Reference Table (Sample)</h2>
+<div class="table-wrap">
+<table>
+    <tr><th>Imported Model</th><th>Rating</th><th>HXO Replacement</th><th>Certification</th><th>Verified</th></tr>
+    <tr><td>VISHAY RTO 5W 4.7kΩ</td><td>4.7kΩ / 5W</td><td>IG-C 5W 4.7kΩ</td><td>AEC-Q200 Standard</td><td>✅ Done</td></tr>
+    <tr><td>TE CPF 3W 10kΩ</td><td>10kΩ / 3W</td><td>IG-C 3W 10kΩ</td><td>AEC-Q200 Standard</td><td>✅ Done</td></tr>
+    <tr><td>KOA RK 5W 5.1kΩ</td><td>5.1kΩ / 5W</td><td>IG-C 5W 5.1kΩ</td><td>AEC-Q200 Standard</td><td>✅ Done</td></tr>
+    <tr><td>VISHAY RTO 7W 10kΩ</td><td>10kΩ / 7W</td><td>IG-S 7W 10kΩ</td><td>AEC-Q200 Full Grade</td><td>✅ Done</td></tr>
+    <tr><td>TE Hi-Temp 10W 5kΩ</td><td>5kΩ / 10W</td><td>IG-S 10W 5kΩ</td><td>AEC-Q200 Full Grade</td><td>✅ Done</td></tr>
+</table>
+</div>
+
+<h2>The Only Case to Watch</h2>
+<div class="warn-box">
+    <p><strong>⚠️ Special case:</strong> Some imported brands use non-standard pin spacing (e.g., 6.35mm imperial size) or non-E-series resistance values. In these cases, check pin compatibility first.</p>
+    <p>Solution: HXO supports custom pin spacing and resistance values. Custom samples available in 7-10 days.</p>
+</div>
+
+<h2>Comprehensive Comparison</h2>
+<div class="table-wrap">
+<table>
+    <tr><th>Factor</th><th>Imported Brands</th><th>HXO IG Series</th></tr>
+    <tr><td>Price</td><td>Baseline</td><td>30-50% lower</td></tr>
+    <tr><td>Lead Time</td><td>8-12 weeks</td><td>7-15 days</td></tr>
+    <tr><td>AEC-Q200</td><td>Yes</td><td>Yes (Standard/Full Grade)</td></tr>
+    <tr><td>Pulse Withstand</td><td>30kV~40kV</td><td>25kV~40kV</td></tr>
+    <tr><td>Samples</td><td>Long process, charged</td><td>Free 5 pcs, fast turnaround</td></tr>
+    <tr><td>Tech Support</td><td>Email mainly, slow response</td><td>Email/phone/WhatsApp, 2-hour reply</td></tr>
+    <tr><td>Customization</td><td>High门槛, long cycle</td><td>7-10 day samples, flexible</td></tr>
+</table>
+</div>
+
+<div class="cta">
+    <p><strong>Need a replacement solution? Send us your model numbers</strong></p>
+    <p>Provide your current imported brand model numbers for a free matching solution and samples</p>
+    <a href="mailto:resistor@hxo-lcr.cn?subject=Import%20Substitution%20Inquiry" class="btn">📧 Send Model Info</a>
+    <a href="tel:+8613510200650" class="btn btn-secondary">📞 Call Us</a>
+</div>
+<a href="index.html" class="back-link">← Back to Home</a>
+</div>
+<div class="footer">
+    <p>© 2026 HXO Resistor / Huaxing'ou Electronics (Shenzhen) Co., Ltd.</p>
+</div>
+</body>
+</html>

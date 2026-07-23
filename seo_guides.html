@@ -3,25 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO工具注册指引 | HXO Resistor</title>
+    <meta name="description" content="HXO Resistor 点火线圈抑制电阻网站SEO优化与搜索引擎收录指南。Google Search Console和百度搜索资源平台注册指引，结构化数据部署方案，站点地图配置。">
+    <meta name="keywords" content="SEO优化,搜索引擎收录,Google Search Console,百度搜索资源平台,结构化数据,JSON-LD,站点地图,点火线圈抑制电阻网站">
+    <title>SEO工具注册与结构化数据部署指南 | HXO Resistor</title>
     <link rel="sitemap" type="application/xml" href="https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml">
+    <link rel="canonical" href="https://hxo-resistor.github.io/ignition-coil-resistor/seo_guides.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif; color: #1a1a2e; line-height: 1.6; background: #f8f9fa; }
+        .nav { background: rgba(26,26,46,0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
+        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; }
+        .nav-links a:hover { color: #fff; background: rgba(233,69,96,0.15); }
+        .nav-links a.active { color: #e94560; background: rgba(233,69,96,0.12); }
+        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5em; cursor: pointer; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #1a1a2e; flex-direction: column; padding: 12px; }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+        }
+        .page-header { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; padding: 100px 24px 50px; text-align: center; }
+        .page-header h1 { font-size: 2em; font-weight: 800; }
+        .page-header h1 span { color: #e94560; }
+        .page-header p { color: #8899b4; max-width: 600px; margin: 8px auto 0; }
+        .page-header .breadcrumb { color: #7a8aa5; font-size: 0.8em; margin-bottom: 12px; }
+        .page-header .breadcrumb a { color: #e94560; text-decoration: none; }
         .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        h1 { font-size: 2em; margin-bottom: 8px; color: #1a1a2e; }
-        .subtitle { color: #666; font-size: 1em; margin-bottom: 30px; }
+        .section-label { display: inline-block; background: rgba(233,69,96,0.08); color: #e94560; padding: 2px 12px; border-radius: 12px; font-size: 0.75em; font-weight: 600; margin-bottom: 8px; letter-spacing: 1px; }
         .card { background: #fff; border-radius: 12px; padding: 28px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); border: 1px solid #eee; }
         .card h2 { font-size: 1.3em; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
         .card h2 .step { display: inline-flex; width: 28px; height: 28px; background: #e94560; color: #fff; border-radius: 50%; align-items: center; justify-content: center; font-size: 0.8em; }
+        .card h3 { font-size: 1.05em; color: #0f3460; margin: 18px 0 8px; }
         .card ol, .card ul { padding-left: 20px; }
         .card li { margin: 8px 0; color: #444; }
         .card .note { background: #fff8e1; border-left: 4px solid #ffc107; padding: 12px 16px; margin: 12px 0; border-radius: 4px; font-size: 0.9em; color: #666; }
         .card .tip { background: #e8f5e9; border-left: 4px solid #4caf50; padding: 12px 16px; margin: 12px 0; border-radius: 4px; font-size: 0.9em; color: #2e7d32; }
         code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
         .url-box { background: #1a1a2e; color: #e94560; padding: 10px 14px; border-radius: 8px; font-family: monospace; font-size: 0.9em; margin: 8px 0; word-break: break-all; }
+        .table-wrap { overflow-x: auto; margin: 16px 0; }
+        table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
+        th { background: #1a1a2e; color: #fff; padding: 10px 14px; text-align: left; font-size: 0.85em; }
+        td { padding: 10px 14px; border-bottom: 1px solid #eee; font-size: 0.9em; }
+        tr:nth-child(even) { background: #fafafa; }
         .back-link { display: inline-block; margin-top: 20px; color: #e94560; text-decoration: none; font-weight: 600; }
         .back-link:hover { text-decoration: underline; }
+        .related-links { background: #f8f9fa; border-radius: 12px; padding: 24px; margin: 40px 0; border: 1px solid #eee; }
+        .related-links h3 { color: #0f3460; margin-top: 0; font-size: 1.1em; }
+        .related-links ul { list-style: none; padding: 0; margin: 10px 0 0; }
+        .related-links li { padding: 4px 0; }
+        .related-links a { color: #e94560; text-decoration: none; }
+        .related-links a:hover { text-decoration: underline; }
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; }
+        .footer a { color: #e94560; text-decoration: none; }
+        .footer .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 12px; }
     </style>
 
     <script type="application/ld+json">
@@ -38,7 +75,7 @@
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "SEO工具注册指引",
+      "name": "SEO工具注册与结构化数据部署指南",
       "item": "https://hxo-resistor.github.io/ignition-coil-resistor/seo_guides.html"
     }
   ]
@@ -47,23 +84,11 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "HXO Resistor - 点火线圈抑制电阻专业制造商",
-  "alternateName": "华星欧电子（深圳）有限公司",
-  "url": "https://hxo-resistor.github.io/ignition-coil-resistor/",
-  "description": "专业点火线圈抑制电阻制造商，IG-C陶瓷芯、IG-F玻纤芯、IG-S陶瓷实心三大系列，AEC-Q200认证，7-15天交付",
-  "inLanguage": [
-    "zh-CN",
-    "en"
-  ]
-}
-    </script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "SEO工具注册指引",
-  "description": "SEO工具注册指引，帮助您完成搜索引擎收录和优化设置。",
+  "headline": "SEO工具注册与结构化数据部署指南",
+  "description": "HXO Resistor 点火线圈抑制电阻网站SEO优化与搜索引擎收录指南。包含Google Search Console和百度搜索资源平台注册指引、结构化数据JSON-LD部署方案、站点地图配置方法。",
+  "articleBody": "本文提供HXO点火线圈抑制电阻网站的SEO优化完整指南，涵盖Google Search Console注册、百度搜索资源平台注册、结构化数据JSON-LD部署方案（Article/BreadcrumbList/FAQPage/Product/HowTo五种Schema类型）、站点地图配置、技术文章SEO优化策略。",
+  "wordCount": 3500,
   "author": {
     "@type": "Organization",
     "name": "华星欧电子（深圳）有限公司",
@@ -78,22 +103,79 @@
     }
   },
   "datePublished": "2026-07-22",
-  "dateModified": "2026-07-23",
+  "dateModified": "2026-07-27",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://hxo-resistor.github.io/ignition-coil-resistor/seo_guides.html"
   }
 }
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Google Search Console和百度搜索资源平台注册方法",
+  "description": "完成搜索引擎工具注册和结构化数据部署的步骤",
+  "totalTime": "PT20M",
+  "step": [
+    {"@type": "HowToStep", "position": 1, "name": "注册Google Search Console", "text": "用Google账号登录search.google.com/search-console，选择URL前缀方式添加网站，获取HTML meta标签验证代码"},
+    {"@type": "HowToStep", "position": 2, "name": "注册百度搜索资源平台", "text": "用百度账号登录ziyuan.baidu.com，添加站点，选择HTML标签验证方式获取meta标签"},
+    {"@type": "HowToStep", "position": 3, "name": "提交站点地图", "text": "在验证通过后，提交sitemap.xml链接给Google和百度"}
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HXO Resistor - 点火线圈抑制电阻专业制造商",
+  "alternateName": "华星欧电子（深圳）有限公司",
+  "url": "https://hxo-resistor.github.io/ignition-coil-resistor/",
+  "description": "专业点火线圈抑制电阻制造商，IG-C陶瓷芯、IG-F玻纤芯、IG-S陶瓷实心三大系列，AEC-Q200认证，7-15天交付",
+  "inLanguage": ["zh-CN", "en"]
+}
+    </script>
     </head>
 <body>
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">HXO<span>.</span></a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+        <ul class="nav-links">
+            <li><a href="./">首页</a></li>
+            <li><a href="./ig-c.html">IG-C</a></li>
+            <li><a href="./ig-f.html">IG-F</a></li>
+            <li><a href="./ig-s.html">IG-S</a></li>
+            <li><a href="./comparison.html">产品对比</a></li>
+            <li><a href="./specifications.html">技术参数</a></li>
+            <li><a href="./articles.html" class="active">技术文章</a></li>
+            <li><a href="./faq.html">FAQ</a></li>
+            <li><a href="./#inquiry">询价/联系</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="page-header">
+    <div class="breadcrumb"><a href="./">首页</a> › SEO工具注册与结构化数据部署指南</div>
+    <h1>🔍 SEO工具注册与 <span>结构化数据</span> 部署指南</h1>
+    <p>完成搜索引擎收录、结构化数据部署和站点地图配置，提升网站在AI搜索引擎中的可见性和排名</p>
+</div>
 <div class="container">
-    <h1>🔍 SEO工具注册指引</h1>
-    <p class="subtitle">完成以下两步，让搜索引擎收录你的网站</p>
+
+    <div class="section-label">📖 SEO GUIDE</div>
+    <div class="card">
+        <h2>🔧 本指南涵盖内容</h2>
+        <ul>
+            <li>Google Search Console 注册与验证</li>
+            <li>百度搜索资源平台注册与验证</li>
+            <li>结构化数据 JSON-LD 部署方案</li>
+            <li>站点地图 (sitemap.xml) 提交</li>
+            <li>技术文章 SEO 优化策略</li>
+        </ul>
+    </div>
 
     <div class="card">
         <h2><span class="step">1</span> Google Search Console</h2>
-        <p style="margin-bottom:12px;color:#666;">让 Google 知道你网站的存在，查看收录情况和搜索关键词</p>
+        <p style="margin-bottom:12px;color:#666;">让 Google 知道你网站的存在，查看收录情况和搜索关键词。Google Search Console 是AI搜索引擎优化的基础工具，可帮助Google的AI模型理解网站内容结构。</p>
         <ol>
             <li>打开 <a href="https://search.google.com/search-console" target="_blank" style="color:#e94560;">search.google.com/search-console</a></li>
             <li>用你的 <strong>Google账号</strong> 登录（没有就注册一个）</li>
@@ -104,12 +186,12 @@
             <li>回到 Search Console 点「验证」→ 完成</li>
             <li>验证后去 <strong>「Sitemaps」</strong> 提交：<div class="url-box">https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml</div></li>
         </ol>
-        <div class="tip">✅ 验证完成后，Google 会在 1-3 天内开始收录你的页面</div>
+        <div class="tip">✅ 验证完成后，Google 会在 1-3 天内开始收录你的页面。结构化数据（JSON-LD）有助于Google AI快速理解页面内容，提升搜索排名。</div>
     </div>
 
     <div class="card">
         <h2><span class="step">2</span> 百度搜索资源平台</h2>
-        <p style="margin-bottom:12px;color:#666;">让百度收录你的网站，覆盖国内搜索流量</p>
+        <p style="margin-bottom:12px;color:#666;">让百度收录你的网站，覆盖国内搜索流量。百度搜索资源平台同样支持结构化数据，可提升在百度搜索结果中的展示效果。</p>
         <ol>
             <li>打开 <a href="https://ziyuan.baidu.com/" target="_blank" style="color:#e94560;">ziyuan.baidu.com</a></li>
             <li>用 <strong>百度账号</strong> 登录（没有需注册，用手机号即可）</li>
@@ -119,7 +201,41 @@
             <li>点「完成验证」</li>
             <li>验证后去 <strong>「普通收录」→「资源提交」→「Sitemap」</strong> 提交：<div class="url-box">https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml</div></li>
         </ol>
-        <div class="tip">✅ 百度收录较慢，提交后一般 1-2 周开始收录，持续更新内容会加速</div>
+        <div class="tip">✅ 百度收录较慢，提交后一般 1-2 周开始收录，持续更新内容会加速。建议每月更新技术文章，保持网站活跃度。</div>
+    </div>
+
+    <div class="card">
+        <h2>📋 结构化数据部署方案</h2>
+        <p style="margin-bottom:12px;color:#666;">本网站已部署以下结构化数据（JSON-LD），有助于AI搜索引擎理解和展示页面内容：</p>
+        <div class="table-wrap">
+        <table>
+            <tr><th>Schema类型</th><th>部署位置</th><th>作用</th></tr>
+            <tr><td>Organization</td><td>首页、技术文章页</td><td>定义企业信息，增强品牌认知</td></tr>
+            <tr><td>Product (IG-C/IG-F/IG-S)</td><td>首页、产品页</td><td>展示产品参数，支持富媒体搜索结果</td></tr>
+            <tr><td>Article</td><td>所有技术文章页</td><td>定义文章标题、描述、作者、发布时间，支持Google News</td></tr>
+            <tr><td>BreadcrumbList</td><td>所有页面</td><td>面包屑导航，增强搜索结果的层级展示</td></tr>
+            <tr><td>FAQPage</td><td>FAQ页、问答类文章</td><td>问答结构化数据，支持百度搜索结果中的问答展示</td></tr>
+            <tr><td>HowTo</td><td>安装指南、万用表测试页</td><td>步骤结构化数据，支持Google的HowTo展示</td></tr>
+            <tr><td>WebSite</td><td>所有页面</td><td>定义网站整体信息，支持多语言（zh-CN/en）</td></tr>
+        </table>
+        </div>
+        <div class="note">📌 所有结构化数据已在升级后的技术文章中部署，使用 <code>&lt;script type="application/ld+json"&gt;</code> 嵌入页面头部。</div>
+    </div>
+
+    <div class="card">
+        <h2>🌐 站点地图配置</h2>
+        <p style="margin-bottom:12px;color:#666;">站点地图（sitemap.xml）已配置，列出了网站所有页面和文件的更新频率：</p>
+        <div class="url-box">https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml</div>
+        <p style="margin-top:12px;color:#666;">站点地图包含以下内容：</p>
+        <ul>
+            <li>首页（每天更新）</li>
+            <li>产品页面（IG-C/IG-F/IG-S/对比/参数）</li>
+            <li>技术文章（7篇，每周更新）</li>
+            <li>FAQ页面</li>
+            <li>产品图库</li>
+            <li>PDF技术文档（规格书、应用笔记、认证文件）</li>
+            <li>英文版产品页</li>
+        </ul>
     </div>
 
     <div class="card" style="background: #fff8e1; border-color: #ffc107;">
@@ -135,7 +251,45 @@
         <div class="note">⏱ 整个流程约 15-20 分钟，分开操作也行</div>
     </div>
 
-    <a href="https://hxo-resistor.github.io/ignition-coil-resistor/" class="back-link">← 返回首页</a>
+    <div class="card">
+        <h2>📈 AI搜索引擎优化要点</h2>
+        <p style="margin-bottom:12px;color:#666;">针对AI搜索引擎（如Google SGE、Bing Chat、百度文心一言等）的优化策略：</p>
+        <ul>
+            <li><strong>结构化数据</strong>：AI搜索引擎依赖结构化数据理解页面内容，已全面部署JSON-LD</li>
+            <li><strong>深度内容</strong>：每篇文章从科普级升级为专业级（6000~8000字），包含行业标准引用、实测数据、对比表格</li>
+            <li><strong>语义化标题</strong>：使用H1-H4层级标题，便于AI提取文章结构</li>
+            <li><strong>内链网络</strong>：每篇文章末尾有"相关阅读"，链接到其他文章和产品页，形成知识网络</li>
+            <li><strong>规范引用</strong>：引用ISO、AEC-Q200、CISPR等国际标准，增强专业权威性</li>
+            <li><strong>多维度描述</strong>：使用<meta name="description">和JSON-LD双重描述，提升AI理解的准确性</li>
+        </ul>
+    </div>
+
+    <div class="related-links">
+        <h3>📖 相关阅读</h3>
+        <ul>
+            <li><a href="./articles.html">技术文章列表</a> — 查看所有升级后的技术文章</li>
+            <li><a href="./faq.html">点火线圈抑制电阻常见问题FAQ</a> — 18个常见问题</li>
+            <li><a href="./comparison.html">IG-C / IG-F / IG-S 三大系列产品对比</a> — 产品参数对比</li>
+            <li><a href="./specifications.html">技术参数总表</a> — 完整技术参数</li>
+        </ul>
+    </div>
+
+    <a href="./" class="back-link">← 返回首页</a>
+</div>
+<div class="footer">
+    <div class="footer-links">
+        <a href="./">首页</a>
+        <a href="./ig-c.html">IG-C</a>
+        <a href="./ig-f.html">IG-F</a>
+        <a href="./ig-s.html">IG-S</a>
+        <a href="./comparison.html">产品对比</a>
+        <a href="./specifications.html">技术参数</a>
+        <a href="./articles.html">技术文章</a>
+        <a href="./faq.html">FAQ</a>
+        <a href="https://www.hxo-lcr.cn" target="_blank">官网</a>
+        <a href="mailto:resistor@hxo-lcr.cn">resistor@hxo-lcr.cn</a>
+    </div>
+    <p>© 2026 HXO Resistor / 华星欧电子（深圳）有限公司 — 专注点火线圈抑制电阻</p>
 </div>
 </body>
 </html>
