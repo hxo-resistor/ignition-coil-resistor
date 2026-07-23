@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HXO Resistor 点火线圈抑制电阻相关行业标准汇总 — ISO 8820-5、JASO D 616、SAE J551、QC/T 438、CISPR 25、AEC-Q200等标准核心要求与适用范围。">
+    <meta name="keywords" content="点火线圈抑制电阻标准,ISO 8820,JASO D 616,SAE J551,QC/T 438,CISPR 25,AEC-Q200,汽车电阻标准,EMC标准,点火系统标准">
+    <title>行业标准 | HXO Resistor — 点火线圈抑制电阻相关标准汇总</title>
+    <link rel="sitemap" type="application/xml" href="https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml">
+    <link rel="canonical" href="https://hxo-resistor.github.io/ignition-coil-resistor/standards.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; }
+        .nav { background: rgba(26, 26, 46, 0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
+        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: 1px; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; transition: 0.2s; white-space: nowrap; }
+        .nav-links a:hover { color: #fff; background: rgba(233, 69, 96, 0.15); }
+        .nav-links a.active { color: #e94560; background: rgba(233, 69, 96, 0.12); }
+        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5em; cursor: pointer; padding: 4px; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #1a1a2e; flex-direction: column; padding: 12px; gap: 2px; }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+        }
+        .page-header { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; padding: 100px 24px 50px; text-align: center; }
+        .page-header h1 { font-size: 2em; font-weight: 800; }
+        .page-header h1 span { color: #e94560; }
+        .page-header p { color: #8899b4; max-width: 700px; margin: 10px auto 0; font-size: 0.95em; }
+        .page-header .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
+        .page-header .badges span { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); color: #ccc; padding: 4px 14px; border-radius: 16px; font-size: 0.8em; }
+        .container { max-width: 950px; margin: 0 auto; padding: 50px 24px; }
+        .section-label { display: inline-block; background: rgba(233,69,96,0.08); color: #e94560; padding: 2px 12px; border-radius: 12px; font-size: 0.75em; font-weight: 600; margin-bottom: 12px; letter-spacing: 1px; }
+        .section-title { font-size: 1.5em; font-weight: 700; margin-bottom: 8px; color: #1a1a2e; }
+        .section-subtitle { color: #666; font-size: 0.95em; margin-bottom: 30px; }
+        .container h2 { font-size: 1.3em; color: #0f3460; margin: 40px 0 16px; padding-bottom: 6px; border-bottom: 2px solid #e94560; }
+        .container h3 { font-size: 1.15em; color: #e94560; margin: 28px 0 10px; }
+        .container h4 { font-size: 1em; color: #1a1a2e; margin: 18px 0 6px; }
+        .container p { margin-bottom: 14px; color: #444; }
+        .container ul, .container ol { margin: 10px 0 16px 20px; }
+        .container li { margin-bottom: 6px; color: #444; }
+        .container strong { color: #1a1a2e; }
+        .table-wrap { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
+        th { background: #1a1a2e; color: #fff; padding: 10px 14px; text-align: left; font-size: 0.85em; }
+        td { padding: 10px 14px; border-bottom: 1px solid #eee; font-size: 0.88em; }
+        tr:nth-child(even) { background: #fafafa; }
+        tr:hover { background: #fff5f5; }
+        .highlight-box { background: #f8f9fa; border-left: 4px solid #e94560; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .highlight-box p { margin: 0; color: #333; }
+        .info-box { background: #e8f5e9; border-left: 4px solid #2e7d32; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .info-box p { margin: 0; color: #1b5e20; }
+        .standard-card { border: 1px solid #eee; border-radius: 12px; padding: 24px; margin-bottom: 20px; transition: 0.3s; }
+        .standard-card:hover { border-color: #e94560; box-shadow: 0 4px 16px rgba(233,69,96,0.06); }
+        .standard-card .sc-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+        .standard-card .sc-code { background: #1a1a2e; color: #fff; padding: 6px 14px; border-radius: 8px; font-weight: 700; font-size: 1em; white-space: nowrap; flex-shrink: 0; }
+        .standard-card .sc-title { font-size: 1.1em; font-weight: 700; color: #0f3460; }
+        .standard-card .sc-body { margin-left: 0; }
+        .standard-card .sc-body p { color: #555; font-size: 0.9em; margin-bottom: 8px; }
+        .standard-card .sc-body .sc-meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.85em; color: #888; margin-top: 8px; }
+        .standard-card .sc-body .sc-meta span { display: inline-flex; align-items: center; gap: 4px; }
+        .standard-card .sc-body .sc-meta strong { color: #555; }
+        .compliance-badge { display: inline-block; background: #e8f5e9; color: #1b5e20; padding: 2px 10px; border-radius: 10px; font-size: 0.7em; font-weight: 600; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+        .card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 24px; transition: 0.3s; }
+        .card:hover { border-color: #e94560; }
+        .card h3 { color: #0f3460; margin-top: 0; font-size: 1.05em; }
+        .card p { color: #666; font-size: 0.9em; margin-bottom: 0; }
+        .card ul { list-style: none; margin: 8px 0 0; }
+        .card li { padding: 4px 0; font-size: 0.88em; color: #555; }
+        .card li::before { content: '✓ '; color: #e94560; font-weight: 700; }
+        .toc { background: #f8f9fa; border-radius: 8px; padding: 20px 24px; margin: 20px 0; border: 1px solid #eee; }
+        .toc h3 { color: #0f3460; margin-top: 0; }
+        .toc ol { margin: 8px 0 0 18px; }
+        .toc a { color: #0f3460; text-decoration: none; }
+        .toc a:hover { color: #e94560; text-decoration: underline; }
+        .cta-section { background: #f8f9fa; border-radius: 12px; padding: 28px; text-align: center; margin: 40px 0; border: 1px solid #eee; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9em; background: #e94560; color: #fff; margin: 4px; transition: 0.3s; }
+        .btn:hover { background: #d63851; transform: translateY(-2px); }
+        .btn-secondary { background: #0f3460; }
+        .btn-secondary:hover { background: #0a2540; }
+        .back-link { display: inline-block; margin-top: 30px; color: #e94560; text-decoration: none; font-weight: 600; }
+        .back-link:hover { text-decoration: underline; }
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; }
+        .footer a { color: #e94560; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        .footer .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 12px; }
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 1.5em; }
+            .container { padding: 30px 16px; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .standard-card .sc-header { flex-direction: column; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://hxo-resistor.github.io/ignition-coil-resistor/" },
+        { "@type": "ListItem", "position": 2, "name": "行业标准", "item": "https://hxo-resistor.github.io/ignition-coil-resistor/standards.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">HXO<span>.</span></a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+        <ul class="nav-links">
+            <li><a href="./">首页</a></li>
+            <li><a href="./ig-c.html">IG-C</a></li>
+            <li><a href="./ig-f.html">IG-F</a></li>
+            <li><a href="./ig-s.html">IG-S</a></li>
+            <li><a href="./comparison.html">产品对比</a></li>
+            <li><a href="./specifications.html">技术参数</a></li>
+            <li><a href="./selection-guide.html">选型指南</a></li>
+            <li><a href="./case-studies.html">客户案例</a></li>
+            <li><a href="./standards.html" class="active">行业标准</a></li>
+            <li><a href="./order.html">订购指南</a></li>
+            <li><a href="./gallery.html">产品图库</a></li>
+            <li><a href="./articles.html">技术文章</a></li>
+            <li><a href="./faq.html">FAQ</a></li>
+            <li><a href="./en/products.html">EN</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>行业标准 <span>汇总</span></h1>
+    <p>点火线圈抑制电阻相关的国际标准（ISO、JASO、SAE）及国内行业标准（QC/T、GB）核心要求与适用范围，以及 HXO 产品的合规性说明</p>
+    <div class="badges">
+        <span>ISO 8820-5</span>
+        <span>JASO D 616</span>
+        <span>SAE J551</span>
+        <span>QC/T 438</span>
+        <span>CISPR 25</span>
+        <span>GB 14023</span>
+        <span>AEC-Q200</span>
+        <span>RoHS</span>
+        <span>REACH</span>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="toc">
+        <h3>📑 目录</h3>
+        <ol>
+            <li><a href="#iso">ISO 8820-5 — 道路车辆熔断器 第5部分：点火系统</a></li>
+            <li><a href="#jaso">JASO D 616 — 日本汽车标准 点火系统用电阻器</a></li>
+            <li><a href="#sae">SAE J551 — 车辆电磁兼容性（EMC）测试</a></li>
+            <li><a href="#qct">QC/T 438 — 汽车点火系技术条件</a></li>
+            <li><a href="#cispr">CISPR 25 / GB 14023 — 无线电干扰特性限值</a></li>
+            <li><a href="#aeq">AEC-Q200 — 汽车级无源元件应力测试认证</a></li>
+            <li><a href="#env">RoHS &amp; REACH — 环保合规</a></li>
+            <li><a href="#hxo">HXO 产品合规矩阵</a></li>
+        </ol>
+    </div>
+
+    <p>点火线圈抑制电阻作为汽车点火系统的关键安全元件，其设计、制造和测试必须遵循一系列国际和行业标准。以下汇总了与点火线圈抑制电阻最相关的标准及其核心要求。</p>
+
+    <!-- ISO 8820-5 -->
+    <h2 id="iso">ISO 8820-5</h2>
+    <div class="standard-card">
+        <div class="sc-header">
+            <div class="sc-code">ISO 8820-5</div>
+            <div class="sc-title">道路车辆 — 熔断器 — 第5部分：点火系统用熔断器/电阻</div>
+        </div>
+        <div class="sc-body">
+            <p><strong>发布机构：</strong>国际标准化组织（ISO）</p>
+            <p><strong>适用范围：</strong>本标准规定了点火系统用熔断器和电阻器的技术要求、试验方法和标志要求，涵盖阻值范围、功率等级、脉冲耐受能力、绝缘电阻等核心参数。</p>
+            <p><strong>核心要求：</strong></p>
+            <ul>
+                <li>阻值范围：规定抑制电阻的标称阻值系列（如 4.7kΩ、5.1kΩ、10kΩ 等）</li>
+                <li>功率等级：按额定功率分级，规定不同功率下的温升限值</li>
+                <li>脉冲耐受能力：规定在标准脉冲波形（1.2/50μs）下的耐受电压等级</li>
+                <li>绝缘电阻：规定在标准条件下（500V DC）的绝缘电阻最小值</li>
+                <li>耐久性试验：在额定功率和规定环境温度下的长期工作寿命要求</li>
+            </ul>
+            <div class="sc-meta">
+                <span><strong>状态：</strong>现行有效</span>
+                <span><strong>发布年份：</strong>最新修订版</span>
+                <span><strong>HXO 合规：</strong><span class="compliance-badge">✅ 全系列符合</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- JASO D 616 -->
+    <h2 id="jaso">JASO D 616</h2>
+    <div class="standard-card">
+        <div class="sc-header">
+            <div class="sc-code">JASO D 616</div>
+            <div class="sc-title">日本汽车标准 — 点火系统用电阻器</div>
+        </div>
+        <div class="sc-body">
+            <p><strong>发布机构：</strong>日本汽车标准协会（JASO）</p>
+            <p><strong>适用范围：</strong>本标准专门针对汽车点火系统用电阻器（包括抑制电阻）制定，是日本汽车行业广泛采用的行业标准，被众多日系整车厂（丰田、本田、铃木等）纳入供应商准入要求。</p>
+            <p><strong>核心要求：</strong></p>
+            <ul>
+                <li>阻值公差：规定了不同阻值等级的公差范围（±5%、±10%、±20%）</li>
+                <li>高温耐久性：在 200°C 环境下持续工作 1000 小时，阻值变化 ≤ ±5%</li>
+                <li>绝缘电阻：在 500V DC 测试电压下，绝缘电阻 ≥ 1,000 MΩ</li>
+                <li>耐湿性：在 40°C / 95% RH 环境下 48 小时后，绝缘电阻 ≥ 100 MΩ</li>
+                <li>温度循环：-55°C ~ +200°C 温度循环 5 次，无机械损伤</li>
+                <li>振动测试：规定了振动频率、加速度和测试时间</li>
+            </ul>
+            <div class="sc-meta">
+                <span><strong>状态：</strong>现行有效</span>
+                <span><strong>HXO 合规：</strong><span class="compliance-badge">✅ 全系列符合</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SAE J551 -->
+    <h2 id="sae">SAE J551</h2>
+    <div class="standard-card">
+        <div class="sc-header">
+            <div class="sc-code">SAE J551</div>
+            <div class="sc-title">车辆电磁兼容性（EMC）测试标准系列</div>
+        </div>
+        <div class="sc-body">
+            <p><strong>发布机构：</strong>美国汽车工程师协会（SAE）</p>
+            <p><strong>适用范围：</strong>SAE J551 系列标准覆盖车辆电磁兼容性测试的各个方面，其中 J551-1（总则）和 J551-2（辐射发射限值）与点火系统抑制电阻直接相关，规定了车辆点火系统产生的电磁辐射限值。</p>
+            <p><strong>核心要求：</strong></p>
+            <ul>
+                <li>辐射发射限值：规定点火系统在 30~1000 MHz 频段的辐射发射限值</li>
+                <li>测试方法：规定使用天线在 3m 或 10m 距离进行辐射发射测量</li>
+                <li>抑制要求：明确点火系统必须使用抑制电阻或其他抑制措施以达到合规</li>
+                <li>整车级测试：标准涵盖从零部件级到整车级的 EMC 测试</li>
+            </ul>
+            <p><strong>与抑制电阻的关系：</strong>抑制电阻是满足 SAE J551 EMC 要求的关键元件。点火线圈次级回路中串联抑制电阻（4.7kΩ~10kΩ）可有效衰减火花塞放电产生的高频振荡，是 EMC 合规的最经济有效的方式。</p>
+            <div class="sc-meta">
+                <span><strong>状态：</strong>现行有效，持续更新</span>
+                <span><strong>HXO 合规：</strong><span class="compliance-badge">✅ 助力 EMC 合规</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- QC/T 438 -->
+    <h2 id="qct">QC/T 438</h2>
+    <div class="standard-card">
+        <div class="sc-header">
+            <div class="sc-code">QC/T 438</div>
+            <div class="sc-title">汽车点火系技术条件</div>
+        </div>
+        <div class="sc-body">
+            <p><strong>发布机构：</strong>中国工业和信息化部（汽车行业标准）</p>
+            <p><strong>适用范围：</strong>本标准规定了汽车点火系统（包括点火线圈、分电器、火花塞、抑制电阻等）的技术要求、试验方法、检验规则和标志、包装、运输、储存要求，是国内汽车点火系统产品准入和合格评定的核心标准。</p>
+            <p><strong>核心要求：</strong></p>
+            <ul>
+                <li>抑制电阻技术要求：阻值、功率、耐压、绝缘电阻等参数要求</li>
+                <li>环境适应性：高温、低温、湿热、温度循环、振动等环境试验要求</li>
+                <li>耐久性：在额定工况下的持续工作寿命要求</li>
+                <li>EMC 要求：点火系统辐射发射限值应符合 GB 14023（等效 CISPR 12）</li>
+                <li>检验规则：出厂检验和型式检验的项目、频次和判定标准</li>
+            </ul>
+            <div class="sc-meta">
+                <span><strong>状态：</strong>现行有效</span>
+                <span><strong>HXO 合规：</strong><span class="compliance-badge">✅ 全系列符合</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CISPR 25 / GB 14023 -->
+    <h2 id="cispr">CISPR 25 / GB 14023</h2>
+    <div class="standard-card">
+        <div class="sc-header">
+            <div class="sc-code">CISPR 25</div>
+            <div class="sc-title">车辆、船和内燃机无线电骚扰特性 — 限值与测量方法</div>
+        </div>
+        <div class="sc-body">
+            <p><strong>发布机构：</strong>国际无线电干扰特别委员会（CISPR）/ 中国国家标准（GB 14023 为等效国内标准）</p>
+            <p><strong>适用范围：</strong>CISPR 25 规定了车辆、船和内燃机（包括点火系统）产生的无线电骚扰特性的限值和测量方法。GB 14023 为中国等效采用标准。所有出口到欧洲和中国的车辆产品必须满足此标准要求。</p>
+            <p><strong>核心要求：</strong></p>
+            <ul>
+                <li>限值等级：规定了 Class 1~5 五个等级，Class 3 为乘用车普通要求，Class 5 为最严格等级</li>
+                <li>频率范围：0.15~2,500 MHz</li>
+                <li>测量方法：规定使用天线和频谱分析仪在屏蔽室中进行测量</li>
+                <li>点火系统：明确要求点火系统辐射发射必须控制在限值以内</li>
+            </ul>
+            <p><strong>与抑制电阻的关系：</strong>抑制电阻的阻值选择直接影响 CISPR 25 的测试结果。通常 4.7kΩ 可满足 Class 3 要求，10kΩ 可满足 Class 5 要求。HXO 的 IG 系列产品可帮助客户通过 CISPR 25 Class 3~5 测试。</p>
+            <div class="sc-meta">
+                <span><strong>状态：</strong>现行有效</span>
+                <span><strong>HXO 合规：</strong><span class="compliance-badge">✅ 助力 Class 3~5 合规</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- AEC-Q200 -->
+    <h2 id="aeq">AEC-Q200</h2>
+    <div class="standard-card">
+        <div class="sc-header">
+            <div class="sc-code">AEC-Q200</div>
+            <div class="sc-title">汽车级无源元件应力测试认证</div>
+        </div>
+        <div class="sc-body">
+            <p><strong>发布机构：</strong>汽车电子委员会（AEC）</p>
+            <p><strong>适用范围：</strong>AEC-Q200 是汽车行业无源元件（电阻、电容、电感等）可靠性认证的全球通用标准，定义了 20+ 项应力测试项目。通过 AEC-Q200 认证是进入一级汽车零部件供应商和整车厂供应链的必要条件。</p>
+            <p><strong>核心测试项目（与抑制电阻相关）：</strong></p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>测试项目</th><th>测试条件</th><th>判定标准</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>高温存储 (HTS)</td><td>+275°C / 1,000h</td><td>阻值变化 ≤ ±1%</td></tr>
+                        <tr><td>温度循环 (TC)</td><td>-55°C ~ +275°C / 1,000 次</td><td>阻值变化 ≤ ±1%</td></tr>
+                        <tr><td>耐湿偏压 (THB)</td><td>+85°C / 85% RH / 1,000h</td><td>绝缘电阻 ≥ 100 MΩ</td></tr>
+                        <tr><td>振动测试 (VIB)</td><td>10~2,000 Hz / 5g / 20 分钟/轴</td><td>无机械损伤</td></tr>
+                        <tr><td>耐焊接热 (RSH)</td><td>+260°C / 10s</td><td>阻值变化 ≤ ±1%</td></tr>
+                        <tr><td>ESD 耐受</td><td>人体模型 HBM 2kV</td><td>阻值变化 ≤ ±0.5%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="sc-meta">
+                <span><strong>状态：</strong>现行有效，Rev. H 为最新版本</span>
+                <span><strong>HXO 合规：</strong><span class="compliance-badge">✅ IG-C/IG-F 标准级，IG-S 完整级</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- RoHS & REACH -->
+    <h2 id="env">RoHS &amp; REACH</h2>
+    <div class="standard-card">
+        <div class="sc-header">
+            <div class="sc-code">RoHS / REACH</div>
+            <div class="sc-title">有害物质限制 / 化学品注册、评估、许可和限制</div>
+        </div>
+        <div class="sc-body">
+            <p><strong>发布机构：</strong>欧盟委员会</p>
+            <p><strong>适用范围：</strong>RoHS（2011/65/EU）限制电气电子设备中有害物质的使用；REACH（EC 1907/2006）规范化学品的注册、评估、授权和限制。两者均为出口欧盟市场的强制性合规要求，且被全球多个国家/地区等效采用。</p>
+            <p><strong>核心限制物质：</strong></p>
+            <ul>
+                <li>RoHS 限制：铅（Pb）、汞（Hg）、镉（Cd）、六价铬（Cr6+）、多溴联苯（PBB）、多溴二苯醚（PBDE）、邻苯二甲酸酯（DEHP、BBP、DBP、DIBP）</li>
+                <li>REACH 限制：SVHC（高关注物质）清单持续更新，目前 200+ 项</li>
+            </ul>
+            <div class="sc-meta">
+                <span><strong>状态：</strong>RoHS 2011/65/EU + 修订指令；REACH 最新修订版</span>
+                <span><strong>HXO 合规：</strong><span class="compliance-badge">✅ 全系列符合，可提供合规声明</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HXO 合规矩阵 -->
+    <h2 id="hxo">HXO 产品合规矩阵</h2>
+    <p>下表展示了 HXO IG 系列三大产品对上述标准的合规情况：</p>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>标准编号</th><th>IG-C 陶瓷芯绕线型</th><th>IG-F 玻纤芯绕线型</th><th>IG-S 陶瓷实心型</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ISO 8820-5</td><td>✅ 符合</td><td>✅ 符合</td><td>✅ 符合</td></tr>
+                <tr><td>JASO D 616</td><td>✅ 符合</td><td>✅ 符合</td><td>✅ 符合</td></tr>
+                <tr><td>SAE J551（EMC 助力）</td><td>✅ 助力 Class 3 合规</td><td>✅ 助力 Class 3 合规</td><td>✅ 助力 Class 3~5 合规</td></tr>
+                <tr><td>QC/T 438</td><td>✅ 符合</td><td>✅ 符合</td><td>✅ 符合</td></tr>
+                <tr><td>CISPR 25 / GB 14023</td><td>✅ 助力 Class 3~4</td><td>✅ 助力 Class 3</td><td>✅ 助力 Class 3~5</td></tr>
+                <tr><td>AEC-Q200</td><td>✅ 标准级认证</td><td>✅ 标准级认证</td><td>✅ 完整级认证</td></tr>
+                <tr><td>RoHS 2011/65/EU</td><td>✅ 合规</td><td>✅ 合规</td><td>✅ 合规</td></tr>
+                <tr><td>REACH EC 1907/2006</td><td>✅ 合规</td><td>✅ 合规</td><td>✅ 合规</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="highlight-box">
+        <p><strong>📌 说明：</strong>HXO 全系列点火线圈抑制电阻（IG-C / IG-F / IG-S）均按照上述国际/行业标准设计、制造和测试，可提供 AEC-Q200 认证文件、RoHS 合规声明、REACH 合规声明及第三方检测报告。如需完整的标准合规文档，请联系我们的技术团队。</p>
+    </div>
+
+    <div class="cta-section">
+        <h3 style="color: #0f3460; margin-bottom: 10px;">需要标准合规文档？</h3>
+        <p style="color: #666; margin-bottom: 20px;">我们的技术团队可提供 AEC-Q200 认证文件、RoHS/REACH 合规声明及第三方检测报告</p>
+        <a href="mailto:resistor@hxo-lcr.cn" class="btn">📧 索取合规文档</a>
+        <a href="./#inquiry" class="btn btn-secondary">📝 在线询价</a>
+    </div>
+
+    <a href="./" class="back-link">← 返回首页</a>
+</div>
+
+<div class="footer">
+    <div class="footer-links">
+        <a href="./">首页</a>
+        <a href="./ig-c.html">IG-C</a>
+        <a href="./ig-f.html">IG-F</a>
+        <a href="./ig-s.html">IG-S</a>
+        <a href="./comparison.html">产品对比</a>
+        <a href="./specifications.html">技术参数</a>
+        <a href="./selection-guide.html">选型指南</a>
+        <a href="./case-studies.html">客户案例</a>
+        <a href="./standards.html">行业标准</a>
+        <a href="./order.html">订购指南</a>
+        <a href="./gallery.html">产品图库</a>
+        <a href="./articles.html">技术文章</a>
+        <a href="./faq.html">FAQ</a>
+        <a href="./en/products.html">English</a>
+        <a href="https://www.hxo-lcr.cn" target="_blank">官网</a>
+        <a href="mailto:resistor@hxo-lcr.cn">resistor@hxo-lcr.cn</a>
+    </div>
+    <p>© 2026 HXO Resistor / 华星欧电子（深圳）有限公司 — 专注点火线圈抑制电阻</p>
+</div>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+});
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => { document.querySelector('.nav-links').classList.remove('open'); });
+});
+</script>
+</body>
+</html>

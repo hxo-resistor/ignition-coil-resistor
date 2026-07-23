@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HXO Resistor 点火线圈抑制电阻专业选型指南 — 阻值、功率、温度系数选型方法，快速选型对照表，常见错误选型警示，引用ISO 8820、JASO D 616、SAE J551、QC/T 438等标准。">
+    <meta name="keywords" content="点火线圈抑制电阻选型,抑制电阻怎么选,阻值选择,功率选择,IG-C,IG-F,IG-S,选型对照表,ISO 8820,JASO D 616,SAE J551,QC/T 438">
+    <title>选型指南 | HXO Resistor — 点火线圈抑制电阻专业选型</title>
+    <link rel="sitemap" type="application/xml" href="https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml">
+    <link rel="canonical" href="https://hxo-resistor.github.io/ignition-coil-resistor/selection-guide.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; }
+        .nav { background: rgba(26, 26, 46, 0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
+        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: 1px; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; transition: 0.2s; white-space: nowrap; }
+        .nav-links a:hover { color: #fff; background: rgba(233, 69, 96, 0.15); }
+        .nav-links a.active { color: #e94560; background: rgba(233, 69, 96, 0.12); }
+        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5em; cursor: pointer; padding: 4px; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #1a1a2e; flex-direction: column; padding: 12px; gap: 2px; }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+        }
+        .page-header { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; padding: 100px 24px 50px; text-align: center; }
+        .page-header h1 { font-size: 2em; font-weight: 800; }
+        .page-header h1 span { color: #e94560; }
+        .page-header p { color: #8899b4; max-width: 700px; margin: 10px auto 0; font-size: 0.95em; }
+        .page-header .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
+        .page-header .badges span { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); color: #ccc; padding: 3px 12px; border-radius: 16px; font-size: 0.75em; }
+        .container { max-width: 900px; margin: 0 auto; padding: 50px 24px; }
+        .section-label { display: inline-block; background: rgba(233,69,96,0.08); color: #e94560; padding: 2px 12px; border-radius: 12px; font-size: 0.75em; font-weight: 600; margin-bottom: 12px; letter-spacing: 1px; }
+        .section-title { font-size: 1.5em; font-weight: 700; margin-bottom: 8px; color: #1a1a2e; }
+        .section-subtitle { color: #666; font-size: 0.95em; margin-bottom: 30px; }
+        .container h2 { font-size: 1.3em; color: #0f3460; margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e94560; }
+        .container h3 { font-size: 1.1em; color: #e94560; margin: 28px 0 10px; }
+        .container h4 { font-size: 1em; color: #1a1a2e; margin: 18px 0 6px; }
+        .container p { margin-bottom: 14px; color: #444; }
+        .container ul, .container ol { margin: 10px 0 16px 20px; }
+        .container li { margin-bottom: 6px; color: #444; }
+        .container strong { color: #1a1a2e; }
+        .table-wrap { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
+        th { background: #1a1a2e; color: #fff; padding: 10px 14px; text-align: left; font-size: 0.85em; }
+        td { padding: 10px 14px; border-bottom: 1px solid #eee; font-size: 0.88em; }
+        tr:nth-child(even) { background: #fafafa; }
+        tr:hover { background: #fff5f5; }
+        .highlight-box { background: #f8f9fa; border-left: 4px solid #e94560; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .highlight-box p { margin: 0; color: #333; }
+        .info-box { background: #e8f5e9; border-left: 4px solid #2e7d32; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .info-box p { margin: 0; color: #1b5e20; }
+        .warn-box { background: #fff3e0; border-left: 4px solid #e65100; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .warn-box p { margin: 0; color: #bf360c; }
+        .danger-box { background: #fce4ec; border-left: 4px solid #c62828; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .danger-box p { margin: 0; color: #b71c1c; }
+        .toc { background: #f8f9fa; border-radius: 8px; padding: 20px 24px; margin: 20px 0; border: 1px solid #eee; }
+        .toc h3 { color: #0f3460; margin-top: 0; }
+        .toc ol { margin: 8px 0 0 18px; }
+        .toc a { color: #0f3460; text-decoration: none; }
+        .toc a:hover { color: #e94560; text-decoration: underline; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+        .card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 24px; transition: 0.3s; }
+        .card:hover { border-color: #e94560; box-shadow: 0 4px 16px rgba(233,69,96,0.06); }
+        .card h3 { color: #0f3460; margin-top: 0; font-size: 1.05em; }
+        .card p { color: #666; font-size: 0.9em; margin-bottom: 0; }
+        .card ul { list-style: none; margin: 8px 0 0; }
+        .card li { padding: 4px 0; font-size: 0.88em; color: #555; }
+        .card li::before { content: '✓ '; color: #e94560; font-weight: 700; }
+        .standards-ref { background: #f8f9fa; border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.85em; border: 1px solid #eee; }
+        .standards-ref strong { color: #0f3460; }
+        .cta-section { background: #f8f9fa; border-radius: 12px; padding: 28px; text-align: center; margin: 40px 0; border: 1px solid #eee; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9em; background: #e94560; color: #fff; margin: 4px; transition: 0.3s; }
+        .btn:hover { background: #d63851; transform: translateY(-2px); }
+        .btn-secondary { background: #0f3460; }
+        .btn-secondary:hover { background: #0a2540; }
+        .back-link { display: inline-block; margin-top: 30px; color: #e94560; text-decoration: none; font-weight: 600; }
+        .back-link:hover { text-decoration: underline; }
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; }
+        .footer a { color: #e94560; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        .footer .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 12px; }
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 1.5em; }
+            .container { padding: 30px 16px; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://hxo-resistor.github.io/ignition-coil-resistor/" },
+        { "@type": "ListItem", "position": 2, "name": "选型指南", "item": "https://hxo-resistor.github.io/ignition-coil-resistor/selection-guide.html" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "点火线圈抑制电阻专业选型指南",
+      "description": "全面的点火线圈抑制电阻选型指南，涵盖阻值、功率、温度系数选型方法，快速选型对照表，行业标准引用和常见错误选型警示。",
+      "author": { "@type": "Organization", "name": "华星欧电子（深圳）有限公司" },
+      "publisher": { "@type": "Organization", "name": "HXO Resistor" }
+    }
+    </script>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">HXO<span>.</span></a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+        <ul class="nav-links">
+            <li><a href="./">首页</a></li>
+            <li><a href="./ig-c.html">IG-C</a></li>
+            <li><a href="./ig-f.html">IG-F</a></li>
+            <li><a href="./ig-s.html">IG-S</a></li>
+            <li><a href="./comparison.html">产品对比</a></li>
+            <li><a href="./specifications.html">技术参数</a></li>
+            <li><a href="./selection-guide.html" class="active">选型指南</a></li>
+            <li><a href="./case-studies.html">客户案例</a></li>
+            <li><a href="./standards.html">行业标准</a></li>
+            <li><a href="./order.html">订购指南</a></li>
+            <li><a href="./gallery.html">产品图库</a></li>
+            <li><a href="./articles.html">技术文章</a></li>
+            <li><a href="./faq.html">FAQ</a></li>
+            <li><a href="./en/products.html">EN</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>点火线圈抑制电阻 <span>专业选型指南</span></h1>
+    <p>从阻值、功率到温度系数，每一步都有据可依。引用ISO 8820、JASO D 616、SAE J551、QC/T 438等国际/行业标准，助您精准选型。</p>
+    <div class="badges">
+        <span>ISO 8820-5</span>
+        <span>JASO D 616</span>
+        <span>SAE J551</span>
+        <span>QC/T 438</span>
+        <span>CISPR 25</span>
+        <span>AEC-Q200</span>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="toc">
+        <h3>📑 目录</h3>
+        <ol>
+            <li><a href="#why">为什么需要抑制电阻？</a></li>
+            <li><a href="#resistance">阻值选型：1Ω vs 5kΩ</a></li>
+            <li><a href="#power">功率选型：3W / 5W / 10W</a></li>
+            <li><a href="#tcr">温度系数与耐温等级</a></li>
+            <li><a href="#quick-select">快速选型对照表</a></li>
+            <li><a href="#common-mistakes">常见错误选型警示</a></li>
+            <li><a href="#standards">行业标准引用</a></li>
+            <li><a href="#steps">三步选型法</a></li>
+        </ol>
+    </div>
+
+    <!-- 1. 为什么需要抑制电阻 -->
+    <h2 id="why">一、为什么点火线圈需要抑制电阻？</h2>
+    <p>点火线圈次级绕组在放电时会产生高频振荡（通常为 1~30 MHz）。如果没有抑制电阻，这些振荡会以电磁波形式辐射出去，干扰车载 ECU、传感器、ABS 模块甚至音响系统。</p>
+
+    <div class="standards-ref">
+        <strong>📌 标准依据：</strong>根据 <strong>GB 14023（CISPR 12）</strong> 和 <strong>CISPR 25</strong> 车辆无线电干扰特性限值要求，点火系统辐射干扰必须控制在限值以内。抑制电阻是实现合规的关键元件之一。<br>
+        <strong>JASO D 616</strong> 日本汽车标准协会点火系统标准中明确规定了抑制电阻的技术要求。<br>
+        <strong>QC/T 438</strong> 中国汽车行业标准《汽车点火系技术条件》对抑制电阻的阻值、耐压和耐久性有明确要求。
+    </div>
+
+    <p><strong>抑制电阻的核心作用：</strong></p>
+    <ul>
+        <li>抑制火花塞放电时的高频振荡，降低 EMI 辐射</li>
+        <li>保护车载电子设备（ECU、传感器、ABS 等）免受电磁干扰</li>
+        <li>延长火花塞和点火线圈寿命，减少电弧烧蚀</li>
+        <li>满足 EMC 法规认证要求（CISPR 25 / GB 14023 等）</li>
+    </ul>
+
+    <!-- 2. 阻值选型 -->
+    <h2 id="resistance">二、阻值选型：1Ω 和 5kΩ 的区别</h2>
+    <p>很多人第一次接触抑制电阻时会被数值搞晕——为什么有的写 1Ω，有的写 5kΩ？<strong>关键区别在于安装位置：</strong></p>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>安装位置</th><th>典型阻值</th><th>作用</th><th>参考标准</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>点火线圈初级回路</td><td>0.5Ω ~ 1.5Ω</td><td>限制初级电流，保护开关管</td><td>ISO 8820-5</td></tr>
+                <tr><td>点火线圈次级输出（火花塞帽内）</td><td>4.7kΩ ~ 15kΩ</td><td>抑制高频振荡，减少 EMI</td><td>JASO D 616 / QC/T 438</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="highlight-box">
+        <p><strong>💡 选型建议：</strong>95% 以上的摩托车和汽车应用落在这个区间。4.7kΩ 是通用型，5kΩ~10kΩ 适用于需要更强 EMI 抑制的场景。HXO 的 IG-C / IG-F / IG-S 三大系列均覆盖 4.7kΩ~10kΩ 最常用阻值段。</p>
+    </div>
+
+    <!-- 3. 功率选型 -->
+    <h2 id="power">三、功率选型：3W / 5W / 10W</h2>
+    <p>功率选型是工程师最容易翻车的地方。选小了烧电阻，选大了装不进去。点火线圈抑制电阻是 <strong>脉冲工作</strong>，不是连续通电。一个典型的摩托车点火周期中，电阻实际承受功率仅为标称功率的 1/5~1/3。</p>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>应用场景</th><th>推荐功率</th><th>推荐型号</th><th>理由</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>小排量摩托车（≤125cc）</td><td>3W</td><td>IG-C / IG-F</td><td>发热量小，空间紧凑</td></tr>
+                <tr><td>中排量摩托车（150-400cc）</td><td>3W~5W</td><td>IG-C / IG-F</td><td>兼顾散热和安装空间</td></tr>
+                <tr><td>大排量摩托车 / 汽车</td><td>5W~7W</td><td>IG-C / IG-S</td><td>发动机舱温度高，需要余量</td></tr>
+                <tr><td>赛车 / 极端工况</td><td>7W~10W</td><td>IG-S</td><td>高温 + 高转速，留足余量</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="info-box">
+        <p><strong>✅ 选型口诀：</strong>通用选 3W，高温升 5W，极端上 7W，留余量不翻车。</p>
+    </div>
+
+    <!-- 4. 温度系数 -->
+    <h2 id="tcr">四、温度系数（TCR）与耐温等级</h2>
+    <p>点火线圈靠近发动机，工作环境温度跨度大——冬天冷启动零下 20°C，发动机舱内可达 120°C 以上，排气管附近甚至超过 200°C。</p>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>工艺平台</th><th>工作温度上限</th><th>TCR</th><th>适用场景</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>IG-C 陶瓷芯绕线型</td><td>+275°C</td><td>±100 ~ ±300 ppm/°C</td><td>通用摩托车、汽车，性价比最优</td></tr>
+                <tr><td>IG-F 玻纤芯绕线型</td><td>+155°C</td><td>±200 ~ ±500 ppm/°C</td><td>高抗振需求，经济型摩托车</td></tr>
+                <tr><td>IG-S 陶瓷实心型</td><td>+350°C</td><td>-900±300 ppm/°C (NTC)</td><td>赛车、极端高温、军用品级</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="highlight-box">
+        <p><strong>⚠️ TCR 的影响：</strong>温度每升高 100°C，阻值变化越大。对于抑制电阻，±300 ppm/°C 的偏差在 200°C 温差下阻值漂移约 6%，但通常不影响抑制 EMI 的核心功能。但对于精密点火系统，应选 IG-S 陶瓷实心型（NTC 特性提供冷启动补偿）。</p>
+    </div>
+
+    <!-- 5. 快速选型对照表 -->
+    <h2 id="quick-select">五、快速选型对照表</h2>
+    <p>根据应用场景快速定位推荐型号：</p>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>应用场景</th><th>推荐型号</th><th>推荐阻值</th><th>推荐功率</th><th>选型理由</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>🏍️ 通用摩托车（化油器）</td><td>IG-C 陶瓷芯</td><td>4.7kΩ~10kΩ</td><td>3W</td><td>性价比最高，覆盖主流需求</td></tr>
+                <tr><td>🏍️ 通用摩托车（电喷）</td><td>IG-C 陶瓷芯</td><td>5kΩ~10kΩ</td><td>3W~5W</td><td>EMI 抑制要求更高</td></tr>
+                <tr><td>🏍️ 越野 / 高振动摩托车</td><td>IG-F 玻纤芯</td><td>4.7kΩ~10kΩ</td><td>3W~5W</td><td>抗振性比陶瓷芯高 30%</td></tr>
+                <tr><td>🏍️ 小排量踏板车</td><td>IG-F 玻纤芯</td><td>3.3kΩ~4.7kΩ</td><td>3W</td><td>经济型，成本最优</td></tr>
+                <tr><td>🚗 汽车点火线圈</td><td>IG-C 陶瓷芯</td><td>5kΩ~10kΩ</td><td>5W~7W</td><td>高温稳定，30kV 脉冲耐压</td></tr>
+                <tr><td>🏎️ 赛车 / 高性能</td><td>IG-S 陶瓷实心</td><td>5kΩ~10kΩ</td><td>7W~10W</td><td>40kV 耐压，无感设计，350°C 耐温</td></tr>
+                <tr><td>🔥 极端高温环境</td><td>IG-S 陶瓷实心</td><td>5kΩ~10kΩ</td><td>5W~7W</td><td>350°C 上限，NTC 冷启动补偿</td></tr>
+                <tr><td>🔧 售后替换市场</td><td>IG-F 玻纤芯</td><td>4.7kΩ~10kΩ</td><td>3W~5W</td><td>通用性强，性价比高</td></tr>
+                <tr><td>🌿 通用汽油机（割草机等）</td><td>IG-F 玻纤芯</td><td>4.7kΩ~10kΩ</td><td>3W</td><td>轻便、高抗振、成本低</td></tr>
+                <tr><td>⚙️ 工业/军用级</td><td>IG-S 陶瓷实心</td><td>5kΩ~15kΩ</td><td>5W~10W</td><td>旗舰性能，极端可靠性</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="info-box">
+        <p><strong>📋 如何快速确认选型？</strong>三步法：① 确认安装位置 → 确定阻值范围 → ② 确认发动机类型 → 确定功率 → ③ 确认工作环境温度 → 确定工艺平台。</p>
+    </div>
+
+    <!-- 6. 常见错误选型警示 -->
+    <h2 id="common-mistakes">六、常见错误选型警示</h2>
+
+    <div class="danger-box">
+        <p><strong>❌ 错误一：用 1Ω 电阻替换次级抑制电阻</strong><br>
+        1Ω 是初级限流电阻，装在次级回路中无法抑制高频振荡，EMI 严重超标，可能导致 ECU 误动作。正确做法：次级用 4.7kΩ~10kΩ。</p>
+    </div>
+
+    <div class="danger-box">
+        <p><strong>❌ 错误二：功率选小导致过热烧毁</strong><br>
+        在高温发动机舱内使用 3W 电阻替代 5W 的选型，电阻持续过温导致阻值漂移甚至开路。正确做法：高温环境至少留 30% 功率余量。</p>
+    </div>
+
+    <div class="danger-box">
+        <p><strong>❌ 错误三：混用不同工艺平台</strong><br>
+        在振动剧烈环境中用陶瓷芯替代玻纤芯，陶瓷芯的脆性在长期振动下可能导致断裂。正确做法：高振动场景选 IG-F 玻纤芯。</p>
+    </div>
+
+    <div class="danger-box">
+        <p><strong>❌ 错误四：忽视温度系数差异</strong><br>
+        在 -40°C ~ +200°C 宽温范围下使用高 TCR 产品，阻值漂移超过 20%，影响点火能量一致性。正确做法：宽温场景选 IG-C 或 IG-S。</p>
+    </div>
+
+    <div class="danger-box">
+        <p><strong>❌ 错误五：只关注阻值忽略耐压</strong><br>
+        在高压点火系统中使用耐压不足的抑制电阻，可能发生闪络击穿。正确做法：确认系统峰值电压，选脉冲耐压足够的型号（HXO 全系列 ≥25kV）。</p>
+    </div>
+
+    <div class="danger-box">
+        <p><strong>❌ 错误六：安装不当导致早期失效</strong><br>
+        引脚折弯过紧、电阻体接触金属外壳、焊接温度过高时间过长等，均可能导致电阻早期失效。正确做法：详见安装指南。</p>
+    </div>
+
+    <div class="danger-box">
+        <p><strong>❌ 错误七：使用非车规级通用电阻替代</strong><br>
+        通用电阻（如碳膜电阻）无法承受点火线圈的高压脉冲，内部击穿后阻值骤变，甚至引发火灾。正确做法：必须使用专门设计的抑制电阻（HXO IG 系列均通过 AEC-Q200 认证）。</p>
+    </div>
+
+    <!-- 7. 行业标准引用 -->
+    <h2 id="standards">七、行业标准引用</h2>
+    <p>HXO 抑制电阻的设计、测试和认证严格遵循以下国际/行业标准：</p>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>标准编号</th><th>标准名称</th><th>与本产品的关系</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>ISO 8820-5</td><td>道路车辆 — 熔断器 — 第5部分：点火系统用熔断器/电阻</td><td>阻值范围、功率等级、脉冲耐受能力</td></tr>
+                <tr><td>JASO D 616</td><td>日本汽车标准 — 点火系统用电阻器</td><td>阻值公差、高温耐久性、绝缘电阻要求</td></tr>
+                <tr><td>SAE J551</td><td>车辆电磁兼容性（EMC）测试标准</td><td>EMI 抑制性能验证，辐射发射限值</td></tr>
+                <tr><td>QC/T 438</td><td>中国汽车行业标准 — 汽车点火系技术条件</td><td>点火系统元件技术要求，含抑制电阻</td></tr>
+                <tr><td>CISPR 25</td><td>车辆无线电干扰特性限值与测量方法</td><td>EMI 抑制效果验证，限值合规</td></tr>
+                <tr><td>GB 14023</td><td>车辆、船和内燃机无线电骚扰特性限值</td><td>CISPR 12 的国内等效标准</td></tr>
+                <tr><td>AEC-Q200</td><td>汽车级无源元件应力测试认证</td><td>可靠性验证：温度循环、耐湿、振动、寿命等</td></tr>
+                <tr><td>RoHS / REACH</td><td>有害物质限制 / 化学品注册评估</td><td>材料环保合规</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="highlight-box">
+        <p><strong>📌 HXO 全系列产品（IG-C / IG-F / IG-S）</strong> 均通过 AEC-Q200 标准级认证，符合 RoHS 和 REACH 要求，IG-S 系列还拥有中国发明专利（CN 113016042 A）。</p>
+    </div>
+
+    <!-- 8. 三步选型法 -->
+    <h2 id="steps">八、三步选型法</h2>
+
+    <div class="grid-3">
+        <div class="card">
+            <h3>第一步：确认安装位置</h3>
+            <p>次级（火花塞帽内）→ 4.7kΩ~10kΩ<br>初级（限流）→ 0.5Ω~1.5Ω</p>
+            <ul>
+                <li>95% 需求为次级抑制电阻</li>
+                <li>参考原车维修手册阻值</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>第二步：确认发动机类型</h3>
+            <p>小排量 → 3W<br>中排量/汽车 → 5W<br>赛车/极端 → 7W~10W</p>
+            <ul>
+                <li>发动机舱温度越高功率越大</li>
+                <li>留 30% 功率余量</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>第三步：确认工作环境</h3>
+            <p>通用 → IG-C 陶瓷芯<br>高振动 → IG-F 玻纤芯<br>极端高温 → IG-S 陶瓷实心</p>
+            <ul>
+                <li>温度 > 200°C 选 IG-S</li>
+                <li>振动严重选 IG-F</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h3 style="color: #0f3460; margin-bottom: 10px;">需要选型帮助？</h3>
+        <p style="color: #666; margin-bottom: 20px;">我们的技术团队可在 24 小时内为您提供专业的选型建议和免费样品</p>
+        <a href="mailto:resistor@hxo-lcr.cn" class="btn">📧 发送选型需求</a>
+        <a href="./#inquiry" class="btn btn-secondary">📝 在线提交询价</a>
+    </div>
+
+    <a href="./" class="back-link">← 返回首页</a>
+</div>
+
+<div class="footer">
+    <div class="footer-links">
+        <a href="./">首页</a>
+        <a href="./ig-c.html">IG-C</a>
+        <a href="./ig-f.html">IG-F</a>
+        <a href="./ig-s.html">IG-S</a>
+        <a href="./comparison.html">产品对比</a>
+        <a href="./specifications.html">技术参数</a>
+        <a href="./selection-guide.html">选型指南</a>
+        <a href="./case-studies.html">客户案例</a>
+        <a href="./standards.html">行业标准</a>
+        <a href="./order.html">订购指南</a>
+        <a href="./gallery.html">产品图库</a>
+        <a href="./articles.html">技术文章</a>
+        <a href="./faq.html">FAQ</a>
+        <a href="./en/products.html">English</a>
+        <a href="https://www.hxo-lcr.cn" target="_blank">官网</a>
+        <a href="mailto:resistor@hxo-lcr.cn">resistor@hxo-lcr.cn</a>
+    </div>
+    <p>© 2026 HXO Resistor / 华星欧电子（深圳）有限公司 — 专注点火线圈抑制电阻</p>
+</div>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+});
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => { document.querySelector('.nav-links').classList.remove('open'); });
+});
+</script>
+</body>
+</html>

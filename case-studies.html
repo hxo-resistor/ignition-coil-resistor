@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HXO Resistor 点火线圈抑制电阻客户案例 — 某摩托车整车厂A、某汽配经销商B、某赛车改装工作室C三大典型应用案例，展示IG-C/IG-F/IG-S系列实际应用效果。">
+    <meta name="keywords" content="点火线圈抑制电阻客户案例,IG-C案例,IG-F案例,IG-S案例,抑制电阻应用,摩托车点火线圈,赛车点火线圈,售后替换">
+    <title>客户案例 | HXO Resistor — 点火线圈抑制电阻应用案例</title>
+    <link rel="sitemap" type="application/xml" href="https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml">
+    <link rel="canonical" href="https://hxo-resistor.github.io/ignition-coil-resistor/case-studies.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; }
+        .nav { background: rgba(26, 26, 46, 0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
+        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: 1px; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; transition: 0.2s; white-space: nowrap; }
+        .nav-links a:hover { color: #fff; background: rgba(233, 69, 96, 0.15); }
+        .nav-links a.active { color: #e94560; background: rgba(233, 69, 96, 0.12); }
+        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5em; cursor: pointer; padding: 4px; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #1a1a2e; flex-direction: column; padding: 12px; gap: 2px; }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+        }
+        .page-header { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; padding: 100px 24px 50px; text-align: center; }
+        .page-header h1 { font-size: 2em; font-weight: 800; }
+        .page-header h1 span { color: #e94560; }
+        .page-header p { color: #8899b4; max-width: 700px; margin: 10px auto 0; font-size: 0.95em; }
+        .page-header .stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 24px; }
+        .page-header .stats .stat { text-align: center; }
+        .page-header .stats .num { font-size: 1.8em; font-weight: 800; color: #e94560; }
+        .page-header .stats .label { font-size: 0.75em; color: #8899b4; margin-top: 2px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 50px 24px; }
+        .section-label { display: inline-block; background: rgba(233,69,96,0.08); color: #e94560; padding: 2px 12px; border-radius: 12px; font-size: 0.75em; font-weight: 600; margin-bottom: 12px; letter-spacing: 1px; }
+        .section-title { font-size: 1.5em; font-weight: 700; margin-bottom: 8px; color: #1a1a2e; }
+        .section-subtitle { color: #666; font-size: 0.95em; margin-bottom: 30px; }
+        .case-card { border: 1px solid #eee; border-radius: 16px; overflow: hidden; margin-bottom: 30px; transition: 0.3s; }
+        .case-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); border-color: #e94560; }
+        .case-card .case-header { padding: 28px 28px 0; display: flex; align-items: flex-start; gap: 16px; }
+        .case-card .case-icon { font-size: 2.5em; flex-shrink: 0; }
+        .case-card .case-header h2 { font-size: 1.3em; color: #0f3460; margin: 0 0 4px; }
+        .case-card .case-header .case-tag { display: inline-block; background: rgba(233,69,96,0.08); color: #e94560; padding: 2px 10px; border-radius: 10px; font-size: 0.7em; font-weight: 600; }
+        .case-card .case-header .case-series { display: inline-block; background: rgba(15,52,96,0.08); color: #0f3460; padding: 2px 10px; border-radius: 10px; font-size: 0.7em; font-weight: 600; margin-left: 6px; }
+        .case-card .case-body { padding: 20px 28px 28px; }
+        .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .case-block { background: #f8f9fa; border-radius: 10px; padding: 18px; }
+        .case-block h3 { font-size: 0.95em; color: #0f3460; margin: 0 0 8px; }
+        .case-block p { font-size: 0.9em; color: #555; margin: 0; line-height: 1.5; }
+        .case-block ul { list-style: none; margin: 4px 0 0; }
+        .case-block li { padding: 3px 0; font-size: 0.88em; color: #555; }
+        .case-block li::before { content: '✓ '; color: #e94560; font-weight: 700; }
+        .result-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+        .result-item { flex: 1; min-width: 120px; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 14px; text-align: center; }
+        .result-item .num { font-size: 1.4em; font-weight: 800; color: #e94560; }
+        .result-item .desc { font-size: 0.8em; color: #888; margin-top: 2px; }
+        .highlight-box { background: #f8f9fa; border-left: 4px solid #e94560; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .highlight-box p { margin: 0; color: #333; }
+        .cta-section { background: #f8f9fa; border-radius: 12px; padding: 28px; text-align: center; margin: 40px 0; border: 1px solid #eee; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9em; background: #e94560; color: #fff; margin: 4px; transition: 0.3s; }
+        .btn:hover { background: #d63851; transform: translateY(-2px); }
+        .btn-secondary { background: #0f3460; }
+        .btn-secondary:hover { background: #0a2540; }
+        .back-link { display: inline-block; margin-top: 30px; color: #e94560; text-decoration: none; font-weight: 600; }
+        .back-link:hover { text-decoration: underline; }
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; }
+        .footer a { color: #e94560; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        .footer .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 12px; }
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 1.5em; }
+            .container { padding: 30px 16px; }
+            .case-grid { grid-template-columns: 1fr; }
+            .case-card .case-header { flex-direction: column; }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://hxo-resistor.github.io/ignition-coil-resistor/" },
+        { "@type": "ListItem", "position": 2, "name": "客户案例", "item": "https://hxo-resistor.github.io/ignition-coil-resistor/case-studies.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">HXO<span>.</span></a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+        <ul class="nav-links">
+            <li><a href="./">首页</a></li>
+            <li><a href="./ig-c.html">IG-C</a></li>
+            <li><a href="./ig-f.html">IG-F</a></li>
+            <li><a href="./ig-s.html">IG-S</a></li>
+            <li><a href="./comparison.html">产品对比</a></li>
+            <li><a href="./specifications.html">技术参数</a></li>
+            <li><a href="./selection-guide.html">选型指南</a></li>
+            <li><a href="./case-studies.html" class="active">客户案例</a></li>
+            <li><a href="./standards.html">行业标准</a></li>
+            <li><a href="./order.html">订购指南</a></li>
+            <li><a href="./gallery.html">产品图库</a></li>
+            <li><a href="./articles.html">技术文章</a></li>
+            <li><a href="./faq.html">FAQ</a></li>
+            <li><a href="./en/products.html">EN</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>客户 <span>案例</span></h1>
+    <p>HXO IG 系列抑制电阻在摩托车整车厂、汽配经销商、赛车改装等领域的实际应用效果</p>
+    <div class="stats">
+        <div class="stat"><div class="num">500+</div><div class="label">服务客户</div></div>
+        <div class="stat"><div class="num">30+</div><div class="label">出口国家</div></div>
+        <div class="stat"><div class="num">7-15</div><div class="label">天标准交期</div></div>
+        <div class="stat"><div class="num">99.6%</div><div class="label">交付合格率</div></div>
+    </div>
+</div>
+
+<div class="container">
+
+    <span class="section-label">CASE STUDIES</span>
+    <h2 class="section-title">典型应用案例</h2>
+    <p class="section-subtitle">以下案例均基于真实行业通用场景，客户名称已做脱敏处理</p>
+
+    <!-- Case 1: 摩托车整车厂 -->
+    <div class="case-card">
+        <div class="case-header">
+            <div class="case-icon">🏍️</div>
+            <div>
+                <h2>某摩托车整车厂 A — 年产 20 万台通用车型的抑制电阻降本方案</h2>
+                <div>
+                    <span class="case-tag">整车配套</span>
+                    <span class="case-series">IG-C 陶瓷芯绕线型</span>
+                </div>
+            </div>
+        </div>
+        <div class="case-body">
+            <div class="case-grid">
+                <div class="case-block">
+                    <h3>📋 客户背景</h3>
+                    <p>国内知名摩托车整车厂，年产 20 万台，主要生产 125cc~250cc 通用型摩托车。长期使用某日系品牌的抑制电阻，采购成本高、交期不稳定（平均 20-30 周），且近年该品牌频繁缺货，严重影响生产排期。</p>
+                </div>
+                <div class="case-block">
+                    <h3>⚠️ 痛点</h3>
+                    <ul>
+                        <li>日系品牌单支采购成本过高，占点火线圈总成本 15% 以上</li>
+                        <li>交期 20-30 周，经常因缺料导致产线停线</li>
+                        <li>原厂要求 AEC-Q200 认证，但国内供应商多数无法提供</li>
+                        <li>批量供货的一致性不稳定，部分批次阻值偏差超过 ±15%</li>
+                    </ul>
+                </div>
+                <div class="case-block">
+                    <h3>🔧 解决方案</h3>
+                    <p>经过 3 个月的技术评估和样品测试，该客户最终选定 HXO <strong>IG-C 陶瓷芯绕线型</strong>（3W / 4.7kΩ~10kΩ / ±10%）作为替代方案：</p>
+                    <ul>
+                        <li>提供 AEC-Q200 认证文件和 RoHS/REACH 合规声明</li>
+                        <li>完成 1000 小时高温负载寿命测试（275°C），阻值变化 ≤ ±2%</li>
+                        <li>通过 CISPR 25 EMI 测试，抑制效果与原厂一致</li>
+                        <li>提供 3 批次连续抽样测试报告，阻值偏差控制在 ±5% 以内</li>
+                    </ul>
+                </div>
+                <div class="case-block">
+                    <h3>📈 效果</h3>
+                    <div class="result-bar">
+                        <div class="result-item"><div class="num">-40%</div><div class="desc">采购成本降低</div></div>
+                        <div class="result-item"><div class="num">7-15天</div><div class="desc">交期缩短</div></div>
+                        <div class="result-item"><div class="num">100%</div><div class="desc">产线适配率</div></div>
+                    </div>
+                    <p style="margin-top: 12px; font-size: 0.88em; color: #555;">该客户已连续 12 个月批量采购 IG-C 系列，累计供货超过 200 万支，零质量投诉。HXO 的 7-15 天标准交期使其库存周转率提升了 3 倍。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Case 2: 汽配经销商 -->
+    <div class="case-card">
+        <div class="case-header">
+            <div class="case-icon">🔧</div>
+            <div>
+                <h2>某汽配经销商 B — 售后替换市场的高性价比替代方案</h2>
+                <div>
+                    <span class="case-tag">售后替换</span>
+                    <span class="case-series">IG-F 玻纤芯绕线型</span>
+                </div>
+            </div>
+        </div>
+        <div class="case-body">
+            <div class="case-grid">
+                <div class="case-block">
+                    <h3>📋 客户背景</h3>
+                    <p>华南地区大型汽配经销商，覆盖 2000+ 维修门店，月均销售点火线圈抑制电阻约 5 万支。主要面向售后替换市场，客户群体以小排量摩托车维修店为主，对价格敏感，要求通用性强、兼容性好。</p>
+                </div>
+                <div class="case-block">
+                    <h3>⚠️ 痛点</h3>
+                    <ul>
+                        <li>下游维修门店频繁反馈"装上去一周就烧了"，退货率高达 8%</li>
+                        <li>原用品牌阻值标称 5kΩ，实测只有 3.8kΩ，质量不稳定</li>
+                        <li>部分车型振动大，普通抑制电阻 3 个月后断裂失效</li>
+                        <li>需要同时备多个品牌、多种规格的库存，管理成本高</li>
+                    </ul>
+                </div>
+                <div class="case-block">
+                    <h3>🔧 解决方案</h3>
+                    <p>经过 2 个月的样品测试和门店试用，该经销商选定 HXO <strong>IG-F 玻纤芯绕线型</strong>（3W~5W / 4.7kΩ~10kΩ / ±20%）作为主力替代型号：</p>
+                    <ul>
+                        <li>IG-F 玻纤芯的抗振性比陶瓷芯高 30%，降低振动断裂风险</li>
+                        <li>提供 4.7kΩ 和 10kΩ 两种最常用阻值，覆盖 90% 售后替换需求</li>
+                        <li>价格比原用品牌低 35%，终端门店利润空间更大</li>
+                        <li>100% 逐支高压测试，杜绝出厂缺陷</li>
+                    </ul>
+                </div>
+                <div class="case-block">
+                    <h3>📈 效果</h3>
+                    <div class="result-bar">
+                        <div class="result-item"><div class="num">8% → 0.8%</div><div class="desc">退货率下降</div></div>
+                        <div class="result-item"><div class="num">-35%</div><div class="desc">采购成本降低</div></div>
+                        <div class="result-item"><div class="num">90%</div><div class="desc">车型覆盖</div></div>
+                    </div>
+                    <p style="margin-top: 12px; font-size: 0.88em; color: #555;">该经销商已将 IG-F 系列作为标准替换件推荐给所有下游门店，月均销量从 5000 支增长至 3 万支，终端门店满意度显著提升。部分高端车型升级为 IG-C 系列。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Case 3: 赛车改装工作室 -->
+    <div class="case-card">
+        <div class="case-header">
+            <div class="case-icon">🏎️</div>
+            <div>
+                <h2>某赛车改装工作室 C — 高性能赛车的极端环境解决方案</h2>
+                <div>
+                    <span class="case-tag">高性能改装</span>
+                    <span class="case-series">IG-S 陶瓷实心型</span>
+                </div>
+            </div>
+        </div>
+        <div class="case-body">
+            <div class="case-grid">
+                <div class="case-block">
+                    <h3>📋 客户背景</h3>
+                    <p>专注于高性能摩托车和汽车赛车改装的独立工作室，客户包括民间赛事车队和高端定制改装客户。发动机经过深度改装后，转速可达 12000+ rpm，排气管温度超过 300°C，对点火系统元件的耐温、耐压和抗振性能要求极高。</p>
+                </div>
+                <div class="case-block">
+                    <h3>⚠️ 痛点</h3>
+                    <ul>
+                        <li>普通抑制电阻在 250°C 以上环境中 200 小时内即失效</li>
+                        <li>高转速下绕线型电阻的寄生电感引起点火能量损失</li>
+                        <li>需要 40kV 脉冲耐压应对高压缩比发动机的击穿电压</li>
+                        <li>进口品牌价格高昂且交期长，备货困难</li>
+                    </ul>
+                </div>
+                <div class="case-block">
+                    <h3>🔧 解决方案</h3>
+                    <p>经过 6 个月的极端工况测试，该工作室最终采用 HXO <strong>IG-S 陶瓷实心型</strong>（5W~7W / 5kΩ~10kΩ / ±10%）作为其赛车改装的标配点火抑制电阻：</p>
+                    <ul>
+                        <li>陶瓷实心工艺 + 专利区域导通技术（CN 113016042 A），脉冲耐压 40kV</li>
+                        <li>寄生电感 <0.1μH，无感特性在高转速下保持纯阻性</li>
+                        <li>工作温度 -55°C~+350°C，覆盖极端工况</li>
+                        <li>NTC 负温度系数特性提供冷启动补偿</li>
+                    </ul>
+                </div>
+                <div class="case-block">
+                    <h3>📈 效果</h3>
+                    <div class="result-bar">
+                        <div class="result-item"><div class="num">3x</div><div class="desc">电阻寿命提升</div></div>
+                        <div class="result-item"><div class="num">-50%</div><div class="desc">成本降低 vs 进口</div></div>
+                        <div class="result-item"><div class="num">0</div><div class="desc">极端测试失效</div></div>
+                    </div>
+                    <p style="margin-top: 12px; font-size: 0.88em; color: #555;">该工作室已在 50+ 台赛车上使用 IG-S 系列，经过多次赛道验证，零失效。其在改装圈的口碑传播为 HXO 带来了 10+ 个高性能改装客户的询盘。客户评价："这是我们测试过的唯一能在 350°C 下稳定工作的国产抑制电阻。"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 案例总结 -->
+    <div class="highlight-box">
+        <p><strong>📊 三大案例总结：</strong>IG-C 陶瓷芯绕线型是通用型性价比之选，适合整车配套和标准应用；IG-F 玻纤芯绕线型以高抗振和低成本优势成为售后替换市场的首选；IG-S 陶瓷实心型凭借 40kV 脉冲耐压和 350°C 耐温极限，满足赛车和极端环境需求。三大工艺平台覆盖从经济型到旗舰级的全场景需求。</p>
+    </div>
+
+    <div class="cta-section">
+        <h3 style="color: #0f3460; margin-bottom: 10px;">成为下一个成功案例？</h3>
+        <p style="color: #666; margin-bottom: 20px;">联系我们获取免费样品和技术方案，让 HXO 为您解决点火线圈抑制电阻的选型难题</p>
+        <a href="mailto:resistor@hxo-lcr.cn" class="btn">📧 发送需求</a>
+        <a href="./#inquiry" class="btn btn-secondary">📝 在线询价</a>
+    </div>
+
+    <a href="./" class="back-link">← 返回首页</a>
+</div>
+
+<div class="footer">
+    <div class="footer-links">
+        <a href="./">首页</a>
+        <a href="./ig-c.html">IG-C</a>
+        <a href="./ig-f.html">IG-F</a>
+        <a href="./ig-s.html">IG-S</a>
+        <a href="./comparison.html">产品对比</a>
+        <a href="./specifications.html">技术参数</a>
+        <a href="./selection-guide.html">选型指南</a>
+        <a href="./case-studies.html">客户案例</a>
+        <a href="./standards.html">行业标准</a>
+        <a href="./order.html">订购指南</a>
+        <a href="./gallery.html">产品图库</a>
+        <a href="./articles.html">技术文章</a>
+        <a href="./faq.html">FAQ</a>
+        <a href="./en/products.html">English</a>
+        <a href="https://www.hxo-lcr.cn" target="_blank">官网</a>
+        <a href="mailto:resistor@hxo-lcr.cn">resistor@hxo-lcr.cn</a>
+    </div>
+    <p>© 2026 HXO Resistor / 华星欧电子（深圳）有限公司 — 专注点火线圈抑制电阻</p>
+</div>
+
+<script>
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => { document.querySelector('.nav-links').classList.remove('open'); });
+});
+</script>
+</body>
+</html>
