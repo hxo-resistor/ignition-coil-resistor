@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How to test an ignition coil suppressor resistor with a multimeter. Step-by-step guide: range selection, standard resistance values, open/short circuit diagnosis.">
+    <title>How to Test an Ignition Coil Suppressor Resistor with a Multimeter | HXO Resistor</title>
+    <link rel="sitemap" type="application/xml" href="https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; }
+        .nav { background: rgba(26,26,46,0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
+        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; }
+        .nav-links a:hover { color: #fff; background: rgba(233,69,96,0.15); }
+        .nav-links a.active { color: #e94560; }
+        .lang-switch { background: rgba(233,69,96,0.15); color: #e94560 !important; border: 1px solid rgba(233,69,96,0.3); border-radius: 4px; }
+        .article-header { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; padding: 100px 24px 50px; text-align: center; }
+        .article-header h1 { font-size: 1.8em; font-weight: 800; max-width: 800px; margin: 0 auto 10px; }
+        .article-header .meta { color: #8899b4; font-size: 0.85em; }
+        .container { max-width: 800px; margin: 0 auto; padding: 50px 24px; }
+        .container h2 { font-size: 1.3em; color: #0f3460; margin: 36px 0 12px; }
+        .container h3 { font-size: 1.1em; color: #e94560; margin: 24px 0 8px; }
+        .container p { margin-bottom: 14px; color: #444; }
+        .container ul, .container ol { margin: 10px 0 16px 20px; }
+        .container li { margin-bottom: 6px; color: #444; }
+        .container strong { color: #1a1a2e; }
+        .step-box { background: #f8f9fa; border-radius: 10px; padding: 20px; margin: 16px 0; border: 1px solid #eee; }
+        .step-box .step-num { display: inline-block; background: #e94560; color: #fff; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 700; font-size: 0.85em; margin-right: 8px; }
+        .highlight-box { background: #fff5f5; border-left: 4px solid #e94560; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+        .table-wrap { overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
+        th { background: #1a1a2e; color: #fff; padding: 10px 14px; text-align: left; font-size: 0.85em; }
+        td { padding: 10px 14px; border-bottom: 1px solid #eee; font-size: 0.9em; }
+        tr:nth-child(even) { background: #fafafa; }
+        .cta { background: #f8f9fa; border-radius: 12px; padding: 28px; text-align: center; margin: 40px 0; border: 1px solid #eee; }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9em; background: #e94560; color: #fff; margin: 4px; }
+        .btn:hover { background: #d63851; }
+        .btn-secondary { background: #0f3460; }
+        .btn-secondary:hover { background: #0a2540; }
+        .back-link { display: inline-block; margin-top: 30px; color: #e94560; text-decoration: none; font-weight: 600; }
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; }
+        .footer a { color: #e94560; }
+        @media (max-width: 768px) { .nav-links { display: none; } .article-header h1 { font-size: 1.4em; } .container { padding: 30px 16px; } }
+    </style>
+    </head>
+<body>
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">HXO<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ig-c.html">IG-C</a></li>
+            <li><a href="ig-f.html">IG-F</a></li>
+            <li><a href="ig-s.html">IG-S</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="article_4k7_vs_10k.html" class="active">Articles</a></li>
+            <li><a href="../index.html" class="lang-switch">中文</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="article-header">
+    <h1>How to Test an Ignition Coil Suppressor Resistor with a Multimeter</h1>
+    <div class="meta">HXO Resistor · Practical Repair Guide · July 2026</div>
+</div>
+<div class="container">
+<p>When you encounter engine misfire, unstable idle, or loss of power, the ignition system is often the culprit. The suppressor resistor is one of the most common failure points in an ignition coil — <strong>if it's bad, replacing just the resistor (costing a few dollars) can fix the problem without replacing the entire coil assembly.</strong></p>
+<p>Here's how to diagnose a suppressor resistor in 3 minutes with a digital multimeter.</p>
+
+<h2>Preparation</h2>
+<ul>
+    <li><strong>Tool:</strong> Digital multimeter (DT830 or above, basic models work fine)</li>
+    <li><strong>Safety:</strong> Ensure the vehicle is off, key removed, wait 5 minutes for capacitor discharge</li>
+    <li><strong>Location:</strong> The suppressor resistor is typically inside the spark plug cap or at the ignition coil secondary output</li>
+</ul>
+
+<h2>Measurement Steps</h2>
+
+<div class="step-box">
+    <p><span class="step-num">1</span><strong>Set multimeter to resistance (Ω), select 20kΩ range</strong></p>
+    <p>If using auto-ranging, just select Ω. For manual ranging, secondary suppressor resistors are typically 4.7kΩ~10kΩ, so 20kΩ is the most suitable range.</p>
+</div>
+
+<div class="step-box">
+    <p><span class="step-num">2</span><strong>Measure across the resistor</strong></p>
+    <p>Touch the red and black probes to the two resistor leads. Ensure good contact — don't measure through insulating paint.</p>
+</div>
+
+<div class="step-box">
+    <p><span class="step-num">3</span><strong>Read the value and diagnose</strong></p>
+    <p>Refer to the table below:</p>
+</div>
+
+<div class="table-wrap">
+<table>
+    <tr><th>Measurement Result</th><th>Diagnosis</th><th>Cause</th><th>Action</th></tr>
+    <tr><td>4.5kΩ~10.5kΩ</td><td style="color:#27ae60;"><strong>Normal</strong></td><td>Within specified tolerance</td><td>No replacement needed</td></tr>
+    <tr><td>20%+ above nominal</td><td style="color:#e67e22;"><strong>Aging</strong></td><td>Long-term high temp causing drift</td><td>Replace recommended</td></tr>
+    <tr><td>Infinite (OL/1)</td><td style="color:#e94560;"><strong>Open circuit</strong></td><td>Internal burnout or lead fracture</td><td>Must replace — misfire will occur</td></tr>
+    <tr><td>Near 0Ω</td><td style="color:#e94560;"><strong>Short circuit</strong></td><td>Insulation breakdown or lead bridging</td><td>Must replace — severe EMI</td></tr>
+    <tr><td>Unstable reading</td><td style="color:#e67e22;"><strong>Poor contact</strong></td><td>Internal solder joint crack</td><td>Replace recommended</td></tr>
+</table>
+</div>
+
+<div class="highlight-box">
+    <p><strong>⚠️ Note:</strong> Primary suppressor resistors (0.5Ω~1.5Ω) require the 200Ω or lower range. Using the 20kΩ range will show 0Ω, incorrectly diagnosing a short circuit.</p>
+</div>
+
+<h2>4 Common Abnormal Conditions</h2>
+
+<h3>1. Increased Resistance (Aging)</h3>
+<p>Most common issue. Long-term operation at 100°C~200°C causes the resistive material to slowly oxidize, increasing resistance. Initially only a slight drop in ignition energy, but eventually causes misfire.</p>
+
+<h3>2. Open Circuit (Burnout)</h3>
+<p>Typically caused by instantaneous overvoltage — excessive spark plug gap or leaking high-voltage wires subjecting the resistor to voltage exceeding its rated pulse withstand.</p>
+
+<h3>3. Short Circuit (Near 0Ω)</h3>
+<p>Uncommon but serious. The resistor loses its EMI suppression function, allowing high-frequency oscillations to radiate and interfere with ECUs, ABS, and other onboard electronics.</p>
+
+<h3>4. Unstable Reading</h3>
+<p>Tapping the resistor body causes the reading to fluctuate, indicating internal cracks or loose solder joints. This resistor is at risk of failure in vibration environments.</p>
+
+<div class="highlight-box">
+    <p><strong>📌 Quick Reference</strong>: Secondary resistance in kΩ range, 4.7~10 is normal. Infinite means open circuit, near 0Ω means short. More than 20% above nominal indicates aging. Fluctuating readings indicate internal damage.</p>
+</div>
+
+<div class="cta">
+    <p><strong>Need ignition coil suppressor resistors?</strong></p>
+    <p>IG-C/IG-F/IG-S series, AEC-Q200 certified, 7-15 day lead time, free samples available</p>
+    <a href="mailto:resistor@hxo-lcr.cn?subject=Resistor%20Inquiry" class="btn">📧 Email for Quote</a>
+    <a href="tel:+8613510200650" class="btn btn-secondary">📞 Call Us</a>
+</div>
+<a href="index.html" class="back-link">← Back to Home</a>
+</div>
+<div class="footer">
+    <p>© 2026 HXO Resistor / Huaxing'ou Electronics (Shenzhen) Co., Ltd.</p>
+</div>
+</body>
+</html>
