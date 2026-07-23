@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml
