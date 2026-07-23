@@ -18,6 +18,8 @@ FILES_DIR = "/app/data/所有对话/主对话/github_pages"
 
 BINARY_EXTENSIONS = {'.pdf', '.jpg', '.jpeg', '.png', '.gif', '.ico', '.zip', '.py'}
 
+COMMIT_MESSAGE = "AI搜索优化：全站结构化数据覆盖+BreadcrumbList+Article schema+robots.txt"
+
 def get_existing_sha(filename):
     url = f"{BASE_URL}/{filename}"
     resp = requests.get(url, headers=HEADERS)
@@ -40,7 +42,7 @@ def upload_file(filename):
     content_b64 = base64.b64encode(content).decode("utf-8")
     
     data = {
-        "message": f"Update {filename}",
+        "message": COMMIT_MESSAGE,
         "content": content_b64,
     }
     
@@ -65,7 +67,15 @@ all_files = sorted([
     and not f.endswith('.py')  # exclude scripts
 ])
 
+# Also include en/products.html
+en_dir = os.path.join(FILES_DIR, "en")
+if os.path.isdir(en_dir):
+    for f in os.listdir(en_dir):
+        if os.path.isfile(os.path.join(en_dir, f)):
+            all_files.append("en/" + f)
+
 print(f"Uploading {len(all_files)} files to {REPO}...")
+print(f"Commit message: {COMMIT_MESSAGE}")
 print()
 
 success_count = 0
