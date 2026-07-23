@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 中文版页面 -->
   <url>
     <loc>https://hxo-resistor.github.io/ignition-coil-resistor/</loc>
     <lastmod>2026-07-23</lastmod>
@@ -55,47 +56,61 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/order.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://hxo-resistor.github.io/ignition-coil-resistor/seo_guides.html</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/en/products.html</loc>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/thankyou.html</loc>
     <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>never</changefreq>
+    <priority>0.1</priority>
   </url>
+  <!-- 技术文章 -->
   <url>
     <loc>https://hxo-resistor.github.io/ignition-coil-resistor/article_4k7_vs_10k.html</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/article_multimeter_test.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/article_import_substitution_qa.html</loc>
-    <lastmod>2026-07-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hxo-resistor.github.io/ignition-coil-resistor/article_burn_causes.html</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/article_import_substitution_qa.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/article_installation_guide.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/article_multimeter_test.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hxo-resistor.github.io/ignition-coil-resistor/article_price_difference.html</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
+  <!-- PDF资料 -->
   <url>
     <loc>https://hxo-resistor.github.io/ignition-coil-resistor/IG-C_Datasheet.pdf</loc>
     <lastmod>2026-07-23</lastmod>
@@ -132,20 +147,81 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <!-- 英文版页面 -->
   <url>
-    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/article_installation_guide.html</loc>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/en/index.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/en/ig-c.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/en/ig-f.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/en/ig-s.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/en/faq.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/en/products.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/en/article_4k7_vs_10k.html</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/order.html</loc>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/en/article_burn_causes.html</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/thankyou.html</loc>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/en/article_import_substitution_qa.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/en/article_installation_guide.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/en/article_multimeter_test.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/en/article_price_difference.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://hxo-resistor.github.io/ignition-coil-resistor/en/sitemap.xml</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>never</changefreq>
     <priority>0.1</priority>
