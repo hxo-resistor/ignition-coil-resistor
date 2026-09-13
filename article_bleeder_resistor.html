@@ -3,253 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="高阻值绕线电阻技术解析：泄放电阻计算公式、功率选型、绕线vs玻璃釉对比，适用于变频器制动、新能源高压系统。">
-    <meta name="keywords" content="绕线电阻,泄放电阻,高压电阻,HVW,变频器制动">
-    <title>高压电容泄放电阻怎么算？绕线电阻vs玻璃釉电阻的技术对比 | HXO Resistor</title>
-    <link rel="sitemap" type="application/xml" href="https://hxo-resitor.github.io/ignition-coil-resistor/sitemap.xml">
-    <link rel="canonical" href="https://hxo-resitor.github.io/ignition-coil-resistor/article_bleeder_resistor.html">
+    <title>High-Value Wirewound Resistor - Capacitor Discharge Design</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; }
-        .nav { background: rgba(26,26,46,0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
-        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
-        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; }
-        .nav-logo span { color: #e94560; }
-        .nav-links { display: flex; gap: 6px; list-style: none; }
-        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; }
-        .nav-links a:hover { color: #fff; background: rgba(233,69,96,0.15); }
-        .nav-links a.active { color: #e94560; background: rgba(233,69,96,0.12); }
-        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5em; cursor: pointer; }
-        @media (max-width: 768px) {
-            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #1a1a2e; flex-direction: column; padding: 12px; }
-            .nav-links.open { display: flex; }
-            .nav-toggle { display: block; }
-        }
-        .article-header { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; padding: 100px 24px 50px; text-align: center; }
-        .article-header h1 { font-size: 1.8em; font-weight: 800; max-width: 800px; margin: 0 auto 10px; }
-        .article-header .meta { color: #8899b4; font-size: 0.85em; }
-        .article-header .breadcrumb { color: #7a8aa5; font-size: 0.8em; margin-bottom: 12px; }
-        .article-header .breadcrumb a { color: #e94560; text-decoration: none; }
-        .container { max-width: 800px; margin: 0 auto; padding: 50px 24px; }
-        .container h2 { font-size: 1.3em; color: #0f3460; margin: 36px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e94560; }
-        .container h3 { font-size: 1.1em; color: #e94560; margin: 24px 0 8px; }
-        .container p { margin-bottom: 14px; color: #444; }
-        .container ul, .container ol { margin: 10px 0 16px 20px; }
-        .container li { margin-bottom: 6px; color: #444; }
-        .container strong { color: #1a1a2e; }
-        .container blockquote { border-left: 4px solid #e94560; background: #f8f9fa; padding: 14px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
-        .container blockquote p { margin: 0; color: #333; }
-        .highlight-box { background: #fff5f5; border-left: 4px solid #e94560; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
-        .highlight-box p { margin: 0; color: #333; }
-        .info-box { background: #e8f5e9; border-left: 4px solid #2e7d32; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
-        .info-box p { margin: 0; color: #1b5e20; }
-        .table-wrap { overflow-x: auto; margin: 20px 0; }
-        table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
-        th { background: #1a1a2e; color: #fff; padding: 10px 14px; text-align: left; font-size: 0.85em; }
-        td { padding: 10px 14px; border-bottom: 1px solid #eee; font-size: 0.9em; }
-        tr:nth-child(even) { background: #f8f9fa; }
-        .formula-box { background: #f0f4f8; border-left: 4px solid #1a1a2e; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; font-family: 'Courier New', monospace; }
-        .cta-box { text-align: center; background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; padding: 40px 24px; border-radius: 12px; margin: 40px 0; }
-        .cta-box h3 { color: #fff; font-size: 1.2em; margin-bottom: 10px; }
-        .cta-box p { color: #ccc; margin-bottom: 18px; }
-        .cta-btn { display: inline-block; background: #e94560; color: #fff; padding: 12px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; }
-        .cta-btn:hover { background: #d63851; }
-        .footer { background: #1a1a2e; color: #8899b4; text-align: center; padding: 30px 24px; font-size: 0.8em; }
-        .footer a { color: #e94560; text-decoration: none; }
-        @media (max-width: 768px) {
-            .article-header h1 { font-size: 1.3em; }
-            .container { padding: 30px 16px; }
-        }
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .header { background: #1a1a2e; color: white; padding: 20px; text-align: center; }
+        .specs { background: #f5f5f5; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; }
+        th { background: #1a1a2e; color: white; }
+        .formula { background: #e8f5e9; padding: 15px; margin: 20px 0; border-left: 4px solid #4caf50; }
+        .cta { background: #e94560; color: white; padding: 20px; text-align: center; margin-top: 30px; }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-logo">HXO<span>华星欧</span></a>
-            <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
-            <ul class="nav-links">
-                <li><a href="index.html">首页</a></li>
-                <li><a href="ig-c.html">IG-C</a></li>
-                <li><a href="ig-f.html">IG-F</a></li>
-                <li><a href="ig-s.html">IG-S</a></li>
-                <li><a href="thermal-fuse-resistor.html">RXF温度保险</a></li>
-                <li><a href="articles.html" class="active">技术文章</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="order.html">询价</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="article-header">
-        <div class="breadcrumb"><a href="index.html">首页</a> / <a href="articles.html">技术文章</a> / 正文</div>
-        <h1>高压电容泄放电阻怎么算？绕线电阻vs玻璃釉电阻的技术对比</h1>
-        <div class="meta">高阻值绕线电阻 · 技术解析 · 2026年9月</div>
+    <div class="header">
+        <h1>High-Value Wirewound Resistor - Capacitor Discharge Design</h1>
+        <p>Calculation formula, power selection, and wirewound vs glass glaze comparison</p>
     </div>
-
-    <div class="container">
-        <p>高压电容在断电后仍可能储存致命电荷。泄放电阻是保障维修人员安全的必要元件。正确计算阻值和功率是关键。</p>
-
-        <div class="highlight-box">
-            <p><strong>一句话总结：</strong>HXO HVW系列高阻值绕线电阻，阻值0.1Ω~651kΩ，功率1W~50W，适用于变频器制动、新能源高压系统泄放。</p>
-        </div>
-
-        <h2>一、泄放电阻的设计原则</h2>
-        <h3>阻值计算</h3>
-        <p>泄放电阻的核心任务是在安全时间内将电容电压降至安全水平。</p>
-        
-        <div class="formula-box">
-            V(t) = V₀ × e^(-t/RC)<br><br>
-            其中：<br>
-            V(t) = t时刻的电压<br>
-            V₀ = 初始电压<br>
-            R = 泄放电阻阻值<br>
-            C = 电容容量<br>
-            t = 时间
-        </div>
-
-        <p><strong>安全标准</strong>：IEC 61010规定，断电后1秒内电压应降至60V以下。</p>
-
-        <h3>示例计算</h3>
-        <p>已知：电容 100μF，初始电压 400V，目标电压 60V（1秒后）</p>
-        <div class="formula-box">
-            R ≤ -t / (C × ln(V/V₀))<br>
-              = -1 / (100×10⁻⁶ × ln(60/400))<br>
-              = -1 / (0.0001 × -1.833)<br>
-              ≤ 545kΩ<br><br>
-            建议选择：100kΩ ~ 470kΩ范围内
-        </div>
-
-        <h3>功率计算</h3>
-        <div class="formula-box">
-            瞬时功率：P(t) = V(t)² / R = V₀² × e^(-2t/RC) / R<br><br>
-            初始功率（最恶劣情况）：P₀ = V₀² / R<br><br>
-            示例：V₀ = 400V, R = 100kΩ<br>
-            P₀ = 400² / 100000 = 1.6W<br><br>
-            建议：选择额定功率为计算值的2倍以上
-        </div>
-
-        <h2>二、绕线电阻 vs 玻璃釉电阻</h2>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>对比项</th>
-                        <th>绕线电阻</th>
-                        <th>玻璃釉电阻</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>功率范围</td>
-                        <td><strong>1W ~ 50W</strong></td>
-                        <td>&lt;5W</td>
-                    </tr>
-                    <tr>
-                        <td>耐压等级</td>
-                        <td><strong>10kV+</strong></td>
-                        <td>&lt;5kV</td>
-                    </tr>
-                    <tr>
-                        <td>脉冲耐受</td>
-                        <td><strong>5kJ+</strong></td>
-                        <td>较低</td>
-                    </tr>
-                    <tr>
-                        <td>寄生电感</td>
-                        <td>1~5μH</td>
-                        <td><strong>无感设计</strong></td>
-                    </tr>
-                    <tr>
-                        <td>体积</td>
-                        <td>较大</td>
-                        <td><strong>小巧</strong></td>
-                    </tr>
-                    <tr>
-                        <td>成本</td>
-                        <td>中等</td>
-                        <td>较低</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h2>三、选型速查表</h2>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>应用场景</th>
-                        <th>推荐类型</th>
-                        <th>理由</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>变频器直流母线</td>
-                        <td><strong>HVW绕线电阻</strong></td>
-                        <td>高功率、高耐压、耐脉冲</td>
-                    </tr>
-                    <tr>
-                        <td>伺服驱动器制动</td>
-                        <td><strong>HVW绕线电阻</strong></td>
-                        <td>频繁充放电，耐冲击</td>
-                    </tr>
-                    <tr>
-                        <td>LED驱动电源</td>
-                        <td>玻璃釉电阻</td>
-                        <td>低压、小功率、低成本</td>
-                    </tr>
-                    <tr>
-                        <td>医疗电源泄放</td>
-                        <td><strong>HVW绕线电阻</strong></td>
-                        <td>高可靠性要求</td>
-                    </tr>
-                    <tr>
-                        <td>新能源电池包</td>
-                        <td><strong>HVW绕线电阻</strong></td>
-                        <td>高压、大容量、安全关键</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h2>四、HXO工厂优势</h2>
-        <p>作为深圳源头制造商，我们提供：</p>
-        <ol>
-            <li><strong>超宽阻值</strong>：0.1Ω ~ 651kΩ全覆盖</li>
-            <li><strong>大功率</strong>：最高50W，满足严苛工况</li>
-            <li><strong>高耐压</strong>：10kV+等级，安全可靠</li>
-            <li><strong>高精度</strong>：±1%精度可选，符合精密要求</li>
-            <li><strong>快速定制</strong>：特殊规格7天内交付</li>
-            <li><strong>批量优惠</strong>：年采购量大可享折扣</li>
-        </ol>
-
-        <h2>五、安装注意事项</h2>
-        <ul>
-            <li><strong>并联连接</strong>：泄放电阻必须与电容并联</li>
-            <li><strong>常闭设计</strong>：不能在开关之后，必须在电源入口之前</li>
-            <li><strong>散热措施</strong>：大功率电阻需考虑散热</li>
-            <li><strong>绝缘处理</strong>：高压应用需加强绝缘防护</li>
-            <li><strong>双重备份</strong>：安全关键应用建议双电阻冗余</li>
-        </ul>
-
-        <div class="cta-box">
-            <h3>需要高压泄放电阻样品或技术支持？</h3>
-            <p>提供完整技术参数表和选型计算工具</p>
-            <a href="order.html" class="cta-btn">立即询价</a>
-            <p style="margin-top: 15px; font-size: 0.9em;">📧 resistor@hxo-lcr.cn | 🌐 www.hxo-lcr.cn</p>
-        </div>
+    
+    <div class="specs">
+        <h2>Technical Specifications</h2>
+        <table>
+            <tr><th>Parameter</th><th>Range</th></tr>
+            <tr><td>Resistance Range</td><td>0.1Ω ~ 651kΩ</td></tr>
+            <tr><td>Power Range</td><td>1W ~ 50W</td></tr>
+            <tr><td>Tolerance</td><td>±1% / ±5% / ±10%</td></tr>
+            <tr><td>Temperature Coefficient</td><td><±100 ppm/°C</td></tr>
+            <tr><td>Voltage Rating</td><td>10kV+ (High Voltage Type)</td></tr>
+        </table>
     </div>
-
-    <footer class="footer">
-        <p>© 2026 HXO Resistor / 华星欧电子（深圳）有限公司 | 专业汽车电子电阻制造商</p>
-        <p style="margin-top: 8px;"><a href="sitemap.xml">网站地图</a> | <a href="privacy.html">隐私政策</a></p>
-    </footer>
-
-    <script>
-        document.querySelector('.nav-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('open');
-        });
-    </script>
+    
+    <div class="formula">
+        <h3>Discharge Formula</h3>
+        <p>V(t) = V₀ × e^(-t/RC)</p>
+        <p>Where: V(t) = voltage at time t, V₀ = initial voltage, R = resistance, C = capacitance</p>
+        <p>Safety standard: IEC 61010 requires voltage to drop below 60V within 1 second</p>
+    </div>
+    
+    <div class="cta">
+        <h3>Request Technical Data Sheet</h3>
+        <p>Email: resistor@hxo-lcr.cn | Web: www.hxo-lcr.cn</p>
+    </div>
 </body>
 </html>
