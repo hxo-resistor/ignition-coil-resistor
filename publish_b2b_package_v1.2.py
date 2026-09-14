@@ -34,6 +34,11 @@ CONFIG = {
     # GitHub配置
     'github_api': 'https://api.github.com',
     'github_repo': 'hxo-resitor/ignition-coil-resitor',
+
+    # 百度搜索配置
+    'baidu_api_token': BAIDU_API_TOKEN,
+    'baidu_site': BASE_URL,
+
     
     # Supabase配置
     'supabase_url': 'https://whnmtkrmvqayfhpmrdiq.supabase.co',
@@ -103,6 +108,45 @@ def check_proxy():
         return False
     except Exception as e:
         log(f"代理检查失败: {e}", 'ERROR')
+        return False
+
+
+def baidu_push_urls(urls):
+    """百度API主动推送URL（加速收录）"""
+    log("百度API主动推送...")
+    
+    if BAIDU_API_TOKEN == "YOUR_BAIDU_API_TOKEN_HERE":
+        log("  Token未配置，跳过百度API推送", 'WARN')
+        return False
+    
+    try:
+        # 构造API URL
+        site = CONFIG['primary_domain']
+        api_url = f"http://data.zz.baidu.com/urls?site={site}&token={BAIDU_API_TOKEN}"
+        
+        # 发送请求
+        proxies = {'http': CONFIG['proxy'], 'https': CONFIG['proxy']}
+        headers = {'User-Agent': 'hxobot'}
+        
+        response = requests.post(
+            api_url,
+            data=json.dumps(urls),
+            headers=headers,
+            proxies=proxies,
+            timeout=CONFIG['timeout']
+        )
+        
+        result = response.json()
+        
+        if response.status_code == 200 and result.get('success', 0) > 0:
+            log(f"  百度API推送成功: 成功{result['success']}条, 剩余{result.get('remain', 0)}条配额", 'SUCCESS')
+            return True
+        else:
+            log(f"  百度API推送异常: {result}", 'WARN')
+            return False
+            
+    except Exception as e:
+        log(f"  百度API推送失败: {e}", 'ERROR')
         return False
 
 def check_git_branch():
@@ -445,7 +489,20 @@ def main():
         sys.exit(1)
     
     log("Commit Hash: {}".format(commit_hash[:8]))
+
+    # 步骤4.5: 百度API推送
+    log("步骤 4.5/7: 百度API推送")
+    site_urls = [
+        '{}/{}'.format(CONFIG['primary_domain'], html_file),
+        '{}/articles.html'.format(CONFIG['primary_domain']),
+        '{}/faq.html'.format(CONFIG['primary_domain']),
+        '{}/comparison.html'.format(CONFIG['primary_domain']),
+    ]
+    baidu_success = baidu_push_urls(site_urls)
+    if baidu_success:
+        log("百度API推送完成", 'SUCCESS')
     print("")
+
     
     # 步骤5: Supabase同步
     log("步骤 5/6: Supabase同步")
