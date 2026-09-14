@@ -115,7 +115,7 @@ def baidu_push_urls(urls):
     """百度API主动推送URL（加速收录）"""
     log("百度API主动推送...")
     
-    if BAIDU_API_TOKEN == "YOUR_BAIDU_API_TOKEN_HERE":
+    if BAIDU_API_TOKEN == "Wnji3GoRBItZlG4a":
         log("  Token未配置，跳过百度API推送", 'WARN')
         return False
     
