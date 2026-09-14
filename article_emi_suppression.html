@@ -60,7 +60,91 @@
             .container { padding: 30px 16px; }
         }
     </style>
-</head>
+    <!-- Schema.org Product Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "HXO EMI 抑制电阻方案",
+      "description": "HXO华星欧电子HXO EMI 抑制电阻方案，专业汽车电子电阻制造商，AEC-Q200认证，CQC/UL双认证，7-15天交付",
+      "brand": {
+        "@type": "Brand",
+        "name": "HXO",
+        "url": "https://www.hxo-lcr.cn"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "华星欧电子（深圳）有限公司",
+        "url": "https://www.hxo-lcr.cn",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "resistor@hxo-lcr.cn",
+          "telephone": "+86-755-XXXX-XXXX"
+        }
+      },
+      "url": "https://www.hxo-lcr.cn/article_emi_suppression.html",
+      "image": "https://www.hxo-lcr.cn/product_overview.jpg",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "CNY",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "HXO Resistor"
+        }
+      }
+    }
+    </script>
+        <!-- Schema.org FAQPage Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "什么是 EMI 电磁干扰？点火系统为何会产生 EMI？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EMI 是电磁干扰，点火线圈工作时产生 20-40kV 高压脉冲，快速开关导致高频振荡，干扰收音机、GPS、ECU 等设备正常工作。"
+          }
+        }
+        {
+          "@type": "Question",
+          "name": "抑制电阻如何实现 EMI 抑制？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "抑制电阻通过三重机制抑制 EMI：1）限制 di/dt 变化率；2）阻尼高频振荡；3）滤波作用。阻值越大，抑制效果越好，但需平衡点火能量。"
+          }
+        }
+        {
+          "@type": "Question",
+          "name": "如何选择 EMI 抑制电阻的阻值？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "一般选择 1kΩ-22kΩ，常见值为 4.7kΩ 和 10kΩ。阻值太小抑制效果差，太大影响点火能量。需根据点火线圈参数优化选取。"
+          }
+        }
+        {
+          "@type": "Question",
+          "name": "陶瓷实心电阻 vs 绕线电阻，EMI 抑制效果哪个更好？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "陶瓷实心电阻无感设计，高频响应好，EMI 抑制效果更优；绕线电阻有寄生电感，在极高频段可能有谐振点。新能源汽车推荐陶瓷实心方案。"
+          }
+        }
+        {
+          "@type": "Question",
+          "name": "HXO 的 EMI 抑制电阻通过了哪些测试？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HXO 抑制电阻通过 AEC-Q200 车规认证、ISO 16750 环境测试、CISPR 25 电磁兼容测试，确保在整车环境中的可靠性和合规性。"
+          }
+        }
+      ]
+    }
+    </script>
+    </head>
 <body>
     <nav class="nav">
         <div class="nav-inner">
@@ -210,5 +294,36 @@
             document.querySelector('.nav-links').classList.toggle('open');
         });
     </script>
-</body>
+
+    <section class="faq-section">
+        <h2>常见问题 FAQ</h2>
+
+        <div class="faq-item">
+            <h3>Q1: 什么是 EMI 电磁干扰？点火系统为何会产生 EMI？</h3>
+            <p>EMI 是电磁干扰，点火线圈工作时产生 20-40kV 高压脉冲，快速开关导致高频振荡，干扰收音机、GPS、ECU 等设备正常工作。</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q2: 抑制电阻如何实现 EMI 抑制？</h3>
+            <p>抑制电阻通过三重机制抑制 EMI：1）限制 di/dt 变化率；2）阻尼高频振荡；3）滤波作用。阻值越大，抑制效果越好，但需平衡点火能量。</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q3: 如何选择 EMI 抑制电阻的阻值？</h3>
+            <p>一般选择 1kΩ-22kΩ，常见值为 4.7kΩ 和 10kΩ。阻值太小抑制效果差，太大影响点火能量。需根据点火线圈参数优化选取。</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q4: 陶瓷实心电阻 vs 绕线电阻，EMI 抑制效果哪个更好？</h3>
+            <p>陶瓷实心电阻无感设计，高频响应好，EMI 抑制效果更优；绕线电阻有寄生电感，在极高频段可能有谐振点。新能源汽车推荐陶瓷实心方案。</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q5: HXO 的 EMI 抑制电阻通过了哪些测试？</h3>
+            <p>HXO 抑制电阻通过 AEC-Q200 车规认证、ISO 16750 环境测试、CISPR 25 电磁兼容测试，确保在整车环境中的可靠性和合规性。</p>
+        </div>
+
+    </section>
+
+    </body>
 </html>
