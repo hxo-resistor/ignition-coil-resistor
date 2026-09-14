@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电子元器件术语表 Glossary | HXO华星欧电子</title>
+    <meta name="description" content="HXO华星欧电子专业术语解释，涵盖OTP温度保险电阻、点火线圈抑制电阻、高阻值绕线电阻等产品的技术参数和行业标准术语。">
+    <link rel="canonical" href="https://www.hxo-lcr.cn/glossary.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.8; color: #333; background: #f5f5f5; }
+        .header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 40px 20px; text-align: center; }
+        .nav { background: #1a1a2e; padding: 15px; text-align: center; }
+        .nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 14px; }
+        .nav a:hover { color: #e94560; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .section { background: white; border-radius: 8px; padding: 30px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .section h2 { color: #1a1a2e; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e94560; }
+        .term-item { margin-bottom: 25px; padding: 20px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #e94560; }
+        .term-item h3 { color: #1a1a2e; margin-bottom: 8px; font-size: 1.1em; }
+        .term-item .en { color: #666; font-size: 0.9em; margin-bottom: 10px; }
+        .term-item p { color: #555; }
+        .tag { display: inline-block; background: #e94560; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75em; margin-right: 5px; }
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 30px 20px; font-size: 14px; }
+    </style>
+    <!-- Schema.org DefinedTerm Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DefinedTermSet",
+      "name": "电子元器件专业术语表",
+      "description": "HXO华星欧电子产品相关技术术语解释",
+      "hasPart": [
+        {
+          "@type": "DefinedTerm",
+          "name": "脉冲耐压",
+          "alternateName": "Pulse Withstand Voltage",
+          "definition": "电阻能承受的最高瞬时电压峰值，测试波形为1.2/50μs标准波，单位kV。"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "动作温度",
+          "alternateName": "Trip Temperature",
+          "definition": "温度保险电阻内部热敏材料熔化的临界温度，此时电阻值急剧升高至兆欧级。"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>电子元器件专业术语表 Glossary</h1>
+        <p>技术参数 · 行业标准 · 应用场景</p>
+    </div>
+    
+    <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./articles.html">技术文章</a>
+        <a href="./faq.html">常见问题</a>
+        <a href="./glossary.html" style="color:#e94560;">术语表</a>
+        <a href="./comparison.html">产品对比</a>
+        <a href="./order.html">询价联系</a>
+    </nav>
+    
+    <div class="container">
+        <div class="section">
+            <h2>🔥 OTP温度保险电阻术语</h2>
+            
+            <div class="term-item">
+                <h3><span class="tag">核心术语</span>OTP温度保险电阻</h3>
+                <p class="en">OTP (Over-Temperature Protector) Temperature Fuse Resistor</p>
+                <p>兼具电阻与热保护功能的双功能器件。当温度达到设定阈值时，内部热敏材料熔化，电阻值急剧升高至兆欧级（≥1000MΩ），切断电路实现过温保护。典型应用：充电器、适配器、LED驱动电源。</p>
+            </div>
+            
+            <div class="term-item">
+                <h3><span class="tag">核心术语</span>动作温度</h3>
+                <p class="en">Trip Temperature / Operating Temperature</p>
+                <p>温度保险电阻熔断的温度阈值，误差范围通常±5%。常用规格：135℃、158℃、185℃、221℃、250℃。选型原则：高于正常工作温度20-30℃，低于塑料外壳软化温度。</p>
+            </div>
+            
+            <div class="term-item">
+                <h3><span class="tag">核心术语</span>恢复温度</h3>
+                <p class="en">Recovery Temperature</p>
+                <p>OTP熔断后需要冷却到的温度，低于此温度电阻值才恢复到正常水平。通常为动作温度的70-80%，如221℃动作温度的恢复温度约为170℃。</p>
+            </div>
+            
+            <div class="term-item">
+                <h3><span class="tag">核心术语</span>绝缘电阻</h3>
+                <p class="en">Insulation Resistance</p>
+                <p>电阻器在直流电压下的漏电电阻，反映绝缘性能。HXO OTP产品绝缘电阻≥1000MΩ（@500V DC），确保漏电极小，不影响电路正常工作。</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🚗 点火线圈抑制电阻术语</h2>
+            
+            <div class="term-item">
+                <h3><span class="tag">核心术语</span>脉冲耐压</h3>
+                <p class="en">Pulse Withstand Voltage</p>
+                <p>电阻能承受的最高瞬时高压峰值，测试波形为1.2/50μs标准波。点火系统工作时产生20-40kV高压脉冲，抑制电阻必须具备足够耐压能力。HXO IG系列脉冲耐压35-40kV，远超行业标准。</p>
+            </div>
+            
+            <div class="term-item">
+                <h3><span class="tag">核心术语</span>寄生电感</h3>
+                <p class="en">Parasitic Inductance</p>
+                <p>电阻本身固有的电感特性，绕线结构不可避免。寄生电感会影响高频响应，产生额外的感应电动势。IG-S陶瓷实心系列采用专利剥层区导通技术，寄生电感&lt;0.1μH，远低于传统绕线电阻（1-5μH）。</p>
+            </div>
+            
+            <div class="term-item">
+                <h3><span class="tag">核心术语</span>AEC-Q200认证</h3>
+                <p class="en">AEC-Q200 Certification</p>
+                <p>汽车电子委员会（Automotive Electronics Council）制定的被动元器件应力测试认证标准。包含温度循环、高温高湿、机械振动、焊接热冲击等20+项严苛测试。通过AEC-Q200是进入汽车供应链的必要条件。</p>
+            </div>
+            
+            <div class="term-item">
+                <h3><span class="tag">核心术语</span>EMI抑制</h3>
+                <p class="en">EMI (Electromagnetic Interference) Suppression</p>
+                <p>电磁干扰抑制技术。点火系统工作时产生的高频振荡会干扰收音机、GPS、ECU等设备。抑制电阻通过限制di/dt、阻尼振荡、滤波作用三重机制有效抑制EMI。</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>⚡ 高阻值绕线电阻术语</h2>
+            
+            <div class="term-item">
+                <h3><span class="tag">核心术语</span>泄放电阻</h3>
+                <p class="en">Bleeder Resistor</p>
+                <p>并联在电容两端，用于释放储存电荷的安全电阻。断电后需在安全时间内（通常1秒）将电压降至安全水平（如60V以下）。计算公式：V(t)=V₀×e^(-t/RC)。</p>
+            </div>
+            
+            <div class="term-item">
+                <h3><span class="tag">核心术语</span>温度系数</h3>
+                <p class="en">Temperature Coefficient of Resistance (TCR)</p>
+                <p>电阻值随温度变化的比率，单位ppm/℃。HXO HVW系列温度系数&lt;±100ppm/℃，确保在不同温度环境下阻值稳定，适合精密应用。</p>
+            </div>
+            
+            <div class="term-item">
+                <h3><span class="tag">核心术语</span>脉冲耐受能量</h3>
+                <p class="en">Pulse Withstand Energy</p>
+                <p>电阻能承受的单次脉冲能量，单位焦耳(J)。HXO HVW系列脉冲耐受能力5kJ+，适用于变频器制动、新能源电池泄放等高能量场景。</p>
+            </div>
+            
+            <div class="term-item">
+                <h3><span class="tag">核心术语</span>功率降额</h3>
+                <p class="en">Power Derating</p>
+                <p>电阻在高温环境下的功率下降特性。通常超过额定温度后，功率线性下降，直至达到最大工作温度时功率降为0。选型时需考虑环境温度影响。</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📊 通用电子术语</h2>
+            
+            <div class="term-item">
+                <h3><span class="tag">基础术语</span>阻值精度等级</h3>
+                <p class="en">Resistance Tolerance Grade</p>
+                <p>表示电阻实际阻值与标称值的允许偏差范围。常见等级：J级±5%、K级±10%、M级±20%。HXO产品主要使用K级（±10%），特殊应用可提供J级（±5%）或更高精度。</p>
+            </div>
+            
+            <div class="term-item">
+                <h3><span class="tag">基础术语</span>额定功率</h3>
+                <p class="en">Rated Power</p>
+                <p>电阻在特定环境温度下能长期承受的最大功率。HXO产品额定功率定义通常为25℃环境温度。实际应用中需根据环境温度进行功率降额。</p>
+            </div>
+            
+            <div class="term-item">
+                <h3><span class="tag">基础术语</span>CQC认证</h3>
+                <p class="en">CQC Certification</p>
+                <p>中国质量认证中心（China Quality Certification Centre）颁发的产品安全认证。是国内市场准入的必要条件，相当于国内的CCC认证。HXO所有产品均通过CQC认证。</p>
+            </div>
+            
+            <div class="term-item">
+                <h3><span class="tag">基础术语</span>ROHS认证</h3>
+                <p class="en">ROHS Compliance</p>
+                <p>欧盟《关于限制在电子电气设备中使用某些有害成分的指令》。限制铅、汞、镉、六价铬等有害物质。HXO产品完全符合ROHS和REACH法规要求，支持全球市场。</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>© 2026 HXO Resistor / 华星欧电子（深圳）有限公司</p>
+        <p style="margin-top:10px;">📧 resistor@hxo-lcr.cn | 🌐 www.hxo-lcr.cn</p>
+    </footer>
+</body>
+</html>
