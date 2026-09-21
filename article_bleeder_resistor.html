@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Value Wirewound Resistor - Capacitor Discharge Design</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .header { background: #1a1a2e; color: white; padding: 20px; text-align: center; }
+        .specs { background: #f5f5f5; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; }
+        th { background: #1a1a2e; color: white; }
+        .formula { background: #e8f5e9; padding: 15px; margin: 20px 0; border-left: 4px solid #4caf50; }
+        .cta { background: #e94560; color: white; padding: 20px; text-align: center; margin-top: 30px; }
+    </style>
+    <!-- Schema.org Product Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "HXO 泄放电阻解决方案",
+      "description": "HXO华星欧电子HXO 泄放电阻解决方案，专业汽车电子电阻制造商，AEC-Q200认证，CQC/UL双认证，7-15天交付",
+      "brand": {
+        "@type": "Brand",
+        "name": "HXO",
+        "url": "https://www.hxo-lcr.cn"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "华星欧电子（深圳）有限公司",
+        "url": "https://www.hxo-lcr.cn",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "resistor@hxo-lcr.cn",
+          "telephone": "+86-755-XXXX-XXXX"
+        }
+      },
+      "url": "https://www.hxo-lcr.cn/article_bleeder_resistor.html",
+      "image": "https://www.hxo-lcr.cn/product_overview.jpg",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "CNY",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "HXO Resistor"
+        }
+      }
+    }
+    </script>
+        <!-- Schema.org FAQPage Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "什么是泄放电阻？为什么需要它？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "泄放电阻并联在电容两端，断电后释放储存电荷，防止维修人员触电。IEC 61010 标准要求断电后 1 秒内电压降至 60V 以下。"
+          }
+        }
+        {
+          "@type": "Question",
+          "name": "如何计算泄放电阻的阻值和功率？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "阻值 R ≤ -t/(C×ln(V/V₀))，其中 t 为放电时间，C 为电容，V₀ 为初始电压，V 为目标电压。功率 P₀ = V₀²/R，建议选额定功率 2 倍以上。"
+          }
+        }
+        {
+          "@type": "Question",
+          "name": "泄放电阻应该串联还是并联？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "泄放电阻必须与电容并联，且位于电源入口之前，不能在开关之后。常闭设计确保安全电容始终被泄放。"
+          }
+        }
+        {
+          "@type": "Question",
+          "name": "HXO 提供哪些泄放电阻方案？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HXO 提供 HVW 高阻值绕线电阻（1-50W，0.1Ω-651kΩ）和玻璃釉电阻两种方案，可根据电压、功率、体积需求选择。"
+          }
+        }
+        {
+          "@type": "Question",
+          "name": "泄放电阻选型需要考虑哪些因素？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "主要考虑：1）电压等级（耐压）；2）功率需求；3）放电时间要求；4）环境温度；5）体积限制。建议选用 HVW 系列，功率余量充足。"
+          }
+        }
+      ]
+    }
+    </script>
+    </head>
+<body>
+    <div class="header">
+        <h1>High-Value Wirewound Resistor - Capacitor Discharge Design</h1>
+        <p>Calculation formula, power selection, and wirewound vs glass glaze comparison</p>
+    </div>
+    
+    <div class="specs">
+        <h2>Technical Specifications</h2>
+        <table>
+            <tr><th>Parameter</th><th>Range</th></tr>
+            <tr><td>Resistance Range</td><td>0.1Ω ~ 651kΩ</td></tr>
+            <tr><td>Power Range</td><td>1W ~ 50W</td></tr>
+            <tr><td>Tolerance</td><td>±1% / ±5% / ±10%</td></tr>
+            <tr><td>Temperature Coefficient</td><td><±100 ppm/°C</td></tr>
+            <tr><td>Voltage Rating</td><td>10kV+ (High Voltage Type)</td></tr>
+        </table>
+    </div>
+    
+    <div class="formula">
+        <h3>Discharge Formula</h3>
+        <p>V(t) = V₀ × e^(-t/RC)</p>
+        <p>Where: V(t) = voltage at time t, V₀ = initial voltage, R = resistance, C = capacitance</p>
+        <p>Safety standard: IEC 61010 requires voltage to drop below 60V within 1 second</p>
+    </div>
+    
+    <div class="cta">
+        <h3>Request Technical Data Sheet</h3>
+        <p>Email: resistor@hxo-lcr.cn | Web: www.hxo-lcr.cn</p>
+    </div>
+
+    <section class="faq-section">
+        <h2>常见问题 FAQ</h2>
+
+        <div class="faq-item">
+            <h3>Q1: 什么是泄放电阻？为什么需要它？</h3>
+            <p>泄放电阻并联在电容两端，断电后释放储存电荷，防止维修人员触电。IEC 61010 标准要求断电后 1 秒内电压降至 60V 以下。</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q2: 如何计算泄放电阻的阻值和功率？</h3>
+            <p>阻值 R ≤ -t/(C×ln(V/V₀))，其中 t 为放电时间，C 为电容，V₀ 为初始电压，V 为目标电压。功率 P₀ = V₀²/R，建议选额定功率 2 倍以上。</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q3: 泄放电阻应该串联还是并联？</h3>
+            <p>泄放电阻必须与电容并联，且位于电源入口之前，不能在开关之后。常闭设计确保安全电容始终被泄放。</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q4: HXO 提供哪些泄放电阻方案？</h3>
+            <p>HXO 提供 HVW 高阻值绕线电阻（1-50W，0.1Ω-651kΩ）和玻璃釉电阻两种方案，可根据电压、功率、体积需求选择。</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Q5: 泄放电阻选型需要考虑哪些因素？</h3>
+            <p>主要考虑：1）电压等级（耐压）；2）功率需求；3）放电时间要求；4）环境温度；5）体积限制。建议选用 HVW 系列，功率余量充足。</p>
+        </div>
+
+    </section>
+
+        <!-- Baidu Auto Push JS -->
+    <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>
+    </body>
+</html>

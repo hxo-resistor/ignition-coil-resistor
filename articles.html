@@ -1,0 +1,313 @@
+﻿<div class="article-item>`r`n <span class=tag>技术解析</span>`r`n <h3><a href=https://hxo-resitor.github.io/ignition-coil-resitor/article_ig_c_ceramic.html>IG-C 陶瓷芯点火线圈抑制电阻技术解析</a></h3>`r`n <p>HXO IG-C系列陶瓷芯绕线抑制电阻，脉冲耐压35kV，工作温度-55~275℃，AEC-Q200车规认证。</p>`r`n <div class=meta>2026-09-13</div>`r`n </div>
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HXO Resistor 鎶€鏈枃绔犲簱 鈥?鐐圭伀绾垮湀鎶戝埗鐢甸樆閫夊瀷鎸囧崡銆佹晠闅滄帓鏌ャ€佸浗浜ф浛浠ｆ柟妗堛€丗AQ甯歌闂绛変笓涓氬唴瀹广€?>
+    <title>鎶€鏈枃绔?| HXO Resistor 鈥?鐐圭伀绾垮湀鎶戝埗鐢甸樆涓撲笟鎶€鏈祫鏂?/title>
+    <link rel="sitemap" type="application/xml" href="https://hxo-resistor.github.io/ignition-coil-resistor/sitemap.xml">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.6; background: #fff; }
+        .nav { background: rgba(26,26,46,0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
+        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; }
+        .nav-logo span { color: #e94560; }
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; }
+        .nav-links a:hover { color: #fff; background: rgba(233,69,96,0.15); }
+        .nav-links a.active { color: #e94560; background: rgba(233,69,96,0.12); }
+        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5em; cursor: pointer; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #1a1a2e; flex-direction: column; padding: 12px; }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+        }
+        .page-header { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; padding: 100px 24px 50px; text-align: center; }
+        .page-header h1 { font-size: 2.2em; font-weight: 800; }
+        .page-header h1 span { color: #e94560; }
+        .page-header p { color: #8899b4; max-width: 600px; margin: 8px auto 0; }
+        .container { max-width: 900px; margin: 0 auto; padding: 50px 24px; }
+        .section-label { display: inline-block; background: rgba(233,69,96,0.08); color: #e94560; padding: 2px 12px; border-radius: 12px; font-size: 0.75em; font-weight: 600; margin-bottom: 12px; letter-spacing: 1px; }
+        .section-title { font-size: 1.4em; font-weight: 700; margin-bottom: 20px; color: #1a1a2e; }
+        .article-list { display: flex; flex-direction: column; gap: 16px; }
+        .article-item { border: 1px solid #eee; border-radius: 12px; padding: 24px; transition: 0.3s; }
+        .article-item:hover { border-color: #e94560; box-shadow: 0 4px 16px rgba(233,69,96,0.06); }
+        .article-item .tag { display: inline-block; background: rgba(233,69,96,0.08); color: #e94560; padding: 2px 10px; border-radius: 10px; font-size: 0.7em; font-weight: 600; margin-bottom: 6px; }
+        .article-item h3 { font-size: 1.05em; margin-bottom: 6px; }
+        .article-item h3 a { color: #1a1a2e; text-decoration: none; }
+        .article-item h3 a:hover { color: #e94560; }
+        .article-item p { color: #666; font-size: 0.88em; line-height: 1.5; }
+        .article-item .meta { color: #999; font-size: 0.8em; margin-top: 8px; }
+        .faq-highlight { background: #f8f9fa; border: 2px solid #e94560; }
+        .faq-highlight h3 a { color: #e94560; }
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; }
+        .footer a { color: #e94560; text-decoration: none; }
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "棣栭〉",
+      "item": "https://hxo-resistor.github.io/ignition-coil-resistor/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "鎶€鏈枃绔?,
+      "item": "https://hxo-resistor.github.io/ignition-coil-resistor/articles.html"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HXO Resistor - 鐐圭伀绾垮湀鎶戝埗鐢甸樆涓撲笟鍒堕€犲晢",
+  "alternateName": "鍗庢槦娆х數瀛愶紙娣卞湷锛夋湁闄愬叕鍙?,
+  "url": "https://hxo-resistor.github.io/ignition-coil-resistor/",
+  "description": "涓撲笟鐐圭伀绾垮湀鎶戝埗鐢甸樆鍒堕€犲晢锛孖G-C闄剁摲鑺€両G-F鐜荤氦鑺€両G-S闄剁摲瀹炲績涓夊ぇ绯诲垪锛孉EC-Q200璁よ瘉锛?-15澶╀氦浠?,
+  "inLanguage": [
+    "zh-CN",
+    "en"
+  ]
+}
+    </script>
+        <!-- Clarity tracking code -->
+<script>
+(function(c,l,a,r,i,t,y){ c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}; t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i; y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y); })(window, document, "clarity", "script", "xrcejtxzio");
+</script>
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6WNVWY7LC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X6WNVWY7LC');
+</script>
+
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">HXO<span>.</span></a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">鈽?/button>
+        <ul class="nav-links">
+            <li><a href="./">棣栭〉</a></li>
+            <li><a href="./ig-c.html">IG-C</a></li>
+            <li><a href="./ig-f.html">IG-F</a></li>
+            <li><a href="./ig-s.html">IG-S</a></li>
+            <li><a href="./comparison.html">浜у搧瀵规瘮</a></li>
+            <li><a href="./specifications.html">鎶€鏈弬鏁?/a></li>
+            <li><a href="./thermal-fuse-resistor.html">馃敟娓╁害淇濋櫓</a></li>
+            <li><a href="./selection-guide.html">閫夊瀷鎸囧崡</a></li>
+            <li><a href="./case-studies.html">瀹㈡埛妗堜緥</a></li>
+            <li><a href="./standards.html">琛屼笟鏍囧噯</a></li>
+            <li><a href="./order.html">璁㈣喘鎸囧崡</a></li>
+            <li><a href="./gallery.html">浜у搧鍥惧簱</a></li>
+            <li><a href="./articles.html" class="active">鎶€鏈枃绔?/a></li>
+            <li><a href="./faq.html">FAQ</a></li>
+            <li><a href="./en/products.html">EN</a></li>
+            <li><a href="./#inquiry">璇环/鑱旂郴</a></li>
+        
+                <li><a href="./glossary.html">术语表</a></li>
+</ul>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>鎶€鏈枃绔?<span>&amp; 璧勬簮</span></h1>
+    <p>鐐圭伀绾垮湀鎶戝埗鐢甸樆鐨勪笓涓氭妧鏈祫鏂欍€侀€夊瀷鎸囧崡銆佹晠闅滄帓鏌ュ拰甯歌闂瑙ｇ瓟</p>
+</div>
+
+<div class="container">
+
+    <!-- 鎶€鏈枃绔?-->
+    <div class="section-label">馃摉 TECHNICAL ARTICLES</div>
+    <h2 class="section-title">鎶€鏈枃绔?/h2>
+    <div class="article-list">
+        <div class="article-item">
+            <span class="tag">技术解析</span>
+            <h3><a href="./article_rxf_charger_protection.html">RXF充电器保护方案 — 技术博客</a></h3>
+            <p>解决手机充电器熔壳问题的终极方案，CQC/UL认证OTP温度保险电阻。</p>
+            <div class="meta">2026-09-17</div>
+        </div>
+
+        <div class="article-item">
+            <span class="tag">技术解析</span>
+            <h3><a href="https://hxo-resitor.github.io/ignition-coil-resitor/article_hvw_resistor.html">High Value Wirewound Resistor Selection Guide</a></h3>
+            <p>HXO专业技术文章，涵盖产品参数、应用场景和选型指南。</p>
+            <div class="meta">2026-09-13</div>
+        </div>
+
+        <div class="article-item">
+            <span class="tag">技术解析</span>
+            <h3><a href="https://hxo-resitor.github.io/ignition-coil-resitor/article_rxf_fuse.html">RXF Temperature Fuse Resistor Technical Analysis</a></h3>
+            <p>HXO专业技术文章，涵盖产品参数、应用场景和选型指南。</p>
+            <div class="meta">2026-09-13</div>
+        </div>
+
+        <div class="article-item">
+            <span class="tag">技术解析</span>
+            <h3><a href="https://hxo-resitor.github.io/ignition-coil-resitor/article_ig_f.html">IG-F 玻纤芯点火线圈抑制电阻技术解析</a></h3>
+            <p>HXO专业技术文章，涵盖产品参数、应用场景和选型指南。</p>
+            <div class="meta">2026-09-13</div>
+        </div>
+
+<div class="article-item>`r`n <span class=tag>技术科普</span>`r`n <h3><a href=https://hxo-resitor.github.io/ignition-coil-resistor/article_emi_suppression.html>点火系统的EMI干扰怎么抑制？三种抑制电阻选型指南</a></h3>`r`n <p>汽车点火系统EMI干扰根源分析、三重抑制机制详解、IG-C/IG-F/IG-S参数对比与选型决策树。</p>`r`n <div class=meta>2026-09-12</div>`r`n </div>
+
+        <div class="article-item">
+            <span class="tag">閫夊瀷鎸囧崡</span>
+            <p>璇﹁В鎶戝埗鐢甸樆鐨勯€夊瀷鏂规硶锛岄樆鍊?惟鍜?k惟鐨勫尯鍒€佸姛鐜?W/5W/10W鐨勯€傜敤鍦烘櫙銆佷笉鍚屽伐鑹虹殑娓╁害琛ㄧ幇瀵规瘮锛岄檮蹇€熼€夊瀷涓夋娉曘€?/p>
+            <div class="meta">2026-07-22</div>
+        </div>
+
+        <div class="article-item">        <div class="article-item>`r`n <span class=tag>技术科普</span>`r`n <h3><a href=https://hxo-resitor.github.io/ignition-coil-resistor/article_emi_suppression.html>点火系统的EMI干扰怎么抑制？三种抑制电阻选型指南</a></h3>`r`n <p>汽车点火系统EMI干扰根源分析、三重抑制机制详解、IG-C/IG-F/IG-S参数对比与选型决策树。</p>`r`n <div class=meta>2026-09-12</div>`r`n </div>
+            <span class="tag">璁よ瘉鏍囧噯</span>
+            <p>AEC-Q200鐨?0+椤瑰簲鍔涙祴璇曡瑙ｏ紝娌℃湁璁よ瘉鐨勭數闃诲湪杞﹁浇鐜涓殑鐪熷疄椋庨櫓锛屼笉鍚岃璇佺瓑绾х殑鍚噾閲忓樊寮傦紝浠ュ強濡備綍楠岃瘉璁よ瘉鐪熶吉銆?/p>
+            <div class="meta">2026-07-22</div>
+        </div>
+
+        <div class="article-item">
+            <span class="tag">鏁呴殰鎺掓煡</span>
+            <p>闃诲€煎亸澶?鍋忓皬/寮€璺?涓嶇ǔ瀹氬洓绉嶅紓甯哥幇璞＄殑鍘熷洜鍒嗘瀽鍜岃В鍐虫柟妗堬紝缁翠慨甯堝倕鐨勫疄鐢ㄨ瘖鏂祦绋嬶紝涓嶅悓鍦烘櫙鐨勯€夊瀷鎺ㄨ崘銆?/p>
+            <div class="meta">2026-07-22</div>
+        </div>
+
+        <div class="article-item">
+            <span class="tag">鍥戒骇鏇夸唬</span>
+            <p>VISHAY/TE/KOA绛夎繘鍙ｅ搧鐗屾姂鍒剁數闃荤殑鍥戒骇鏇夸唬鏂规锛?瀹跺鎴峰疄娴嬮獙璇佹暟鎹紝鎬ц兘瀹屽叏瀵规爣锛屼环鏍间綆30%-50%锛屼氦鏈?-15澶┿€?/p>
+            <div class="meta">2026-07-22</div>
+        </div>
+
+        <div class="article-item">
+            <span class="tag">鎶€鏈弬鏁?/span>
+            <p>1惟鍜?.5惟鐩稿樊0.5惟锛屼絾鐐圭伀鑳介噺宸?0%銆傞€夐敊瀵艰嚧鐑у紑鍏崇鎴栭珮閫熺己鐏紝闄勫揩閫熼€夊瀷涓夋娉曘€?/p>
+            <div class="meta">2026-07-22</div>
+        </div>
+
+    </div>
+
+    <div class="article-item">
+                <span class="tag">鏂板搧鎺ㄨ崘</span>
+                <h3><a href="https://hxo-resistor.github.io/ignition-coil-resistor/article_charger_melt.html">涓€棰楃數闃昏В鍐冲厖鐢靛櫒鐔斿３闂鈥斺€擱XF娓╁害淇濋櫓鐢甸樆</a></h3>
+                <p>OTP杩囨俯淇濇姢鍨嬬啍鏂數闃伙紝杩囨俯+杩囨祦鍙岄噸淇濇姢锛屼竴棰楁浛浠ｄ袱棰楋紝CQC/UL璁よ瘉锛屼笓涓?.5W浠ヤ笂鍏呯數鍣ㄩ€傞厤鍣ㄨ璁°€?/p>
+                <div class="meta">2026-08-01</div>
+            </div>
+
+    <!-- 闀垮熬闂瓟 -->
+    <div style="margin-top: 50px;">
+        <div class="section-label">馃攳 LONG-TAIL Q&A</div>
+        <h2 class="section-title">鐑棬闂瓟</h2>
+        <p style="color:#666;font-size:0.9em;margin-bottom:20px;">瀹㈡埛鎼滅储鏈€澶氱殑瀹為檯闂锛屽熀浜庣湡瀹炵淮淇拰閲囪喘鍦烘櫙鏁寸悊</p>
+        <div class="article-list">
+
+            <div class="article-item">
+                <span class="tag">閫夊瀷瀵规瘮</span>
+                <h3><a href="https://hxo-resistor.github.io/ignition-coil-resistor/article_4k7_vs_10k.html">鎽╂墭杞︾偣鐏嚎鍦堟姂鍒剁數闃?.7k惟鍜?0k惟鑳介€氱敤鍚楋紵</a></h3>
+                <p>璇︾粏瀵规瘮涓ょ闃诲€肩殑EMI鎶戝埗鏁堟灉銆佺偣鐏兘閲忔崯澶卞拰瀵瑰彂鍔ㄦ満鐨勫奖鍝嶏紝闄勫揩閫熷垽鏂柟娉曘€傚寲娌瑰櫒杞﹂€氱敤锛岀數鍠疯溅闇€璋ㄦ厧銆?/p>
+                <div class="meta">2026-07-22</div>
+            </div>
+
+            <div class="article-item">
+                <span class="tag">缁翠慨瀹炵敤</span>
+                <h3><a href="https://hxo-resistor.github.io/ignition-coil-resistor/article_multimeter_test.html">鐐圭伀绾垮湀鎶戝埗鐢甸樆鎬庝箞鐢ㄤ竾鐢ㄨ〃娴嬮噺濂藉潖锛?/a></h3>
+                <p>涓囩敤琛ㄦ。浣嶉€夋嫨銆佹爣鍑嗛樆鍊艰寖鍥淬€佸紓甯稿垽鏂柟娉曪紝4绉嶅父瑙佸紓甯革紙寮€璺?鐭矾/鑰佸寲/鎺ヨЕ涓嶈壇锛夌殑鍒ゆ柇鏍囧噯銆?/p>
+                <div class="meta">2026-07-22</div>
+            </div>
+
+            <div class="article-item">
+                <span class="tag">鍥戒骇鏇夸唬</span>
+                <h3><a href="https://hxo-resistor.github.io/ignition-coil-resistor/article_import_substitution_qa.html">鍥戒骇鐐圭伀绾垮湀鎶戝埗鐢甸樆鏇夸唬VISHAY闇€瑕佹敼鐢佃矾鍚楋紵</a></h3>
+                <p>鏇夸唬鍏煎鎬с€佸紩鑴氶棿璺濄€佹€ц兘瀵规爣鍜岄獙璇佹祦绋嬭瑙ｏ紝闄勬浛浠ｅ鐓ц〃锛岀洿鎺ユ浛鎹㈡棤闇€鏀圭數璺€?/p>
+                <div class="meta">2026-07-22</div>
+            </div>
+
+            <div class="article-item">
+                <span class="tag">鏁呴殰鍒嗘瀽</span>
+                <h3><a href="https://hxo-resistor.github.io/ignition-coil-resistor/article_burn_causes.html">鐐圭伀绾垮湀鎶戝埗鐢甸樆鐑т簡鏄粈涔堝師鍥狅紵4绉嶅父瑙佹晠闅滃垎鏋?/a></h3>
+                <p>杩囧帇鍑荤┛銆佽繃鐑€佸寲銆佹尟鍔ㄦ柇瑁傘€佺粷缂樺け鏁堚€斺€?绉嶇儳姣佸師鍥犲強鎺掓煡鏂规硶锛岄檮閫夊瀷棰勯槻寤鸿銆?/p>
+                <div class="meta">2026-07-22</div>
+            </div>
+
+            <div class="article-item">
+                <span class="tag">瀹夎鎸囧崡</span>
+                <h3><a href="https://hxo-resistor.github.io/ignition-coil-resistor/article_installation_guide.html">鐐圭伀绾垮湀鎶戝埗鐢甸樆瀹夎娉ㄦ剰浜嬮」涓庡父瑙佽鍖猴細涓€浠藉畬鏁寸殑瀹夎鎸囧崡</a></h3>
+                <p>35%閫€璐ф簮浜庡畨瑁呬笉褰擄紒鏍囧噯瀹夎5姝ユ硶銆?0涓父瑙佽鍖簐s姝ｇ‘鍋氭硶瀵规瘮琛ㄣ€佹晠闅滄帓鏌ヨ〃锛屼粠瀹夎鍒版帓鏌ヤ竴绔欐悶瀹氥€?/p>
+                <div class="meta">2026-07-23</div>
+            </div>
+
+            <div class="article-item">
+                <span class="tag">閲囪喘鎸囧崡</span>
+                <h3><a href="https://hxo-resistor.github.io/ignition-coil-resistor/article_price_difference.html">鐐圭伀绾垮湀鎶戝埗鐢甸樆浠锋牸宸窛澶у悧锛熶负浠€涔堜环鏍煎樊寮傞偅涔堝ぇ锛?/a></h3>
+                <p>浠庡嚑姣涘埌鍑犲崄鍧楋紝浠锋牸宸嚑鍗佸€嶇殑绉樺瘑锛氳璇併€佹祴璇曘€佹潗鏂欍€佸搧鎺х殑宸紓锛屽悎鐞嗛€夊瀷涓嶈姳鍐ゆ瀴閽便€?/p>
+                <div class="meta">2026-07-22</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FAQ鍏ュ彛 -->
+    <div style="margin-top: 50px;">
+        <div class="section-label">鉂?FAQ</div>
+        <h2 class="section-title">甯歌闂</h2>
+        <div class="article-list">
+            <div class="article-item faq-highlight">
+                <span class="tag">18涓父瑙侀棶棰?/span>
+                <h3><a href="https://hxo-resistor.github.io/ignition-coil-resistor/faq.html">鐐圭伀绾垮湀鎶戝埗鐢甸樆甯歌闂 FAQ</a></h3>
+                <p>娑电洊浜у搧涓庤鍗曘€佽璇佷笌璐ㄩ噺銆侀€夊瀷涓庢妧鏈€佸浗浜ф浛浠ｄ笌渚涘簲鍟嗚瘎浼板洓澶х被锛屽叡18涓父瑙侀棶棰樸€傚寘鎷珹EC-Q200璁よ瘉璇﹁В銆佸浗浜s杩涘彛宸紓鍒嗘瀽銆佷緵搴斿晢鍙潬鎬у垽鏂瓑銆?/p>
+                <div class="meta">2026-07-22 路 鏇存柊3涓柊澧為棶棰?/div>
+            </div>
+        </div>
+    </div>
+
+    <a href="./" style="display:inline-block;margin-top:40px;color:#e94560;text-decoration:none;font-weight:600;">鈫?杩斿洖棣栭〉</a>
+</div>
+
+<div class="footer" style="text-align:center;padding:30px 20px;font-size:0.85em;">
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:12px;">
+        <a href="./" style="color:#aaa;text-decoration:none;">棣栭〉</a>
+        <a href="./ig-c.html" style="color:#aaa;text-decoration:none;">IG-C</a>
+        <a href="./ig-f.html" style="color:#aaa;text-decoration:none;">IG-F</a>
+        <a href="./ig-s.html" style="color:#aaa;text-decoration:none;">IG-S</a>
+        <a href="./comparison.html" style="color:#aaa;text-decoration:none;">浜у搧瀵规瘮</a>
+        <a href="./specifications.html" style="color:#aaa;text-decoration:none;">鎶€鏈弬鏁?/a>
+        <a href="./selection-guide.html" style="color:#aaa;text-decoration:none;">閫夊瀷鎸囧崡</a>
+        <a href="./case-studies.html" style="color:#aaa;text-decoration:none;">瀹㈡埛妗堜緥</a>
+        <a href="./standards.html" style="color:#aaa;text-decoration:none;">琛屼笟鏍囧噯</a>
+        <a href="./gallery.html" style="color:#aaa;text-decoration:none;">浜у搧鍥惧簱</a>
+        <a href="./articles.html" style="color:#aaa;text-decoration:none;">鎶€鏈枃绔?/a>
+        <a href="./faq.html" style="color:#aaa;text-decoration:none;">FAQ</a>
+        <a href="./en/products.html" style="color:#aaa;text-decoration:none;">English</a>
+        <a href="https://www.hxo-lcr.cn" target="_blank" style="color:#aaa;text-decoration:none;">瀹樼綉</a>
+        <a href="mailto:resistor@hxo-lcr.cn" style="color:#aaa;text-decoration:none;">resistor@hxo-lcr.cn</a>
+    </div>
+    <p>漏 2026 HXO Resistor / 鍗庢槦娆х數瀛愶紙娣卞湷锛夋湁闄愬叕鍙?鈥?涓撴敞鐐圭伀绾垮湀鎶戝埗鐢甸樆</p>
+</div>
+    <!-- Baidu Auto Push JS -->
+    <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>
+    </body>
+</html>
