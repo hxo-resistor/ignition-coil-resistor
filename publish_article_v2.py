@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-HXO 文章发布流水线 v2
+HXO 文章发布流水线 v2.1 - 修复Git仓库路径问题
 功能：生成文章 -> Git推送 -> Supabase同步 -> 百度API推送
-版本：v2.0
+版本：v2.1
 """
 
 import os
@@ -16,17 +16,18 @@ from datetime import datetime
 from pathlib import Path
 
 # ============== 配置 ==============
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG = {
     'proxy': 'http://127.0.0.1:7897',
     'timeout': 30,
-    'repo_path': os.path.dirname(os.path.abspath(__file__)),
+    'repo_path': BASE_DIR,
     'branch': 'main',
     'remote': 'https://github.com/hxo-resitor/ignition-coil-resistor.git',
     'supabase_url': 'https://whnmtkrmvqayfhpmrdiq.supabase.co',
     'supabase_key': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indobm10a3JtdnFheWZocG1yZGlxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcwNDU5MjEsImV4cCI6MjEwMjYyMTkyMX0.MHTyZOGYd5KvnwGclq2oI2xua2rbXPHJ--AGmZOGhoE',
     'primary_domain': 'www.hxo-lcr.cn',
     'baidu_token': 'StZI77pKI1nwhzFp',
-    'log_dir': 'logs',
+    'log_dir': BASE_DIR + '/logs',
 }
 
 def log(message, level='INFO'):
@@ -100,7 +101,7 @@ def git_add_commit_push(message):
     commit_hash = stdout.strip() if code == 0 else 'unknown'
     
     # 推送（带重试）
-    log(f"  阶段3: git push (最多重试{CONFIG.get('max_retries', 3)}次)")
+    log(f"  阶段3: git push (最多重试3次)")
     for attempt in range(1, 4):
         log(f"    尝试 {attempt}/3...")
         code, stdout, stderr = run_command('git push origin {}'.format(CONFIG['branch']))
@@ -182,10 +183,6 @@ def push_to_baidu(urls):
         proxies = {'http': CONFIG['proxy'], 'https': CONFIG['proxy']}
         
         data = '\n'.join(urls)
-        req = requests.Request('POST', api_url, data=data.encode('utf-8'),
-                              headers={'User-Agent': 'hxobot'})
-        prepared = req.prepare()
-        
         response = requests.post(
             api_url, data=data.encode('utf-8'),
             headers={'User-Agent': 'hxobot'},
@@ -232,7 +229,7 @@ def verify_deployment(article_url):
 def main():
     """主执行函数"""
     print("=" * 70)
-    print("HXO 文章发布流水线 v2")
+    print("HXO 文章发布流水线 v2.1")
     print("时间: {}".format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
     print("=" * 70)
     print("")
@@ -299,7 +296,7 @@ def main():
     log("Commit Hash: {}".format(commit_hash))
     log("文章URL: {}".format(article_url))
     log("GitHub验证: {}".format('通过' if verification_result else '异常'))
-    log("百度推送: {}".format('成功' if baidu_success else '跳过'))
+    log("百度推送: {}".format('成功' if baidu_success else '失败'))
     log("=" * 70)
     
     sys.exit(0 if verification_result else 1)
