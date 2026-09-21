@@ -22,7 +22,7 @@ CONFIG = {
     'timeout': 30,
     'repo_path': BASE_DIR,
     'branch': 'main',
-    'remote': 'https://github.com/hxo-resitor/ignition-coil-resistor.git',
+    'remote': 'https://github.com/hxo-resistor/ignition-coil-resistor.git',
     'supabase_url': 'https://whnmtkrmvqayfhpmrdiq.supabase.co',
     'supabase_key': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indobm10a3JtdnFheWZocG1yZGlxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcwNDU5MjEsImV4cCI6MjEwMjYyMTkyMX0.MHTyZOGYd5KvnwGclq2oI2xua2rbXPHJ--AGmZOGhoE',
     'primary_domain': 'www.hxo-lcr.cn',
