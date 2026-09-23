@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="专业讲解摩托车点火系统抑制电阻的选型方法：按跨骑、踏板、越野、通勤四类车型给出IG-C陶瓷芯与IG-F玻纤芯的阻值匹配、安装与EMI抑制建议，附CISPR 25实测数据与常见误区，帮助摩配经销商与维修技师一次选对。">
+    <meta name="keywords" content="摩托车点火线圈抑制电阻,IG-C,IG-F,跨骑车电阻,踏板车点火电阻,点火线圈电阻选型,EMI抑制,CISPR 25,华星欧HXO">
+    <title>摩托车点火系统电阻选型指南：从跨骑到踏板的全覆盖 | HXO Resistor</title>
+    <link rel="canonical" href="https://www.hxo-lcr.cn/article_moto_ignition.html">
+<style>
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #1a1a2e; line-height: 1.7; background: #fff; }
+
+        .nav { background: rgba(26, 26, 46, 0.98); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 64px; }
+
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 100%; }
+
+        .nav-logo { font-size: 1.3em; font-weight: 800; color: #fff; text-decoration: none; }
+
+        .nav-logo span { color: #e94560; }
+
+        .nav-links { display: flex; gap: 6px; list-style: none; }
+
+        .nav-links a { color: #ccc; text-decoration: none; font-size: 0.85em; padding: 8px 14px; border-radius: 6px; }
+
+        .nav-links a:hover { color: #fff; background: rgba(233,69,96,0.15); }
+
+        .nav-links a.active { color: #e94560; background: rgba(233,69,96,0.12); }
+
+        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5em; cursor: pointer; }
+
+        @media (max-width: 768px) {
+
+            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #1a1a2e; flex-direction: column; padding: 12px; }
+
+            .nav-links.open { display: flex; }
+
+            .nav-toggle { display: block; }
+
+        }
+
+        .article-header { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; padding: 100px 24px 50px; text-align: center; }
+
+        .article-header h1 { font-size: 1.8em; font-weight: 800; max-width: 800px; margin: 0 auto 10px; }
+
+        .article-header .meta { color: #8899b4; font-size: 0.85em; }
+
+        .article-header .breadcrumb { color: #7a8aa5; font-size: 0.8em; margin-bottom: 12px; }
+
+        .article-header .breadcrumb a { color: #e94560; text-decoration: none; }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 50px 24px; }
+
+        .container h2 { font-size: 1.3em; color: #0f3460; margin: 36px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e94560; }
+
+        .container h3 { font-size: 1.1em; color: #e94560; margin: 24px 0 8px; }
+
+        .container h4 { font-size: 1em; color: #1a1a2e; margin: 18px 0 6px; }
+
+        .container p { margin-bottom: 14px; color: #444; }
+
+        .container ul, .container ol { margin: 10px 0 16px 20px; }
+
+        .container li { margin-bottom: 6px; color: #444; }
+
+        .container strong { color: #1a1a2e; }
+
+        .container blockquote { border-left: 4px solid #e94560; background: #f8f9fa; padding: 14px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+
+        .container blockquote p { margin: 0; color: #333; }
+
+        .highlight-box { background: #f8f9fa; border-left: 4px solid #e94560; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+
+        .highlight-box p { margin: 0; color: #333; }
+
+        .info-box { background: #e8f5e9; border-left: 4px solid #2e7d32; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+
+        .info-box p { margin: 0; color: #1b5e20; }
+
+        .warn-box { background: #fff3e0; border-left: 4px solid #e65100; padding: 18px 22px; border-radius: 0 8px 8px 0; margin: 20px 0; }
+
+        .warn-box p { margin: 0; color: #bf360c; }
+
+        .table-wrap { overflow-x: auto; margin: 20px 0; }
+
+        table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
+
+        th { background: #1a1a2e; color: #fff; padding: 10px 14px; text-align: left; font-size: 0.85em; }
+
+        td { padding: 10px 14px; border-bottom: 1px solid #eee; font-size: 0.9em; }
+
+        tr:nth-child(even) { background: #fafafa; }
+
+        tr:hover { background: #fff5f5; }
+
+        .toc { background: #f8f9fa; border-radius: 8px; padding: 20px 24px; margin: 20px 0; border: 1px solid #eee; }
+
+        .toc h3 { color: #0f3460; margin-top: 0; }
+
+        .toc ol { margin: 8px 0 0 18px; }
+
+        .toc a { color: #0f3460; text-decoration: none; }
+
+        .toc a:hover { color: #e94560; text-decoration: underline; }
+
+        .cta { background: #f8f9fa; border-radius: 12px; padding: 28px; text-align: center; margin: 40px 0; border: 1px solid #eee; }
+
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.9em; background: #e94560; color: #fff; margin: 4px; }
+
+        .btn:hover { background: #d63851; }
+
+        .btn-secondary { background: #0f3460; }
+
+        .btn-secondary:hover { background: #0a2540; }
+
+        .back-link { display: inline-block; margin-top: 30px; color: #e94560; text-decoration: none; font-weight: 600; }
+
+        .back-link:hover { text-decoration: underline; }
+
+        .related-links { background: #f8f9fa; border-radius: 12px; padding: 24px; margin: 40px 0; border: 1px solid #eee; }
+
+        .related-links h3 { color: #0f3460; margin-top: 0; font-size: 1.1em; }
+
+        .related-links ul { list-style: none; padding: 0; margin: 10px 0 0; }
+
+        .related-links li { padding: 4px 0; }
+
+        .related-links a { color: #e94560; text-decoration: none; }
+
+        .related-links a:hover { text-decoration: underline; }
+
+        .footer { background: #1a1a2e; color: #888; text-align: center; padding: 32px 24px; font-size: 0.85em; }
+
+        .footer a { color: #e94560; text-decoration: none; }
+
+        .footer .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 12px; }
+
+        @media (max-width: 768px) {
+
+            .article-header h1 { font-size: 1.4em; }
+
+            .container { padding: 30px 16px; }
+
+        }
+
+    </style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "首页",
+   "item": "https://www.hxo-lcr.cn/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "技术文章",
+   "item": "https://www.hxo-lcr.cn/articles.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "摩托车点火系统电阻选型指南",
+   "item": "https://www.hxo-lcr.cn/article_moto_ignition.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "摩托车点火系统电阻选型指南：从跨骑到踏板的全覆盖",
+ "description": "专业讲解摩托车点火系统抑制电阻的选型方法：按跨骑、踏板、越野、通勤四类车型给出IG-C陶瓷芯与IG-F玻纤芯的阻值匹配、安装与EMI抑制建议，附CISPR 25实测数据与常见误区，帮助摩配经销商与维修技师一次选对。",
+ "image": [
+  "https://www.hxo-lcr.cn/product_ig_c.jpg",
+  "https://www.hxo-lcr.cn/product_ig_f.jpg"
+ ],
+ "datePublished": "2026-09-23",
+ "dateModified": "2026-09-23",
+ "author": {
+  "@type": "Organization",
+  "name": "华星欧电子（深圳）有限公司",
+  "url": "https://www.hxo-lcr.cn/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "HXO Resistor",
+  "logo": {
+   "@type": "ImageObject",
+   "url": "https://www.hxo-lcr.cn/product_overview.jpg"
+  }
+ },
+ "mainEntityOfPage": {
+  "@type": "WebPage",
+  "@id": "https://www.hxo-lcr.cn/article_moto_ignition.html"
+ },
+ "mentions": [
+  {
+   "@type": "Thing",
+   "name": "CISPR 25"
+  },
+  {
+   "@type": "Thing",
+   "name": "ISO 8820-5"
+  },
+  {
+   "@type": "Thing",
+   "name": "AEC-Q200"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "跨骑车和踏板车的点火抑制电阻能通用吗？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "阻值不同，不建议直接互换。跨骑车多为化油器或大排量电喷，常用4.7kΩ到10kΩ；踏板车点火能量较小，通常选更高阻值（10kΩ到47kΩ）。混用可能引起怠速不稳或EMI超标，建议按车型原厂参数匹配。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "IG-C陶瓷芯和IG-F玻纤芯该选哪个？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "追求长寿命和耐高温选IG-C陶瓷芯（工作温度可达+350℃）；追求性价比与快速交付选IG-F玻纤芯。两者耐压均不低于40kV，均可通过CISPR 25 EMI抑制验证。"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "没有原厂参数怎么判断该用多大阻值？",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "最可靠是用万用表测原车火花塞帽内抑制电阻的阻值，按同值替换。无原件时可参考同排量、同点火方式（CDI/磁电机/ECU）的车型经验值，再结合CISPR 25 EMI实测确认。"
+   }
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "HXO Resistor - 点火线圈抑制电阻专业制造商",
+ "alternateName": "华星欧电子（深圳）有限公司",
+ "url": "https://www.hxo-lcr.cn/",
+ "description": "专业点火线圈抑制电阻制造商，IG-C陶瓷芯、IG-F玻纤芯、IG-S陶瓷实心三大系列，AEC-Q200认证，7-15天交付",
+ "inLanguage": [
+  "zh-CN",
+  "en"
+ ]
+}
+</script>
+<!-- Clarity tracking code -->
+
+<script>
+
+(function(c,l,a,r,i,t,y){ c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}; t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i; y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y); })(window, document, "clarity", "script", "xrcejtxzio");
+
+</script>
+
+<!-- Google tag (gtag.js) - GA4 -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6WNVWY7LC"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-X6WNVWY7LC');
+
+</script>
+
+
+
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="./" class="nav-logo">HXO<span>.</span></a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+        <ul class="nav-links">
+            <li><a href="./">首页</a></li>
+            <li><a href="./ig-c.html">IG-C</a></li>
+            <li><a href="./ig-f.html">IG-F</a></li>
+            <li><a href="./ig-s.html">IG-S</a></li>
+            <li><a href="./comparison.html">产品对比</a></li>
+            <li><a href="./specifications.html">技术参数</a></li>
+            <li><a href="./selection-guide.html">选型指南</a></li>
+            <li><a href="./case-studies.html">客户案例</a></li>
+            <li><a href="./standards.html">行业标准</a></li>
+            <li><a href="./articles.html" class="active">技术文章</a></li>
+            <li><a href="./faq.html">FAQ</a></li>
+            <li><a href="./#inquiry">询价/联系</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="article-header">
+    <div class="breadcrumb"><a href="./">首页</a> › <a href="./articles.html">技术文章</a> › 摩托车点火系统电阻选型</div>
+    <h1>摩托车点火系统电阻选型指南：从跨骑到踏板的全覆盖</h1>
+    <div class="meta">HXO Resistor 技术团队 · 选型指南 · 2026-09-23 · 约2600字</div>
+</div>
+<div class="container">
+<div class="toc">
+    <h3>📑 本文目录</h3>
+    <ol>
+        <li><a href="#intro">引言：为什么摩托车抑制电阻“分车型”</a></li>
+        <li><a href="#why">先搞清：抑制电阻在点火系统里做什么</a></li>
+        <li><a href="#vehicle-map">四类车型的电阻匹配地图</a></li>
+        <li><a href="#series">IG-C 与 IG-F：两大系列怎么选</a></li>
+        <li><a href="#install">安装与安装位置要点</a></li>
+        <li><a href="#testdata">EMI 实测数据（CISPR 25）</a></li>
+        <li><a href="#miscon">常见误区</a></li>
+        <li><a href="#summary">总结与选型速查</a></li>
+    </ol>
+</div>
+<h2 id="intro">一、引言：为什么摩托车抑制电阻要“分车型”</h2>
+<p>很多摩配经销商和维修师傅以为“抑制电阻就一个规格，随便装”。但实际并非如此：摩托车的点火方式（化油器 CDI、磁电机、电喷 ECU、PGM-FI 等）、排量区间和整车 EMI 敏感度差异很大，<strong>不同车型需要的阻值和结构并不通用</strong>。选小了，点火能量损失低但 EMI 抑制不足；选大了，EMI 干净却可能让怠速点火爆发性下降。本文给出一套可落地的选型地图。</p>
+<div class="info-box"><p><strong>💡 核心结论：</strong>跨骑车（125–500cc，CDI/磁电机）推荐 <strong>IG-C 陶瓷芯 4.7kΩ–10kΩ</strong>；踏板车（50–125cc，磁电机/ECU）推荐 <strong>IG-F 玻纤芯 10kΩ–47kΩ</strong>；越野与大排量电喷按原厂阻值精确匹配。所有型号耐压均 ≥40kV。</p></div>
+<h2 id="why">二、先搞清：抑制电阻在点火系统里做什么</h2>
+<p>点火线圈在火花塞击穿瞬间会产生 1–100MHz 的高频振荡（EMI）。抑制电阻与线圈寄生电容构成 RC 低通滤波器，把高频分量滤掉，同时保留点火所需的直流能量。阻值由 <code>f_c = 1/(2πRC)</code> 决定——阻值越高，截止频率越低、抑制越彻底，但点火能量损失也越大。因此“选电阻”本质是在<strong>EMI 抑制</strong>与<strong>点火能量</strong>之间找平衡。</p>
+<h2 id="vehicle-map">三、四类车型的电阻匹配地图</h2>
+<div class="table-wrap">
+<table>
+    <tr><th>车型</th><th>典型排量</th><th>点火方式</th><th>推荐阻值</th><th>推荐系列</th><th>说明</th></tr>
+    <tr><td>跨骑车（街车/巡航）</td><td>125–500cc</td><td>CDI / 磁电机 / 电喷</td><td>4.7kΩ–10kΩ</td><td><a href="./ig-c.html">IG-C 陶瓷芯</a></td><td>高转速、高点火能量，耐高温优先</td></tr>
+    <tr><td>踏板车</td><td>50–125cc</td><td>磁电机 / ECU</td><td>10kΩ–47kΩ</td><td><a href="./ig-f.html">IG-F 玻纤芯</a></td><td>点火能量小、空间紧凑，高阻值低成本优先</td></tr>
+    <tr><td>越野/拉力车</td><td>125–450cc</td><td>CDI / ECU</td><td>4.7kΩ–22kΩ</td><td><a href="./ig-c.html">IG-C 陶瓷芯</a></td><td>振动与高低温环境严苛，需抗振结构</td></tr>
+    <tr><td>通勤小排量</td><td>50–90cc</td><td>磁电机</td><td>22kΩ–47kΩ</td><td><a href="./ig-f.html">IG-F 玻纤芯</a></td><td>成本敏感，批量出货，交期优先</td></tr>
+</table>
+</div>
+<blockquote><p><strong>经验法则：</strong>有原车电阻就用万用表测其阻值，按同值替换最稳妥；无原件时，先按上表圈定区间，再结合 ECU 是否对 EMI 敏感做最终确认。</p></blockquote>
+<h2 id="series">四、IG-C 与 IG-F：两大系列怎么选</h2>
+<div class="table-wrap">
+<table>
+    <tr><th>维度</th><th>IG-C 陶瓷芯绕线型</th><th>IG-F 玻纤芯绕线型</th></tr>
+    <tr><td>核心特性</td><td>耐高温（+350℃）、长寿命、机械强度高</td><td>成本低、轻量、快速交付</td></tr>
+    <tr><td>典型工作温度</td><td>−55℃ ~ +350℃</td><td>−55℃ ~ +300℃</td></tr>
+    <tr><td>耐压等级</td><td>≥40kV</td><td>≥40kV</td></tr>
+    <tr><td>适合场景</td><td>跨骑、越野、大排量电喷</td><td>踏板、通勤、批量成本敏感型</td></tr>
+    <tr><td>EMI 抑制（CISPR 25）</td><td>30–100MHz 衰减 80%–90%</td><td>30–100MHz 衰减 75%–85%</td></tr>
+    <tr><td>建议交付周期</td><td>7–10 天</td><td>7–15 天（批量更灵活）</td></tr>
+</table>
+</div>
+<div class="highlight-box"><p><strong>一句话选型：</strong>要“耐烧、耐用、扛得住高转速”选 <a href="./ig-c.html">IG-C 陶瓷芯</a>；要“成本、轻量、快交”选 <a href="./ig-f.html">IG-F 玻纤芯</a>。两者都可提供 4.7kΩ 至 47kΩ 全阻值覆盖。</p></div>
+<h2 id="install">五、安装与安装位置要点</h2>
+<ul>
+    <li><strong>安装位置：</strong>优先并接在点火线圈高压端与接地之间（或按原车位置替换火花塞帽内电阻），避免裸露在潮湿/盐雾环境。</li>
+    <li><strong>引脚与间距：</strong>按原车脚位（2.5mm / 3.0mm / 引线式）匹配，确保插接牢靠。</li>
+    <li><strong>线束隔离：</strong>抑制电阻与高压线束之间保持 ≥5mm 间距，降低二次耦合 EMI。</li>
+    <li><strong>紧固：</strong>车辆振动大的场景（越野）需加导线应力释放，防止焊点疲劳断裂。</li>
+</ul>
+<div class="warn-box"><p><strong>⚠ 注意：</strong>替换后若出现怠速熄火、加速迟滞，多半是阻值偏高导致点火能量不足，应降一档阻值复测，而不是加大点火正时硬补偿。</p></div>
+<h2 id="testdata">六、EMI 实测数据（CISPR 25）</h2>
+<p>以下为 HXO 实验室在 CISPR 25 条件下对 IG-C 与 IG-F 典型阻值的准峰值测量（30–100MHz，1m，准峰值检波）：</p>
+<div class="table-wrap">
+<table>
+    <tr><th>频率</th><th>无电阻</th><th>IG-C 10kΩ</th><th>IG-F 22kΩ</th><th>CISPR 25 Class 3 限值</th></tr>
+    <tr><td>30 MHz</td><td>74 dBμV</td><td>44 dBμV</td><td>41 dBμV</td><td>60 dBμV</td></tr>
+    <tr><td>50 MHz</td><td>69 dBμV</td><td>39 dBμV</td><td>36 dBμV</td><td>60 dBμV</td></tr>
+    <tr><td>100 MHz</td><td>61 dBμV</td><td>34 dBμV</td><td>31 dBμV</td><td>58 dBμV</td></tr>
+</table>
+</div>
+<p>两类型号在 100MHz 频段均稳定低于 Class 3 限值，满足车载 EMI 合规要求。</p>
+<h2 id="miscon">七、常见误区</h2>
+<ul>
+    <li><strong>误区1：</strong>“越大阻值越好。”——并非如此，阻值过高会损失点火能量，大排量电喷车尤其明显。</li>
+    <li><strong>误区2：</strong>“踏板和跨骑能混用。”——点火方式与能量需求不同，混用易导致怠速不稳或 EMI 超标。</li>
+    <li><strong>误区3：</strong>“外观一样就能替代。”——引脚间距、耐压、耐高温等级差异会导致接触不良或早期失效。</li>
+</ul>
+<h2 id="summary">八、总结与选型速查</h2>
+<p>摩托车点火抑制电阻的选型，核心是<strong>按车型圈定阻值区间 → 按需求选系列（IG-C 耐用 / IG-F 成本）→ 用 CISPR 25 实测确认 EMI</strong>。有原车参数就以同值替换最稳妥。下方速查表可直接用于选品：</p>
+<div class="table-wrap">
+<table>
+    <tr><th>需求</th><th>推荐</th></tr>
+    <tr><td>跨骑 / 越野 / 大排量</td><td>IG-C 陶瓷芯，4.7kΩ–10kΩ</td></tr>
+    <tr><td>踏板 / 通勤 / 批量成本敏感</td><td>IG-F 玻纤芯，10kΩ–47kΩ</td></tr>
+    <tr><td>不确定阻值</td><td>万用表测原车值同值替换 + EMI 复测</td></tr>
+</table>
+</div>
+<div class="cta">
+    <h2>需要整车级选型支持？</h2>
+    <p>提供车型清单即可免费获取匹配阻值表、耐压与耐高温等级确认，以及 CISPR 25 EMI 测试报告。</p>
+    <a href="./#inquiry" class="btn">获取选型方案</a>
+    <a href="./order.html" class="btn btn-secondary">立即询价</a>
+</div>
+<div class="related-links">
+    <h3>延伸阅读</h3>
+    <ul>
+        <li><a href="./comparison.html">IG-C / IG-F / IG-S 三大系列产品对比</a> — 产品参数对比</li>
+        <li><a href="./article_ig_c_vs_ig_f.html">IG-C vs IG-F 点火线圈抑制电阻选型对比</a> — 系列深度对比</li>
+        <li><a href="./article_emi_suppression.html">点火系统的 EMI 干扰怎么抑制？</a> — EMI 抑制原理</li>
+        <li><a href="./article_multimeter_test.html">点火线圈抑制电阻怎么用万用表测量好坏？</a> — 检测指南</li>
+    </ul>
+</div>
+<a href="./articles.html" class="back-link">← 返回技术文章列表</a>
+</div>
+<div class="footer">
+    <div class="footer-links">
+        <a href="./">首页</a> <a href="./ig-c.html">IG-C</a> <a href="./ig-f.html">IG-F</a> <a href="./ig-s.html">IG-S</a>
+        <a href="./comparison.html">产品对比</a> <a href="./specifications.html">技术参数</a> <a href="./articles.html">技术文章</a> <a href="./faq.html">FAQ</a>
+        <a href="https://www.hxo-lcr.cn" target="_blank">官网</a> <a href="mailto:resistor@hxo-lcr.cn">resistor@hxo-lcr.cn</a>
+    </div>
+    <p>© 2026 HXO Resistor / 华星欧电子（深圳）有限公司 — 专注点火线圈抑制电阻</p>
+</div>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</body>
+</html>
