@@ -24,6 +24,12 @@ from pathlib import Path
 BAIDU_API_TOKEN = "StZI77pKI1nwhzFp"
 BASE_URL = "www.hxo-lcr.cn"
 
+# ============== DRY RUN ==============
+# HXO_DRY_RUN=1 -> 跑完整本地流程但不 git push、不推 Baidu/Supabase/Buffer/验证，
+# 用于在不发布新文章的前提下验证脚本本身能原生运行。
+import os as _os
+DRY_RUN = _os.environ.get("HXO_DRY_RUN") == "1"
+
 # ============== 配置区域 ==============
 CONFIG = {
     # 网络配置
@@ -95,6 +101,9 @@ def check_proxy():
     """检查代理是否可用"""
     log("检查Clash代理状态...")
     try:
+        if DRY_RUN:
+            log("    [DRY_RUN] 跳过代理检测", 'INFO')
+            return True
         response = requests.get(
             'https://api.github.com/rate_limit',
             proxies={'http': CONFIG['proxy'], 'https': CONFIG['proxy']},
@@ -197,6 +206,9 @@ def git_add_commit_push(message):
     log("  阶段3: git push (最多重试{}次)".format(CONFIG['max_retries']))
     for attempt in range(1, CONFIG['max_retries'] + 1):
         log(f"    尝试 {attempt}/{CONFIG['max_retries']}...")
+        if DRY_RUN:
+            log("    [DRY_RUN] 跳过 git push（不发布）", 'INFO')
+            return commit_hash
         code, stdout, stderr = run_command('git push origin {}'.format(CONFIG['branch']))
         
         if code == 0:
@@ -444,7 +456,7 @@ def publish_to_buffer(html_file, title):
 def main():
     """主执行函数"""
     print("=" * 60)
-    print("HXO B2B内容一键发布流水线 v1.2 (含Buffer联动)")
+    print("HXO B2B内容一键发布流水线 v2.0 (含Buffer联动)")
     print("时间: {}".format(datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
     print("=" * 60)
     print("")
@@ -504,7 +516,10 @@ def main():
         '{}/faq.html'.format(CONFIG['primary_domain']),
         '{}/comparison.html'.format(CONFIG['primary_domain']),
     ]
-    baidu_success = baidu_push_urls(site_urls)
+    if DRY_RUN:
+        baidu_success = False  # [DRY_RUN] baidu
+    else:
+        baidu_success = baidu_push_urls(site_urls)
     if baidu_success:
         log("百度API推送完成", 'SUCCESS')
     print("")
@@ -512,14 +527,20 @@ def main():
     
     # 步骤5: Supabase同步
     log("步骤 5/6: Supabase同步")
-    supabase_success = sync_to_supabase(html_file, product_id, title)
+    if DRY_RUN:
+        supabase_success = False  # [DRY_RUN] supabase
+    else:
+        supabase_success = sync_to_supabase(html_file, product_id, title)
     if not supabase_success:
         log("Supabase同步异常（不影响网站发布）", 'WARN')
     print("")
     
     # 步骤6: 等待构建并验证
     log("步骤 6/6: 等待GitHub Pages构建（120秒）...")
-    time.sleep(CONFIG['github_wait_time'])
+    if not DRY_RUN:
+        time.sleep(CONFIG['github_wait_time'])
+    else:
+        log("    [DRY_RUN] 跳过构建等待", 'INFO')
     print("")
     
     # 自动更新导航
@@ -529,12 +550,18 @@ def main():
     
     # 执行验证
     log("执行部署验证")
-    verification_result = verify_deployment()
+    if DRY_RUN:
+        verification_result = False  # [DRY_RUN] verify
+    else:
+        verification_result = verify_deployment()
     print("")
     
     # 步骤7: Buffer联动发布（新增）
     log("步骤 7/7: Buffer LinkedIn联动发布")
-    buffer_success = publish_to_buffer(html_file, title)
+    if DRY_RUN:
+        buffer_success = False  # [DRY_RUN] buffer
+    else:
+        buffer_success = publish_to_buffer(html_file, title)
     print("")
     
     # 保存日志
