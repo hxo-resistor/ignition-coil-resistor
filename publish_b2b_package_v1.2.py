@@ -389,7 +389,7 @@ def save_error_log(error_type, error_msg):
     log_dir = Path(CONFIG['log_dir'])
     log_dir.mkdir(exist_ok=True)
     
-    log_file = log_dir / CONFIG['error_log']
+    log_file = Path(CONFIG['repo_path']) / CONFIG['error_log']; log_file.parent.mkdir(parents=True, exist_ok=True)
     with open(log_file, 'a', encoding='utf-8') as f:
         f.write("\n" + "=" * 60 + "\n")
         f.write("错误时间: {}\n".format(datetime.now().isoformat()))
@@ -402,7 +402,7 @@ def save_success_log(commit_hash, verification_result):
     log_dir = Path(CONFIG['log_dir'])
     log_dir.mkdir(exist_ok=True)
     
-    log_file = log_dir / CONFIG['success_log']
+    log_file = Path(CONFIG['repo_path']) / CONFIG['success_log']; log_file.parent.mkdir(parents=True, exist_ok=True)
     with open(log_file, 'a', encoding='utf-8') as f:
         f.write("\n" + "=" * 60 + "\n")
         f.write("发布时间: {}\n".format(datetime.now().isoformat()))
@@ -499,10 +499,10 @@ def main():
     # 步骤4.5: 百度API推送
     log("步骤 4.5/7: 百度API推送")
     site_urls = [
-        '{}/{}'.format(CONFIG['primary_domain'], html_file),
-        '{}/articles.html'.format(CONFIG['primary_domain']),
-        '{}/faq.html'.format(CONFIG['primary_domain']),
-        '{}/comparison.html'.format(CONFIG['primary_domain']),
+        'https://{}/{}'.format(CONFIG['primary_domain'], html_file),
+        'https://{}/articles.html'.format(CONFIG['primary_domain']),
+        'https://{}/faq.html'.format(CONFIG['primary_domain']),
+        'https://{}/comparison.html'.format(CONFIG['primary_domain']),
     ]
     baidu_success = baidu_push_urls(site_urls)
     if baidu_success:
