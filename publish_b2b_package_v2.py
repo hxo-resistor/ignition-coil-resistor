@@ -139,11 +139,11 @@ def baidu_push_urls(urls):
         
         # 发送请求
         proxies = {'http': CONFIG['proxy'], 'https': CONFIG['proxy']}
-        headers = {'User-Agent': 'hxobot'}
+        headers = {'User-Agent': 'hxobot', 'Content-Type': 'text/plain; charset=utf-8'}
         
         response = requests.post(
             api_url,
-            data=json.dumps(urls),
+            data='\n'.join(urls),
             headers=headers,
             proxies=proxies,
             timeout=CONFIG['timeout']
