@@ -445,7 +445,7 @@ def publish_to_buffer(html_file, title):
                 log("Buffer发布成功", 'SUCCESS')
                 return True
             else:
-                log(f"Buffer发布失败: {result.stdout[:200]}", 'WARN')
+                log(f"Buffer发布失败: {result.stderr[:200]}", 'WARN')
                 return False
         else:
             log("Buffer脚本不存在，跳过联动发布", 'INFO')
