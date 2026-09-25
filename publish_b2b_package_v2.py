@@ -438,13 +438,14 @@ def publish_to_buffer(html_file, title):
                 text=True,
                 encoding='utf-8',
                 errors='replace',
-                timeout=60
+                timeout=60,
+                cwd=CONFIG['repo_path'],
             )
             if result.returncode == 0:
                 log("Buffer发布成功", 'SUCCESS')
                 return True
             else:
-                log(f"Buffer发布失败: {result.stderr[:200]}", 'WARN')
+                log(f"Buffer发布失败: {result.stdout[:200]}", 'WARN')
                 return False
         else:
             log("Buffer脚本不存在，跳过联动发布", 'INFO')
