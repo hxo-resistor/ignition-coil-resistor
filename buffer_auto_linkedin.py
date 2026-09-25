@@ -15,12 +15,15 @@ from pathlib import Path
 BUFFER_TOKEN = "34cyqxAOzZHdZwFrBFy6Ou89lwONFsuihkJ2RCOGAZm"
 CHANNEL_IDS = ["6a9ecd14cd8b9c702c228760"]  # LinkedIn
 
-def safe_log(msg):
+def safe_log(msg, to_err=False):
     """安全日志输出，避免编码错误"""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     # 清理非ASCII字符
     clean_msg = ''.join(c for c in msg if ord(c) < 128)
-    print(f"[{timestamp}] {clean_msg}")
+    if to_err:
+        print(f"[{timestamp}] {clean_msg}", file=sys.stderr)
+    else:
+        print(f"[{timestamp}] {clean_msg}")
 
 def get_content_from_html(html_file, title):
     """从HTML文章提取核心卖点"""
@@ -45,7 +48,7 @@ Website: www.hxo-lcr.cn
         
         return linkedin_post
     except Exception as e:
-        safe_log(f"读取HTML失败: {e}")
+        safe_log(f"读取HTML失败: {e}", to_err=True)
         return None
 
 def publish_to_buffer(text):
@@ -81,7 +84,7 @@ def publish_to_buffer(text):
         result = resp.json()
         
         if "errors" in result:
-            safe_log(f"GraphQL错误: {result['errors']}")
+            safe_log(f"GraphQL错误: {result['errors']}", to_err=True)
             return False
         
         data = result.get("data", {}).get("createPost", {})
@@ -92,18 +95,18 @@ def publish_to_buffer(text):
             safe_log(f"发布成功 | ID: {post_id} | 状态: {status}")
             return post_id
         elif "message" in data:
-            safe_log(f"发布失败: {data['message']}")
+            safe_log(f"发布失败: {data['message']}", to_err=True)
             return None
         else:
-            safe_log(f"未知响应: {data}")
+            safe_log(f"未知响应: {data}", to_err=True)
             return None
     except Exception as e:
-        safe_log(f"异常: {e}")
+        safe_log(f"异常: {e}", to_err=True)
         return None
 
 def main():
     if len(sys.argv) < 3:
-        print("用法: python buffer_auto_linkedin.py <html_file> <title>")
+        print("用法: python buffer_auto_linkedin.py <html_file> <title>", file=sys.stderr)
         sys.exit(1)
     
     html_file = sys.argv[1]
@@ -116,7 +119,7 @@ def main():
     # 获取内容
     text = get_content_from_html(html_file, title)
     if not text:
-        safe_log("无法提取内容，终止发布")
+        safe_log("无法提取内容，终止发布", to_err=True)
         sys.exit(1)
     
     safe_log(f"内容预览: {text[:80]}...")
@@ -129,7 +132,7 @@ def main():
         safe_log(f"任务完成 | Post ID: {post_id}")
         sys.exit(0)
     else:
-        safe_log("任务失败")
+        safe_log("任务失败", to_err=True)
         sys.exit(1)
 
 if __name__ == "__main__":
