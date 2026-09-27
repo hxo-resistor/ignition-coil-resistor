@@ -103,7 +103,7 @@ articles = [
 ]
 
 for title, filepath, filename in articles:
-    with open(filepath, 'r') as f:
+    with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
     page_html = create_article_page(title, content, filename)
     if upload_file(filename, page_html, f'发布技术文章: {title[:20]}'):
