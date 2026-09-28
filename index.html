@@ -243,7 +243,7 @@
         .section-label { display: inline-block; background: rgba(233, 69, 96, 0.08); color: #e94560; padding: 2px 12px; border-radius: 12px; font-size: 0.75em; font-weight: 600; margin-bottom: 8px; letter-spacing: 1px; }
 
         /* Comparison Cards */
-        .compare-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .compare-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .compare-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.06); transition: 0.3s; border: 1px solid #eee; }
         .compare-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
         .compare-card .card-header { padding: 24px 24px 16px; text-align: center; }
@@ -420,96 +420,65 @@
 <!-- Series Comparison -->
 <section id="series">
     <span class="section-label">PRODUCT SERIES</span>
-    <h2 class="section-title">四大系列 · 精准匹配</h2>
-    <p class="section-subtitle">HXO 提供四大产品系列，覆盖点火线圈抑制电阻到温度保险电阻的全场景需求</p>
+    <h2 class="section-title">三大系列 · 精准匹配</h2>
+    <p class="section-subtitle">HXO 提供三大主力产品系列，覆盖点火线圈抑制、温度保险到高压绕线的全部场景需求</p>
 
     <div class="compare-grid">
-        <!-- IG-C -->
+        <!-- 点火线圈抑制电阻 -->
         <div class="compare-card card-igc">
             <div class="card-header">
-                <img src="./product_ig_c.jpg" alt="IG-C陶瓷芯绕线型点火线圈抑制电阻" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px;">
-                <h3>IG-C 陶瓷芯绕线型</h3>
-                <div class="tag">🌟 性价比之选 · 标准应用</div>
+                <img src="./product_ig_c.jpg" alt="点火线圈抑制电阻 IG-C/IG-F/IG-S 系列" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px;">
+                <h3>点火线圈抑制电阻</h3>
+                <div class="tag">🌟 IG-C / IG-F / IG-S 三大型号</div>
             </div>
             <div class="card-body">
-                <div class="spec-row"><span class="label">脉冲耐压</span><span class="value">30kV</span></div>
-                <div class="spec-row"><span class="label">工作温度</span><span class="value">-55°C ~ +275°C</span></div>
+                <div class="spec-row"><span class="label">脉冲耐压</span><span class="value">25 ~ 40kV</span></div>
+                <div class="spec-row"><span class="label">工作温度</span><span class="value">-55°C ~ +350°C</span></div>
                 <div class="spec-row"><span class="label">阻值范围</span><span class="value">1kΩ ~ 20kΩ</span></div>
-                <div class="spec-row"><span class="label">功率范围</span><span class="value">1W ~ 15W</span></div>
-                <div class="spec-row"><span class="label">公差</span><span class="value">±5% / ±10% / ±20%</span></div>
-                <div class="spec-row"><span class="label">TCR</span><span class="value">±100 ~ ±300 ppm/°C</span></div>
-                <div class="spec-row"><span class="label">绝缘电阻</span><span class="value">≥1,000 MΩ</span></div>
+                <div class="spec-row"><span class="label">认证</span><span class="value">AEC-Q200</span></div>
                 <div class="spec-row"><span class="label">交期</span><span class="value">7-15 天</span></div>
             </div>
             <div class="card-footer">
-                <a href="ig-c.html">查看详情 →</a>
+                <a href="./products/ignition-coil.html">查看点火线圈抑制电阻 →</a>
             </div>
         </div>
 
-        <!-- IG-F -->
-        <div class="compare-card card-igf">
-            <div class="card-header">
-                <img src="./product_ig_f.jpg" alt="IG-F玻纤芯绕线型" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px;">
-                <h3>IG-F 玻纤芯绕线型</h3>
-                <div class="tag">💪 经济型 · 高抗振</div>
-            </div>
-            <div class="card-body">
-                <div class="spec-row"><span class="label">脉冲耐压</span><span class="value">25kV</span></div>
-                <div class="spec-row"><span class="label">工作温度</span><span class="value">-55°C ~ +155°C</span></div>
-                <div class="spec-row"><span class="label">阻值范围</span><span class="value">1kΩ ~ 15kΩ</span></div>
-                <div class="spec-row"><span class="label">功率范围</span><span class="value">1W ~ 10W</span></div>
-                <div class="spec-row"><span class="label">公差</span><span class="value">±10% / ±20%</span></div>
-                <div class="spec-row"><span class="label">TCR</span><span class="value">±200 ~ ±500 ppm/°C</span></div>
-                <div class="spec-row"><span class="label">绝缘电阻</span><span class="value">≥500 MΩ</span></div>
-                <div class="spec-row"><span class="label">抗振性</span><span class="value">比陶瓷芯高 30%</span></div>
-            </div>
-            <div class="card-footer">
-                <a href="ig-f.html">查看详情 →</a>
-            </div>
-        </div>
-
-        <!-- IG-S -->
-        <div class="compare-card card-igs">
-            <div class="card-header">
-                <img src="./product_ig_s.jpg" alt="IG-S陶瓷实心型旗舰" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px;">
-                <h2 style="font-size:1.3em;font-weight:700;">IG-S 陶瓷实心型 <span class="flag">旗舰</span></h2>
-                <div class="tag">🏆 旗舰性能 · 极端环境</div>
-            </div>
-            <div class="card-body">
-                <div class="spec-row"><span class="label">脉冲耐压</span><span class="value">40kV</span></div>
-                <div class="spec-row"><span class="label">工作温度</span><span class="value">-55°C ~ +350°C</span></div>
-                <div class="spec-row"><span class="label">阻值范围</span><span class="value">1kΩ ~ 20kΩ</span></div>
-                <div class="spec-row"><span class="label">功率范围</span><span class="value">2W ~ 10W</span></div>
-                <div class="spec-row"><span class="label">公差</span><span class="value">±10% / ±20%</span></div>
-                <div class="spec-row"><span class="label">TCR</span><span class="value">-900±300 ppm/°C (NTC)</span></div>
-                <div class="spec-row"><span class="label">绝缘电阻</span><span class="value">≥1,000 MΩ</span></div>
-                <div class="spec-row"><span class="label">寄生电感</span><span class="value">&lt;0.1 μH (无感)</span></div>
-            </div>
-            <div class="card-footer">
-                <a href="ig-s.html">查看详情 →</a>
-            </div>
-        </div>
-
-        <!-- RXF 温度保险电阻 -->
+        <!-- OTP 2合1 保险丝电阻 -->
         <div class="compare-card" style="border-color:#ffc107;">
             <div class="card-header" style="background:#fffbe6;">
-                <img src="./product_thermal_fuse.jpg" alt="RXF 温度保险电阻（OTP 二合一保险电阻）" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px;">
+                <img src="./product_thermal_fuse.jpg" alt="OTP 2合1温度保险电阻 RXF 系列" style="width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px;">
                 <div style="font-size:3em;margin-bottom:8px;">🔥</div>
-                <h3>RXF 温度保险电阻</h3>
-                <div class="tag" style="background:#e94560;color:#fff;">🆕 新品 · 双重保护</div>
+                <h3>OTP 2合1 保险丝电阻</h3>
+                <div class="tag" style="background:#e94560;color:#fff;">RXF 系列 · 双重保护</div>
             </div>
             <div class="card-body">
-                <div class="spec-row"><span class="label">功率</span><span class="value">1W (25℃)</span></div>
-                <div class="spec-row"><span class="label">标称阻值</span><span class="value">12Ω ±5%</span></div>
+                <div class="spec-row"><span class="label">功率 / 阻值</span><span class="value">1W / 12Ω ±5%</span></div>
                 <div class="spec-row"><span class="label">动作温度</span><span class="value">221℃</span></div>
-                <div class="spec-row"><span class="label">保持温度</span><span class="value">170℃</span></div>
-                <div class="spec-row"><span class="label">熔断电流</span><span class="value">0.86A (＜60s)</span></div>
-                <div class="spec-row"><span class="label">额定电压</span><span class="value">250V</span></div>
+                <div class="spec-row"><span class="label">保护方式</span><span class="value">过温 + 过流 双重</span></div>
                 <div class="spec-row"><span class="label">抗雷击浪涌</span><span class="value">1.5kV</span></div>
-                <div class="spec-row"><span class="label">认证</span><span class="value">CQC/UL</span></div>
+                <div class="spec-row"><span class="label">认证</span><span class="value">CQC / UL</span></div>
             </div>
             <div class="card-footer">
-                <a href="thermal-fuse-resistor.html">查看详情 →</a>
+                <a href="./products/otp-fuse.html">查看 OTP 保险丝电阻 →</a>
+            </div>
+        </div>
+
+        <!-- 高阻值绕线电阻 -->
+        <div class="compare-card" style="border-color:#2a9d8f;">
+            <div class="card-header" style="background:#e8f6f4;">
+                <div style="font-size:3em;margin:24px 0 8px;">⚡</div>
+                <h3>高阻值绕线电阻</h3>
+                <div class="tag" style="background:#2a9d8f;color:#fff;">HVW 系列 · 高功率高耐压</div>
+            </div>
+            <div class="card-body">
+                <div class="spec-row"><span class="label">阻值范围</span><span class="value">0.1Ω ~ 651kΩ</span></div>
+                <div class="spec-row"><span class="label">功率范围</span><span class="value">1W ~ 50W</span></div>
+                <div class="spec-row"><span class="label">耐电压</span><span class="value">10kV+</span></div>
+                <div class="spec-row"><span class="label">耐脉冲</span><span class="value">5kJ+</span></div>
+                <div class="spec-row"><span class="label">认证</span><span class="value">CQC / UL</span></div>
+            </div>
+            <div class="card-footer">
+                <a href="./products/wirewound.html">查看高阻值绕线电阻 →</a>
             </div>
         </div>
     </div>
