@@ -43,11 +43,12 @@ except Exception:
 # ---------------------------------------------------------------------------
 # 路径
 # ---------------------------------------------------------------------------
-BASE = os.path.dirname(os.path.abspath(__file__))
-WORK = BASE  # 所有数据都相对 work/ 根目录
+BASE = os.path.dirname(os.path.abspath(__file__))   # tools/
+REPO_ROOT = os.path.join(BASE, "..")                # ignition-coil-resistor 仓库根（官网文章在此）
+WORK = os.path.join(BASE, "..", "..")               # work/ 根目录（看板数据在此）
 DASH = os.path.join(WORK, "dashboard_data")
 PUB = os.path.join(WORK, "public", "dashboard_data")
-SITE = os.path.join(WORK, "ignition-coil-resistor")
+SITE = REPO_ROOT
 TRACKING_MD = os.path.join(WORK, "内容运营中心", "content_tracking.md")
 
 SITE_BASE = "https://www.hxo-lcr.cn"
