@@ -479,8 +479,8 @@ def main():
     # 步骤3: 参数检查
     log("步骤 3/6: 发布参数检查")
     if len(sys.argv) < 3:
-        log("用法: python publish_b2b_package_v1.2.py <html_file> <product_id> [title]")
-        log("示例: python publish_b2b_package_v1.1.py article_xxx.html ig-c \"IG-C产品标题\"")
+        log("用法: python publish_b2b_package_v2.py <html_file> <product_id> [title]")
+        log("示例: python publish_b2b_package_v2.py article_xxx.html ig-c \"IG-C产品标题\"")
         sys.exit(1)
     
     html_file = sys.argv[1]
