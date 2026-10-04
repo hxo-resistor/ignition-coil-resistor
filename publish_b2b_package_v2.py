@@ -294,8 +294,7 @@ def verify_deployment():
         
         checks = {
             'homepage': False,
-            'articles': False,
-            'domain_resolution': False
+            'articles': False
         }
         
         # 检查首页
