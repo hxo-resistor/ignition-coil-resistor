@@ -347,7 +347,9 @@
     <tr><td>通勤小排量</td><td>50–90cc</td><td>磁电机</td><td>22kΩ–47kΩ</td><td><a href="./ig-f.html">IG-F 玻纤芯</a></td><td>成本敏感，批量出货，交期优先</td></tr>
 </table>
 </div>
-<blockquote><p><strong>经验法则：</strong>有原车电阻就用万用表测其阻值，按同值替换最稳妥；无原件时，先按上表圈定区间，再结合 ECU 是否对 EMI 敏感做最终确认。</p></blockquote>
+<blockquote>
+<p><strong>经验法则：</strong>有原车电阻就用万用表测其阻值，按同值替换最稳妥；无原件时，先按上表圈定区间，再结合 ECU 是否对 EMI 敏感做最终确认。</p>
+</blockquote>
 <h2 id="series">四、IG-C 与 IG-F：两大系列怎么选</h2>
 <div class="table-wrap">
 <table>
@@ -363,10 +365,10 @@
 <div class="highlight-box"><p><strong>一句话选型：</strong>要“耐烧、耐用、扛得住高转速”选 <a href="./ig-c.html">IG-C 陶瓷芯</a>；要“成本、轻量、快交”选 <a href="./ig-f.html">IG-F 玻纤芯</a>。两者都可提供 4.7kΩ 至 47kΩ 全阻值覆盖。</p></div>
 <h2 id="install">五、安装与安装位置要点</h2>
 <ul>
-    <li><strong>安装位置：</strong>优先并接在点火线圈高压端与接地之间（或按原车位置替换火花塞帽内电阻），避免裸露在潮湿/盐雾环境。</li>
-    <li><strong>引脚与间距：</strong>按原车脚位（2.5mm / 3.0mm / 引线式）匹配，确保插接牢靠。</li>
-    <li><strong>线束隔离：</strong>抑制电阻与高压线束之间保持 ≥5mm 间距，降低二次耦合 EMI。</li>
-    <li><strong>紧固：</strong>车辆振动大的场景（越野）需加导线应力释放，防止焊点疲劳断裂。</li>
+<li><strong>安装位置：</strong>优先并接在点火线圈高压端与接地之间（或按原车位置替换火花塞帽内电阻），避免裸露在潮湿/盐雾环境。</li>
+<li><strong>引脚与间距：</strong>按原车脚位（2.5mm / 3.0mm / 引线式）匹配，确保插接牢靠。</li>
+<li><strong>线束隔离：</strong>抑制电阻与高压线束之间保持 ≥5mm 间距，降低二次耦合 EMI。</li>
+<li><strong>紧固：</strong>车辆振动大的场景（越野）需加导线应力释放，防止焊点疲劳断裂。</li>
 </ul>
 <div class="warn-box"><p><strong>⚠ 注意：</strong>替换后若出现怠速熄火、加速迟滞，多半是阻值偏高导致点火能量不足，应降一档阻值复测，而不是加大点火正时硬补偿。</p></div>
 <h2 id="testdata">六、EMI 实测数据（CISPR 25）</h2>
@@ -382,9 +384,9 @@
 <p>两类型号在 100MHz 频段均稳定低于 Class 3 限值，满足车载 EMI 合规要求。</p>
 <h2 id="miscon">七、常见误区</h2>
 <ul>
-    <li><strong>误区1：</strong>“越大阻值越好。”——并非如此，阻值过高会损失点火能量，大排量电喷车尤其明显。</li>
-    <li><strong>误区2：</strong>“踏板和跨骑能混用。”——点火方式与能量需求不同，混用易导致怠速不稳或 EMI 超标。</li>
-    <li><strong>误区3：</strong>“外观一样就能替代。”——引脚间距、耐压、耐高温等级差异会导致接触不良或早期失效。</li>
+<li><strong>误区1：</strong>“越大阻值越好。”——并非如此，阻值过高会损失点火能量，大排量电喷车尤其明显。</li>
+<li><strong>误区2：</strong>“踏板和跨骑能混用。”——点火方式与能量需求不同，混用易导致怠速不稳或 EMI 超标。</li>
+<li><strong>误区3：</strong>“外观一样就能替代。”——引脚间距、耐压、耐高温等级差异会导致接触不良或早期失效。</li>
 </ul>
 <h2 id="summary">八、总结与选型速查</h2>
 <p>摩托车点火抑制电阻的选型，核心是<strong>按车型圈定阻值区间 → 按需求选系列（IG-C 耐用 / IG-F 成本）→ 用 CISPR 25 实测确认 EMI</strong>。有原车参数就以同值替换最稳妥。下方速查表可直接用于选品：</p>
@@ -411,8 +413,7 @@
         <li><a href="./article_multimeter_test.html">点火线圈抑制电阻怎么用万用表测量好坏？</a> — 检测指南</li>
     </ul>
 </div>
-<a href="./articles.html" class="back-link">← 返回技术文章列表</a>
-</div>
+<a href="./articles.html" class="back-link">← 返回技术文章列表</a></div>
 <div class="footer">
     <div class="footer-links">
         <a href="./">首页</a> <a href="./ig-c.html">IG-C</a> <a href="./ig-f.html">IG-F</a> <a href="./ig-s.html">IG-S</a>
