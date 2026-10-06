@@ -1,0 +1,106 @@
+# Pages CMS configuration for HXO Resistor (www.hxo-lcr.cn)
+# Docs: https://pagescms.org/docs/
+#
+# NOTE: This site does not use Markdown or an articles/ folder.
+# Every page is a self-contained .html file (nav/footer/analytics/schema
+# duplicated inline). Pages CMS therefore edits the HTML files directly.
+
+media:
+  - name: images
+    label: 图片
+    input: .
+    output: /
+    extensions: [jpg, jpeg, png, webp, gif, svg, ico]
+    categories: [image]
+
+content:
+  # ------------------------------------------------------------------
+  # 中文文章（根目录 article_*.html）
+  # ------------------------------------------------------------------
+  - name: articles
+    label: 中文文章
+    type: collection
+    path: .
+    filename:
+      template: "article_{fields.filename_slug}.html"
+      # Pages CMS writes the file you open; template only used for new files.
+    view:
+      fields: [title, date, draft]
+    fields:
+      - name: filename_slug
+        label: 文件名（英文短横线格式）
+        type: string
+        description: "新文章必填，例如 iso7637-transient。生成 article_<slug>.html"
+        required: true
+      - name: title
+        label: 标题
+        type: string
+        required: true
+      - name: date
+        label: 日期
+        type: date
+      - name: description
+        label: 摘要 / meta description
+        type: text
+      - name: keywords
+        label: 关键词
+        type: string
+      - name: draft
+        label: 草稿（不发布）
+        type: boolean
+        default: false
+      - name: body
+        label: 正文（HTML）
+        type: rich-text
+
+  # ------------------------------------------------------------------
+  # 英文文章（en/article_*.html）
+  # ------------------------------------------------------------------
+  - name: articles_en
+    label: English Articles
+    type: collection
+    path: en
+    filename:
+      template: "article_{fields.filename_slug}.html"
+    view:
+      fields: [title, date]
+    fields:
+      - name: filename_slug
+        label: Filename slug
+        type: string
+        description: "e.g. iso7637-transient -> en/article_iso7637-transient.html"
+        required: true
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+      - name: description
+        label: Meta description
+        type: text
+      - name: draft
+        label: Draft
+        type: boolean
+        default: false
+      - name: body
+        label: Body (HTML)
+        type: rich-text
+
+  # ------------------------------------------------------------------
+  # 单页文案（首页 / 产品页 / 常见问题等，直接改 HTML 文案）
+  # ------------------------------------------------------------------
+  - name: pages
+    label: 页面文案
+    type: collection
+    path: .
+    view:
+      fields: [title]
+    fields:
+      - name: title
+        label: 标题
+        type: string
+      - name: body
+        label: 页面内容（HTML）
+        type: rich-text
