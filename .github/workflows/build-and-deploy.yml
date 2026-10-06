@@ -1,0 +1,73 @@
+name: Build content and deploy to GitHub Pages
+
+# 方案甲：Actions 触发构建 → 生成 HTML 到工作区 → 直接部署（HTML 不进仓库）
+#
+# 触发方式：
+#   - push 到 main（含 Pages CMS 保存 Markdown 后产生的提交）
+#   - 手动 workflow_dispatch
+#
+# 说明：
+#   content/articles/*.md 是唯一编辑入口（Pages CMS 也指向它）。
+#   本工作流在 CI 工作区内用 tools/build_from_content.py 生成 article_*.html
+#   并覆盖根目录同名文件（仅工作区，不 commit、不 push），
+#   再由 upload-pages-artifact 打包整个仓库目录并部署。
+#
+# 红线：
+#   - 不 commit / 不 push 任何文件（无写权限、无死循环风险）
+#   - 不修改仓库里的 Markdown 源文件
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: python -m pip install --quiet markdown
+
+      - name: Build HTML from Markdown content
+        run: python tools/build_from_content.py --content content/articles --out build
+
+      - name: Publish generated HTML into site root (workspace only, not committed)
+        run: |
+          count=0
+          for f in build/article_*.html; do
+            cp "$f" "./$(basename "$f")"
+            count=$((count + 1))
+          done
+          echo "Copied $count generated HTML file(s) to site root."
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

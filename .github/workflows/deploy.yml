@@ -1,8 +1,10 @@
 name: Deploy to GitHub Pages
 
+# 注意：自动部署已由 build-and-deploy.yml（含 Markdown→HTML 构建步骤）接管。
+# 本工作流保留仅为手动兜底（workflow_dispatch），不再随 push 自动触发，
+# 以避免它与构建工作流并发部署、互相覆盖。
+
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
