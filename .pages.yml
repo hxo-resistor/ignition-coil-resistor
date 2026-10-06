@@ -1,9 +1,12 @@
 # Pages CMS configuration for HXO Resistor (www.hxo-lcr.cn)
 # Docs: https://pagescms.org/docs/
 #
-# NOTE: This site does not use Markdown or an articles/ folder.
-# Every page is a self-contained .html file (nav/footer/analytics/schema
-# duplicated inline). Pages CMS therefore edits the HTML files directly.
+# 内容管线（阶段1）：
+#   中文文章源文件为 Markdown，存放在 content/articles/*.md。
+#   Pages CMS 直接编辑 Markdown 源文件（不要编辑生成物）。
+#   构建脚本 tools/build_from_content.py 读取 Markdown，渲染整页 HTML 到 build/。
+#   对比脚本 tools/compare_build.py 校验生成结果与原页面一致。
+#   注意：现阶段生成物仍输出到 build/，尚未替换根目录 *.html（阶段1 红线）。
 
 media:
   - name: images
@@ -15,27 +18,32 @@ media:
 
 content:
   # ------------------------------------------------------------------
-  # 中文文章（根目录 article_*.html）
+  # 中文文章（Markdown 源文件 content/articles/*.md）
   # ------------------------------------------------------------------
   - name: articles
     label: 中文文章
     type: collection
-    path: .
+    path: content/articles
+    format: yaml-frontmatter
     filename:
-      template: "article_{fields.filename_slug}.html"
-      # Pages CMS writes the file you open; template only used for new files.
+      template: "article_{fields.filename_slug}.md"
+      # Pages CMS 写入 *.md；构建脚本再生成对应的 article_<slug>.html
     view:
-      fields: [title, date, draft]
+      fields: [title, date]
     fields:
       - name: filename_slug
         label: 文件名（英文短横线格式）
         type: string
-        description: "新文章必填，例如 iso7637-transient。生成 article_<slug>.html"
+        description: "必填，例如 article_hvw_braking。生成 content/articles/<slug>.md"
         required: true
       - name: title
         label: 标题
         type: string
         required: true
+      - name: title_suffix
+        label: 标题后缀
+        type: string
+        description: "渲染时拼接到 <title>，例如 ' - HXO华星欧电子'"
       - name: date
         label: 日期
         type: date
@@ -45,12 +53,24 @@ content:
       - name: keywords
         label: 关键词
         type: string
-      - name: draft
-        label: 草稿（不发布）
-        type: boolean
-        default: false
+      - name: lang
+        label: 语言
+        type: string
+        default: zh-CN
+      - name: canonical
+        label: canonical URL
+        type: string
+      - name: header_title
+        label: 页头主标题
+        type: string
+      - name: header_subtitle
+        label: 页头副标题
+        type: string
+      - name: tags
+        label: 标签
+        type: list
       - name: body
-        label: 正文（HTML）
+        label: 正文（Markdown）
         type: rich-text
 
   # ------------------------------------------------------------------
