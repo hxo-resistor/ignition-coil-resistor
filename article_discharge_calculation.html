@@ -76,18 +76,15 @@
         </div>
 
         <article>
-            <div class="meta-info">
+<div class="meta-info">
                 <span class="tag">计算指南</span>
                 <span class="tag">HVW系列</span>
                 <span class="tag">变频应用</span>
                 <span style="color: #a0aec0;">发布时间：2026-09-22</span>
             </div>
-
-            <h2>为什么需要泄放电阻？</h2>
-            
-            <p>在变频器、伺服驱动器、新能源逆变器等电力电子设备中，直流母线上通常连接有大容量电解电容（100μF~10,000μF）。这些电容在设备运行时储存大量电能：</p>
-
-            <div class="formula-box">
+<h2>为什么需要泄放电阻？</h2>
+<p>在变频器、伺服驱动器、新能源逆变器等电力电子设备中，直流母线上通常连接有大容量电解电容（100μF~10,000μF）。这些电容在设备运行时储存大量电能：</p>
+<div class="formula-box">
                 <h4>储能计算公式</h4>
                 <pre>E = 0.5 × C × V²
 
@@ -101,16 +98,11 @@ E = 0.5 × 0.002 × 400² = 160 Joules
 安全标准要求：断电后1秒内，电压降至60V以下
 (IEC 61010-1 / GB 4793.1)</pre>
             </div>
-
-            <p>泄放电阻的作用就是在断电后，为电容提供安全的放电通路，确保维修人员的安全。</p>
-
-            <h2>一、阻值计算：如何满足安全泄放时间</h2>
-
-            <h3>1.1 基础公式推导</h3>
-
-            <p>电容放电遵循指数衰减规律：</p>
-
-            <div class="formula-box">
+<p>泄放电阻的作用就是在断电后，为电容提供安全的放电通路，确保维修人员的安全。</p>
+<h2>一、阻值计算：如何满足安全泄放时间</h2>
+<h3>1.1 基础公式推导</h3>
+<p>电容放电遵循指数衰减规律：</p>
+<div class="formula-box">
                 <h4>RC电路放电方程</h4>
                 <pre>V(t) = V₀ × e^(-t/RC)
 
@@ -123,10 +115,8 @@ E = 0.5 × 0.002 × 400² = 160 Joules
   1/RC ≥ ln(V₀/60)
   R ≤ 1/(C × ln(V₀/60))</pre>
             </div>
-
-            <h3>1.2 典型场景计算示例</h3>
-
-            <div class="info-box">
+<h3>1.2 典型场景计算示例</h3>
+<div class="info-box">
                 <h4>示例1：380V变频器制动电阻</h4>
                 <p><strong>系统参数：</strong>V₀=540V DC，C=2200μF，要求1秒内降至60V</p>
                 <p><strong>计算过程：</strong></p>
@@ -142,8 +132,7 @@ R ≤ 206Ω
                = 540 × 0.080 = 43.2V ✓ &lt; 60V
                 </pre>
             </div>
-
-            <div class="info-box">
+<div class="info-box">
                 <h4>示例2：光伏逆变器泄放电阻</h4>
                 <p><strong>系统参数：</strong>V₀=800V DC，C=4700μF，要求1秒内降至60V</p>
                 <p><strong>计算过程：</strong></p>
@@ -159,8 +148,7 @@ R ≤ 82Ω
                = 800 × 0.059 = 47.2V ✓ &lt; 60V
                 </pre>
             </div>
-
-            <div class="info-box">
+<div class="info-box">
                 <h4>示例3：储能系统高压泄放</h4>
                 <p><strong>系统参数：</strong>V₀=1000V DC，C=10000μF，要求1秒内降至60V</p>
                 <p><strong>计算过程：</strong></p>
@@ -176,19 +164,14 @@ R ≤ 35.5Ω
                = 1000 × 0.048 = 48V ✓ &lt; 60V
                 </pre>
             </div>
-
-            <div class="warn-box">
+<div class="warn-box">
                 <h4>⚠️ 重要提醒</h4>
                 <p>计算得到的阻值是<span style="font-weight:bold;">最大允许值</span>，实际选型应选用<strong>略小于</strong>计算值的规格，以确保安全裕度。</p>
             </div>
-
-            <h2>二、功率计算：电阻能否承受能量冲击</h2>
-
-            <h3>2.1 瞬时峰值功率</h3>
-
-            <p>电容放电瞬间，电阻承受的功率最大：</p>
-
-            <div class="formula-box">
+<h2>二、功率计算：电阻能否承受能量冲击</h2>
+<h3>2.1 瞬时峰值功率</h3>
+<p>电容放电瞬间，电阻承受的功率最大：</p>
+<div class="formula-box">
                 <h4>峰值功率计算</h4>
                 <pre>P_peak = V₀² / R
 
@@ -197,22 +180,17 @@ P_peak = 400² / 180 = 889W
 
 这是瞬态峰值功率，持续时间仅数十毫秒！</pre>
             </div>
-
-            <h3>2.2 单次泄放能量</h3>
-
-            <div class="formula-box">
+<h3>2.2 单次泄放能量</h3>
+<div class="formula-box">
                 <h4>能量计算公式</h4>
                 <pre>E = 0.5 × C × V₀²
 
 示例：C=2200μF，V₀=400V
 E = 0.5 × 0.0022 × 160000 = 176 Joules</pre>
             </div>
-
-            <h3>2.3 平均功率（关键指标）</h3>
-
-            <p>真正决定电阻功率等级的，是<strong>单位时间内的平均功耗</strong>：</p>
-
-            <div class="formula-box">
+<h3>2.3 平均功率（关键指标）</h3>
+<p>真正决定电阻功率等级的，是<strong>单位时间内的平均功耗</strong>：</p>
+<div class="formula-box">
                 <h4>平均功率计算</h4>
                 <pre>P_avg = E × f
 
@@ -230,10 +208,8 @@ E = 0.5 × 0.0022 × 160000 = 176 Joules</pre>
 │ 焊接电源        10-50次/分钟   高频工作    │
 └─────────────────────────────────────────────┘</pre>
             </div>
-
-            <h3>2.4 完整计算示例</h3>
-
-            <div class="highlight-box">
+<h3>2.4 完整计算示例</h3>
+<div class="highlight-box">
                 <h4>完整案例：工业变频器制动电阻选型</h4>
                 <p><strong>已知条件：</strong></p>
                 <ul style="margin-top:8px;">
@@ -268,14 +244,10 @@ P_rating ≥ 9.9 × 2 = 19.8W
 ✓ 型号：HXO HVW-20W-22Ω-K
                 </pre>
             </div>
-
-            <h2>三、高压泄放电阻的特殊考量</h2>
-
-            <h3>3.1 多电阻串联方案</h3>
-
-            <p>当单电阻耐压不足时，可采用串联方案：</p>
-
-            <div class="formula-box">
+<h2>三、高压泄放电阻的特殊考量</h2>
+<h3>3.1 多电阻串联方案</h3>
+<p>当单电阻耐压不足时，可采用串联方案：</p>
+<div class="formula-box">
                 <h4>串联电阻计算</h4>
                 <pre>总阻值：R_total = R₁ + R₂ + ... + Rₙ
 
@@ -288,95 +260,94 @@ P_rating ≥ 9.9 × 2 = 19.8W
   每个电阻承受：10kV / 4 = 2.5kV ✓
                 </pre>
             </div>
-
-            <h3>3.2 绝缘配合要求</h3>
-
-            <p>高压泄放电阻的爬电距离和电气间隙必须符合相关标准：</p>
-
-            <table>
-                <tr>
-                    <th>额定电压</th>
-                    <th>最小爬电距离</th>
-                    <th>最小电气间隙</th>
-                    <th>防护等级</th>
-                </tr>
-                <tr>
-                    <td>≤500V</td>
-                    <td>8mm</td>
-                    <td>5mm</td>
-                    <td>IP20</td>
-                </tr>
-                <tr>
-                    <td>500V-1kV</td>
-                    <td>12mm</td>
-                    <td>8mm</td>
-                    <td>IP20</td>
-                </tr>
-                <tr>
-                    <td>1kV-3kV</td>
-                    <td>20mm</td>
-                    <td>12mm</td>
-                    <td>IP54</td>
-                </tr>
-                <tr>
-                    <td>3kV-10kV</td>
-                    <td>50mm</td>
-                    <td>25mm</td>
-                    <td>IP65</td>
-                </tr>
-            </table>
-
-            <div class="warn-box">
+<h3>3.2 绝缘配合要求</h3>
+<p>高压泄放电阻的爬电距离和电气间隙必须符合相关标准：</p>
+<table>
+<thead>
+<tr>
+<th>额定电压</th>
+<th>最小爬电距离</th>
+<th>最小电气间隙</th>
+<th>防护等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>≤500V</td>
+<td>8mm</td>
+<td>5mm</td>
+<td>IP20</td>
+</tr>
+<tr>
+<td>500V-1kV</td>
+<td>12mm</td>
+<td>8mm</td>
+<td>IP20</td>
+</tr>
+<tr>
+<td>1kV-3kV</td>
+<td>20mm</td>
+<td>12mm</td>
+<td>IP54</td>
+</tr>
+<tr>
+<td>3kV-10kV</td>
+<td>50mm</td>
+<td>25mm</td>
+<td>IP65</td>
+</tr>
+</tbody>
+</table>
+<div class="warn-box">
                 <h4>⚠️ 安全提示</h4>
                 <p>高压电容放电实验必须在专业指导下进行！带电操作请佩戴绝缘手套和使用绝缘工具。HXO不提供高压操作培训服务，请严格遵守当地安全规程。</p>
             </div>
-
-            <h2>四、HXO HVW系列产品推荐</h2>
-
-            <h3>4.1 标准选型对照表</h3>
-
-            <table>
-                <tr>
-                    <th>应用场景</th>
-                    <th>电压等级</th>
-                    <th>推荐功率</th>
-                    <th>推荐型号</th>
-                </tr>
-                <tr>
-                    <td>LED驱动泄放</td>
-                    <td>&lt;1kV</td>
-                    <td>2W-5W</td>
-                    <td>HVW-5W-100KΩ-K</td>
-                </tr>
-                <tr>
-                    <td>变频器制动</td>
-                    <td>≤600V</td>
-                    <td>10W-30W</td>
-                    <td>HVW-20W-22Ω-K</td>
-                </tr>
-                <tr>
-                    <td>光伏逆变器</td>
-                    <td>≤1kV</td>
-                    <td>30W-50W</td>
-                    <td>HVW-50W-150Ω-K</td>
-                </tr>
-                <tr>
-                    <td>储能系统</td>
-                    <td>≤1.5kV</td>
-                    <td>30W-50W</td>
-                    <td>HVW-50W-100Ω-K</td>
-                </tr>
-                <tr>
-                    <td>X光机电源</td>
-                    <td>≤50kV</td>
-                    <td>5W-10W</td>
-                    <td>HVW-10W-1MΩ-J</td>
-                </tr>
-            </table>
-
-            <h3>4.2 功率降额曲线</h3>
-
-            <pre style="background:#f7fafc;padding:20px;border-radius:8px;overflow-x:auto;margin:20px 0;">
+<h2>四、HXO HVW系列产品推荐</h2>
+<h3>4.1 标准选型对照表</h3>
+<table>
+<thead>
+<tr>
+<th>应用场景</th>
+<th>电压等级</th>
+<th>推荐功率</th>
+<th>推荐型号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LED驱动泄放</td>
+<td>&lt;1kV</td>
+<td>2W-5W</td>
+<td>HVW-5W-100KΩ-K</td>
+</tr>
+<tr>
+<td>变频器制动</td>
+<td>≤600V</td>
+<td>10W-30W</td>
+<td>HVW-20W-22Ω-K</td>
+</tr>
+<tr>
+<td>光伏逆变器</td>
+<td>≤1kV</td>
+<td>30W-50W</td>
+<td>HVW-50W-150Ω-K</td>
+</tr>
+<tr>
+<td>储能系统</td>
+<td>≤1.5kV</td>
+<td>30W-50W</td>
+<td>HVW-50W-100Ω-K</td>
+</tr>
+<tr>
+<td>X光机电源</td>
+<td>≤50kV</td>
+<td>5W-10W</td>
+<td>HVW-10W-1MΩ-J</td>
+</tr>
+</tbody>
+</table>
+<h3>4.2 功率降额曲线</h3>
+<pre style="background:#f7fafc;padding:20px;border-radius:8px;overflow-x:auto;margin:20px 0;">
 额定功率 vs 环境温度
 
 功率(W)
@@ -390,54 +361,51 @@ P_rating ≥ 9.9 × 2 = 19.8W
      25   50   75  100  125  150  175
 
 说明：超过100℃后需降额使用，建议留有2倍功率余量
-推荐工作温度：< 80℃（留足安全裕度）
+推荐工作温度：&lt; 80℃（留足安全裕度）
             </pre>
-
-            <h2>五、安装与维护建议</h2>
-
-            <h3>5.1 安装要点</h3>
-
-            <ol class="step-list">
+<h2>五、安装与维护建议</h2>
+<h3>5.1 安装要点</h3>
+<ol class="step-list">
                 <li><strong>散热设计</strong>：大功率电阻（≥10W）必须安装在金属支架上，确保热量传导</li>
                 <li><strong>通风空间</strong>：电阻周围预留至少50mm散热空间，严禁密闭安装</li>
                 <li><strong>接线方式</strong>：20W以上建议采用螺纹接线端子，避免插片式接触不良</li>
                 <li><strong>绝缘隔离</strong>：高压型电阻应与柜体绝缘，使用绝缘支柱固定</li>
                 <li><strong>标识清晰</strong>：在配电板上标注泄放电阻位置，便于维护识别</li>
             </ol>
-
-            <h3>5.2 定期检测</h3>
-
-            <p>建议每半年或每年进行以下检测：</p>
-
-            <table>
-                <tr>
-                    <th>检测项目</th>
-                    <th>检测方法</th>
-                    <th>合格标准</th>
-                </tr>
-                <tr>
-                    <td>阻值测量</td>
-                    <td>断电后用万用表测量</td>
-                    <td>在标称值±10%范围内</td>
-                </tr>
-                <tr>
-                    <td>外观检查</td>
-                    <td>目视检查涂层、引脚</td>
-                    <td>无裂纹、无烧焦、无变形</td>
-                </tr>
-                <tr>
-                    <td>绝缘测试</td>
-                    <td>500V兆欧表测量</td>
-                    <td>≥1000MΩ</td>
-                </tr>
-                <tr>
-                    <td>放电测试</td>
-                    <td>模拟断电后测量电压</td>
-                    <td>1秒内降至60V以下</td>
-                </tr>
-            </table>
-
-            <div class="cta-section">
+<h3>5.2 定期检测</h3>
+<p>建议每半年或每年进行以下检测：</p>
+<table>
+<thead>
+<tr>
+<th>检测项目</th>
+<th>检测方法</th>
+<th>合格标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>阻值测量</td>
+<td>断电后用万用表测量</td>
+<td>在标称值±10%范围内</td>
+</tr>
+<tr>
+<td>外观检查</td>
+<td>目视检查涂层、引脚</td>
+<td>无裂纹、无烧焦、无变形</td>
+</tr>
+<tr>
+<td>绝缘测试</td>
+<td>500V兆欧表测量</td>
+<td>≥1000MΩ</td>
+</tr>
+<tr>
+<td>放电测试</td>
+<td>模拟断电后测量电压</td>
+<td>1秒内降至60V以下</td>
+</tr>
+</tbody>
+</table>
+<div class="cta-section">
                 <h3>需要选型计算支持？</h3>
                 <p>我们提供专业的泄放电阻选型计算服务</p>
                 <p style="margin-top: 15px;">
@@ -447,8 +415,7 @@ P_rating ≥ 9.9 × 2 = 19.8W
                     🌐 www.hxo-lcr.cn
                 </p>
                 <a href="mailto:resistor@hxo-lcr.cn?subject=泄放电阻选型咨询" class="cta-btn">获取选型方案</a>
-            </div>
-        </article>
+            </div></article>
     </div>
 
     <footer>
