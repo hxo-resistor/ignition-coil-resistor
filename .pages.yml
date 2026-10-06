@@ -1,18 +1,23 @@
 # Pages CMS configuration for HXO Resistor (www.hxo-lcr.cn)
 # Docs: https://pagescms.org/docs/
 #
-# 内容管线（阶段1）：
-#   中文文章源文件为 Markdown，存放在 content/articles/*.md。
-#   Pages CMS 直接编辑 Markdown 源文件（不要编辑生成物）。
-#   构建脚本 tools/build_from_content.py 读取 Markdown，渲染整页 HTML 到 build/。
-#   对比脚本 tools/compare_build.py 校验生成结果与原页面一致。
-#   注意：现阶段生成物仍输出到 build/，尚未替换根目录 *.html（阶段1 红线）。
+# 内容管线：
+#   content/articles/*.md 是中文文章的唯一编辑入口（Markdown + YAML front matter）。
+#   保存后由 GitHub Actions（.github/workflows/build-and-deploy.yml）自动构建：
+#     content/articles/*.md --(tools/build_from_content.py)--> article_*.html --> 部署
+#   HTML 生成物不进仓库，请勿直接编辑根目录 article_*.html。
+#
+# 注意（重要）：
+#   每篇 Markdown 的 front matter 中含构建所需的外壳字段
+#   （shell_head / meta_info / shell_tail / layout / filename_slug）。
+#   这些字段在编辑器中已设为 hidden，请勿删除；它们决定页面的
+#   导航/页脚/埋点/Schema 等固定结构。
 
 media:
   - name: images
     label: 图片
-    input: .
-    output: /
+    input: images/uploads
+    output: /images/uploads
     extensions: [jpg, jpeg, png, webp, gif, svg, ico]
     categories: [image]
 
@@ -27,54 +32,63 @@ content:
     format: yaml-frontmatter
     filename:
       template: "article_{fields.filename_slug}.md"
-      # Pages CMS 写入 *.md；构建脚本再生成对应的 article_<slug>.html
     view:
+      primary: title
       fields: [title, date]
+      sort: date
+      order: desc
     fields:
+      # --- 构建用外壳字段：保留但不在编辑器中显示 ---
       - name: filename_slug
-        label: 文件名（英文短横线格式）
+        label: 文件名 slug
         type: string
-        description: "必填，例如 article_hvw_braking。生成 content/articles/<slug>.md"
-        required: true
+        hidden: true
+      - name: layout
+        label: 版式
+        type: string
+        hidden: true
+      - name: shell_head
+        label: 外壳头
+        type: code
+        hidden: true
+      - name: meta_info
+        label: 外壳 meta-info
+        type: code
+        hidden: true
+      - name: shell_tail
+        label: 外壳尾
+        type: code
+        hidden: true
+      # --- 可编辑元数据 ---
       - name: title
         label: 标题
         type: string
         required: true
-      - name: title_suffix
-        label: 标题后缀
-        type: string
-        description: "渲染时拼接到 <title>，例如 ' - HXO华星欧电子'"
       - name: date
         label: 日期
         type: date
+        description: "可选；原文无日期的文章保持留空"
       - name: description
         label: 摘要 / meta description
         type: text
       - name: keywords
         label: 关键词
         type: string
-      - name: lang
-        label: 语言
-        type: string
-        default: zh-CN
       - name: canonical
         label: canonical URL
         type: string
-      - name: header_title
-        label: 页头主标题
-        type: string
-      - name: header_subtitle
-        label: 页头副标题
-        type: string
+        description: "可选；原文件未设置的保持留空"
       - name: tags
         label: 标签
-        type: list
+        type: string
+        list: true
+      # --- 正文（front matter 之后的 Markdown 内容）---
       - name: body
         label: 正文（Markdown）
         type: rich-text
 
   # ------------------------------------------------------------------
-  # 英文文章（en/article_*.html）
+  # 英文文章（en/article_*.html，仍为 HTML，独立于内容管线）
   # ------------------------------------------------------------------
   - name: articles_en
     label: English Articles
@@ -109,14 +123,17 @@ content:
         type: rich-text
 
   # ------------------------------------------------------------------
-  # 单页文案（首页 / 产品页 / 常见问题等，直接改 HTML 文案）
+  # 首页文案（index.html）
+  # 原 pages 集合本意是管理根目录页面文案（如 index.html 标题）。
+  # Pages CMS 不接受 collection 使用 path: "."，而根目录页面不在一
+  # 个子目录里，无法用 collection 覆盖，故改用 type: file 精确指向
+  # 单个页面文件。如需管理其他根目录页面（faq.html 等），按同样方式
+  # 追加 type: file 条目即可。
   # ------------------------------------------------------------------
-  - name: pages
-    label: 页面文案
-    type: collection
-    path: .
-    view:
-      fields: [title]
+  - name: home
+    label: 首页（index.html）
+    type: file
+    path: index.html
     fields:
       - name: title
         label: 标题
