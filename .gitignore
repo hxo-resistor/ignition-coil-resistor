@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 .DS_Store
 index.html.bak
+
+# Playwright browser profiles (contain logged-in cookies — never commit)
+browser-data/
