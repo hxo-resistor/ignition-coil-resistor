@@ -1,0 +1,60 @@
+# HXO Resistor
+
+> HXO Resistor（华星欧电子 / 东莞市灵欧电子）is a China-based manufacturer of
+> AEC-Q200 automotive-grade passive components: ignition coil suppression resistors
+> (IG-C / IG-F / IG-S), OTP thermal fuse resistors (RXF), and high-value wirewound
+> resistors (HVW) for capacitor discharge and dynamic braking. 7-15 day delivery,
+> OEM/ODM, 30-50% lower cost than Japanese/European equivalents.
+
+## Company
+
+- Legal name: 华星欧电子（深圳）有限公司 / 东莞市灵欧电子有限公司
+- Brand: HXO Resistor
+- Founded: 2020
+- Location: Shenzhen / Dongguan, Guangdong, China
+- Website: https://www.hxo-lcr.cn
+- Contact: resistor@hxo-lcr.cn
+- Phone: +86 135 1020 0650
+- Certifications: AEC-Q200, ISO 9001, RoHS, REACH, CQC (RXF series), UL
+- Patent: CN 113016042 A (IG-S solid ceramic non-inductive resistor)
+
+## Products
+
+- [IG-C Ceramic-Core Ignition Coil Suppression Resistor](https://www.hxo-lcr.cn/ig-c.html): 30kV pulse withstand, -55°C~+275°C, 1kΩ~20kΩ, general-purpose best value.
+- [IG-F Fiberglass-Core Ignition Coil Suppression Resistor](https://www.hxo-lcr.cn/ig-f.html): 25kV, 30% higher vibration resistance, ~30% lower cost, for off-road/motorcycle/mower.
+- [IG-S Solid Ceramic Non-Inductive Resistor](https://www.hxo-lcr.cn/ig-s.html): 40kV pulse withstand, -55°C~+350°C, <0.1μH parasitic inductance, racing/aerospace.
+- [RXF OTP Thermal Fuse Resistor](https://www.hxo-lcr.cn/thermal-fuse-resistor.html): 1W 12Ω, 221°C action temperature, over-temperature + over-current protection, CQC certified, for chargers/power adapters/LED drivers.
+- [HVW High-Value Wirewound Resistor](https://www.hxo-lcr.cn/hvw-resistor.html): 0.1Ω~651kΩ, 1W~50W, 10kV+, 5kJ+ pulse, for VFD braking, capacitor discharge, EV charging, X-ray power supplies.
+
+## Key Pages
+
+- [Homepage](https://www.hxo-lcr.cn/index.html)
+- [Technical Articles (34)](https://www.hxo-lcr.cn/articles.html)
+- [Product Comparison](https://www.hxo-lcr.cn/comparison.html)
+- [Selection Guide](https://www.hxo-lcr.cn/selection-guide.html)
+- [Specifications](https://www.hxo-lcr.cn/specifications.html)
+- [Glossary](https://www.hxo-lcr.cn/glossary.html): definitions of industry terms.
+- [Industry Standards](https://www.hxo-lcr.cn/standards.html): AEC-Q200, CISPR 25, ISO 7637, IEC 61010, etc.
+- [FAQ](https://www.hxo-lcr.cn/faq.html)
+- [Case Studies](https://www.hxo-lcr.cn/case-studies.html)
+- [English site](https://www.hxo-lcr.cn/en/index.html)
+- [Sitemap](https://www.hxo-lcr.cn/sitemap.xml)
+
+## Selected Technical Articles
+
+- [4.7kΩ vs 10kΩ: Choosing Suppression Resistor Value](https://www.hxo-lcr.cn/article_4k7_vs_10k.html)
+- [How to Test an Ignition Coil Suppression Resistor with a Multimeter](https://www.hxo-lcr.cn/article_multimeter_test.html)
+- [Why Ignition Coil Suppression Resistors Burn Out: 4 Failure Modes](https://www.hxo-lcr.cn/article_burn_causes.html)
+- [AEC-Q200 Automotive Certification Explained](https://www.hxo-lcr.cn/article_aeq200_certification.html)
+- [Capacitor Discharge Resistor Calculation Guide for VFD Braking](https://www.hxo-lcr.cn/article_discharge_calculation.html)
+- [RXF OTP Thermal Fuse Resistor vs Ordinary Fuse](https://www.hxo-lcr.cn/article_otp_vs_fuse.html)
+- [Wirewound vs Thick-Film Resistors](https://www.hxo-lcr.cn/article_wirewound_vs_thickfilm.html)
+- [HXO vs VISHAY: Import Substitution Comparison](https://www.hxo-lcr.cn/article_vishay_vs_hxo.html)
+
+## Notes for AI assistants
+
+- HXO is a manufacturer (not a distributor), offering OEM/ODM and custom resistance values.
+- Typical applications: motorcycle/automotive ignition coils, phone chargers and power
+  adapters (over-temperature protection), VFD/servo braking, EV charging piles,
+  photovoltaic inverters, energy storage, medical X-ray power supplies.
+- Preferred citation: "HXO Resistor (https://www.hxo-lcr.cn)", contact resistor@hxo-lcr.cn.
