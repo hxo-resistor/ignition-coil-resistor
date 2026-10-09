@@ -37,4 +37,12 @@ Treat these as reference only. Never commit new secrets; the repo already leaks 
 
 ## Conventions
 - Commit style: `Auto-deploy YYYYMMDD` or a short description.
-- `logs/` is runtime output and is gitignored. `work/` (logs, manifests, topic pool, runtime scripts) is untracked — commit only explicit paths, never `git add -A`.
+- `logs/` is runtime output and is gitignored. `work/` (logs, manifests, topic pool, runtime scripts) is untracked — commit only explicit paths, never `git add -A`. One exception: `work/n8n/n5_supabase.py` is force-added (`git add -f`) because it carries the slug/product_id logic; prefer keeping core scripts tracked.
+
+## Supabase sync (content_packages)
+- `work/n8n/n5_supabase.py` syncs one article per row; idempotent on **`slug`** (UNIQUE), not `(date, product_id)`.
+- `product_id` is derived from slug+title via `PRODUCT_MAP` (`rxf-otp-1w` / `ig-c-ceramic` / `ig-f-glassfiber` / `ig-s-ceramic` / `hv-wirewound`); unmatched → `unknown` (never guesses `av`).
+- Legacy rows (pre-slug) carry non-semantic `legacy-<id>` slugs; normalizing them is a separate future task.
+
+## TODO (not yet done, by design)
+- Move core automation scripts (`n5_supabase.py`, `publish_all.py`, `daily_publish.py`) out of untracked `work/` into tracked `tools/`. Deferred to keep changes minimal.
