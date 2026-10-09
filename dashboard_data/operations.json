@@ -1,0 +1,175 @@
+{
+  "last_updated": "2026-10-09T19:35:51+08:00",
+  "window_days": 7,
+  "recent_records": [
+    {
+      "date": "2026-10-09",
+      "time": "2026-10-09 18:36:34",
+      "slug": "article_ignition_resistor_lifespan",
+      "title": "摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准",
+      "platforms": [
+        "website",
+        "baidu",
+        "zhihu",
+        "buffer",
+        "supabase"
+      ],
+      "success": true,
+      "summary": "5/5 成功"
+    },
+    {
+      "date": "2026-10-09",
+      "time": "2026-10-09 18:06:47",
+      "slug": "article_power_rating_selection",
+      "title": "点火线圈抑制电阻额定功率怎么选？1W/3W/5W/10W 选型陷阱与实测温升",
+      "platforms": [
+        "website",
+        "baidu",
+        "zhihu",
+        "buffer",
+        "supabase"
+      ],
+      "success": true,
+      "summary": "5/5 成功"
+    },
+    {
+      "date": "2026-10-09",
+      "time": "2026-10-09 13:29:12",
+      "slug": "article_pv_storage_bleeder",
+      "title": "光伏逆变器与储能系统高压泄放电阻选型指南 - HXO Resistor",
+      "platforms": [
+        "baidu",
+        "buffer",
+        "supabase"
+      ],
+      "success": false,
+      "summary": "3/5 成功"
+    },
+    {
+      "date": "2026-10-08",
+      "time": "2026-10-08 18:41:24",
+      "slug": "article_ev_pile_bleeder",
+      "title": "新能源汽车充电桩泄放电阻选型：从4kV到25kV的全面指南与实测 - HXO点火线圈",
+      "platforms": [
+        "website",
+        "baidu",
+        "zhihu",
+        "buffer",
+        "supabase"
+      ],
+      "success": true,
+      "summary": "5/5 成功"
+    },
+    {
+      "date": "2026-10-08",
+      "time": "2026-10-08 18:37:42",
+      "slug": "article_ig_c_ceramic",
+      "title": "IG-C 陶瓷芯点火线圈抑制电阻 — HXO Resistor",
+      "platforms": [
+        "website",
+        "baidu",
+        "zhihu",
+        "buffer",
+        "supabase"
+      ],
+      "success": true,
+      "summary": "5/5 成功"
+    },
+    {
+      "date": "2026-10-08",
+      "time": "2026-10-08 17:15:19",
+      "slug": "article_burn_causes",
+      "title": "点火线圈抑制电阻烧毁原因深度分析：4种失效模式与预防 | HXO Resistor",
+      "platforms": [
+        "website",
+        "baidu",
+        "zhihu",
+        "buffer",
+        "supabase"
+      ],
+      "success": true,
+      "summary": "5/5 成功"
+    }
+  ],
+  "platform_cumulative": [
+    {
+      "key": "website",
+      "name": "官网",
+      "count": 37
+    },
+    {
+      "key": "baidu",
+      "name": "百度",
+      "count": 6
+    },
+    {
+      "key": "zhihu",
+      "name": "知乎",
+      "count": 7
+    },
+    {
+      "key": "buffer",
+      "name": "LinkedIn+X",
+      "count": 6
+    },
+    {
+      "key": "supabase",
+      "name": "Supabase",
+      "count": 6
+    }
+  ],
+  "last_task": {
+    "time": "2026-10-09 18:36:34",
+    "slug": "article_ignition_resistor_lifespan",
+    "title": "摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准",
+    "success": true,
+    "ok_count": 5,
+    "total": 5,
+    "actions": [
+      {
+        "key": "website",
+        "status": "成功",
+        "duration": 10.1
+      },
+      {
+        "key": "baidu",
+        "status": "成功",
+        "duration": 1.3
+      },
+      {
+        "key": "zhihu",
+        "status": "成功",
+        "duration": 36.7
+      },
+      {
+        "key": "buffer",
+        "status": "成功",
+        "duration": 3.7
+      },
+      {
+        "key": "supabase",
+        "status": "成功",
+        "duration": 2.2
+      }
+    ]
+  },
+  "topic_pool": {
+    "remaining": 18,
+    "counts": {
+      "待写": 18,
+      "已完成": 2,
+      "暂停": 0
+    },
+    "total": 20,
+    "next": "充电器空载发热、待机功耗异常？RXF 温度保险电阻排查指南"
+  },
+  "supabase": {
+    "available": false,
+    "count": null
+  },
+  "totals": {
+    "runs_logged": 13,
+    "published_manifest": 4,
+    "official_articles": 37
+  }
+}

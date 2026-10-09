@@ -1,0 +1,40 @@
+{
+  "last_updated": "2026-10-09T19:35:51+08:00",
+  "platforms": [
+    {
+      "name": "官网",
+      "status": "ok",
+      "icon": "✅",
+      "detail": "GitHub Pages 已上线（37 篇）",
+      "url": "https://www.hxo-lcr.cn"
+    },
+    {
+      "name": "百度",
+      "status": "ok",
+      "icon": "✅",
+      "detail": "API 推送 6 次成功",
+      "url": "https://www.hxo-lcr.cn"
+    },
+    {
+      "name": "LinkedIn",
+      "status": "ok",
+      "icon": "✅",
+      "detail": "Buffer 队列（6 条）",
+      "url": "https://bufferapp.com"
+    },
+    {
+      "name": "知乎",
+      "status": "ok",
+      "icon": "✅",
+      "detail": "已发 7 篇",
+      "url": "https://zhuanlan.zhihu.com"
+    },
+    {
+      "name": "B2B",
+      "status": "manual",
+      "icon": "📄",
+      "detail": "需企业认证，手动发布",
+      "url": "https://www.11467.com"
+    }
+  ]
+}

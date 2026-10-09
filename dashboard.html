@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>HXO 运营看板 | www.hxo-lcr.cn</title>
+<style>
+  :root{--bg:#0f172a;--card:#1e293b;--line:#334155;--fg:#e2e8f0;--mut:#94a3b8;--acc:#38bdf8;--ok:#22c55e;--warn:#f59e0b;--fail:#ef4444}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.6 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 64px}
+  h1{font-size:22px;margin:0 0 4px}
+  h2{font-size:16px;margin:32px 0 12px;padding-left:10px;border-left:3px solid var(--acc)}
+  .sub{color:var(--mut);font-size:13px;margin-bottom:24px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+  .card .num{font-size:28px;font-weight:700;color:var(--acc)}
+  .card .lbl{color:var(--mut);font-size:12px;margin-top:4px}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13px}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line)}
+  th{background:#0b1220;color:var(--mut);font-weight:600}
+  tr:last-child td{border-bottom:none}
+  a{color:var(--acc);text-decoration:none} a:hover{text-decoration:underline}
+  .empty{color:var(--mut);text-align:center;padding:16px}
+  .num-cell{font-weight:700;color:var(--acc)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:700px){.two{grid-template-columns:1fr}}
+  .badge{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600}
+  .badge.ok{background:rgba(34,197,94,.15);color:var(--ok)}
+  .badge.fail{background:rgba(239,68,68,.15);color:var(--fail)}
+  .last-task{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+  .lt-title{font-size:15px;font-weight:600;margin:8px 0 4px}
+  .lt-meta{color:var(--mut);font-size:12px}
+  .chips{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-size:12px;padding:2px 8px;border-radius:6px;background:#0b1220;border:1px solid var(--line)}
+  .chip.ok{color:var(--ok)} .chip.fail{color:var(--fail)}
+  .pool{display:flex;gap:24px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+  .pool .big{font-size:32px;font-weight:700;color:var(--warn)}
+  footer{margin-top:40px;color:var(--mut);font-size:12px;border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>HXO 运营看板</h1>
+  <div class="sub">数据自动生成于 2026-10-09T19:35:51+08:00 ｜ 数据源：publish_all.log、published_manifest.json、topic_pool.md、Supabase ｜ 每日 09:00 自动刷新</div>
+
+  <h2>内容总览</h2>
+  <div class="cards">
+<div class="card"><div class="num">37</div><div class="lbl">官网 B2B 文章</div></div>
+<div class="card"><div class="num">7</div><div class="lbl">知乎已发布</div></div>
+<div class="card"><div class="num">6</div><div class="lbl">Buffer/LinkedIn 帖子</div></div>
+<div class="card"><div class="num">12</div><div class="lbl">B2B 平台待手动上架</div></div>
+<div class="card"><div class="num">62</div><div class="lbl">累计发布（篇）</div></div>
+  </div>
+
+  <h2>最近 7 天发布记录</h2>
+  <table>
+    <thead><tr><th>日期</th><th>标题</th><th>平台</th><th>结果</th><th>slug</th></tr></thead>
+    <tbody>
+<tr><td>2026-10-09</td><td><a href="https://www.hxo-lcr.cn/article_ignition_resistor_lifespan.html" target="_blank" rel="noopener">摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准</a></td><td>官网、百度、知乎、LinkedIn+X、Supabase</td><td>✅ 5/5 成功</td><td>article_ignition_resistor_lifespan</td></tr>
+<tr><td>2026-10-09</td><td><a href="https://www.hxo-lcr.cn/article_power_rating_selection.html" target="_blank" rel="noopener">点火线圈抑制电阻额定功率怎么选？1W/3W/5W/10W 选型陷阱与实测温升</a></td><td>官网、百度、知乎、LinkedIn+X、Supabase</td><td>✅ 5/5 成功</td><td>article_power_rating_selection</td></tr>
+<tr><td>2026-10-09</td><td><a href="https://www.hxo-lcr.cn/article_pv_storage_bleeder.html" target="_blank" rel="noopener">光伏逆变器与储能系统高压泄放电阻选型指南 - HXO Resistor</a></td><td>百度、LinkedIn+X、Supabase</td><td>⚠️ 3/5 成功</td><td>article_pv_storage_bleeder</td></tr>
+<tr><td>2026-10-08</td><td><a href="https://www.hxo-lcr.cn/article_ev_pile_bleeder.html" target="_blank" rel="noopener">新能源汽车充电桩泄放电阻选型：从4kV到25kV的全面指南与实测 - HXO点火线圈</a></td><td>官网、百度、知乎、LinkedIn+X、Supabase</td><td>✅ 5/5 成功</td><td>article_ev_pile_bleeder</td></tr>
+<tr><td>2026-10-08</td><td><a href="https://www.hxo-lcr.cn/article_ig_c_ceramic.html" target="_blank" rel="noopener">IG-C 陶瓷芯点火线圈抑制电阻 — HXO Resistor</a></td><td>官网、百度、知乎、LinkedIn+X、Supabase</td><td>✅ 5/5 成功</td><td>article_ig_c_ceramic</td></tr>
+<tr><td>2026-10-08</td><td><a href="https://www.hxo-lcr.cn/article_burn_causes.html" target="_blank" rel="noopener">点火线圈抑制电阻烧毁原因深度分析：4种失效模式与预防 | HXO Resistor</a></td><td>官网、百度、知乎、LinkedIn+X、Supabase</td><td>✅ 5/5 成功</td><td>article_burn_causes</td></tr>
+    </tbody>
+  </table>
+
+  <h2>运营动态</h2>
+  <div class="two">
+    <div>
+      <h3 style="font-size:14px;color:var(--mut)">各平台累计发布数</h3>
+      <table><tbody>
+<tr><td>官网</td><td class="num-cell">37</td></tr>
+<tr><td>百度</td><td class="num-cell">6</td></tr>
+<tr><td>知乎</td><td class="num-cell">7</td></tr>
+<tr><td>LinkedIn+X</td><td class="num-cell">6</td></tr>
+<tr><td>Supabase</td><td class="num-cell">6</td></tr>
+      </tbody></table>
+      <p style="color:var(--mut);font-size:12px;margin-top:6px">官网=实有文章数；百度/知乎/LinkedIn+X/Supabase=自动化成功发布（按 slug 去重）</p>
+    </div>
+    <div>
+      <h3 style="font-size:14px;color:var(--mut)">选题池</h3>
+      <div class="pool">
+        <div><div class="big">18</div><div class="lbl" style="color:var(--mut);font-size:12px">剩余待写</div></div>
+        <div><div class="big" style="color:var(--ok)">2</div><div style="color:var(--mut);font-size:12px">已完成</div></div>
+        <div><div class="big" style="color:var(--mut)">0</div><div style="color:var(--mut);font-size:12px">暂停</div></div>
+        <div style="flex:1;min-width:180px"><div style="color:var(--mut);font-size:12px">下一个待写</div><div>充电器空载发热、待机功耗异常？RXF 温度保险电阻排查指南</div></div>
+      </div>
+      <p style="color:var(--mut);font-size:12px;margin-top:8px">Supabase：本次未连接（网络不可用，已跳过）</p>
+    </div>
+  </div>
+
+  <h2>最近一次自动发布任务结果</h2>
+<div class="last-task"><span class="badge ok">成功</span><div class="lt-title">摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准</div><div class="lt-meta">执行时间：2026-10-09 18:36:34 ｜ 结果：5/5 成功 ｜ slug：article_ignition_resistor_lifespan</div><div class="chips"><span class="chip ok">官网 成功 10.1s</span><span class="chip ok">百度 成功 1.3s</span><span class="chip ok">知乎 成功 36.7s</span><span class="chip ok">LinkedIn+X 成功 3.7s</span><span class="chip ok">Supabase 成功 2.2s</span></div></div>
+
+  <h2>平台状态</h2>
+  <table>
+    <thead><tr><th>平台</th><th>状态</th><th>链接</th></tr></thead>
+    <tbody>
+<tr><td>✅ 官网</td><td>GitHub Pages 已上线（37 篇）</td><td><a href="https://www.hxo-lcr.cn" target="_blank" rel="noopener">访问</a></td></tr>
+<tr><td>✅ 百度</td><td>API 推送 6 次成功</td><td><a href="https://www.hxo-lcr.cn" target="_blank" rel="noopener">访问</a></td></tr>
+<tr><td>✅ LinkedIn</td><td>Buffer 队列（6 条）</td><td><a href="https://bufferapp.com" target="_blank" rel="noopener">访问</a></td></tr>
+<tr><td>✅ 知乎</td><td>已发 7 篇</td><td><a href="https://zhuanlan.zhihu.com" target="_blank" rel="noopener">访问</a></td></tr>
+<tr><td>📄 B2B</td><td>需企业认证，手动发布</td><td><a href="https://www.11467.com" target="_blank" rel="noopener">访问</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2>发布日历（近 30 天）</h2>
+  <table>
+    <thead><tr><th>日期</th><th>平台</th><th>标题</th></tr></thead>
+    <tbody>
+<tr><td>2026-10-09</td><td>部分失败</td><td><a href="https://www.hxo-lcr.cn/article_pv_storage_bleeder.html" target="_blank" rel="noopener">光伏逆变器与储能系统高压泄放电阻选型指南 - HXO Resistor</a></td></tr>
+<tr><td>2026-10-09</td><td>多平台</td><td><a href="https://www.hxo-lcr.cn/article_power_rating_selection.html" target="_blank" rel="noopener">点火线圈抑制电阻额定功率怎么选？1W/3W/5W/10W 选型陷阱与实测温升</a></td></tr>
+<tr><td>2026-10-09</td><td>多平台</td><td><a href="https://www.hxo-lcr.cn/article_ignition_resistor_lifespan.html" target="_blank" rel="noopener">摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准</a></td></tr>
+<tr><td>2026-10-08</td><td>多平台</td><td><a href="https://www.hxo-lcr.cn/article_burn_causes.html" target="_blank" rel="noopener">点火线圈抑制电阻烧毁原因深度分析：4种失效模式与预防 | HXO Resistor</a></td></tr>
+<tr><td>2026-10-08</td><td>多平台</td><td><a href="https://www.hxo-lcr.cn/article_ig_c_ceramic.html" target="_blank" rel="noopener">IG-C 陶瓷芯点火线圈抑制电阻 — HXO Resistor</a></td></tr>
+<tr><td>2026-10-08</td><td>多平台</td><td><a href="https://www.hxo-lcr.cn/article_ev_pile_bleeder.html" target="_blank" rel="noopener">新能源汽车充电桩泄放电阻选型：从4kV到25kV的全面指南与实测 - HXO点火线圈</a></td></tr>
+    </tbody>
+  </table>
+
+  <footer>
+    数据条目：任务记录 13 次 ｜ manifest 4 篇 ｜ 官网文章 37 篇<br>
+    <a href="https://www.hxo-lcr.cn">返回官网</a> ｜ <a href="mailto:resistor@hxo-lcr.cn">resistor@hxo-lcr.cn</a>
+  </footer>
+</div>
+</body>
+</html>
