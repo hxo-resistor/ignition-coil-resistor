@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-09T19:35:51+08:00",
+  "last_updated": "2026-10-09T19:38:24+08:00",
   "window_days": 7,
   "recent_records": [
     {
@@ -164,8 +164,8 @@
     "next": "充电器空载发热、待机功耗异常？RXF 温度保险电阻排查指南"
   },
   "supabase": {
-    "available": false,
-    "count": null
+    "available": true,
+    "count": 31
   },
   "totals": {
     "runs_logged": 13,
