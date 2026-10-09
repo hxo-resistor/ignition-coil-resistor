@@ -27,7 +27,9 @@ Scripts in repo root are automation leftovers, not part of any pipeline. They co
 Treat these as reference only. Never commit new secrets; the repo already leaks several.
 
 ## Operations dashboard (automated)
+- **运营看板唯一入口 = `https://www.hxo-lcr.cn/dashboard.html`**（GitHub Pages）。裸域 `hxo-lcr.cn` 是另一个 Vercel/Next.js 项目（TrendFlow），本看板**不涉及**，勿动其 DNS 或项目。
 - `tools/update_dashboard.py` regenerates `dashboard.html` (live at `/dashboard.html`) and `dashboard_data/*.json` from real sources: `work/publish_all.log`, `work/published_manifest.json`, `work/zhihu_published.log`, `work/topic_pool.md`, repo-root `article_*.html`, and read-only Supabase `content_packages`.
+- `dashboard.html` is listed in `sitemap.xml` (`changefreq=daily`).
 - Smart commit: it fingerprints business data (excluding `last_updated`). If unchanged, output is byte-identical and **no commit is made** (avoids daily empty commits). Only real data changes are `git add dashboard.html dashboard_data` + commit + push `origin main`.
 - `tools/run_dashboard_task.bat` is the scheduled runner (sets cwd, logs to `logs/dashboard_run.log`).
 - Windows Task Scheduler task `HXO_Dashboard_Refresh` runs it daily at **09:00**. Verify: `schtasks /Query /TN HXO_Dashboard_Refresh /V /FO LIST`.

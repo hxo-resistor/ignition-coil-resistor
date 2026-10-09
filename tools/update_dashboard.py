@@ -573,7 +573,7 @@ def render_html(data):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex,nofollow">
+<meta name="robots" content="index,follow">
 <title>HXO 运营看板 | {_esc(SITE_HOST)}</title>
 <style>
   :root{{--bg:#0f172a;--card:#1e293b;--line:#334155;--fg:#e2e8f0;--mut:#94a3b8;--acc:#38bdf8;--ok:#22c55e;--warn:#f59e0b;--fail:#ef4444}}
