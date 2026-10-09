@@ -26,6 +26,13 @@ Scripts in repo root are automation leftovers, not part of any pipeline. They co
 - `generate_all_pdfs.py`, `generate_series_pages.py` — PDF/HTML generators (Linux font paths, write to `/app/data/...`).
 Treat these as reference only. Never commit new secrets; the repo already leaks several.
 
+## Operations dashboard (automated)
+- `tools/update_dashboard.py` regenerates `dashboard.html` (live at `/dashboard.html`) and `dashboard_data/*.json` from real sources: `work/publish_all.log`, `work/published_manifest.json`, `work/zhihu_published.log`, `work/topic_pool.md`, repo-root `article_*.html`, and read-only Supabase `content_packages`.
+- Smart commit: it fingerprints business data (excluding `last_updated`). If unchanged, output is byte-identical and **no commit is made** (avoids daily empty commits). Only real data changes are `git add dashboard.html dashboard_data` + commit + push `origin main`.
+- `tools/run_dashboard_task.bat` is the scheduled runner (sets cwd, logs to `logs/dashboard_run.log`).
+- Windows Task Scheduler task `HXO_Dashboard_Refresh` runs it daily at **09:00**. Verify: `schtasks /Query /TN HXO_Dashboard_Refresh /V /FO LIST`.
+- Errors append to `logs/dashboard_errors.log`; `logs/dashboard_alert_state.json` tracks consecutive failures (alert at 3).
+
 ## Conventions
 - Commit style: `Auto-deploy YYYYMMDD` or a short description.
-- No `.gitignore`; `logs/` is runtime output and untracked.
+- `logs/` is runtime output and is gitignored. `work/` (logs, manifests, topic pool, runtime scripts) is untracked — commit only explicit paths, never `git add -A`.
