@@ -41,6 +41,7 @@ shell_head: |
         "description": "讲清绕线电阻TCR的物理来源、典型数值区间，以及它在变频器制动电阻、高压泄放电路里的实际影响，并给出HXO HVW绕线电阻的TCR控制区间与选型建议。",
         "author": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
         "publisher": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
+        "datePublished": "2026-10-02",
         "mainEntityOfPage": "https://www.hxo-lcr.cn/article_tcr_wirewound.html"
       }
       </script>

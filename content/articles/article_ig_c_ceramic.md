@@ -97,7 +97,7 @@ shell_head: |
               "@type": "Answer",
               "text": "IG-C 采用专利剥层区导通技术，无感设计，寄生电感 <0.1μH；而传统绕线电阻寄生电感 1-5μH。陶瓷实心结构更耐高压脉冲（40kV+），适合高EMI环境。"
             }
-          }
+          },
           {
             "@type": "Question",
             "name": "IG-C 系列通过哪些汽车电子认证？",
@@ -105,7 +105,7 @@ shell_head: |
               "@type": "Answer",
               "text": "IG-C 系列通过 AEC-Q200 车规认证、CQC 国内认证，并符合 ISO 16750 道路车辆环境条件标准，可批量用于新能源汽车点火系统。"
             }
-          }
+          },
           {
             "@type": "Question",
             "name": "IG-C 陶瓷实心电阻的耐压等级是多少？",
@@ -113,7 +113,7 @@ shell_head: |
               "@type": "Answer",
               "text": "IG-C 系列脉冲耐压 35-40kV（1.2/50μs 标准波），远超传统绕线电阻的 20-30kV，适合高压点火系统应用。"
             }
-          }
+          },
           {
             "@type": "Question",
             "name": "IG-C 系列支持哪些阻值范围？",
@@ -121,7 +121,7 @@ shell_head: |
               "@type": "Answer",
               "text": "IG-C 系列提供 1kΩ、4.7kΩ、10kΩ、22kΩ 等标准阻值，精度 ±10%（K级）或 ±5%（J级），也可根据客户需求定制特殊阻值。"
             }
-          }
+          },
           {
             "@type": "Question",
             "name": "IG-C 陶瓷实心电阻的寿命有多长？",
@@ -133,6 +133,20 @@ shell_head: |
         ]
       }
       </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IG-C 陶瓷芯点火线圈抑制电阻 — HXO Resistor",
+    "description": "HXO IG-C陶瓷芯点火线圈抑制电阻，脉冲耐压35kV，工作温度-55~275℃，AEC-Q200认证，深圳源头工厂。",
+    "author": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
+    "publisher": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
+    "datePublished": "2026-10-02",
+    "mainEntityOfPage": "https://www.hxo-lcr.cn/article_ig_c_ceramic.html"
+  }
+  </script>
+
       </head>
   <body>
       <div class="nav">

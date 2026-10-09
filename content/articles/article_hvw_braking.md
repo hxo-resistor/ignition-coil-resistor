@@ -72,6 +72,20 @@ shell_head: |
     "description": "HXO 点火线圈抑制电阻、OTP 2合1保险丝电阻、高阻值绕线电阻专业制造商，AEC-Q200 认证，CQC/UL 双认证，7-15天交付。"
   }
   </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "HVW高阻值绕线电阻在变频器制动系统中的应用 - HXO华星欧电子",
+    "description": "HXO HVW系列高阻值绕线电阻适用于变频器制动、新能源电池泄放等大功率场景。阻值范围0.1Ω~651kΩ，功率1W~50W，耐压10kV+，提供完整选型计算工具。",
+    "author": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
+    "publisher": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
+    "datePublished": "2026-09-21",
+    "mainEntityOfPage": "https://www.hxo-lcr.cn/article_hvw_braking.html"
+  }
+  </script>
+
   </head>
   <body>
       <header>

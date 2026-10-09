@@ -73,6 +73,20 @@ shell_head: |
     "description": "HXO 点火线圈抑制电阻、OTP 2合1保险丝电阻、高阻值绕线电阻专业制造商，AEC-Q200 认证，CQC/UL 双认证，7-15天交付。"
   }
   </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "RXF OTP温度保险电阻与普通保险丝有什么区别？——充电器保护方案深度解析 - HXO华星欧电子",
+    "description": "HXO RXF OTP温度保险电阻与普通保险丝的核心区别：OTP兼具电阻限流和过温保护双重功能，一颗器件替代两颗；动作温度精准（221℃±5%），熔断后绝缘电阻≥1000MΩ。详解OTP工作原理、选型计算和常见误区。",
+    "author": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
+    "publisher": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
+    "datePublished": "2026-09-22",
+    "mainEntityOfPage": "https://www.hxo-lcr.cn/article_otp_vs_fuse.html"
+  }
+  </script>
+
   </head>
   <body>
       <header>

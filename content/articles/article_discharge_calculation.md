@@ -83,6 +83,20 @@ shell_head: >
 
   </script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "泄放电阻计算指南：变频器制动系统的完整选型方法 - HXO华星欧电子",
+    "description": "详细讲解变频器制动电阻和高压电容泄放电阻的计算方法，含泄放时间公式推导、功率承受能力计算、多次泄放场景分析，附HXO",
+    "author": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
+    "publisher": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
+    "datePublished": "2026-09-22",
+    "mainEntityOfPage": "https://www.hxo-lcr.cn/article_discharge_calculation.html"
+  }
+  </script>
+
+
   </head>
 
   <body>

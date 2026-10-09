@@ -79,7 +79,7 @@ shell_head: |
               "@type": "Answer",
               "text": "泄放电阻并联在电容两端，断电后释放储存电荷，防止维修人员触电。IEC 61010 标准要求断电后 1 秒内电压降至 60V 以下。"
             }
-          }
+          },
           {
             "@type": "Question",
             "name": "如何计算泄放电阻的阻值和功率？",
@@ -87,7 +87,7 @@ shell_head: |
               "@type": "Answer",
               "text": "阻值 R ≤ -t/(C×ln(V/V₀))，其中 t 为放电时间，C 为电容，V₀ 为初始电压，V 为目标电压。功率 P₀ = V₀²/R，建议选额定功率 2 倍以上。"
             }
-          }
+          },
           {
             "@type": "Question",
             "name": "泄放电阻应该串联还是并联？",
@@ -95,7 +95,7 @@ shell_head: |
               "@type": "Answer",
               "text": "泄放电阻必须与电容并联，且位于电源入口之前，不能在开关之后。常闭设计确保安全电容始终被泄放。"
             }
-          }
+          },
           {
             "@type": "Question",
             "name": "HXO 提供哪些泄放电阻方案？",
@@ -103,7 +103,7 @@ shell_head: |
               "@type": "Answer",
               "text": "HXO 提供 HVW 高阻值绕线电阻（1-50W，0.1Ω-651kΩ）和玻璃釉电阻两种方案，可根据电压、功率、体积需求选择。"
             }
-          }
+          },
           {
             "@type": "Question",
             "name": "泄放电阻选型需要考虑哪些因素？",
@@ -115,6 +115,20 @@ shell_head: |
         ]
       }
       </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "High-Value Wirewound Resistor - Capacitor Discharge Design",
+    "description": "High-Value Wirewound Resistor - Capacitor Discharge Design",
+    "author": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
+    "publisher": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
+    "datePublished": "2026-10-02",
+    "mainEntityOfPage": "https://www.hxo-lcr.cn/article_bleeder_resistor.html"
+  }
+  </script>
+
       </head>
   <body>
       <div class="header">

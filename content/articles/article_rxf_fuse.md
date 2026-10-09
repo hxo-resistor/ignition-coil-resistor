@@ -96,7 +96,7 @@ shell_head: |
               "@type": "Answer",
               "text": "RXF 内部含有热敏合金材料，当温度达到设定阈值（如 221℃）时，合金瞬间熔化，电阻值从标称值跃升至兆欧级（≥1000MΩ），切断电路实现过温保护。"
             }
-          }
+          },
           {
             "@type": "Question",
             "name": "RXF 与传统的温度保险丝有什么区别？",
@@ -104,7 +104,7 @@ shell_head: |
               "@type": "Answer",
               "text": "传统温度保险丝仅有过温保护功能，而 RXF OTP 兼具电阻限流和过温保护双重功能，一颗器件节省 PCB 面积 30% 以上，简化电路设计。"
             }
-          }
+          },
           {
             "@type": "Question",
             "name": "RXF 的温度保险电阻动作精度多少？",
@@ -112,7 +112,7 @@ shell_head: |
               "@type": "Answer",
               "text": "RXF 动作温度偏差控制在 ±5% 以内，如 221℃ 的动作温度范围为 210-232℃，批次一致性高，确保保护可靠性。"
             }
-          }
+          },
           {
             "@type": "Question",
             "name": "RXF OTP 温度保险电阻适用于哪些产品？",
@@ -120,7 +120,7 @@ shell_head: |
               "@type": "Answer",
               "text": "RXF 系列主要应用于手机充电器、笔记本适配器、LED 驱动电源、工业控制电源等需要过温保护的电子设备。"
             }
-          }
+          },
           {
             "@type": "Question",
             "name": "RXF 产品有哪些认证资质？",
@@ -132,6 +132,20 @@ shell_head: |
         ]
       }
       </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "RXF 1W 12Ω 221℃ OTP温度保险电阻 — HXO Resistor",
+    "description": "HXO RXF OTP温度保险电阻，1W功率12Ω阻值221℃精准熔断，CQC/UL双认证，过温+过流双重保护，专为充电器适配器设计。",
+    "author": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
+    "publisher": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
+    "datePublished": "2026-10-02",
+    "mainEntityOfPage": "https://www.hxo-lcr.cn/article_rxf_fuse.html"
+  }
+  </script>
+
       </head>
   <body>
       <div class="nav">

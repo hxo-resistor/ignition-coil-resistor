@@ -159,8 +159,8 @@ def parse_front_matter(text: str):
                 continue
             key = key.strip().strip("\"'")
             val_stripped = val.strip()
-            # YAML 块标量：| 或 |-（保留换行）；> 折叠标量不在此使用
-            if val_stripped in ("|", "|-", "|+"):
+            # YAML 块标量：| 或 |-（保留换行）；> 折叠标量（段落间保留空行，段内换行折叠为空格）
+            if val_stripped in ("|", "|-", "|+", ">", ">-", ">+"):
                 j = i + 1
                 raw = []
                 while j < len(block):
@@ -175,10 +175,26 @@ def parse_front_matter(text: str):
                     else:
                         break
                 content = _dedent_block(raw)
-                if val_stripped == "|":
-                    content += "\n"
-                elif val_stripped == "|+":
-                    content += "\n"
+                if val_stripped in (">", ">-", ">+"):
+                    # 折叠标量：连续非空行用空格连接，空行保留为换行
+                    folded = []
+                    para = []
+                    for ln in content.splitlines():
+                        if ln.strip() == "":
+                            if para:
+                                folded.append(" ".join(para))
+                                para = []
+                            folded.append("")
+                        else:
+                            para.append(ln.strip())
+                    if para:
+                        folded.append(" ".join(para))
+                    content = "\n".join(folded)
+                    # 去掉尾部多余空行，保留单个换行
+                    content = content.rstrip("\n") + "\n"
+                else:
+                    if val_stripped in ("|", "|+"):
+                        content += "\n"
                 result[key] = content
                 i = j
             elif val_stripped == "":
