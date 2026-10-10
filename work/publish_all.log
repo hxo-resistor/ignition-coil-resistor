@@ -1,0 +1,624 @@
+[2026-10-08 17:00:47] ======================================================================
+[2026-10-08 17:00:47] publish_all.py  文章=article_ig_c_ceramic  标题=IG-C 陶瓷芯点火线圈抑制电阻 — HXO Resistor
+[2026-10-08 17:00:47] 模式=DRY-RUN（不实际发布）  only=全部  skip=无
+[2026-10-08 17:00:47] ======================================================================
+[2026-10-08 17:00:47] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-10-08 17:00:47]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n1_website.py  (HXO_DRY_RUN=1)
+[2026-10-08 17:00:47]     | {"ok": true, "action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 17:00:47] --- 动作 [website] 官网发布 (git push) 结束: 成功 (0.3s) {"action": "website", "note": "no content changes", "commit": ""} ---
+[2026-10-08 17:00:50] --- 动作 [baidu] 百度推送 开始 ---
+[2026-10-08 17:00:50]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n2_baidu.py --slugs article_ig_c_ceramic  (HXO_DRY_RUN=1)
+[2026-10-08 17:00:51]     | {"ok": true, "action": "baidu", "success": 2, "remain": 8, "not_same_site": [], "raw": {"remain": 8, "success": 2}, "http": 200}
+[2026-10-08 17:00:51] --- 动作 [baidu] 百度推送 结束: 成功 (1.1s) {"action": "baidu", "success": 2, "remain": 8, "not_same_site": [], "http": 200} ---
+[2026-10-08 17:00:54] --- 动作 [zhihu] 知乎发布 开始 ---
+[2026-10-08 17:00:54]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n3_zhihu.py --slug article_ig_c_ceramic  (HXO_DRY_RUN=1)
+[2026-10-08 17:02:09]     | [nav] 򿪷ҳ ...
+[2026-10-08 17:02:09]     | [fill] : IG-C մоȦƵ
+[2026-10-08 17:02:09]     | [fill]  (1553 ַ)
+[2026-10-08 17:02:09]     | [dry-run] дδ
+[2026-10-08 17:02:09]     | [dry-run] ִ 60 빩 ...
+[2026-10-08 17:02:09]     | [done] dry-run 
+[2026-10-08 17:02:09]     | 
+[2026-10-08 17:02:09]     | {"ok": true, "action": "zhihu", "slug": "article_ig_c_ceramic", "url": "", "exit_code": 0}
+[2026-10-08 17:02:09] --- 动作 [zhihu] 知乎发布 结束: 成功 (75.5s) {"action": "zhihu", "slug": "article_ig_c_ceramic", "url": "", "exit_code": 0} ---
+[2026-10-08 17:02:12] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 开始 ---
+[2026-10-08 17:02:12]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n4_buffer.py --title IG-C 陶瓷芯点火线圈抑制电阻 — HXO Resistor  (HXO_DRY_RUN=1)
+[2026-10-08 17:02:14]     | {"ok": true, "action": "buffer", "results": [{"channel": "6a9ecd14cd8b9c702c228760", "ok": true, "post_id": "6ac75c165d76b00cd8327b44", "status": "scheduled"}]}
+[2026-10-08 17:02:14] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 结束: 成功 (1.8s) {"action": "buffer", "results": [{"channel": "6a9ecd14", "ok": true}]} ---
+[2026-10-08 17:02:17] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-10-08 17:02:17]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n5_supabase.py --slug article_ig_c_ceramic  (HXO_DRY_RUN=1)
+[2026-10-08 17:02:20]     | {"ok": true, "action": "supabase", "http": 201, "title": "IG-C մоȦƵ  HXO Resistor", "product_id": "ig-c"}
+[2026-10-08 17:02:20] --- 动作 [supabase] Supabase 同步 结束: 成功 (3.2s) {"action": "supabase", "http": 201, "title": "IG-C մоȦƵ  HXO Resistor", "product_id": "ig-c"} ---
+[2026-10-08 17:02:23] --- 动作 [dashboard] 看板刷新 开始 ---
+[2026-10-08 17:02:23]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n6_dashboard.py  (HXO_DRY_RUN=1)
+[2026-10-08 17:02:24]     | 
+[2026-10-08 17:02:24]     | {"ok": false, "action": "dashboard", "error": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\.agnes\\temporary\\2026-08-17\\20260817_1\\website-repo\\tools\\update_dashboard.py\", line 287, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\Administrator\\.agnes\\temporary\\2026-08-17\\20260817_1\\website-repo\\tools\\update_dashboard.py\", line 283, in main\n    build(dry_run=args.dry_run, keep=args.keep)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\.agnes\\temporary\\2026-08-17\\20260817_1\\website-repo\\tools\\update_dashboard.py\", line 249, in build\n    save_json(DASH, name, data)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\.agnes\\temporary\\2026-08-17\\20260817_1\\website-repo\\tools\\update_dashboard.py\", line 130, in save_json\n    with open(p, \"w\", encoding=\"utf-8\", newline=\"\\n\") as fh:\n         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\Administrator\\\\.agnes\\\\temporary\\\\2026-08-17\\\\20260817_1\\\\website-repo\\\\tools\\\\..\\\\..\\\\dashboard_data\\\\overview.json'\n"}
+[2026-10-08 17:02:24] --- 动作 [dashboard] 看板刷新 结束: 失败 (0.3s) {"action": "dashboard", "error": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\.agnes\\temporary\\2026-08-17\\20260817_1\\website-repo\\tools\\update_dashboard.py\", line 287, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\Administrator\\.agnes\\temporary\\2026-08-17\\20260817_1\\website-repo\\tools\\update_dashboard.py\", line 283, in main\n    build(dry_run=args.dry_run, keep=args.keep)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\.agnes\\temporary\\2026-08-17\\20260817_1\\website-repo\\tools\\update_dashboard.py\", line 249, in build\n    save_json(DASH, name, data)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\.agnes\\temporary\\2026-08-17\\20260817_1\\website-repo\\tools\\update_dashboard.py\", line 130, in save_json\n    with open(p, \"w\", encoding=\"utf-8\", newline=\"\\n\") as fh:\n         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\Administrator\\\\.agnes\\\\temporary\\\\2026-08-17\\\\20260817_1\\\\website-repo\\\\tools\\\\..\\\\..\\\\dashboard_data\\\\overview.json'\n"} ---
+[2026-10-08 17:02:24] 
+[2026-10-08 17:02:24] ======================================================================
+[2026-10-08 17:02:24] 汇总报告
+[2026-10-08 17:02:24] ======================================================================
+[2026-10-08 17:02:24]   [OK  ] website       0.3s  {"action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 17:02:24]   [OK  ] baidu         1.1s  {"action": "baidu", "success": 2, "remain": 8, "not_same_site": [], "http": 200}
+[2026-10-08 17:02:24]   [OK  ] zhihu        75.5s  {"action": "zhihu", "slug": "article_ig_c_ceramic", "url": "", "exit_code": 0}
+[2026-10-08 17:02:24]   [OK  ] buffer        1.8s  {"action": "buffer", "results": [{"channel": "6a9ecd14", "ok": true}]}
+[2026-10-08 17:02:24]   [OK  ] supabase      3.2s  {"action": "supabase", "http": 201, "title": "IG-C մоȦƵ  HXO Resistor", "product_id": "ig-c"}
+[2026-10-08 17:02:24]   [FAIL] dashboard     0.3s  {"action": "dashboard", "error": "Traceback (most recent call last):\n  File \"C:\\Users\\Administrator\\.agnes\\temporary\\2026-08-17\\20260817_1\\website-repo\\tools\\update_dashboard.py\", line 287, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\Users\\Administrator\\.agnes\\temporary\\2026-08-17\\20260817_1\\website-repo\\tools\\update_dashboard.py\", line 283, in main\n    build(dry_run=args.dry_run, keep=args.keep)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\.agnes\\temporary\\2026-08-17\\20260817_1\\website-repo\\tools\\update_dashboard.py\", line 249, in build\n    save_json(DASH, name, data)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Administrator\\.agnes\\temporary\\2026-08-17\\20260817_1\\website-repo\\tools\\update_dashboard.py\", line 130, in save_json\n    with open(p, \"w\", encoding=\"utf-8\", newline=\"\\n\") as fh:\n         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\Administrator\\\\.agnes\\\\temporary\\\\2026-08-17\\\\20260817_1\\\\website-repo\\\\tools\\\\..\\\\..\\\\dashboard_data\\\\overview.json'\n"}
+[2026-10-08 17:02:24]   合计: 5/6 成功
+[2026-10-08 17:02:24] ======================================================================
+[2026-10-08 17:02:24] DRY-RUN 完成，未实际发布，未写 manifest。
+[2026-10-08 17:04:28] ======================================================================
+[2026-10-08 17:04:28] publish_all.py  文章=article_ig_c_ceramic  标题=IG-C 陶瓷芯点火线圈抑制电阻 — HXO Resistor
+[2026-10-08 17:04:28] 模式=DRY-RUN（不实际发布）  only=全部  skip=无
+[2026-10-08 17:04:28] ======================================================================
+[2026-10-08 17:04:28] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-10-08 17:04:28]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n1_website.py  (HXO_DRY_RUN=1)
+[2026-10-08 17:04:29]     | {"ok": true, "action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 17:04:29] --- 动作 [website] 官网发布 (git push) 结束: 成功 (0.2s) {"action": "website", "note": "no content changes", "commit": ""} ---
+[2026-10-08 17:04:32] --- 动作 [baidu] 百度推送 开始 ---
+[2026-10-08 17:04:32]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n2_baidu.py --slugs article_ig_c_ceramic  (HXO_DRY_RUN=1)
+[2026-10-08 17:04:32]     | {"ok": true, "action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ig_c_ceramic.html", "https://www.hxo-lcr.cn/articles.html"]}
+[2026-10-08 17:04:32] --- 动作 [baidu] 百度推送 结束: 成功 (0.4s) {"action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ig_c_ceramic.html", "https://www.hxo-lcr.cn/articles.html"]} ---
+[2026-10-08 17:04:35] --- 动作 [zhihu] 知乎发布 开始 ---
+[2026-10-08 17:04:35]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n3_zhihu.py --slug article_ig_c_ceramic  (HXO_DRY_RUN=1)
+[2026-10-08 17:05:50]     | [nav] 򿪷ҳ ...
+[2026-10-08 17:05:50]     | [fill] : IG-C մоȦƵ
+[2026-10-08 17:05:50]     | [fill]  (1553 ַ)
+[2026-10-08 17:05:50]     | [dry-run] дδ
+[2026-10-08 17:05:50]     | [dry-run] ִ 60 빩 ...
+[2026-10-08 17:05:50]     | [done] dry-run 
+[2026-10-08 17:05:50]     | 
+[2026-10-08 17:05:50]     | {"ok": true, "action": "zhihu", "slug": "article_ig_c_ceramic", "url": "", "exit_code": 0}
+[2026-10-08 17:05:50] --- 动作 [zhihu] 知乎发布 结束: 成功 (75.2s) {"action": "zhihu", "slug": "article_ig_c_ceramic", "url": "", "exit_code": 0} ---
+[2026-10-08 17:05:53] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 开始 ---
+[2026-10-08 17:05:53]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n4_buffer.py --title IG-C 陶瓷芯点火线圈抑制电阻 — HXO Resistor  (HXO_DRY_RUN=1)
+[2026-10-08 17:05:54]     | {"ok": true, "action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760"], "text_preview": "IG-C մоȦƵ  HXO Resistor\n\nHXO Resistor  AEC-Q200 automotive-grade ignition-coil suppression resistors. 7-15 day "}
+[2026-10-08 17:05:54] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 结束: 成功 (0.7s) {"action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760"], "text_preview": "IG-C մоȦƵ  HXO Resistor\n\nHXO Resistor  AEC-Q200 automotive-grade ignition-coil suppression resistors. 7-15 day "} ---
+[2026-10-08 17:05:57] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-10-08 17:05:57]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n5_supabase.py --slug article_ig_c_ceramic  (HXO_DRY_RUN=1)
+[2026-10-08 17:05:58]     | {"ok": true, "action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "ig-c", "title": "IG-C մоȦƵ  HXO Resistor", "content_chars": 11594}
+[2026-10-08 17:05:58] --- 动作 [supabase] Supabase 同步 结束: 成功 (0.5s) {"action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "ig-c", "title": "IG-C մоȦƵ  HXO Resistor", "content_chars": 11594} ---
+[2026-10-08 17:06:01] --- 动作 [dashboard] 看板刷新 开始 ---
+[2026-10-08 17:06:01]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n6_dashboard.py  (HXO_DRY_RUN=1)
+[2026-10-08 17:06:01]     | {"ok": true, "action": "dashboard", "dry_run": true}
+[2026-10-08 17:06:01] --- 动作 [dashboard] 看板刷新 结束: 成功 (0.1s) {"action": "dashboard", "dry_run": true} ---
+[2026-10-08 17:06:01] 
+[2026-10-08 17:06:01] ======================================================================
+[2026-10-08 17:06:01] 汇总报告
+[2026-10-08 17:06:01] ======================================================================
+[2026-10-08 17:06:01]   [OK  ] website       0.2s  {"action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 17:06:01]   [OK  ] baidu         0.4s  {"action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ig_c_ceramic.html", "https://www.hxo-lcr.cn/articles.html"]}
+[2026-10-08 17:06:01]   [OK  ] zhihu        75.2s  {"action": "zhihu", "slug": "article_ig_c_ceramic", "url": "", "exit_code": 0}
+[2026-10-08 17:06:01]   [OK  ] buffer        0.7s  {"action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760"], "text_preview": "IG-C մоȦƵ  HXO Resistor\n\nHXO Resistor  AEC-Q200 automotive-grade ignition-coil suppression resistors. 7-15 day "}
+[2026-10-08 17:06:01]   [OK  ] supabase      0.5s  {"action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "ig-c", "title": "IG-C մоȦƵ  HXO Resistor", "content_chars": 11594}
+[2026-10-08 17:06:01]   [OK  ] dashboard     0.1s  {"action": "dashboard", "dry_run": true}
+[2026-10-08 17:06:01]   合计: 6/6 成功
+[2026-10-08 17:06:01] ======================================================================
+[2026-10-08 17:06:01] DRY-RUN 完成，未实际发布，未写 manifest。
+[2026-10-08 17:11:49] ======================================================================
+[2026-10-08 17:11:49] publish_all.py  文章=article_ig_c_ceramic  标题=IG-C 陶瓷芯点火线圈抑制电阻 — HXO Resistor
+[2026-10-08 17:11:49] 模式=DRY-RUN（不实际发布）  only=全部  skip=['dashboard']
+[2026-10-08 17:11:49] ======================================================================
+[2026-10-08 17:11:49] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-10-08 17:11:49]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n1_website.py  (HXO_DRY_RUN=1)
+[2026-10-08 17:11:49]     | {"ok": true, "action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 17:11:49] --- 动作 [website] 官网发布 (git push) 结束: 成功 (0.2s) {"action": "website", "note": "no content changes", "commit": ""} ---
+[2026-10-08 17:11:52] --- 动作 [baidu] 百度推送 开始 ---
+[2026-10-08 17:11:52]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n2_baidu.py --slugs article_ig_c_ceramic  (HXO_DRY_RUN=1)
+[2026-10-08 17:11:53]     | {"ok": true, "action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ig_c_ceramic.html", "https://www.hxo-lcr.cn/articles.html"]}
+[2026-10-08 17:11:53] --- 动作 [baidu] 百度推送 结束: 成功 (0.5s) {"action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ig_c_ceramic.html", "https://www.hxo-lcr.cn/articles.html"]} ---
+[2026-10-08 17:11:56] --- 动作 [zhihu] 知乎发布 开始 ---
+[2026-10-08 17:11:56]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n3_zhihu.py --slug article_ig_c_ceramic  (HXO_DRY_RUN=1)
+[2026-10-08 17:13:09]     | [nav] 򿪷ҳ ...
+[2026-10-08 17:13:09]     | [fill] : IG-C մоȦƵ
+[2026-10-08 17:13:09]     | [fill]  (1553 ַ)
+[2026-10-08 17:13:09]     | [dry-run] дδ
+[2026-10-08 17:13:09]     | [dry-run] ִ 60 빩 ...
+[2026-10-08 17:13:09]     | [done] dry-run 
+[2026-10-08 17:13:09]     | 
+[2026-10-08 17:13:09]     | {"ok": true, "action": "zhihu", "slug": "article_ig_c_ceramic", "url": "", "exit_code": 0}
+[2026-10-08 17:13:09] --- 动作 [zhihu] 知乎发布 结束: 成功 (73.3s) {"action": "zhihu", "slug": "article_ig_c_ceramic", "url": "", "exit_code": 0} ---
+[2026-10-08 17:13:12] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 开始 ---
+[2026-10-08 17:13:12]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n4_buffer.py --title IG-C 陶瓷芯点火线圈抑制电阻 — HXO Resistor  (HXO_DRY_RUN=1)
+[2026-10-08 17:13:13]     | {"ok": true, "action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": "IG-C մоȦƵ  HXO Resistor\n\nHXO Resistor  AEC-Q200 automotive-grade ignition-coil suppression resistors. 7-15 day "}
+[2026-10-08 17:13:13] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 结束: 成功 (0.7s) {"action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": "IG-C մоȦƵ  HXO Resistor\n\nHXO Resistor  AEC-Q200 automotive-grade ignition-coil suppression resistors. 7-15 day "} ---
+[2026-10-08 17:13:16] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-10-08 17:13:16]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n5_supabase.py --slug article_ig_c_ceramic  (HXO_DRY_RUN=1)
+[2026-10-08 17:13:16]     | {"ok": true, "action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "ig-c", "title": "IG-C մоȦƵ  HXO Resistor", "content_chars": 11594}
+[2026-10-08 17:13:16] --- 动作 [supabase] Supabase 同步 结束: 成功 (0.5s) {"action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "ig-c", "title": "IG-C մоȦƵ  HXO Resistor", "content_chars": 11594} ---
+[2026-10-08 17:13:16] 
+[2026-10-08 17:13:16] ======================================================================
+[2026-10-08 17:13:16] 汇总报告
+[2026-10-08 17:13:16] ======================================================================
+[2026-10-08 17:13:16]   [OK  ] website       0.2s  {"action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 17:13:16]   [OK  ] baidu         0.5s  {"action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ig_c_ceramic.html", "https://www.hxo-lcr.cn/articles.html"]}
+[2026-10-08 17:13:16]   [OK  ] zhihu        73.3s  {"action": "zhihu", "slug": "article_ig_c_ceramic", "url": "", "exit_code": 0}
+[2026-10-08 17:13:16]   [OK  ] buffer        0.7s  {"action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": "IG-C մоȦƵ  HXO Resistor\n\nHXO Resistor  AEC-Q200 automotive-grade ignition-coil suppression resistors. 7-15 day "}
+[2026-10-08 17:13:16]   [OK  ] supabase      0.5s  {"action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "ig-c", "title": "IG-C մоȦƵ  HXO Resistor", "content_chars": 11594}
+[2026-10-08 17:13:16]   合计: 5/5 成功
+[2026-10-08 17:13:16] ======================================================================
+[2026-10-08 17:13:16] DRY-RUN 完成，未实际发布，未写 manifest。
+[2026-10-08 17:13:44] ======================================================================
+[2026-10-08 17:13:44] publish_all.py  文章=article_burn_causes  标题=点火线圈抑制电阻烧毁原因深度分析：4种失效模式与预防 | HXO Resistor
+[2026-10-08 17:13:44] 模式=DRY-RUN（不实际发布）  only=全部  skip=['dashboard']
+[2026-10-08 17:13:44] ======================================================================
+[2026-10-08 17:13:44] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-10-08 17:13:44]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n1_website.py  (HXO_DRY_RUN=1)
+[2026-10-08 17:13:44]     | {"ok": true, "action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 17:13:44] --- 动作 [website] 官网发布 (git push) 结束: 成功 (0.3s) {"action": "website", "note": "no content changes", "commit": ""} ---
+[2026-10-08 17:13:47] --- 动作 [baidu] 百度推送 开始 ---
+[2026-10-08 17:13:47]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n2_baidu.py --slugs article_burn_causes  (HXO_DRY_RUN=1)
+[2026-10-08 17:13:47]     | {"ok": true, "action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_burn_causes.html", "https://www.hxo-lcr.cn/articles.html"]}
+[2026-10-08 17:13:47] --- 动作 [baidu] 百度推送 结束: 成功 (0.5s) {"action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_burn_causes.html", "https://www.hxo-lcr.cn/articles.html"]} ---
+[2026-10-08 17:13:50] --- 动作 [zhihu] 知乎发布 开始 ---
+[2026-10-08 17:13:50]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n3_zhihu.py --slug article_burn_causes  (HXO_DRY_RUN=1)
+[2026-10-08 17:15:03]     | [nav] 򿪷ҳ ...
+[2026-10-08 17:15:03]     | [fill] : ȦƵջԭȷ4ʧЧģʽԤ
+[2026-10-08 17:15:03]     | [fill]  (4122 ַ)
+[2026-10-08 17:15:03]     | [dry-run] дδ
+[2026-10-08 17:15:03]     | [dry-run] ִ 60 빩 ...
+[2026-10-08 17:15:03]     | [done] dry-run 
+[2026-10-08 17:15:03]     | 
+[2026-10-08 17:15:03]     | {"ok": true, "action": "zhihu", "slug": "article_burn_causes", "url": "", "exit_code": 0}
+[2026-10-08 17:15:03] --- 动作 [zhihu] 知乎发布 结束: 成功 (72.7s) {"action": "zhihu", "slug": "article_burn_causes", "url": "", "exit_code": 0} ---
+[2026-10-08 17:15:06] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 开始 ---
+[2026-10-08 17:15:06]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n4_buffer.py --title 点火线圈抑制电阻烧毁原因深度分析：4种失效模式与预防 | HXO Resistor  (HXO_DRY_RUN=1)
+[2026-10-08 17:15:07]     | {"ok": true, "action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": "ȦƵջԭȷ4ʧЧģʽԤ | HXO Resistor\n\nHXO Resistor  AEC-Q200 automotive-grade ignition-coil suppression resistors."}
+[2026-10-08 17:15:07] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 结束: 成功 (0.7s) {"action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": "ȦƵջԭȷ4ʧЧģʽԤ | HXO Resistor\n\nHXO Resistor  AEC-Q200 automotive-grade ignition-coil suppression resistors."} ---
+[2026-10-08 17:15:10] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-10-08 17:15:10]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n5_supabase.py --slug article_burn_causes  (HXO_DRY_RUN=1)
+[2026-10-08 17:15:10]     | {"ok": true, "action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "av", "title": "ȦƵջԭȷ4ʧЧģʽԤ | HXO Resistor", "content_chars": 19664}
+[2026-10-08 17:15:10] --- 动作 [supabase] Supabase 同步 结束: 成功 (0.6s) {"action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "av", "title": "ȦƵջԭȷ4ʧЧģʽԤ | HXO Resistor", "content_chars": 19664} ---
+[2026-10-08 17:15:10] 
+[2026-10-08 17:15:10] ======================================================================
+[2026-10-08 17:15:10] 汇总报告
+[2026-10-08 17:15:10] ======================================================================
+[2026-10-08 17:15:10]   [OK  ] website       0.3s  {"action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 17:15:10]   [OK  ] baidu         0.5s  {"action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_burn_causes.html", "https://www.hxo-lcr.cn/articles.html"]}
+[2026-10-08 17:15:10]   [OK  ] zhihu        72.7s  {"action": "zhihu", "slug": "article_burn_causes", "url": "", "exit_code": 0}
+[2026-10-08 17:15:10]   [OK  ] buffer        0.7s  {"action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": "ȦƵջԭȷ4ʧЧģʽԤ | HXO Resistor\n\nHXO Resistor  AEC-Q200 automotive-grade ignition-coil suppression resistors."}
+[2026-10-08 17:15:10]   [OK  ] supabase      0.6s  {"action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "av", "title": "ȦƵջԭȷ4ʧЧģʽԤ | HXO Resistor", "content_chars": 19664}
+[2026-10-08 17:15:10]   合计: 5/5 成功
+[2026-10-08 17:15:10] ======================================================================
+[2026-10-08 17:15:10] DRY-RUN 完成，未实际发布，未写 manifest。
+[2026-10-08 17:15:19] ======================================================================
+[2026-10-08 17:15:19] publish_all.py  文章=article_burn_causes  标题=点火线圈抑制电阻烧毁原因深度分析：4种失效模式与预防 | HXO Resistor
+[2026-10-08 17:15:19] 模式=REAL  only=全部  skip=['dashboard']
+[2026-10-08 17:15:19] ======================================================================
+[2026-10-08 17:15:19] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-10-08 17:15:19]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n1_website.py
+[2026-10-08 17:15:19]     | {"ok": true, "action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 17:15:19] --- 动作 [website] 官网发布 (git push) 结束: 成功 (0.2s) {"action": "website", "note": "no content changes", "commit": ""} ---
+[2026-10-08 17:15:22] --- 动作 [baidu] 百度推送 开始 ---
+[2026-10-08 17:15:22]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n2_baidu.py --slugs article_burn_causes
+[2026-10-08 17:15:23]     | {"ok": true, "action": "baidu", "success": 2, "remain": 6, "not_same_site": [], "raw": {"remain": 6, "success": 2}, "http": 200}
+[2026-10-08 17:15:23] --- 动作 [baidu] 百度推送 结束: 成功 (0.7s) {"action": "baidu", "success": 2, "remain": 6, "not_same_site": [], "http": 200} ---
+[2026-10-08 17:15:26]     [限流控制] 知乎前等待 10s ...
+[2026-10-08 17:15:36] --- 动作 [zhihu] 知乎发布 开始 ---
+[2026-10-08 17:15:36]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n3_zhihu.py --slug article_burn_causes
+[2026-10-08 17:15:51]     | [nav] 򿪷ҳ ...
+[2026-10-08 17:15:51]     | [fill] : ȦƵջԭȷ4ʧЧģʽԤ
+[2026-10-08 17:15:51]     | [fill]  (4122 ַ)
+[2026-10-08 17:15:51]     | [publish] ѵȴת...
+[2026-10-08 17:15:51]     | [publish] ǰURL: https://zhuanlan.zhihu.com/p/2091577544021632470?just_published=1
+[2026-10-08 17:15:51]     | [log] appended to C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\zhihu_published.log
+[2026-10-08 17:15:51]     | [done] URL: https://zhuanlan.zhihu.com/p/2091577544021632470
+[2026-10-08 17:15:51]     | 
+[2026-10-08 17:15:51]     | {"ok": "https://zhuanlan.zhihu.com/p/2091577544021632470", "action": "zhihu", "slug": "article_burn_causes", "url": "https://zhuanlan.zhihu.com/p/2091577544021632470", "exit_code": 0}
+[2026-10-08 17:15:51] --- 动作 [zhihu] 知乎发布 结束: 成功 (14.5s) {"action": "zhihu", "slug": "article_burn_causes", "url": "https://zhuanlan.zhihu.com/p/2091577544021632470", "exit_code": 0} ---
+[2026-10-08 17:15:54] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 开始 ---
+[2026-10-08 17:15:54]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n4_buffer.py --title 点火线圈抑制电阻烧毁原因深度分析：4种失效模式与预防 | HXO Resistor
+[2026-10-08 17:16:01]     | {"ok": true, "action": "buffer", "results": [{"channel": "6a9ecd14cd8b9c702c228760", "ok": true, "post_id": "6ac75f50e959564453da825f", "status": "scheduled"}, {"channel": "6ac640c66a5c39ccb63fed31", "ok": false, "error": "Invalid post: Twitter / X posts cannot exceed 280 characters."}]}
+[2026-10-08 17:16:01] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 结束: 成功 (7.2s) {"action": "buffer", "results": [{"channel": "6a9ecd14", "ok": true}, {"channel": "6ac640c6", "ok": false}]} ---
+[2026-10-08 17:16:04] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-10-08 17:16:04]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n5_supabase.py --slug article_burn_causes
+[2026-10-08 17:16:06]     | {"ok": true, "action": "supabase", "http": 201, "title": "ȦƵջԭȷ4ʧЧģʽԤ | HXO Resistor", "product_id": "av"}
+[2026-10-08 17:16:06] --- 动作 [supabase] Supabase 同步 结束: 成功 (2.6s) {"action": "supabase", "http": 201, "title": "ȦƵջԭȷ4ʧЧģʽԤ | HXO Resistor", "product_id": "av"} ---
+[2026-10-08 17:16:06] 
+[2026-10-08 17:16:06] ======================================================================
+[2026-10-08 17:16:06] 汇总报告
+[2026-10-08 17:16:06] ======================================================================
+[2026-10-08 17:16:06]   [OK  ] website       0.2s  {"action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 17:16:06]   [OK  ] baidu         0.7s  {"action": "baidu", "success": 2, "remain": 6, "not_same_site": [], "http": 200}
+[2026-10-08 17:16:06]   [OK  ] zhihu        14.5s  {"action": "zhihu", "slug": "article_burn_causes", "url": "https://zhuanlan.zhihu.com/p/2091577544021632470", "exit_code": 0}
+[2026-10-08 17:16:06]   [OK  ] buffer        7.2s  {"action": "buffer", "results": [{"channel": "6a9ecd14", "ok": true}, {"channel": "6ac640c6", "ok": false}]}
+[2026-10-08 17:16:06]   [OK  ] supabase      2.6s  {"action": "supabase", "http": 201, "title": "ȦƵջԭȷ4ʧЧģʽԤ | HXO Resistor", "product_id": "av"}
+[2026-10-08 17:16:06]   合计: 5/5 成功
+[2026-10-08 17:16:06] ======================================================================
+[2026-10-08 17:16:06] 已写入 work\published_manifest.json
+[2026-10-08 17:16:06] 全部动作成功。
+[2026-10-08 18:37:42] ======================================================================
+[2026-10-08 18:37:42] publish_all.py  文章=article_ig_c_ceramic  标题=IG-C 陶瓷芯点火线圈抑制电阻 — HXO Resistor
+[2026-10-08 18:37:42] 模式=DRY-RUN（不实际发布）  only=全部  skip=['dashboard']
+[2026-10-08 18:37:42] ======================================================================
+[2026-10-08 18:37:42] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-10-08 18:37:42]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n1_website.py  (HXO_DRY_RUN=1)
+[2026-10-08 18:37:43]     | {"ok": true, "action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 18:37:43] --- 动作 [website] 官网发布 (git push) 结束: 成功 (0.2s) {"action": "website", "note": "no content changes", "commit": ""} ---
+[2026-10-08 18:37:46] --- 动作 [baidu] 百度推送 开始 ---
+[2026-10-08 18:37:46]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n2_baidu.py --slugs article_ig_c_ceramic  (HXO_DRY_RUN=1)
+[2026-10-08 18:37:46]     | {"ok": true, "action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ig_c_ceramic.html", "https://www.hxo-lcr.cn/articles.html"]}
+[2026-10-08 18:37:46] --- 动作 [baidu] 百度推送 结束: 成功 (0.4s) {"action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ig_c_ceramic.html", "https://www.hxo-lcr.cn/articles.html"]} ---
+[2026-10-08 18:37:49] --- 动作 [zhihu] 知乎发布 开始 ---
+[2026-10-08 18:37:49]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n3_zhihu.py --slug article_ig_c_ceramic  (HXO_DRY_RUN=1)
+[2026-10-08 18:39:05]     | [nav] 򿪷ҳ ...
+[2026-10-08 18:39:05]     | [fill] : IG-C մоȦƵ
+[2026-10-08 18:39:05]     | [fill]  (1553 ַ)
+[2026-10-08 18:39:05]     | [dry-run] дδ
+[2026-10-08 18:39:05]     | [dry-run] ִ 60 빩 ...
+[2026-10-08 18:39:05]     | [done] dry-run 
+[2026-10-08 18:39:05]     | 
+[2026-10-08 18:39:05]     | {"ok": true, "action": "zhihu", "slug": "article_ig_c_ceramic", "url": "", "exit_code": 0}
+[2026-10-08 18:39:05] --- 动作 [zhihu] 知乎发布 结束: 成功 (76.0s) {"action": "zhihu", "slug": "article_ig_c_ceramic", "url": "", "exit_code": 0} ---
+[2026-10-08 18:39:08] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 开始 ---
+[2026-10-08 18:39:08]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n4_buffer.py --title IG-C 陶瓷芯点火线圈抑制电阻 — HXO Resistor  (HXO_DRY_RUN=1)
+[2026-10-08 18:39:09]     | {"ok": true, "action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": {"6a9ecd14cd8b9c702c228760": "IG-C մоȦƵ  HXO Resistor\n\nHXO Resistor  AEC-Q200 automotive-grade igniti", "6ac640c66a5c39ccb63fed31": "IG-C մоȦƵ  HXO Resistor\n\nAEC-Q200 ignition-coil suppression resistors. 7"}}
+[2026-10-08 18:39:09] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 结束: 成功 (0.7s) {"action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": {"6a9ecd14cd8b9c702c228760": "IG-C մоȦƵ  HXO Resistor\n\nHXO Resistor  AEC-Q200 automotive-grade igniti", "6ac640c66a5c39ccb63fed31": "IG-C մоȦƵ  HXO Resistor\n\nAEC-Q200 ignition-coil suppression resistors. 7"}} ---
+[2026-10-08 18:39:12] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-10-08 18:39:12]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n5_supabase.py --slug article_ig_c_ceramic  (HXO_DRY_RUN=1)
+[2026-10-08 18:39:12]     | {"ok": true, "action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "ig-c", "title": "IG-C մоȦƵ  HXO Resistor", "content_chars": 11594}
+[2026-10-08 18:39:12] --- 动作 [supabase] Supabase 同步 结束: 成功 (0.5s) {"action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "ig-c", "title": "IG-C մоȦƵ  HXO Resistor", "content_chars": 11594} ---
+[2026-10-08 18:39:12] 
+[2026-10-08 18:39:12] ======================================================================
+[2026-10-08 18:39:12] 汇总报告
+[2026-10-08 18:39:12] ======================================================================
+[2026-10-08 18:39:12]   [OK  ] website       0.2s  {"action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 18:39:12]   [OK  ] baidu         0.4s  {"action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ig_c_ceramic.html", "https://www.hxo-lcr.cn/articles.html"]}
+[2026-10-08 18:39:12]   [OK  ] zhihu        76.0s  {"action": "zhihu", "slug": "article_ig_c_ceramic", "url": "", "exit_code": 0}
+[2026-10-08 18:39:12]   [OK  ] buffer        0.7s  {"action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": {"6a9ecd14cd8b9c702c228760": "IG-C մоȦƵ  HXO Resistor\n\nHXO Resistor  AEC-Q200 automotive-grade igniti", "6ac640c66a5c39ccb63fed31": "IG-C մоȦƵ  HXO Resistor\n\nAEC-Q200 ignition-coil suppression resistors. 7"}}
+[2026-10-08 18:39:12]   [OK  ] supabase      0.5s  {"action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "ig-c", "title": "IG-C մоȦƵ  HXO Resistor", "content_chars": 11594}
+[2026-10-08 18:39:12]   合计: 5/5 成功
+[2026-10-08 18:39:12] ======================================================================
+[2026-10-08 18:39:12] DRY-RUN 完成，未实际发布，未写 manifest。
+[2026-10-08 18:39:48] ======================================================================
+[2026-10-08 18:39:48] publish_all.py  文章=article_ev_pile_bleeder  标题=新能源汽车充电桩泄放电阻选型：从4kV到25kV的全面指南与实测 - HXO点火线圈
+[2026-10-08 18:39:48] 模式=DRY-RUN（不实际发布）  only=全部  skip=['dashboard']
+[2026-10-08 18:39:48] ======================================================================
+[2026-10-08 18:39:48] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-10-08 18:39:48]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n1_website.py  (HXO_DRY_RUN=1)
+[2026-10-08 18:39:49]     | {"ok": true, "action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 18:39:49] --- 动作 [website] 官网发布 (git push) 结束: 成功 (0.3s) {"action": "website", "note": "no content changes", "commit": ""} ---
+[2026-10-08 18:39:52] --- 动作 [baidu] 百度推送 开始 ---
+[2026-10-08 18:39:52]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n2_baidu.py --slugs article_ev_pile_bleeder  (HXO_DRY_RUN=1)
+[2026-10-08 18:39:52]     | {"ok": true, "action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ev_pile_bleeder.html", "https://www.hxo-lcr.cn/articles.html"]}
+[2026-10-08 18:39:52] --- 动作 [baidu] 百度推送 结束: 成功 (0.5s) {"action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ev_pile_bleeder.html", "https://www.hxo-lcr.cn/articles.html"]} ---
+[2026-10-08 18:39:55] --- 动作 [zhihu] 知乎发布 开始 ---
+[2026-10-08 18:39:55]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n3_zhihu.py --slug article_ev_pile_bleeder  (HXO_DRY_RUN=1)
+[2026-10-08 18:41:08]     | [nav] 򿪷ҳ ...
+[2026-10-08 18:41:08]     | [fill] : Դ׮йŵѡͣ4kV25kVȫָʵ
+[2026-10-08 18:41:08]     | [fill]  (2936 ַ)
+[2026-10-08 18:41:08]     | [dry-run] дδ
+[2026-10-08 18:41:08]     | [dry-run] ִ 60 빩 ...
+[2026-10-08 18:41:08]     | [done] dry-run 
+[2026-10-08 18:41:08]     | 
+[2026-10-08 18:41:08]     | {"ok": true, "action": "zhihu", "slug": "article_ev_pile_bleeder", "url": "", "exit_code": 0}
+[2026-10-08 18:41:08] --- 动作 [zhihu] 知乎发布 结束: 成功 (73.0s) {"action": "zhihu", "slug": "article_ev_pile_bleeder", "url": "", "exit_code": 0} ---
+[2026-10-08 18:41:11] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 开始 ---
+[2026-10-08 18:41:11]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n4_buffer.py --title 新能源汽车充电桩泄放电阻选型：从4kV到25kV的全面指南与实测 - HXO点火线圈  (HXO_DRY_RUN=1)
+[2026-10-08 18:41:12]     | {"ok": true, "action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": {"6a9ecd14cd8b9c702c228760": "Դ׮йŵѡͣ4kV25kVȫָʵ - HXOȦ\n\nHXO Resistor  AEC-Q200 automotive-g", "6ac640c66a5c39ccb63fed31": "Դ׮йŵѡͣ4kV25kVȫָʵ - HXOȦ\n\nAEC-Q200 ignition-coil suppression r"}}
+[2026-10-08 18:41:12] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 结束: 成功 (0.7s) {"action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": {"6a9ecd14cd8b9c702c228760": "Դ׮йŵѡͣ4kV25kVȫָʵ - HXOȦ\n\nHXO Resistor  AEC-Q200 automotive-g", "6ac640c66a5c39ccb63fed31": "Դ׮йŵѡͣ4kV25kVȫָʵ - HXOȦ\n\nAEC-Q200 ignition-coil suppression r"}} ---
+[2026-10-08 18:41:15] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-10-08 18:41:15]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n5_supabase.py --slug article_ev_pile_bleeder  (HXO_DRY_RUN=1)
+[2026-10-08 18:41:15]     | {"ok": true, "action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "bleeder", "title": "Դ׮йŵѡͣ4kV25kVȫָʵ - HXOȦ", "content_chars": 10574}
+[2026-10-08 18:41:15] --- 动作 [supabase] Supabase 同步 结束: 成功 (0.5s) {"action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "bleeder", "title": "Դ׮йŵѡͣ4kV25kVȫָʵ - HXOȦ", "content_chars": 10574} ---
+[2026-10-08 18:41:15] 
+[2026-10-08 18:41:15] ======================================================================
+[2026-10-08 18:41:15] 汇总报告
+[2026-10-08 18:41:15] ======================================================================
+[2026-10-08 18:41:15]   [OK  ] website       0.3s  {"action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 18:41:15]   [OK  ] baidu         0.5s  {"action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ev_pile_bleeder.html", "https://www.hxo-lcr.cn/articles.html"]}
+[2026-10-08 18:41:15]   [OK  ] zhihu        73.0s  {"action": "zhihu", "slug": "article_ev_pile_bleeder", "url": "", "exit_code": 0}
+[2026-10-08 18:41:15]   [OK  ] buffer        0.7s  {"action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": {"6a9ecd14cd8b9c702c228760": "Դ׮йŵѡͣ4kV25kVȫָʵ - HXOȦ\n\nHXO Resistor  AEC-Q200 automotive-g", "6ac640c66a5c39ccb63fed31": "Դ׮йŵѡͣ4kV25kVȫָʵ - HXOȦ\n\nAEC-Q200 ignition-coil suppression r"}}
+[2026-10-08 18:41:15]   [OK  ] supabase      0.5s  {"action": "supabase", "dry_run": true, "date": "2026-10-08", "product_id": "bleeder", "title": "Դ׮йŵѡͣ4kV25kVȫָʵ - HXOȦ", "content_chars": 10574}
+[2026-10-08 18:41:15]   合计: 5/5 成功
+[2026-10-08 18:41:15] ======================================================================
+[2026-10-08 18:41:15] DRY-RUN 完成，未实际发布，未写 manifest。
+[2026-10-08 18:41:24] ======================================================================
+[2026-10-08 18:41:24] publish_all.py  文章=article_ev_pile_bleeder  标题=新能源汽车充电桩泄放电阻选型：从4kV到25kV的全面指南与实测 - HXO点火线圈
+[2026-10-08 18:41:24] 模式=REAL  only=全部  skip=['dashboard']
+[2026-10-08 18:41:24] ======================================================================
+[2026-10-08 18:41:24] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-10-08 18:41:24]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n1_website.py
+[2026-10-08 18:41:25]     | {"ok": true, "action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 18:41:25] --- 动作 [website] 官网发布 (git push) 结束: 成功 (0.2s) {"action": "website", "note": "no content changes", "commit": ""} ---
+[2026-10-08 18:41:28] --- 动作 [baidu] 百度推送 开始 ---
+[2026-10-08 18:41:28]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n2_baidu.py --slugs article_ev_pile_bleeder
+[2026-10-08 18:41:28]     | {"ok": true, "action": "baidu", "success": 2, "remain": 4, "not_same_site": [], "raw": {"remain": 4, "success": 2}, "http": 200}
+[2026-10-08 18:41:28] --- 动作 [baidu] 百度推送 结束: 成功 (0.7s) {"action": "baidu", "success": 2, "remain": 4, "not_same_site": [], "http": 200} ---
+[2026-10-08 18:41:31]     [限流控制] 知乎前等待 10s ...
+[2026-10-08 18:41:41] --- 动作 [zhihu] 知乎发布 开始 ---
+[2026-10-08 18:41:41]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n3_zhihu.py --slug article_ev_pile_bleeder
+[2026-10-08 18:41:57]     | [nav] 򿪷ҳ ...
+[2026-10-08 18:41:57]     | [fill] : Դ׮йŵѡͣ4kV25kVȫָʵ
+[2026-10-08 18:41:57]     | [fill]  (2936 ַ)
+[2026-10-08 18:41:57]     | [publish] ѵȴת...
+[2026-10-08 18:41:57]     | [publish] ǰURL: https://zhuanlan.zhihu.com/p/2091599213088064294?just_published=1
+[2026-10-08 18:41:57]     | [log] appended to C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\zhihu_published.log
+[2026-10-08 18:41:57]     | [done] URL: https://zhuanlan.zhihu.com/p/2091599213088064294
+[2026-10-08 18:41:57]     | 
+[2026-10-08 18:41:57]     | {"ok": "https://zhuanlan.zhihu.com/p/2091599213088064294", "action": "zhihu", "slug": "article_ev_pile_bleeder", "url": "https://zhuanlan.zhihu.com/p/2091599213088064294", "exit_code": 0}
+[2026-10-08 18:41:57] --- 动作 [zhihu] 知乎发布 结束: 成功 (16.2s) {"action": "zhihu", "slug": "article_ev_pile_bleeder", "url": "https://zhuanlan.zhihu.com/p/2091599213088064294", "exit_code": 0} ---
+[2026-10-08 18:42:00] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 开始 ---
+[2026-10-08 18:42:00]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n4_buffer.py --title 新能源汽车充电桩泄放电阻选型：从4kV到25kV的全面指南与实测 - HXO点火线圈
+[2026-10-08 18:42:04]     | {"ok": true, "action": "buffer", "results": [{"channel": "6a9ecd14cd8b9c702c228760", "ok": true, "post_id": "6ac7737bcc46365fd379f8cb", "status": "scheduled"}, {"channel": "6ac640c66a5c39ccb63fed31", "ok": true, "post_id": "6ac7737c7c9c53a9506b14e7", "status": "scheduled"}]}
+[2026-10-08 18:42:04] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 结束: 成功 (3.2s) {"action": "buffer", "results": [{"channel": "6a9ecd14", "ok": true}, {"channel": "6ac640c6", "ok": true}]} ---
+[2026-10-08 18:42:07] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-10-08 18:42:07]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n5_supabase.py --slug article_ev_pile_bleeder
+[2026-10-08 18:42:09]     | {"ok": true, "action": "supabase", "http": 201, "title": "Դ׮йŵѡͣ4kV25kVȫָʵ - HXOȦ", "product_id": "bleeder"}
+[2026-10-08 18:42:09] --- 动作 [supabase] Supabase 同步 结束: 成功 (2.7s) {"action": "supabase", "http": 201, "title": "Դ׮йŵѡͣ4kV25kVȫָʵ - HXOȦ", "product_id": "bleeder"} ---
+[2026-10-08 18:42:09] 
+[2026-10-08 18:42:09] ======================================================================
+[2026-10-08 18:42:09] 汇总报告
+[2026-10-08 18:42:09] ======================================================================
+[2026-10-08 18:42:09]   [OK  ] website       0.2s  {"action": "website", "note": "no content changes", "commit": ""}
+[2026-10-08 18:42:09]   [OK  ] baidu         0.7s  {"action": "baidu", "success": 2, "remain": 4, "not_same_site": [], "http": 200}
+[2026-10-08 18:42:09]   [OK  ] zhihu        16.2s  {"action": "zhihu", "slug": "article_ev_pile_bleeder", "url": "https://zhuanlan.zhihu.com/p/2091599213088064294", "exit_code": 0}
+[2026-10-08 18:42:09]   [OK  ] buffer        3.2s  {"action": "buffer", "results": [{"channel": "6a9ecd14", "ok": true}, {"channel": "6ac640c6", "ok": true}]}
+[2026-10-08 18:42:09]   [OK  ] supabase      2.7s  {"action": "supabase", "http": 201, "title": "Դ׮йŵѡͣ4kV25kVȫָʵ - HXOȦ", "product_id": "bleeder"}
+[2026-10-08 18:42:09]   合计: 5/5 成功
+[2026-10-08 18:42:09] ======================================================================
+[2026-10-08 18:42:09] 已写入 work\published_manifest.json
+[2026-10-08 18:42:09] 全部动作成功。
+[2026-10-09 13:29:12] ======================================================================
+[2026-10-09 13:29:12] publish_all.py  文章=article_pv_storage_bleeder  标题=光伏逆变器与储能系统高压泄放电阻选型指南 - HXO Resistor
+[2026-10-09 13:29:12] 模式=REAL  only=全部  skip=['dashboard']
+[2026-10-09 13:29:12] ======================================================================
+[2026-10-09 13:29:12] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-10-09 13:29:12]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n1_website.py
+[2026-10-09 13:29:24]     | {"ok": false, "action": "website", "error": "git push failed: fatal: Out of memory, malloc failed (tried to allocate 524288000 bytes)\nerror: failed to push some refs to 'https://github.com/hxo-resistor/ignition-coil-resistor.git'\n"}
+[2026-10-09 13:29:24] --- 动作 [website] 官网发布 (git push) 结束: 失败 (12.1s) {"action": "website", "error": "git push failed: fatal: Out of memory, malloc failed (tried to allocate 524288000 bytes)\nerror: failed to push some refs to 'https://github.com/hxo-resistor/ignition-coil-resistor.git'\n"} ---
+[2026-10-09 13:29:27] --- 动作 [baidu] 百度推送 开始 ---
+[2026-10-09 13:29:27]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n2_baidu.py --slugs article_pv_storage_bleeder
+[2026-10-09 13:29:29]     | {"ok": true, "action": "baidu", "success": 2, "remain": 8, "not_same_site": [], "raw": {"remain": 8, "success": 2}, "http": 200}
+[2026-10-09 13:29:29] --- 动作 [baidu] 百度推送 结束: 成功 (2.0s) {"action": "baidu", "success": 2, "remain": 8, "not_same_site": [], "http": 200} ---
+[2026-10-09 13:29:32]     [限流控制] 知乎前等待 10s ...
+[2026-10-09 13:29:42] --- 动作 [zhihu] 知乎发布 开始 ---
+[2026-10-09 13:29:42]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n3_zhihu.py --slug article_pv_storage_bleeder
+[2026-10-09 13:29:42]     | 
+[2026-10-09 13:29:42]     | {"ok": false, "action": "zhihu", "slug": "article_pv_storage_bleeder", "url": "", "exit_code": 2}
+[2026-10-09 13:29:42]     ! C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe: can't open file 'C:\\Users\\Administrator\\.agnes\\temporary\\2026-08-17\\20260817_1\\website-repo\\work\\publish_zhihu.py': [Errno 2] No such file or directory
+[2026-10-09 13:29:42] --- 动作 [zhihu] 知乎发布 结束: 失败 (0.4s) {"action": "zhihu", "slug": "article_pv_storage_bleeder", "url": "", "exit_code": 2} ---
+[2026-10-09 13:29:45] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 开始 ---
+[2026-10-09 13:29:45]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n4_buffer.py --title 光伏逆变器与储能系统高压泄放电阻选型指南 - HXO Resistor
+[2026-10-09 13:29:48]     | {"ok": true, "action": "buffer", "results": [{"channel": "6a9ecd14cd8b9c702c228760", "ok": true, "post_id": "6ac87bcb9db755aaaac6a440", "status": "scheduled"}, {"channel": "6ac640c66a5c39ccb63fed31", "ok": true, "post_id": "6ac87bcc9db755aaaac6a468", "status": "scheduled"}]}
+[2026-10-09 13:29:48] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 结束: 成功 (2.9s) {"action": "buffer", "results": [{"channel": "6a9ecd14", "ok": true}, {"channel": "6ac640c6", "ok": true}]} ---
+[2026-10-09 13:29:51] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-10-09 13:29:51]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n5_supabase.py --slug article_pv_storage_bleeder
+[2026-10-09 13:29:59]     | {"ok": true, "action": "supabase", "http": 201, "title": "봢ϵͳѹйŵѡָ - HXO Resistor", "product_id": "bleeder"}
+[2026-10-09 13:29:59] --- 动作 [supabase] Supabase 同步 结束: 成功 (7.9s) {"action": "supabase", "http": 201, "title": "봢ϵͳѹйŵѡָ - HXO Resistor", "product_id": "bleeder"} ---
+[2026-10-09 13:29:59] 
+[2026-10-09 13:29:59] ======================================================================
+[2026-10-09 13:29:59] 汇总报告
+[2026-10-09 13:29:59] ======================================================================
+[2026-10-09 13:29:59]   [FAIL] website      12.1s  {"action": "website", "error": "git push failed: fatal: Out of memory, malloc failed (tried to allocate 524288000 bytes)\nerror: failed to push some refs to 'https://github.com/hxo-resistor/ignition-coil-resistor.git'\n"}
+[2026-10-09 13:29:59]   [OK  ] baidu         2.0s  {"action": "baidu", "success": 2, "remain": 8, "not_same_site": [], "http": 200}
+[2026-10-09 13:29:59]   [FAIL] zhihu         0.4s  {"action": "zhihu", "slug": "article_pv_storage_bleeder", "url": "", "exit_code": 2}
+[2026-10-09 13:29:59]   [OK  ] buffer        2.9s  {"action": "buffer", "results": [{"channel": "6a9ecd14", "ok": true}, {"channel": "6ac640c6", "ok": true}]}
+[2026-10-09 13:29:59]   [OK  ] supabase      7.9s  {"action": "supabase", "http": 201, "title": "봢ϵͳѹйŵѡָ - HXO Resistor", "product_id": "bleeder"}
+[2026-10-09 13:29:59]   合计: 3/5 成功
+[2026-10-09 13:29:59] ======================================================================
+[2026-10-09 13:29:59] 存在失败动作，未写 manifest（可修复后重跑，幂等）。
+[2026-10-09 18:04:38] ======================================================================
+[2026-10-09 18:04:38] publish_all.py  文章=article_power_rating_selection  标题=点火线圈抑制电阻额定功率怎么选？1W/3W/5W/10W 选型陷阱与实测温升
+[2026-10-09 18:04:38] 模式=DRY-RUN（不实际发布）  only=全部  skip=['dashboard']
+[2026-10-09 18:04:38] ======================================================================
+[2026-10-09 18:04:38] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-10-09 18:04:38]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n1_website.py  (HXO_DRY_RUN=1)
+[2026-10-09 18:04:39]     | {"ok": true, "action": "website", "dry_run": true, "commit": "344e8cf523e6cfe9b5e1bd29eaaebd65fb5b0db4"}
+[2026-10-09 18:04:39] --- 动作 [website] 官网发布 (git push) 结束: 成功 (0.8s) {"action": "website", "dry_run": true, "commit": "344e8cf523e6cfe9b5e1bd29eaaebd65fb5b0db4"} ---
+[2026-10-09 18:04:42] --- 动作 [baidu] 百度推送 开始 ---
+[2026-10-09 18:04:42]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n2_baidu.py --slugs article_power_rating_selection  (HXO_DRY_RUN=1)
+[2026-10-09 18:04:43]     | {"ok": true, "action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_power_rating_selection.html", "https://www.hxo-lcr.cn/articles.html"]}
+[2026-10-09 18:04:43] --- 动作 [baidu] 百度推送 结束: 成功 (0.7s) {"action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_power_rating_selection.html", "https://www.hxo-lcr.cn/articles.html"]} ---
+[2026-10-09 18:04:46] --- 动作 [zhihu] 知乎发布 开始 ---
+[2026-10-09 18:04:46]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n3_zhihu.py --slug article_power_rating_selection  (HXO_DRY_RUN=1)
+[2026-10-09 18:06:05]     | [nav] 򿪷ҳ ...
+[2026-10-09 18:06:05]     | [fill] : ȦƵôѡ1W/3W/5W/10W ѡʵ
+[2026-10-09 18:06:05]     | [fill]  (978 ַ)
+[2026-10-09 18:06:05]     | [dry-run] дδ
+[2026-10-09 18:06:05]     | [dry-run] ִ 60 빩 ...
+[2026-10-09 18:06:05]     | [done] dry-run 
+[2026-10-09 18:06:05]     | 
+[2026-10-09 18:06:05]     | {"ok": true, "action": "zhihu", "slug": "article_power_rating_selection", "url": "", "exit_code": 0}
+[2026-10-09 18:06:05] --- 动作 [zhihu] 知乎发布 结束: 成功 (78.8s) {"action": "zhihu", "slug": "article_power_rating_selection", "url": "", "exit_code": 0} ---
+[2026-10-09 18:06:08] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 开始 ---
+[2026-10-09 18:06:08]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n4_buffer.py --title 点火线圈抑制电阻额定功率怎么选？1W/3W/5W/10W 选型陷阱与实测温升  (HXO_DRY_RUN=1)
+[2026-10-09 18:06:08]     | {"ok": true, "action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": {"6a9ecd14cd8b9c702c228760": "ȦƵôѡ1W/3W/5W/10W ѡʵ\n\nHXO Resistor  AEC-Q200 automotive-grade", "6ac640c66a5c39ccb63fed31": "ȦƵôѡ1W/3W/5W/10W ѡʵ\n\nAEC-Q200 ignition-coil suppression resis"}}
+[2026-10-09 18:06:08] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 结束: 成功 (0.7s) {"action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": {"6a9ecd14cd8b9c702c228760": "ȦƵôѡ1W/3W/5W/10W ѡʵ\n\nHXO Resistor  AEC-Q200 automotive-grade", "6ac640c66a5c39ccb63fed31": "ȦƵôѡ1W/3W/5W/10W ѡʵ\n\nAEC-Q200 ignition-coil suppression resis"}} ---
+[2026-10-09 18:06:11] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-10-09 18:06:11]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n5_supabase.py --slug article_power_rating_selection  (HXO_DRY_RUN=1)
+[2026-10-09 18:06:12]     | {"ok": true, "action": "supabase", "dry_run": true, "date": "2026-10-09", "product_id": "av", "title": "ȦƵôѡ1W/3W/5W/10W ѡʵ - HXO Resistor", "content_chars": 8048}
+[2026-10-09 18:06:12] --- 动作 [supabase] Supabase 同步 结束: 成功 (0.6s) {"action": "supabase", "dry_run": true, "date": "2026-10-09", "product_id": "av", "title": "ȦƵôѡ1W/3W/5W/10W ѡʵ - HXO Resistor", "content_chars": 8048} ---
+[2026-10-09 18:06:12] 
+[2026-10-09 18:06:12] ======================================================================
+[2026-10-09 18:06:12] 汇总报告
+[2026-10-09 18:06:12] ======================================================================
+[2026-10-09 18:06:12]   [OK  ] website       0.8s  {"action": "website", "dry_run": true, "commit": "344e8cf523e6cfe9b5e1bd29eaaebd65fb5b0db4"}
+[2026-10-09 18:06:12]   [OK  ] baidu         0.7s  {"action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_power_rating_selection.html", "https://www.hxo-lcr.cn/articles.html"]}
+[2026-10-09 18:06:12]   [OK  ] zhihu        78.8s  {"action": "zhihu", "slug": "article_power_rating_selection", "url": "", "exit_code": 0}
+[2026-10-09 18:06:12]   [OK  ] buffer        0.7s  {"action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": {"6a9ecd14cd8b9c702c228760": "ȦƵôѡ1W/3W/5W/10W ѡʵ\n\nHXO Resistor  AEC-Q200 automotive-grade", "6ac640c66a5c39ccb63fed31": "ȦƵôѡ1W/3W/5W/10W ѡʵ\n\nAEC-Q200 ignition-coil suppression resis"}}
+[2026-10-09 18:06:12]   [OK  ] supabase      0.6s  {"action": "supabase", "dry_run": true, "date": "2026-10-09", "product_id": "av", "title": "ȦƵôѡ1W/3W/5W/10W ѡʵ - HXO Resistor", "content_chars": 8048}
+[2026-10-09 18:06:12]   合计: 5/5 成功
+[2026-10-09 18:06:12] ======================================================================
+[2026-10-09 18:06:12] DRY-RUN 完成，未实际发布，未写 manifest。
+[2026-10-09 18:06:47] ======================================================================
+[2026-10-09 18:06:47] publish_all.py  文章=article_power_rating_selection  标题=点火线圈抑制电阻额定功率怎么选？1W/3W/5W/10W 选型陷阱与实测温升
+[2026-10-09 18:06:47] 模式=REAL  only=全部  skip=['dashboard']
+[2026-10-09 18:06:47] ======================================================================
+[2026-10-09 18:06:47] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-10-09 18:06:47]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n1_website.py
+[2026-10-09 18:06:47]     | {"ok": true, "action": "website", "note": "no content changes", "commit": ""}
+[2026-10-09 18:06:47] --- 动作 [website] 官网发布 (git push) 结束: 成功 (0.3s) {"action": "website", "note": "no content changes", "commit": ""} ---
+[2026-10-09 18:06:50] --- 动作 [baidu] 百度推送 开始 ---
+[2026-10-09 18:06:50]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n2_baidu.py --slugs article_power_rating_selection
+[2026-10-09 18:06:51]     | {"ok": true, "action": "baidu", "success": 2, "remain": 6, "not_same_site": [], "raw": {"remain": 6, "success": 2}, "http": 200}
+[2026-10-09 18:06:51] --- 动作 [baidu] 百度推送 结束: 成功 (0.8s) {"action": "baidu", "success": 2, "remain": 6, "not_same_site": [], "http": 200} ---
+[2026-10-09 18:06:54]     [限流控制] 知乎前等待 10s ...
+[2026-10-09 18:07:04] --- 动作 [zhihu] 知乎发布 开始 ---
+[2026-10-09 18:07:04]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n3_zhihu.py --slug article_power_rating_selection
+[2026-10-09 18:07:24]     | [nav] 򿪷ҳ ...
+[2026-10-09 18:07:24]     | [fill] : ȦƵôѡ1W/3W/5W/10W ѡʵ
+[2026-10-09 18:07:24]     | [fill]  (978 ַ)
+[2026-10-09 18:07:24]     | [publish] ѵȴת...
+[2026-10-09 18:07:24]     | [publish] ǰURL: https://zhuanlan.zhihu.com/p/2091952899903452926?just_published=1
+[2026-10-09 18:07:24]     | [log] appended to C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\zhihu_published.log
+[2026-10-09 18:07:24]     | [done] URL: https://zhuanlan.zhihu.com/p/2091952899903452926
+[2026-10-09 18:07:24]     | 
+[2026-10-09 18:07:24]     | {"ok": "https://zhuanlan.zhihu.com/p/2091952899903452926", "action": "zhihu", "slug": "article_power_rating_selection", "url": "https://zhuanlan.zhihu.com/p/2091952899903452926", "exit_code": 0}
+[2026-10-09 18:07:24] --- 动作 [zhihu] 知乎发布 结束: 成功 (20.3s) {"action": "zhihu", "slug": "article_power_rating_selection", "url": "https://zhuanlan.zhihu.com/p/2091952899903452926", "exit_code": 0} ---
+[2026-10-09 18:07:27] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 开始 ---
+[2026-10-09 18:07:27]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n4_buffer.py --title 点火线圈抑制电阻额定功率怎么选？1W/3W/5W/10W 选型陷阱与实测温升
+[2026-10-09 18:07:30]     | {"ok": true, "action": "buffer", "results": [{"channel": "6a9ecd14cd8b9c702c228760", "ok": true, "post_id": "6ac8bce1b9252eae988ac9c3", "status": "scheduled"}, {"channel": "6ac640c66a5c39ccb63fed31", "ok": true, "post_id": "6ac8bce244e5efbcc59a88d8", "status": "scheduled"}]}
+[2026-10-09 18:07:30] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 结束: 成功 (2.6s) {"action": "buffer", "results": [{"channel": "6a9ecd14", "ok": true}, {"channel": "6ac640c6", "ok": true}]} ---
+[2026-10-09 18:07:33] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-10-09 18:07:33]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n5_supabase.py --slug article_power_rating_selection
+[2026-10-09 18:07:36]     | {"ok": true, "action": "supabase", "http": 201, "title": "ȦƵôѡ1W/3W/5W/10W ѡʵ - HXO Resistor", "product_id": "av"}
+[2026-10-09 18:07:36] --- 动作 [supabase] Supabase 同步 结束: 成功 (3.4s) {"action": "supabase", "http": 201, "title": "ȦƵôѡ1W/3W/5W/10W ѡʵ - HXO Resistor", "product_id": "av"} ---
+[2026-10-09 18:07:36] 
+[2026-10-09 18:07:36] ======================================================================
+[2026-10-09 18:07:36] 汇总报告
+[2026-10-09 18:07:36] ======================================================================
+[2026-10-09 18:07:36]   [OK  ] website       0.3s  {"action": "website", "note": "no content changes", "commit": ""}
+[2026-10-09 18:07:36]   [OK  ] baidu         0.8s  {"action": "baidu", "success": 2, "remain": 6, "not_same_site": [], "http": 200}
+[2026-10-09 18:07:36]   [OK  ] zhihu        20.3s  {"action": "zhihu", "slug": "article_power_rating_selection", "url": "https://zhuanlan.zhihu.com/p/2091952899903452926", "exit_code": 0}
+[2026-10-09 18:07:36]   [OK  ] buffer        2.6s  {"action": "buffer", "results": [{"channel": "6a9ecd14", "ok": true}, {"channel": "6ac640c6", "ok": true}]}
+[2026-10-09 18:07:36]   [OK  ] supabase      3.4s  {"action": "supabase", "http": 201, "title": "ȦƵôѡ1W/3W/5W/10W ѡʵ - HXO Resistor", "product_id": "av"}
+[2026-10-09 18:07:36]   合计: 5/5 成功
+[2026-10-09 18:07:36] ======================================================================
+[2026-10-09 18:07:36] 已写入 work\published_manifest.json
+[2026-10-09 18:07:36] 全部动作成功。
+[2026-10-09 18:13:54] ======================================================================
+[2026-10-09 18:13:54] publish_all.py  文章=article_ignition_resistor_lifespan  标题=摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准
+[2026-10-09 18:13:54] 模式=DRY-RUN（不实际发布）  only=全部  skip=['dashboard']
+[2026-10-09 18:13:54] ======================================================================
+[2026-10-09 18:13:54] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-10-09 18:13:54]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n1_website.py  (HXO_DRY_RUN=1)
+[2026-10-09 18:13:54]     | {"ok": true, "action": "website", "dry_run": true, "intended": true, "pending_changes": 1, "note": "计划执行：git add content/articles + commit + push（dry-run 未执行）"}
+[2026-10-09 18:13:54] --- 动作 [website] 官网发布 (git push) 结束: 成功 (0.2s) {"action": "website", "dry_run": true, "intended": true, "pending_changes": 1, "note": "计划执行：git add content/articles + commit + push（dry-run 未执行）"} ---
+[2026-10-09 18:13:57] --- 动作 [baidu] 百度推送 开始 ---
+[2026-10-09 18:13:57]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n2_baidu.py --slugs article_ignition_resistor_lifespan  (HXO_DRY_RUN=1)
+[2026-10-09 18:13:57]     | {"ok": true, "action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ignition_resistor_lifespan.html", "https://www.hxo-lcr.cn/articles.html"]}
+[2026-10-09 18:13:57] --- 动作 [baidu] 百度推送 结束: 成功 (0.6s) {"action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ignition_resistor_lifespan.html", "https://www.hxo-lcr.cn/articles.html"]} ---
+[2026-10-09 18:14:00] --- 动作 [zhihu] 知乎发布 开始 ---
+[2026-10-09 18:14:00]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n3_zhihu.py --slug article_ignition_resistor_lifespan  (HXO_DRY_RUN=1)
+[2026-10-09 18:15:16]     | [nav] 打开发布页 ...
+[2026-10-09 18:15:16]     | [fill] 标题已填: 摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准
+[2026-10-09 18:15:16]     | [fill] 正文已填 (957 字符)
+[2026-10-09 18:15:16]     | [dry-run] 已填写但未点击发布
+[2026-10-09 18:15:16]     | [dry-run] 浏览器保持打开 60 秒供检查 ...
+[2026-10-09 18:15:16]     | [done] dry-run 完成
+[2026-10-09 18:15:16]     | 
+[2026-10-09 18:15:16]     | {"ok": true, "action": "zhihu", "slug": "article_ignition_resistor_lifespan", "url": "", "exit_code": 0}
+[2026-10-09 18:15:16] --- 动作 [zhihu] 知乎发布 结束: 成功 (75.8s) {"action": "zhihu", "slug": "article_ignition_resistor_lifespan", "url": "", "exit_code": 0} ---
+[2026-10-09 18:15:19] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 开始 ---
+[2026-10-09 18:15:19]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n4_buffer.py --title 摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准  (HXO_DRY_RUN=1)
+[2026-10-09 18:15:20]     | {"ok": true, "action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": {"6a9ecd14cd8b9c702c228760": "摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准\n\nHXO Resistor — AEC-Q200 automotive-grade ignition-", "6ac640c66a5c39ccb63fed31": "摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准\n\nAEC-Q200 ignition-coil suppression resistors. 7-15"}}
+[2026-10-09 18:15:20] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 结束: 成功 (0.7s) {"action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": {"6a9ecd14cd8b9c702c228760": "摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准\n\nHXO Resistor — AEC-Q200 automotive-grade ignition-", "6ac640c66a5c39ccb63fed31": "摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准\n\nAEC-Q200 ignition-coil suppression resistors. 7-15"}} ---
+[2026-10-09 18:15:23] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-10-09 18:15:23]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n5_supabase.py --slug article_ignition_resistor_lifespan  (HXO_DRY_RUN=1)
+[2026-10-09 18:15:23]     | {"ok": true, "action": "supabase", "dry_run": true, "date": "2026-10-09", "product_id": "av", "title": "摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准 - HXO Resistor", "content_chars": 7935}
+[2026-10-09 18:15:23] --- 动作 [supabase] Supabase 同步 结束: 成功 (0.5s) {"action": "supabase", "dry_run": true, "date": "2026-10-09", "product_id": "av", "title": "摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准 - HXO Resistor", "content_chars": 7935} ---
+[2026-10-09 18:15:23] 
+[2026-10-09 18:15:23] ======================================================================
+[2026-10-09 18:15:23] 汇总报告
+[2026-10-09 18:15:23] ======================================================================
+[2026-10-09 18:15:23]   [OK  ] website       0.2s  {"action": "website", "dry_run": true, "intended": true, "pending_changes": 1, "note": "计划执行：git add content/articles + commit + push（dry-run 未执行）"}
+[2026-10-09 18:15:23]   [OK  ] baidu         0.6s  {"action": "baidu", "dry_run": true, "urls": ["https://www.hxo-lcr.cn/article_ignition_resistor_lifespan.html", "https://www.hxo-lcr.cn/articles.html"]}
+[2026-10-09 18:15:23]   [OK  ] zhihu        75.8s  {"action": "zhihu", "slug": "article_ignition_resistor_lifespan", "url": "", "exit_code": 0}
+[2026-10-09 18:15:23]   [OK  ] buffer        0.7s  {"action": "buffer", "dry_run": true, "channels": ["6a9ecd14cd8b9c702c228760", "6ac640c66a5c39ccb63fed31"], "text_preview": {"6a9ecd14cd8b9c702c228760": "摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准\n\nHXO Resistor — AEC-Q200 automotive-grade ignition-", "6ac640c66a5c39ccb63fed31": "摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准\n\nAEC-Q200 ignition-coil suppression resistors. 7-15"}}
+[2026-10-09 18:15:23]   [OK  ] supabase      0.5s  {"action": "supabase", "dry_run": true, "date": "2026-10-09", "product_id": "av", "title": "摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准 - HXO Resistor", "content_chars": 7935}
+[2026-10-09 18:15:23]   合计: 5/5 成功
+[2026-10-09 18:15:23] ======================================================================
+[2026-10-09 18:15:23] DRY-RUN 完成，未实际发布，未写 manifest。
+[2026-10-09 18:36:34] ======================================================================
+[2026-10-09 18:36:34] publish_all.py  文章=article_ignition_resistor_lifespan  标题=摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准
+[2026-10-09 18:36:34] 模式=REAL  only=全部  skip=['dashboard']
+[2026-10-09 18:36:34] ======================================================================
+[2026-10-09 18:36:34] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-10-09 18:36:34]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n1_website.py
+[2026-10-09 18:36:44]     | {"ok": true, "action": "website", "commit": "405478d56fab82e519095519567f7ff4841be8ea", "pushed": true}
+[2026-10-09 18:36:44] --- 动作 [website] 官网发布 (git push) 结束: 成功 (10.1s) {"action": "website", "commit": "405478d56fab82e519095519567f7ff4841be8ea", "pushed": true} ---
+[2026-10-09 18:36:47] --- 动作 [baidu] 百度推送 开始 ---
+[2026-10-09 18:36:47]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n2_baidu.py --slugs article_ignition_resistor_lifespan
+[2026-10-09 18:36:48]     | {"ok": true, "action": "baidu", "success": 2, "remain": 4, "not_same_site": [], "raw": {"remain": 4, "success": 2}, "http": 200}
+[2026-10-09 18:36:48] --- 动作 [baidu] 百度推送 结束: 成功 (1.3s) {"action": "baidu", "success": 2, "remain": 4, "not_same_site": [], "http": 200} ---
+[2026-10-09 18:36:51]     [限流控制] 知乎前等待 10s ...
+[2026-10-09 18:37:01] --- 动作 [zhihu] 知乎发布 开始 ---
+[2026-10-09 18:37:01]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n3_zhihu.py --slug article_ignition_resistor_lifespan
+[2026-10-09 18:37:38]     | [nav] 򿪷ҳ ...
+[2026-10-09 18:37:38]     | [fill] : ĦгȦƵûһΣжϱ׼
+[2026-10-09 18:37:38]     | [fill]  (957 ַ)
+[2026-10-09 18:37:38]     | [publish] ѵȴת...
+[2026-10-09 18:37:38]     | [publish] ǰURL: https://zhuanlan.zhihu.com/p/2091960490452856927?just_published=1
+[2026-10-09 18:37:38]     | [log] appended to C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\zhihu_published.log
+[2026-10-09 18:37:38]     | [done] URL: https://zhuanlan.zhihu.com/p/2091960490452856927
+[2026-10-09 18:37:38]     | 
+[2026-10-09 18:37:38]     | {"ok": "https://zhuanlan.zhihu.com/p/2091960490452856927", "action": "zhihu", "slug": "article_ignition_resistor_lifespan", "url": "https://zhuanlan.zhihu.com/p/2091960490452856927", "exit_code": 0}
+[2026-10-09 18:37:38] --- 动作 [zhihu] 知乎发布 结束: 成功 (36.7s) {"action": "zhihu", "slug": "article_ignition_resistor_lifespan", "url": "https://zhuanlan.zhihu.com/p/2091960490452856927", "exit_code": 0} ---
+[2026-10-09 18:37:41] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 开始 ---
+[2026-10-09 18:37:41]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n4_buffer.py --title 摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准
+[2026-10-09 18:37:45]     | {"ok": true, "action": "buffer", "results": [{"channel": "6a9ecd14cd8b9c702c228760", "ok": true, "post_id": "6ac8c3f89fc66ba0d711d964", "status": "scheduled"}, {"channel": "6ac640c66a5c39ccb63fed31", "ok": true, "post_id": "6ac8c3f99fc66ba0d711d993", "status": "scheduled"}]}
+[2026-10-09 18:37:45] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 结束: 成功 (3.7s) {"action": "buffer", "results": [{"channel": "6a9ecd14", "ok": true}, {"channel": "6ac640c6", "ok": true}]} ---
+[2026-10-09 18:37:48] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-10-09 18:37:48]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n5_supabase.py --slug article_ignition_resistor_lifespan
+[2026-10-09 18:37:50]     | {"ok": true, "action": "supabase", "skipped": true, "reason": "row exists", "date": "2026-10-09", "product_id": "av"}
+[2026-10-09 18:37:50] --- 动作 [supabase] Supabase 同步 结束: 成功 (2.2s) {"action": "supabase", "skipped": true, "reason": "row exists", "date": "2026-10-09", "product_id": "av"} ---
+[2026-10-09 18:37:50] 
+[2026-10-09 18:37:50] ======================================================================
+[2026-10-09 18:37:50] 汇总报告
+[2026-10-09 18:37:50] ======================================================================
+[2026-10-09 18:37:50]   [OK  ] website      10.1s  {"action": "website", "commit": "405478d56fab82e519095519567f7ff4841be8ea", "pushed": true}
+[2026-10-09 18:37:50]   [OK  ] baidu         1.3s  {"action": "baidu", "success": 2, "remain": 4, "not_same_site": [], "http": 200}
+[2026-10-09 18:37:50]   [OK  ] zhihu        36.7s  {"action": "zhihu", "slug": "article_ignition_resistor_lifespan", "url": "https://zhuanlan.zhihu.com/p/2091960490452856927", "exit_code": 0}
+[2026-10-09 18:37:50]   [OK  ] buffer        3.7s  {"action": "buffer", "results": [{"channel": "6a9ecd14", "ok": true}, {"channel": "6ac640c6", "ok": true}]}
+[2026-10-09 18:37:50]   [OK  ] supabase      2.2s  {"action": "supabase", "skipped": true, "reason": "row exists", "date": "2026-10-09", "product_id": "av"}
+[2026-10-09 18:37:50]   合计: 5/5 成功
+[2026-10-09 18:37:50] ======================================================================
+[2026-10-09 18:37:50] 已写入 work\published_manifest.json
+[2026-10-09 18:37:50] 全部动作成功。
+[2026-10-09 20:10:07] ======================================================================
+[2026-10-09 20:10:07] publish_all.py  文章=article_charger_thermal_fuse_troubleshoot  标题=充电器空载发热、待机功耗异常？RXF 温度保险电阻排查指南
+[2026-10-09 20:10:07] 模式=REAL  only=全部  skip=['dashboard']
+[2026-10-09 20:10:07] ======================================================================
+[2026-10-09 20:10:07] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-10-09 20:10:07]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n1_website.py
+[2026-10-09 20:10:15]     | {"ok": true, "action": "website", "commit": "daed658f1a4d7f9fbe283e3e0d30e22c6f9b8641", "pushed": true}
+[2026-10-09 20:10:15] --- 动作 [website] 官网发布 (git push) 结束: 成功 (8.3s) {"action": "website", "commit": "daed658f1a4d7f9fbe283e3e0d30e22c6f9b8641", "pushed": true} ---
+[2026-10-09 20:10:18] --- 动作 [baidu] 百度推送 开始 ---
+[2026-10-09 20:10:18]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n2_baidu.py --slugs article_charger_thermal_fuse_troubleshoot
+[2026-10-09 20:10:19]     | {"ok": true, "action": "baidu", "success": 2, "remain": 2, "not_same_site": [], "raw": {"remain": 2, "success": 2}, "http": 200}
+[2026-10-09 20:10:19] --- 动作 [baidu] 百度推送 结束: 成功 (1.0s) {"action": "baidu", "success": 2, "remain": 2, "not_same_site": [], "http": 200} ---
+[2026-10-09 20:10:22]     [限流控制] 知乎前等待 10s ...
+[2026-10-09 20:10:32] --- 动作 [zhihu] 知乎发布 开始 ---
+[2026-10-09 20:10:32]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n3_zhihu.py --slug article_charger_thermal_fuse_troubleshoot
+[2026-10-09 20:10:54]     | [nav] 򿪷ҳ ...
+[2026-10-09 20:10:54]     | [fill] : طȡ쳣RXF ¶ȱյŲָ
+[2026-10-09 20:10:54]     | [fill]  (957 ַ)
+[2026-10-09 20:10:54]     | [publish] ѵȴת...
+[2026-10-09 20:10:54]     | [publish] ǰURL: https://zhuanlan.zhihu.com/p/2091983984272135208?just_published=1
+[2026-10-09 20:10:54]     | [log] appended to C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\zhihu_published.log
+[2026-10-09 20:10:54]     | [done] URL: https://zhuanlan.zhihu.com/p/2091983984272135208
+[2026-10-09 20:10:54]     | 
+[2026-10-09 20:10:54]     | {"ok": "https://zhuanlan.zhihu.com/p/2091983984272135208", "action": "zhihu", "slug": "article_charger_thermal_fuse_troubleshoot", "url": "https://zhuanlan.zhihu.com/p/2091983984272135208", "exit_code": 0}
+[2026-10-09 20:10:54] --- 动作 [zhihu] 知乎发布 结束: 成功 (21.6s) {"action": "zhihu", "slug": "article_charger_thermal_fuse_troubleshoot", "url": "https://zhuanlan.zhihu.com/p/2091983984272135208", "exit_code": 0} ---
+[2026-10-09 20:10:57] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 开始 ---
+[2026-10-09 20:10:57]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n4_buffer.py --title 充电器空载发热、待机功耗异常？RXF 温度保险电阻排查指南
+[2026-10-09 20:10:59]     | {"ok": true, "action": "buffer", "results": [{"channel": "6a9ecd14cd8b9c702c228760", "ok": true, "post_id": "6ac8d9d24b8da2c1aa21b14d", "status": "scheduled"}, {"channel": "6ac640c66a5c39ccb63fed31", "ok": true, "post_id": "6ac8d9d3857cb06c7f93ecdd", "status": "scheduled"}]}
+[2026-10-09 20:10:59] --- 动作 [buffer] Buffer 发布 (LinkedIn+X) 结束: 成功 (2.6s) {"action": "buffer", "results": [{"channel": "6a9ecd14", "ok": true}, {"channel": "6ac640c6", "ok": true}]} ---
+[2026-10-09 20:11:02] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-10-09 20:11:02]     cmd: C:\Users\Administrator\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\Users\Administrator\.agnes\temporary\2026-08-17\20260817_1\website-repo\work\n8n\n5_supabase.py --slug article_charger_thermal_fuse_troubleshoot
+[2026-10-09 20:11:04]     | {"ok": true, "action": "supabase", "skipped": true, "reason": "row exists", "date": "2026-10-09", "product_id": "av"}
+[2026-10-09 20:11:04] --- 动作 [supabase] Supabase 同步 结束: 成功 (2.0s) {"action": "supabase", "skipped": true, "reason": "row exists", "date": "2026-10-09", "product_id": "av"} ---
+[2026-10-09 20:11:04] 
+[2026-10-09 20:11:04] ======================================================================
+[2026-10-09 20:11:04] 汇总报告
+[2026-10-09 20:11:04] ======================================================================
+[2026-10-09 20:11:04]   [OK  ] website       8.3s  {"action": "website", "commit": "daed658f1a4d7f9fbe283e3e0d30e22c6f9b8641", "pushed": true}
+[2026-10-09 20:11:04]   [OK  ] baidu         1.0s  {"action": "baidu", "success": 2, "remain": 2, "not_same_site": [], "http": 200}
+[2026-10-09 20:11:04]   [OK  ] zhihu        21.6s  {"action": "zhihu", "slug": "article_charger_thermal_fuse_troubleshoot", "url": "https://zhuanlan.zhihu.com/p/2091983984272135208", "exit_code": 0}
+[2026-10-09 20:11:04]   [OK  ] buffer        2.6s  {"action": "buffer", "results": [{"channel": "6a9ecd14", "ok": true}, {"channel": "6ac640c6", "ok": true}]}
+[2026-10-09 20:11:04]   [OK  ] supabase      2.0s  {"action": "supabase", "skipped": true, "reason": "row exists", "date": "2026-10-09", "product_id": "av"}
+[2026-10-09 20:11:04]   合计: 5/5 成功
+[2026-10-09 20:11:04] ======================================================================
+[2026-10-09 20:11:04] 已写入 work\published_manifest.json
+[2026-10-09 20:11:05] 全部动作成功。

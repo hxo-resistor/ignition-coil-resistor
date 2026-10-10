@@ -1,0 +1,215 @@
+{
+  "name": "HXO 全平台发布流水线",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 * * *"
+            }
+          ]
+        }
+      },
+      "id": "trigger-schedule",
+      "name": "Trigger · Schedule 09:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-1240, 300]
+    },
+    {
+      "parameters": {
+        "command": "python work/n8n/n0_discover.py"
+      },
+      "id": "n0-discover",
+      "name": "N0 · Discover new articles",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [-1000, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse the JSON contract emitted on the last line by n0_discover.py\nconst raw = $input.first().json.stdout || '';\nconst lines = raw.trim().split(/\\r?\\n/);\nlet data = { new: [] };\nfor (let i = lines.length - 1; i >= 0; i--) {\n  try { data = JSON.parse(lines[i]); break; } catch (e) {}\n}\nreturn [{ json: { count: (data.new || []).length, new: data.new || [] } }];"
+      },
+      "id": "n0-parse",
+      "name": "Parse Discover JSON",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-780, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "loose" },
+          "conditions": [
+            {
+              "id": "cond-has-new",
+              "leftValue": "={{ $json.count }}",
+              "rightValue": 0,
+              "operator": { "type": "number", "operation": "gt" }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "if-has-new",
+      "name": "IF · has new articles",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [-560, 300]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "split-batches",
+      "name": "Split In Batches (1 article)",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [-340, 300]
+    },
+    {
+      "parameters": {
+        "command": "python work/n8n/n1_website.py"
+      },
+      "id": "n1-website",
+      "name": "N1 · Website (git push)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [-80, 120],
+      "notes": "GitHub Actions build-and-deploy.yml 会自动 Markdown→HTML→Pages。仅 stage content/articles。"
+    },
+    {
+      "parameters": {
+        "amount": 120,
+        "unit": "seconds"
+      },
+      "id": "wait-pages",
+      "name": "Wait 120s (Pages build)",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [140, 120],
+      "webhookId": "wait-pages-build",
+      "notes": "等待 GitHub Pages 构建完成，URL 才生效"
+    },
+    {
+      "parameters": {
+        "command": "python work/n8n/n2_baidu.py --slugs {{ $('Split In Batches (1 article)').item.json.slug }}"
+      },
+      "id": "n2-baidu",
+      "name": "N2 · Baidu push",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [360, 120]
+    },
+    {
+      "parameters": {
+        "command": "python work/n8n/n3_zhihu.py --slug {{ $('Split In Batches (1 article)').item.json.slug }}"
+      },
+      "id": "n3-zhihu",
+      "name": "N3 · Zhihu publish",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [580, 120]
+    },
+    {
+      "parameters": {
+        "command": "python work/n8n/n4_buffer.py --title \"{{ $('Split In Batches (1 article)').item.json.title }}\""
+      },
+      "id": "n4-buffer",
+      "name": "N4 · Buffer (LinkedIn+X)",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [800, 120]
+    },
+    {
+      "parameters": {
+        "command": "python work/n8n/n5_supabase.py --slug {{ $('Split In Batches (1 article)').item.json.slug }}"
+      },
+      "id": "n5-supabase",
+      "name": "N5 · Supabase sync",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1020, 120]
+    },
+    {
+      "parameters": {
+        "command": "python work/n8n/n6_dashboard.py"
+      },
+      "id": "n6-dashboard",
+      "name": "N6 · Refresh dashboard",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1240, 120],
+      "disabled": true,
+      "notes": "⚠️ 本 checkout 缺 dashboard_data/，会报错。看板目录就位后再启用。"
+    },
+    {
+      "parameters": {
+        "command": "python work/n8n/n7_mark.py --slug {{ $('Split In Batches (1 article)').item.json.slug }}"
+      },
+      "id": "n7-mark",
+      "name": "N7 · Mark published",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1460, 120],
+      "notes": "写 work/published_manifest.json，保证幂等"
+    }
+  ],
+  "connections": {
+    "Trigger · Schedule 09:00": {
+      "main": [[{ "node": "N0 · Discover new articles", "type": "main", "index": 0 }]]
+    },
+    "N0 · Discover new articles": {
+      "main": [[{ "node": "Parse Discover JSON", "type": "main", "index": 0 }]]
+    },
+    "Parse Discover JSON": {
+      "main": [[{ "node": "IF · has new articles", "type": "main", "index": 0 }]]
+    },
+    "IF · has new articles": {
+      "main": [
+        [{ "node": "Split In Batches (1 article)", "type": "main", "index": 0 }],
+        []
+      ]
+    },
+    "Split In Batches (1 article)": {
+      "main": [[{ "node": "N1 · Website (git push)", "type": "main", "index": 0 }]]
+    },
+    "N1 · Website (git push)": {
+      "main": [[{ "node": "Wait 120s (Pages build)", "type": "main", "index": 0 }]]
+    },
+    "Wait 120s (Pages build)": {
+      "main": [[{ "node": "N2 · Baidu push", "type": "main", "index": 0 }]]
+    },
+    "N2 · Baidu push": {
+      "main": [[{ "node": "N3 · Zhihu publish", "type": "main", "index": 0 }]]
+    },
+    "N3 · Zhihu publish": {
+      "main": [[{ "node": "N4 · Buffer (LinkedIn+X)", "type": "main", "index": 0 }]]
+    },
+    "N4 · Buffer (LinkedIn+X)": {
+      "main": [[{ "node": "N5 · Supabase sync", "type": "main", "index": 0 }]]
+    },
+    "N5 · Supabase sync": {
+      "main": [[{ "node": "N6 · Refresh dashboard", "type": "main", "index": 0 }]]
+    },
+    "N6 · Refresh dashboard": {
+      "main": [[{ "node": "N7 · Mark published", "type": "main", "index": 0 }]]
+    },
+    "N7 · Mark published": {
+      "main": [[{ "node": "Split In Batches (1 article)", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "meta": {
+    "instanceId": "hxo-local-placeholder",
+    "description": "串联 官网/百度/知乎/Buffer/Supabase/看板。所有动作 Execute Command 调 work/n8n/*.py。初次导入请保持 N6 disabled、先手动测试。"
+  },
+  "tags": []
+}
