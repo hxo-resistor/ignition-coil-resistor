@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-09T20:12:21+08:00",
+  "last_updated": "2026-10-11T18:58:48+08:00",
   "window_days": 7,
   "recent_records": [
     {
@@ -120,7 +120,7 @@
     {
       "key": "zhihu",
       "name": "知乎",
-      "count": 8
+      "count": 10
     },
     {
       "key": "buffer",
@@ -180,7 +180,7 @@
   },
   "supabase": {
     "available": true,
-    "count": 31
+    "count": 32
   },
   "totals": {
     "runs_logged": 14,

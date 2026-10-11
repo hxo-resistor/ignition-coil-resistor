@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-09T20:12:21+08:00",
+  "last_updated": "2026-10-11T18:58:48+08:00",
   "platforms": [
     {
       "name": "官网",
@@ -26,7 +26,7 @@
       "name": "知乎",
       "status": "ok",
       "icon": "✅",
-      "detail": "已发 8 篇",
+      "detail": "已发 10 篇",
       "url": "https://zhuanlan.zhihu.com"
     },
     {
