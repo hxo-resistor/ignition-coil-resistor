@@ -82,6 +82,93 @@ def read_title(slug):
     return slug
 
 
+def read_meta(slug):
+    """从 content/articles/<slug>.md 读 (title, description, date)。"""
+    import re
+    md = REPO / "content" / "articles" / f"{slug}.md"
+    title, desc, date = slug, "", ""
+    if md.exists():
+        text = md.read_text(encoding="utf-8")
+        m = re.search(r"^title:\s*(.+)$", text, re.MULTILINE)
+        if m:
+            title = m.group(1).strip().strip('"').strip("'")
+        m = re.search(r"^description:\s*(.+)$", text, re.MULTILINE)
+        if m:
+            desc = m.group(1).strip().strip('"').strip("'")
+        m = re.search(r"^date:\s*(.+)$", text, re.MULTILINE)
+        if m:
+            date = m.group(1).strip().strip('"').strip("'")
+    return title, desc, date
+
+
+# slug/标题关键词 → articles.html 里的分类标签（与既有标签风格一致）
+_TAG_RULES = [
+    (("aec", "iso", "certification", "compliance", "rohs", "appliance"), "认证标准"),
+    (("burn", "melt", "troubleshoot", "diagnos", "failure", "fault"), "故障排查"),
+    (("select", "selection", "rating", "derating", "sizing", "calculation"), "选型指南"),
+    (("comparison", "vs", "substitution"), "国产替代"),
+    (("test", "measure", "multimeter", "oscilloscope", "verify"), "测试方法"),
+    (("install", "assembly", "guide"), "安装指南"),
+]
+
+def derive_tag(slug):
+    """按 slug 关键词给出一个文章分类标签（失败则「技术解析」）。"""
+    low = slug.lower()
+    base = "技术解析"
+    for keys, tag in _TAG_RULES:
+        if any(k in low for k in keys):
+            base = tag
+            break
+    return base
+
+
+def update_articles_index(slug):
+    """把新文章插入 articles.html 的技术文章列表顶部（幂等）。
+
+    返回 (changed: bool, note: str)。发布流程在 website 动作前调用，
+    这样 n1_website.py 的 git add 才会把索引页一并提交。
+    """
+    import re
+    idx_path = REPO / "articles.html"
+    if not idx_path.exists():
+        return False, "articles.html 不存在，跳过索引更新"
+
+    raw = idx_path.read_bytes()
+    newline = "\r\n" if b"\r\n" in raw else "\n"
+    text = raw.decode("utf-8")
+
+    link = f'./{slug}.html'
+    # 兼容既有绝对链接写法（https://www.hxo-lcr.cn/<slug>.html），避免重复插入
+    if link in text or f"hxo-lcr.cn/{slug}.html" in text:
+        return False, "索引已存在该文章，无需更新"
+
+    title, desc, date = read_meta(slug)
+    if not date:
+        date = dt.date.today().isoformat()
+    tag = derive_tag(slug)
+    desc = desc.replace("<", "&lt;").replace(">", "&gt;")
+    title = title.replace("<", "&lt;").replace(">", "&gt;")
+
+    # 定位技术文章区的第一个 article-list
+    anchor = re.search(r'(<h2 class="section-title">\s*技术文章\s*</h2>\s*<div class="article-list">)',
+                       text)
+    if not anchor:
+        return False, "未找到技术文章列表锚点，跳过索引更新"
+
+    block = (
+        f'{newline}        <div class="article-item">{newline}'
+        f'            <span class="tag">{tag}</span>{newline}'
+        f'            <h3><a href="{link}">{title}</a></h3>{newline}'
+        f'            <p>{desc}</p>{newline}'
+        f'            <div class="meta">{date}</div>{newline}'
+        f'        </div>{newline}'
+    )
+    insert_at = anchor.end()
+    text = text[:insert_at] + block + text[insert_at:]
+    idx_path.write_bytes(text.encode("utf-8"))
+    return True, f"已插入 articles.html 索引 ({tag} · {date})"
+
+
 def run_action(key, name, script, args, dry_run):
     """执行单个 wrapper，返回 (ok, detail, parsed_json)。"""
     cmd = [PY, str(N8N / script)] + args
@@ -205,6 +292,18 @@ def main():
     log(f"模式={'DRY-RUN（不实际发布）' if args.dry_run else 'REAL'}"
         f"  only={sorted(only) or '全部'}  skip={sorted(skip) or '无'}")
     log("=" * 70)
+
+    # 索引同步：发布前先把新文章插入 articles.html，这样 website 动作的
+    # git add/commit/push 会连带更新索引（根治「文章上线但索引未更新」）。
+    # dry-run 只报告计划，不改文件。
+    if not args.dry_run and (not only or "website" in only) and "website" not in skip:
+        changed, note = update_articles_index(slug)
+        if changed:
+            log(f"[索引] {note} → 将由 website 动作一并提交")
+        else:
+            log(f"[索引] {note}")
+    elif args.dry_run and (not only or "website" in only) and "website" not in skip:
+        log("[索引] dry-run：将同步 articles.html 索引（未执行）")
 
     results = []
     order = [a for a in ACTIONS

@@ -18,6 +18,12 @@ When adding/renaming a page, also update:
 - the duplicated in-page nav links, plus the article index (`articles.html`, `en/article_guides.html`)
 Every page carries Google Analytics `gtag`, Microsoft Clarity, Baidu `push.js`, and JSON-LD structured data — mirror these on any new page.
 
+### Article publish → index (mandatory)
+**发布文章后必须同步 `articles.html` 索引**，否则文章页能上线（CI 由 md 自动构建），但索引页不会出现新文章，看板的「N/5 成功」会误导（官网动作即使成功，索引仍是旧的）。
+- `tools/publish_all.py` 已在 website 动作前自动调用 `update_articles_index(slug)`（幂等，按 `./<slug>.html` 或绝对 URL 去重），并由 `work/n8n/n1_website.py` 的 `git add content/articles articles.html` 一并提交——正常链路无需手动改索引。
+- 手动补发/重建索引时：同步插入 `articles.html`（如需英文再补 `en/article_guides.html`），保持 `<div class="article-item">` 结构（tag/h3/p/meta），与既有条目风格一致。
+- 同理，任何"只改 md、不碰索引"的操作都可能漏掉索引，提交前务必确认 `articles.html` 已包含新文章链接。
+
 ## Python scripts (legacy one-offs — do not run blindly)
 Scripts in repo root are automation leftovers, not part of any pipeline. They contain hardcoded Linux paths (`/app/data/所有对话/...`) that don't exist here, plus hardcoded/placeholder secrets:
 - `push_all.py`, `upload_to_github.py`, `publish_articles.py` — GitHub Contents API uploads; `GITHUB_TOKEN = "YOUR_TOKEN_HERE"`.
