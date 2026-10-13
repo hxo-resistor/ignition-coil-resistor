@@ -1,32 +1,32 @@
 {
-  "last_updated": "2026-10-11T18:58:48+08:00",
+  "last_updated": "2026-10-13T09:00:05+08:00",
   "platforms": [
     {
       "name": "官网",
       "status": "ok",
       "icon": "✅",
-      "detail": "GitHub Pages 已上线（38 篇）",
+      "detail": "GitHub Pages 已上线（39 篇）",
       "url": "https://www.hxo-lcr.cn"
     },
     {
       "name": "百度",
       "status": "ok",
       "icon": "✅",
-      "detail": "API 推送 7 次成功",
+      "detail": "API 推送 8 次成功",
       "url": "https://www.hxo-lcr.cn"
     },
     {
       "name": "LinkedIn",
       "status": "ok",
       "icon": "✅",
-      "detail": "Buffer 队列（7 条）",
+      "detail": "Buffer 队列（8 条）",
       "url": "https://bufferapp.com"
     },
     {
       "name": "知乎",
       "status": "ok",
       "icon": "✅",
-      "detail": "已发 10 篇",
+      "detail": "已发 11 篇",
       "url": "https://zhuanlan.zhihu.com"
     },
     {

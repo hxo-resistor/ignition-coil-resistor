@@ -1,7 +1,21 @@
 {
-  "last_updated": "2026-10-11T18:58:48+08:00",
+  "last_updated": "2026-10-13T09:00:05+08:00",
   "window_days": 7,
   "recent_records": [
+    {
+      "date": "2026-10-12",
+      "time": "2026-10-12 10:00:11",
+      "slug": "article_braking_resistor_burn",
+      "title": "变频器制动电阻为什么老是烧？5 种根因与 HVW 选型对策",
+      "platforms": [
+        "baidu",
+        "zhihu",
+        "buffer",
+        "supabase"
+      ],
+      "success": false,
+      "summary": "4/5 成功"
+    },
     {
       "date": "2026-10-09",
       "time": "2026-10-09 20:10:07",
@@ -110,61 +124,61 @@
     {
       "key": "website",
       "name": "官网",
-      "count": 38
+      "count": 39
     },
     {
       "key": "baidu",
       "name": "百度",
-      "count": 7
+      "count": 8
     },
     {
       "key": "zhihu",
       "name": "知乎",
-      "count": 10
+      "count": 11
     },
     {
       "key": "buffer",
       "name": "LinkedIn+X",
-      "count": 7
+      "count": 8
     },
     {
       "key": "supabase",
       "name": "Supabase",
-      "count": 7
+      "count": 8
     }
   ],
   "last_task": {
-    "time": "2026-10-09 20:10:07",
-    "slug": "article_charger_thermal_fuse_troubleshoot",
-    "title": "充电器空载发热、待机功耗异常？RXF 温度保险电阻排查指南",
-    "success": true,
-    "ok_count": 5,
+    "time": "2026-10-12 10:00:11",
+    "slug": "article_braking_resistor_burn",
+    "title": "变频器制动电阻为什么老是烧？5 种根因与 HVW 选型对策",
+    "success": false,
+    "ok_count": 4,
     "total": 5,
     "actions": [
       {
         "key": "website",
-        "status": "成功",
-        "duration": 8.3
+        "status": "失败",
+        "duration": 0.5
       },
       {
         "key": "baidu",
         "status": "成功",
-        "duration": 1.0
+        "duration": 4.7
       },
       {
         "key": "zhihu",
         "status": "成功",
-        "duration": 21.6
+        "duration": 52.0
       },
       {
         "key": "buffer",
         "status": "成功",
-        "duration": 2.6
+        "duration": 2.5
       },
       {
         "key": "supabase",
         "status": "成功",
-        "duration": 2.0
+        "duration": 3.0
       }
     ]
   },
@@ -180,11 +194,11 @@
   },
   "supabase": {
     "available": true,
-    "count": 32
+    "count": 33
   },
   "totals": {
-    "runs_logged": 14,
+    "runs_logged": 15,
     "published_manifest": 6,
-    "official_articles": 38
+    "official_articles": 39
   }
 }
