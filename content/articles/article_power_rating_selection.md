@@ -211,5 +211,3 @@ shell_tail: |
 - [技术参数](./specifications.html)
 - [HVW 高阻值绕线电阻](./hvw-resistor.html)
 
-
-<!-- lock-test -->
