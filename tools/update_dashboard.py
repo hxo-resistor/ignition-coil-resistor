@@ -397,7 +397,7 @@ def build_data(use_supabase=True):
              "detail": f"API 推送 {cum.get('baidu', 0)} 次成功", "url": SITE_BASE},
             {"name": "LinkedIn", "status": "ok" if cum.get("buffer") else "warn",
              "icon": "✅" if cum.get("buffer") else "⚠️",
-             "detail": f"Buffer 队列（{linkedin_count} 条）", "url": "https://bufferapp.com"},
+             "detail": f"Buffer 已发 {linkedin_count} 条", "url": "https://bufferapp.com"},
             {"name": "知乎", "status": "ok" if zhihu_count else "warn",
              "icon": "✅" if zhihu_count else "⚠️",
              "detail": f"已发 {zhihu_count} 篇", "url": "https://zhuanlan.zhihu.com"},
