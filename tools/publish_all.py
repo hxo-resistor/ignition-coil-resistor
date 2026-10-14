@@ -67,8 +67,8 @@ def log(msg):
         LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
         with LOG_FILE.open("a", encoding="utf-8") as fh:
             fh.write(line + "\n")
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"[warn] 写发布日志失败 {LOG_FILE}: {e}", file=sys.stderr, flush=True)
 
 
 def read_title(slug):

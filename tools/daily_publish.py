@@ -431,12 +431,23 @@ def main():
         log("[dry-run] 完成，未标记选题。")
         return
     if not ok:
-        log("[错误] 发布未全部成功，未标记选题（保留待写，可修复后重跑）。")
+        log(f"[错误] 发布未全部成功（rc={rc}），未标记选题（保留待写，可修复后重跑）。")
+        print(f"[错误] 发布未全部成功（rc={rc}）", file=sys.stderr, flush=True)
         sys.exit(1)
-    mark_done(topic)
+    if not mark_done(topic):
+        log(f"[错误] 发布成功但选题 #{topic['num']} 标记「已完成」失败。")
+        print(f"[错误] 选题 #{topic['num']} 标记失败", file=sys.stderr, flush=True)
+        sys.exit(1)
     log(f"[标记] 选题 #{topic['num']} 已改为「已完成」")
     log(f"[完成] 文章URL: https://www.hxo-lcr.cn/{slug}.html")
+    sys.exit(0)
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except SystemExit:
+        raise
+    except Exception as e:
+        print(f"[致命错误] {e}", file=sys.stderr, flush=True)
+        sys.exit(1)

@@ -7,6 +7,7 @@ so n8n can parse the result with a Code node (or just pass through).
 import json
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
@@ -66,3 +67,21 @@ def article_title(md_path):
     if not m:
         return Path(md_path).stem
     return m.group(1).strip().strip('"').strip("'")
+
+
+def wait_for_index_lock(max_tries=3, wait=5.0):
+    """Wait for a stale/concurrent git index.lock to clear.
+
+    Returns (ok, message). If .git/index.lock exists, wait `wait` seconds and
+    retry up to `max_tries` times. ok=False means the lock never cleared.
+    """
+    lock = REPO / ".git" / "index.lock"
+    for attempt in range(1, max_tries + 1):
+        if not lock.exists():
+            return True, f"index.lock free (attempt {attempt})"
+        if attempt == max_tries:
+            return False, f"index.lock 仍存在（重试 {max_tries} 次后放弃）"
+        print(f"[lock] 检测到 {lock}，等待 {wait:g}s 后重试 ({attempt}/{max_tries}) ...",
+              flush=True)
+        time.sleep(wait)
+    return False, "index.lock 未清除"

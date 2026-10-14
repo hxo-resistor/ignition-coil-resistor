@@ -14,7 +14,7 @@ import os
 import sys
 
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
-from _common import REPO, emit, fail, run  # noqa: E402
+from _common import REPO, emit, fail, run, wait_for_index_lock  # noqa: E402
 
 DRY = os.environ.get("HXO_DRY_RUN") == "1"
 
@@ -34,6 +34,11 @@ def main():
     if not out.strip():
         emit({"ok": True, "action": "website", "note": "no content changes", "commit": ""})
         return
+
+    # 防御并发 git 争用（如另一计划任务 git add .）：等 index.lock 释放后再操作
+    lock_ok, lock_msg = wait_for_index_lock()
+    if not lock_ok:
+        fail("website", f"git index.lock 未释放：{lock_msg}")
 
     rc, _, err = run("git add content/articles articles.html")
     if rc != 0:

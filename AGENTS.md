@@ -41,6 +41,14 @@ Treat these as reference only. Never commit new secrets; the repo already leaks 
 - Windows Task Scheduler task `HXO_Dashboard_Refresh` runs it daily at **09:00**. Verify: `schtasks /Query /TN HXO_Dashboard_Refresh /V /FO LIST`.
 - Errors append to `logs/dashboard_errors.log`; `logs/dashboard_alert_state.json` tracks consecutive failures (alert at 3).
 
+## Windows 计划任务（Task Scheduler）
+- `HXO_Auto_Publish` — 每天 **10:00**（周一/三/五）跑 `tools/daily_publish.py` 全链路发布（官网→百度→知乎→Buffer→Supabase）。这是**唯一**该触发发布的计划任务。
+- **已禁用（2026-10-14）**：`HXO_UpdateWebsite` 与 `HXO_Buffer_AutoPublish`。
+  - 禁用原因：这两个遗留任务在**同一个 `website-repo`** 里运行（`update_website.py` 执行 `git add .` + `git checkout -b master` + `git push --force origin master`；`buffer_auto.py` 发旧 `content-packages`），与 `HXO_Auto_Publish` 在 10:00 **抢 `.git/index.lock`**，导致 `n1_website.py` 的 git add 失败或提交错位，**发布下游（百度/知乎/Buffer/Supabase）中断**（10-12、10-14 均复现）。
+  - 恢复方式：如需恢复，**必须先确保不与 `HXO_Auto_Publish` 同一时间运行**（错开触发时间/日期），否则会再次抢锁中断发布。命令：`Enable-ScheduledTask -TaskName "<名字>"`。
+  - 查验：`Get-ScheduledTask -TaskName HXO_UpdateWebsite,HXO_Buffer_AutoPublish | Select TaskName,State`。
+- 相关加固（2026-10-14）：`tools/publish_all.py` 的 `log()` 写日志失败会打印到 stderr（不再静默）；`work/n8n/n1_website.py` 在 git 操作前等 `.git/index.lock` 释放（最多 3×5s，仍失败则报错）；`tools/daily_publish.py` 失败/标记失败均返回非 0 退出码，避免「失败却显示成功」。
+
 ## Conventions
 - Commit style: `Auto-deploy YYYYMMDD` or a short description.
 - `logs/` is runtime output and is gitignored. `work/` (logs, manifests, topic pool, runtime scripts) is untracked — commit only explicit paths, never `git add -A`. One exception: `work/n8n/n5_supabase.py` is force-added (`git add -f`) because it carries the slug/product_id logic; prefer keeping core scripts tracked.
