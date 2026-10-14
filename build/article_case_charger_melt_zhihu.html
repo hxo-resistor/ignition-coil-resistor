@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Clarity tracking code -->
+<script>
+(function(c,l,a,r,i,t,y){ c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}; t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i; y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y); })(window, document, "clarity", "script", "xrcejtxzio");
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6WNVWY7LC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X6WNVWY7LC');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>充电器外壳总是发软变形，是什么原因？</title>
+    <meta name="description" content="充电器外壳发软、变形甚至熔化的根本原因分析——热量失控。从故障现象、温升原理到RXF温度保险电阻的过温+过流双重保护解决方案。">
+    <meta name="keywords" content="充电器熔壳,外壳变形,温度保险电阻,OTP电阻,过温保护,充电器安全">
+    <link rel="canonical" href="https://www.hxo-lcr.cn/case_charger_melt.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.8; color: #333; background: #f5f7fa; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%); color: white; padding: 40px 20px; text-align: center; }
+        header h1 { font-size: 28px; margin-bottom: 10px; }
+        header p { opacity: 0.9; font-size: 14px; }
+        .breadcrumb { background: white; padding: 15px 20px; margin-bottom: 20px; border-radius: 8px; font-size: 14px; color: #666; }
+        .breadcrumb a { color: #2c5282; text-decoration: none; }
+        article { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        article h2 { color: #1a365d; margin: 30px 0 15px; font-size: 22px; border-left: 4px solid #2c5282; padding-left: 15px; }
+        article h3 { color: #2d3748; margin: 25px 0 12px; font-size: 18px; }
+        article p { margin-bottom: 15px; text-align: justify; }
+        .highlight-box { background: #ebf8ff; border-left: 4px solid #3182ce; padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0; }
+        .highlight-box h4 { color: #2c5282; margin-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background: #f7fafc; font-weight: 600; color: #2d3748; }
+        tr:hover { background: #f7fafc; }
+        .formula-box { background: #fffaf0; border-left: 4px solid #ed8936; padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0; font-family: 'Courier New', monospace; }
+        .formula-box h4 { color: #c05621; margin-bottom: 10px; }
+        .tag { display: inline-block; background: #edf2f7; padding: 4px 12px; border-radius: 20px; font-size: 12px; color: #4a5568; margin-right: 8px; margin-bottom: 8px; }
+        ul, ol { margin: 15px 0 15px 25px; }
+        li { margin-bottom: 8px; }
+        .cta-section { background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%); color: white; padding: 30px; border-radius: 8px; margin-top: 30px; text-align: center; }
+        .cta-section h3 { margin-bottom: 15px; }
+        .cta-btn { display: inline-block; background: #48bb78; color: white; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 10px; transition: background 0.3s; }
+        .cta-btn:hover { background: #38a169; }
+        footer { text-align: center; padding: 30px; color: #718096; font-size: 14px; }
+        .meta-info { color: #718096; font-size: 14px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+    </style>
+<script type="application/ld+json">
+{}
+</script>
+</head>
+<body>
+    <header>
+        <h1></h1>
+        <p></p>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb">
+            
+        </div>
+
+        <article>
+            <div class="meta-info">
+                
+                <span style="color: #a0aec0;">发布时间：</span>
+            </div>
+
+<p>经常有做充电器和电源适配器的朋友问：产品用着用着外壳就发软、变形，严重的时候直接熔穿冒烟，售后投诉一大堆，到底是哪里出了问题？</p>
+<p>先说结论：<strong>外壳发软变形的本质，是内部热量失控，而不是外壳材料本身不行。</strong> 换更耐温的塑料治标不治本，真正要解决的是「让电路在异常发热时及时断电」。</p>
+<p>下面把这个问题拆开讲清楚。</p>
+<h2>一、先看现象：外壳为什么会发软变形</h2>
+<p>正常工作时，充电器内部温度一般控制在 60~80℃。一旦出现下面几种异常，温度就会不受控地往上冲：</p>
+<ul>
+<li><strong>输出端短路</strong>：电流瞬间激增，MOS 管、整流管严重发热，热量传到外壳</li>
+<li><strong>元器件失效</strong>：电容漏液、变压器匝间短路，局部温升远超设计值</li>
+<li><strong>散热不良</strong>：外壳密封太紧、散热设计余量不足，热量积在内部散不出去</li>
+<li><strong>长时间过载</strong>：超出额定功率持续工作，温度缓慢但持续上升</li>
+</ul>
+<p>常见的 ABS/PC 外壳，温度到 180℃ 以上就开始软化变形，超过 220℃ 就会熔化，极端情况引燃周围可燃物。所以「发软」其实是高温的<strong>结果</strong>，不是原因。</p>
+<h2>二、再讲原理：为什么传统保护方案挡不住</h2>
+<p>很多人第一反应是「加个保险丝不就行了」。问题在于，熔壳的主要诱因是<strong>缓慢温升</strong>，而普通保险丝只对<strong>电流</strong>敏感：</p>
+<ul>
+<li><strong>普通保险丝</strong>：电流超额定值才熔断，对缓慢升温不敏感，等它动作时外壳可能已经软了</li>
+<li><strong>温度保险丝（TCO）</strong>：能感知温度，但只保护过温，且要单独占 PCB 空间</li>
+<li><strong>PTC 热敏电阻</strong>：温度升高阻值增大，属于可恢复保护，不能彻底断电，残余电流仍可能发热</li>
+<li><strong>加大散热</strong>：治标不治本，还增加成本、影响外观</li>
+</ul>
+<p>核心矛盾是：既要<strong>过流保护</strong>，又要<strong>过温保护</strong>，传统方案往往需要两颗元件、占两个位置，成本和小型化都吃亏。</p>
+<h2>三、解决方案：一颗 RXF 温度保险电阻搞定</h2>
+<p>针对这个痛点，我们现在主要推荐 <strong>RXF 1W 221℃ 温度保险电阻（OTP 过温保护型熔断电阻）</strong>。它把「限流电阻 + 温度熔断」集成在一颗元件里，串联在输出回路中：</p>
+<ul>
+<li><strong>正常工作时</strong>：作为高精度电阻正常工作，阻值稳定，不影响电路性能</li>
+<li><strong>过温时（221℃）</strong>：内部温度保险机构动作，永久断开电路，在塑料外壳软化前切断电源</li>
+<li><strong>过流时</strong>：超过额定功率导致电阻发热加速，同样触发断开保护</li>
+</ul>
+<p>关键参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>规格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>额定功率</td>
+<td>1W（25℃）</td>
+</tr>
+<tr>
+<td>动作温度</td>
+<td>221℃</td>
+</tr>
+<tr>
+<td>阻值范围</td>
+<td>按客户定制（常用 3.3Ω、4.7Ω、10Ω、12Ω）</td>
+</tr>
+<tr>
+<td>外形尺寸</td>
+<td>Φ4.5×11.5mm</td>
+</tr>
+<tr>
+<td>安规认证</td>
+<td>CQC、UL</td>
+</tr>
+<tr>
+<td>抗浪涌能力</td>
+<td>1.5kV</td>
+</tr>
+<tr>
+<td>适用功率段</td>
+<td>7.5W 以上充电器/适配器</td>
+</tr>
+</tbody>
+</table>
+<p>一颗替代原来「电阻 + 玻璃管保险丝」两颗，PCB 面积省约 30%，装配工序也少一道。</p>
+<h2>四、实际效果：一家充电器厂的真实数据</h2>
+<p>华南一家做 12W 多口充电器的工厂，之前输出端只用了普通玻璃管保险丝，老化测试中约 6.2% 的样机出现外壳局部软化，UL 温升测试也因超标被要求整改。</p>
+<p>后来把输出保护换成 RXF OTP 温度保险电阻，批量上市 6 个月后的数据：</p>
+<ul>
+<li><strong>返修率从 6.2% 降到 0.3%</strong>，熔壳类投诉基本归零</li>
+<li><strong>一次通过 UL 温升测试</strong>，认证周期缩短约 4 周</li>
+<li><strong>BOM 器件减少 1 颗</strong>，单只综合成本下降约 8%</li>
+</ul>
+<h2>小结</h2>
+<p>外壳发软变形，根子在热量失控。与其在外壳材料上做文章，不如让电路在异常发热时主动、及时地断开——过温 + 过流双重保护，才是从源头解决熔壳问题的思路。</p>
+<p>如果你也遇到过充电器/适配器外壳发软、熔壳的问题，或者正在做相关选型，可以评论区交流，我看到会回。类似问题的排查思路也可以一起聊。</p>
+<hr />
+<p><em>本文基于真实行业应用场景整理，客户名称已做脱敏处理。</em></p>
+        </article>
+    </div>
+
+    <footer>
+        
+    </footer>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>
+</body>
+</html>
