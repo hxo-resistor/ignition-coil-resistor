@@ -1,7 +1,21 @@
 {
-  "last_updated": "2026-10-14T09:22:55+08:00",
+  "last_updated": "2026-10-14T12:59:44+08:00",
   "window_days": 7,
   "recent_records": [
+    {
+      "date": "2026-10-14",
+      "time": "2026-10-14 12:58:31",
+      "slug": "article_resistance_tolerance",
+      "title": "点火线圈抑制电阻阻值公差 ±5% / ±10% / ±20% 对点火系统的影响",
+      "platforms": [
+        "baidu",
+        "zhihu",
+        "buffer",
+        "supabase"
+      ],
+      "success": true,
+      "summary": "4/4 成功"
+    },
     {
       "date": "2026-10-13",
       "time": "2026-10-13 19:49:33",
@@ -121,61 +135,76 @@
     {
       "key": "website",
       "name": "官网",
-      "count": 39
+      "count": 40
     },
     {
       "key": "baidu",
       "name": "百度",
-      "count": 8
+      "count": 9
     },
     {
       "key": "zhihu",
       "name": "知乎",
-      "count": 11
+      "count": 12
     },
     {
       "key": "buffer",
       "name": "LinkedIn+X",
-      "count": 8
+      "count": 9
     },
     {
       "key": "supabase",
       "name": "Supabase",
-      "count": 8
+      "count": 9
     }
   ],
   "last_task": {
-    "time": "2026-10-13 19:49:33",
-    "slug": "article_power_rating_selection",
-    "title": "点火线圈抑制电阻额定功率怎么选？1W/3W/5W/10W 选型陷阱与实测温升",
+    "time": "2026-10-14 12:58:31",
+    "slug": "article_resistance_tolerance",
+    "title": "点火线圈抑制电阻阻值公差 ±5% / ±10% / ±20% 对点火系统的影响",
     "success": true,
-    "ok_count": 1,
-    "total": 1,
+    "ok_count": 4,
+    "total": 4,
     "actions": [
       {
-        "key": "website",
+        "key": "baidu",
         "status": "成功",
-        "duration": 7.4
+        "duration": 1.2
+      },
+      {
+        "key": "zhihu",
+        "status": "成功",
+        "duration": 23.0
+      },
+      {
+        "key": "buffer",
+        "status": "成功",
+        "duration": 3.1
+      },
+      {
+        "key": "supabase",
+        "status": "成功",
+        "duration": 2.5
       }
     ]
   },
   "topic_pool": {
-    "remaining": 16,
+    "remaining": 15,
     "counts": {
-      "待写": 16,
-      "已完成": 4,
+      "待写": 15,
+      "已完成": 5,
       "暂停": 0
     },
     "total": 20,
-    "next": "点火线圈抑制电阻阻值公差 ±5% / ±10% / ±20% 对点火系统的影响"
+    "next": "如何用示波器验证点火系统 EMI 抑制效果？CISPR 25 实测方法"
   },
   "supabase": {
-    "available": true,
-    "count": 33
+    "available": false,
+    "count": null
   },
   "totals": {
-    "runs_logged": 18,
-    "published_manifest": 6,
-    "official_articles": 39
+    "runs_logged": 19,
+    "published_manifest": 7,
+    "official_articles": 40
   }
 }
