@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-14T12:59:44+08:00",
+  "last_updated": "2026-10-15T09:22:01+08:00",
   "platforms": [
     {
       "name": "官网",
@@ -12,14 +12,14 @@
       "name": "百度",
       "status": "ok",
       "icon": "✅",
-      "detail": "API 推送 9 次成功",
+      "detail": "API 推送 10 次成功",
       "url": "https://www.hxo-lcr.cn"
     },
     {
       "name": "LinkedIn",
       "status": "ok",
       "icon": "✅",
-      "detail": "Buffer 已发 9 条",
+      "detail": "Buffer 已发 10 条",
       "url": "https://bufferapp.com"
     },
     {

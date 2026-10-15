@@ -1,7 +1,22 @@
 {
-  "last_updated": "2026-10-14T12:59:44+08:00",
+  "last_updated": "2026-10-15T09:22:01+08:00",
   "window_days": 7,
   "recent_records": [
+    {
+      "date": "2026-10-14",
+      "time": "2026-10-14 13:03:10",
+      "slug": "article_oscilloscope_emi_verify",
+      "title": "如何用示波器验证点火系统 EMI 抑制效果？CISPR 25 实测方法",
+      "platforms": [
+        "website",
+        "baidu",
+        "zhihu",
+        "buffer",
+        "supabase"
+      ],
+      "success": true,
+      "summary": "5/5 成功"
+    },
     {
       "date": "2026-10-14",
       "time": "2026-10-14 12:58:31",
@@ -140,7 +155,7 @@
     {
       "key": "baidu",
       "name": "百度",
-      "count": 9
+      "count": 10
     },
     {
       "key": "zhihu",
@@ -150,41 +165,46 @@
     {
       "key": "buffer",
       "name": "LinkedIn+X",
-      "count": 9
+      "count": 10
     },
     {
       "key": "supabase",
       "name": "Supabase",
-      "count": 9
+      "count": 10
     }
   ],
   "last_task": {
-    "time": "2026-10-14 12:58:31",
-    "slug": "article_resistance_tolerance",
-    "title": "点火线圈抑制电阻阻值公差 ±5% / ±10% / ±20% 对点火系统的影响",
+    "time": "2026-10-14 13:03:10",
+    "slug": "article_oscilloscope_emi_verify",
+    "title": "如何用示波器验证点火系统 EMI 抑制效果？CISPR 25 实测方法",
     "success": true,
-    "ok_count": 4,
-    "total": 4,
+    "ok_count": 5,
+    "total": 5,
     "actions": [
+      {
+        "key": "website",
+        "status": "成功",
+        "duration": 0.2
+      },
       {
         "key": "baidu",
         "status": "成功",
-        "duration": 1.2
+        "duration": 0.7
       },
       {
         "key": "zhihu",
         "status": "成功",
-        "duration": 23.0
+        "duration": 78.0
       },
       {
         "key": "buffer",
         "status": "成功",
-        "duration": 3.1
+        "duration": 0.7
       },
       {
         "key": "supabase",
         "status": "成功",
-        "duration": 2.5
+        "duration": 0.6
       }
     ]
   },
@@ -199,11 +219,11 @@
     "next": "如何用示波器验证点火系统 EMI 抑制效果？CISPR 25 实测方法"
   },
   "supabase": {
-    "available": false,
-    "count": null
+    "available": true,
+    "count": 34
   },
   "totals": {
-    "runs_logged": 19,
+    "runs_logged": 20,
     "published_manifest": 7,
     "official_articles": 40
   }
