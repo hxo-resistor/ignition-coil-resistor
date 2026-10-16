@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-15T09:22:01+08:00",
+  "last_updated": "2026-10-16T09:00:10+08:00",
   "window_days": 7,
   "recent_records": [
     {
@@ -99,51 +99,6 @@
       ],
       "success": false,
       "summary": "3/5 成功"
-    },
-    {
-      "date": "2026-10-08",
-      "time": "2026-10-08 18:41:24",
-      "slug": "article_ev_pile_bleeder",
-      "title": "新能源汽车充电桩泄放电阻选型：从4kV到25kV的全面指南与实测 - HXO点火线圈",
-      "platforms": [
-        "website",
-        "baidu",
-        "zhihu",
-        "buffer",
-        "supabase"
-      ],
-      "success": true,
-      "summary": "5/5 成功"
-    },
-    {
-      "date": "2026-10-08",
-      "time": "2026-10-08 18:37:42",
-      "slug": "article_ig_c_ceramic",
-      "title": "IG-C 陶瓷芯点火线圈抑制电阻 — HXO Resistor",
-      "platforms": [
-        "website",
-        "baidu",
-        "zhihu",
-        "buffer",
-        "supabase"
-      ],
-      "success": true,
-      "summary": "5/5 成功"
-    },
-    {
-      "date": "2026-10-08",
-      "time": "2026-10-08 17:15:19",
-      "slug": "article_burn_causes",
-      "title": "点火线圈抑制电阻烧毁原因深度分析：4种失效模式与预防 | HXO Resistor",
-      "platforms": [
-        "website",
-        "baidu",
-        "zhihu",
-        "buffer",
-        "supabase"
-      ],
-      "success": true,
-      "summary": "5/5 成功"
     }
   ],
   "platform_cumulative": [

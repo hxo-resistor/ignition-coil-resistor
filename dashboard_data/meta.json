@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-10-15T09:22:01+08:00",
+  "last_updated": "2026-10-16T09:00:10+08:00",
   "version": "2.0",
   "source": "tools/update_dashboard.py",
   "official_article_count": 40,
   "published_count": 7,
   "topic_remaining": 15,
-  "content_hash": "5325ac949c254211"
+  "content_hash": "e0cd28c494a474da"
 }
