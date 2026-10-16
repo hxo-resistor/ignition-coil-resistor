@@ -174,6 +174,47 @@ def update_articles_index(slug):
     return True, f"已插入 articles.html 索引 ({tag} · {date})"
 
 
+def update_sitemap(slug):
+    """把新文章 URL 追加到 sitemap.xml 末尾（幂等，仅追加）。
+
+    返回 (changed: bool, note: str)。与 update_articles_index 同一步调用，
+    由 website 动作的 git add/commit/push 一并提交。已存在则不重复添加，
+    也不整体重写 sitemap（只插入一个新 <url> 块）。
+    """
+    sm_path = REPO / "sitemap.xml"
+    if not sm_path.exists():
+        return False, "sitemap.xml 不存在，跳过"
+
+    raw = sm_path.read_bytes()
+    newline = "\r\n" if b"\r\n" in raw else "\n"
+    text = raw.decode("utf-8")
+
+    loc = f"https://www.hxo-lcr.cn/{slug}.html"
+    # 幂等：已在 sitemap 中（无论相对/绝对写法）则不重复追加
+    if loc in text or f"<loc>./{slug}.html</loc>" in text:
+        return False, "sitemap 已存在该文章，无需更新"
+
+    if "</urlset>" not in text:
+        return False, "sitemap.xml 缺少 </urlset> 结尾，跳过"
+
+    _, _, date = read_meta(slug)
+    if not date:
+        date = dt.date.today().isoformat()
+
+    block = (
+        f'{newline}  <url>{newline}'
+        f'    <loc>{loc}</loc>{newline}'
+        f'    <lastmod>{date}</lastmod>{newline}'
+        f'    <changefreq>weekly</changefreq>{newline}'
+        f'    <priority>0.7</priority>{newline}'
+        f'  </url>{newline}'
+    )
+    # 只在 </urlset> 前追加，不动其余内容（非整体重写）
+    text = text.replace("</urlset>", block + "</urlset>")
+    sm_path.write_bytes(text.encode("utf-8"))
+    return True, f"已追加 sitemap.xml ({loc} · {date})"
+
+
 def run_action(key, name, script, args, dry_run):
     """执行单个 wrapper，返回 (ok, detail, parsed_json)。"""
     cmd = [PY, str(N8N / script)] + args
@@ -309,17 +350,18 @@ def main():
     log(f"知乎开关：{'启用' if zhihu_on else '已暂停（ZHIHU_ENABLED=False，跳过往知乎动作）'}")
     log("=" * 70)
 
-    # 索引同步：发布前先把新文章插入 articles.html，这样 website 动作的
-    # git add/commit/push 会连带更新索引（根治「文章上线但索引未更新」）。
-    # dry-run 只报告计划，不改文件。
-    if not args.dry_run and (not only or "website" in only) and "website" not in skip:
+    # 索引同步：发布前先把新文章插入 articles.html 索引 + 追加 sitemap.xml，
+    # 这样 website 动作的 git add/commit/push 会连带更新两者
+    # （根治「文章上线但索引/sitemap 未更新」）。dry-run 只报告计划，不改文件。
+    do_index = (not only or "website" in only) and "website" not in skip
+    if do_index and not args.dry_run:
         changed, note = update_articles_index(slug)
-        if changed:
-            log(f"[索引] {note} → 将由 website 动作一并提交")
-        else:
-            log(f"[索引] {note}")
-    elif args.dry_run and (not only or "website" in only) and "website" not in skip:
+        log(f"[索引] {note}" + (" → 将由 website 动作一并提交" if changed else ""))
+        changed, note = update_sitemap(slug)
+        log(f"[sitemap] {note}" + (" → 将由 website 动作一并提交" if changed else ""))
+    elif do_index and args.dry_run:
         log("[索引] dry-run：将同步 articles.html 索引（未执行）")
+        log("[sitemap] dry-run：将追加 sitemap.xml（未执行）")
 
     results = []
     order = [a for a in ACTIONS

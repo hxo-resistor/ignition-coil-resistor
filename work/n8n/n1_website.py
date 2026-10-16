@@ -1,10 +1,10 @@
-"""N1: Publish website = git add content/articles + articles.html + commit + push.
+"""N1: Publish website = git add content/articles + articles.html + sitemap.xml + commit + push.
 
 GitHub Actions (build-and-deploy.yml) then builds Markdown->HTML and deploys
-Pages. This script stages ONLY content/articles and articles.html to avoid
-sweeping unrelated files into the auto-commit. articles.html is included so the
-article index stays in sync (publish_all.py inserts the new entry before this
-action runs).
+Pages. This script stages ONLY content/articles, articles.html and sitemap.xml
+to avoid sweeping unrelated files into the auto-commit. articles.html and
+sitemap.xml are included so the article index and sitemap stay in sync
+(publish_all.py inserts the new entry before this action runs).
 
 Env:
     HXO_DRY_RUN=1   -> 只报告"计划执行"，不 git add / commit / push（不污染工作区）。
@@ -20,7 +20,7 @@ DRY = os.environ.get("HXO_DRY_RUN") == "1"
 
 
 def main():
-    rc, out, err = run("git status --porcelain content/articles articles.html")
+    rc, out, err = run("git status --porcelain content/articles articles.html sitemap.xml")
     if rc != 0:
         fail("website", f"git status failed: {err}")
 
@@ -40,7 +40,7 @@ def main():
     if not lock_ok:
         fail("website", f"git index.lock 未释放：{lock_msg}")
 
-    rc, _, err = run("git add content/articles articles.html")
+    rc, _, err = run("git add content/articles articles.html sitemap.xml")
     if rc != 0:
         fail("website", f"git add failed: {err}")
 
