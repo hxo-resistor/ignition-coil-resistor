@@ -49,6 +49,13 @@ Treat these as reference only. Never commit new secrets; the repo already leaks 
   - 查验：`Get-ScheduledTask -TaskName HXO_UpdateWebsite,HXO_Buffer_AutoPublish | Select TaskName,State`。
 - 相关加固（2026-10-14）：`tools/publish_all.py` 的 `log()` 写日志失败会打印到 stderr（不再静默）；`work/n8n/n1_website.py` 在 git 操作前等 `.git/index.lock` 释放（最多 3×5s，仍失败则报错）；`tools/daily_publish.py` 失败/标记失败均返回非 0 退出码，避免「失败却显示成功」。
 
+## 知乎发布暂停（2026-10-16 起）
+- **知乎账号因「AI 批量生成」被禁言，至 2026-10-19 结束。** 期间**暂停知乎发布**，10-19 后**人工评估**是否恢复（复评前不要自动重开）。
+- 开关：`tools/publish_all.py` 顶部 `ZHIHU_ENABLED = False`。为 false 时整条流水线**强制跳过** `zhihu` 动作，其他平台（官网/百度/Buffer/Supabase）不受影响；`--only zhihu` 也不会发布（会 log 提示并跳过）。
+- 临时调试可用环境变量 `HXO_ZHIHU_ENABLED=1` 覆盖开关（仅调试，勿长期开启）。
+- 恢复步骤：把 `ZHIHU_ENABLED` 改回 `True`（或评估后确认账号恢复），再跑发布；**不删除、不回滚任何知乎历史内容**（`work/zhihu_published.log`、已发布文章均保留）。
+
+
 ## Conventions
 - Commit style: `Auto-deploy YYYYMMDD` or a short description.
 - `logs/` is runtime output and is gitignored. `work/` (logs, manifests, topic pool, runtime scripts) is untracked — commit only explicit paths, never `git add -A`. One exception: `work/n8n/n5_supabase.py` is force-added (`git add -f`) because it carries the slug/product_id logic; prefer keeping core scripts tracked.

@@ -49,7 +49,7 @@ ACTIONS = [
     ("website", "官网发布 (git push)", "n1_website.py", lambda s, t: []),
     ("baidu", "百度推送", "n2_baidu.py", lambda s, t: ["--slugs", s]),
     ("zhihu", "知乎发布", "n3_zhihu.py", lambda s, t: ["--slug", s]),
-    ("buffer", "Buffer 发布 (LinkedIn+X)", "n4_buffer.py", lambda s, t: ["--title", t]),
+    ("buffer", "Buffer 发布 (LinkedIn+X)", "n4_buffer.py", lambda s, t: ["--title", t, "--slug", s]),
     ("supabase", "Supabase 同步", "n5_supabase.py", lambda s, t: ["--slug", s]),
     ("dashboard", "看板刷新", "n6_dashboard.py", lambda s, t: []),
 ]
@@ -57,6 +57,11 @@ ACTIONS = [
 # 默认：动作之间的间隔（秒），主要防止知乎/接口限流
 DEFAULT_INTERVAL = 3
 ZHIHU_PRE_INTERVAL = 10  # 知乎前额外等待（避免 40362）
+
+# 知乎开关：false 时整条流水线跳过知乎动作（其他平台不受影响）。
+# 2026-10-16 起因「AI批量生成」被知乎禁言至 10-19，暂停发布，期满后人工评估再启用。
+# 可用环境变量 HXO_ZHIHU_ENABLED=1 临时覆盖（仅调试用，勿长期开启）。
+ZHIHU_ENABLED = False
 
 
 def log(msg):
@@ -286,11 +291,22 @@ def main():
     # dashboard 默认跳过（可 --include-dashboard 启用）
     if not args.include_dashboard:
         skip |= DEFAULT_SKIP
+    # 知乎开关关闭时，强制跳过知乎动作（即使 --only zhihu 也不发布）
+    zhihu_on = ZHIHU_ENABLED or os.environ.get("HXO_ZHIHU_ENABLED") == "1"
+    if not zhihu_on:
+        skip |= {"zhihu"}
+        if "zhihu" in only:
+            log("[知乎] 知乎发布已暂停（ZHIHU_ENABLED=False），本次忽略 --only zhihu")
+            only.discard("zhihu")
+            # 若 --only 原本只指定了知乎，去掉后不能退化成「全部」，否则会误跑整条流水线
+            if not only:
+                skip |= {a[0] for a in ACTIONS}
 
     log("=" * 70)
     log(f"publish_all.py  文章={slug}  标题={title}")
     log(f"模式={'DRY-RUN（不实际发布）' if args.dry_run else 'REAL'}"
         f"  only={sorted(only) or '全部'}  skip={sorted(skip) or '无'}")
+    log(f"知乎开关：{'启用' if zhihu_on else '已暂停（ZHIHU_ENABLED=False，跳过往知乎动作）'}")
     log("=" * 70)
 
     # 索引同步：发布前先把新文章插入 articles.html，这样 website 动作的
