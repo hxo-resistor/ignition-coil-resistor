@@ -35,12 +35,40 @@ HEADERS = {"apikey": SUPA_KEY, "Authorization": "Bearer " + SUPA_KEY,
            "Content-Type": "application/json"}
 
 # 产品线映射：按优先级匹配 slug + title 的规范化文本；未命中返回 "unknown"（不猜）
+#
+# 顺序即优先级（命中即返回第一个）：
+#   1) 明确型号系列（ig-c/ig-f/ig-s、rxf）——必须排在泛化关键词前，
+#      否则 "ignition" 会把 IG-F/IG-S 误判成 ig-c。
+#   2) HVW 高压/绕线/泄放/医疗高压脉冲线——含 AED/除颤/影像设备关键词。
+#   3) 泛化关键词（"点火"/"ignition"）兜底到 ig-c。
+#
+# 关键词分两类：
+#   - 普通子串（CJK 词、长英文词）：直接做 `in` 匹配。
+#   - 短英文缩写（ct/dr/mri/xray…）：必须词边界匹配。裸子串会误伤，
+#     例如 "ct" 命中 "product"，"dr" 命中 "drain"/"drive"。见 WORD_BOUNDED。
 PRODUCT_MAP = [
-    (("rxf", "otp", "fuse"), "rxf-otp-1w"),
-    (("ig_c", "ig-c", "igc"), "ig-c-ceramic"),
-    (("ig_f", "ig-f", "igf"), "ig-f-glassfiber"),
-    (("ig_s", "ig-s", "igs"), "ig-s-ceramic"),
-    (("hvw", "wirewound", "bleeder", "ev_pile", "bleed"), "hv-wirewound"),
+    # --- 明确型号系列（最具体，优先匹配）---
+    (("ig-c", "ig_c", "igc", "陶瓷芯", "ceramic"), "ig-c-ceramic"),
+    (("ig-f", "ig_f", "igf", "玻纤", "glassfiber", "glass-fiber"), "ig-f-glassfiber"),
+    (("ig-s", "ig_s", "igs", "实心"), "ig-s-ceramic"),
+    # --- 温度保险/OTP ---
+    (("rxf", "otp", "fuse", "温度保险", "thermal-fuse", "thermal fuse"), "rxf-otp-1w"),
+    # --- HVW 高压/绕线/泄放/医疗高压脉冲/影像设备 ---
+    (("hvw", "wirewound", "wire-wound", "bleeder", "ev-pile", "bleed",
+      "braking", "brake", "泄放", "制动",
+      "除颤", "aed", "defibrillator", "医疗",
+      "x光", "x射线", "影像", "核磁"), "hv-wirewound"),
+    # --- 泛化关键词兜底 ---
+    (("点火", "ignition"), "ig-c-ceramic"),
+]
+
+# 需要词边界匹配的短英文缩写 → 所属 product_id。
+# 用 (?<![a-z0-9])...(?![a-z0-9]) 保证 "ct" 不会命中 "product"、"dr" 不会命中 "drain"。
+WORD_BOUNDED_MAP = [
+    ((r"x-?ray",), "hv-wirewound"),
+    (("ct",), "hv-wirewound"),        # CT 设备
+    (("dr",), "hv-wirewound"),        # DR 数字摄影
+    (("mri",), "hv-wirewound"),       # MRI/核磁
 ]
 
 
@@ -50,6 +78,10 @@ def guess_product_id(*texts):
     for kws, pid in PRODUCT_MAP:
         if any(k in blob for k in kws):
             return pid
+    for kws, pid in WORD_BOUNDED_MAP:
+        for k in kws:
+            if re.search(rf"(?<![a-z0-9]){k}(?![a-z0-9])", blob):
+                return pid
     return "unknown"
 
 
