@@ -450,11 +450,4 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <url>
-    <loc>https://www.hxo-lcr.cn/article_sitemap_test_20261016.html</loc>
-    <lastmod>2026-10-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
 </urlset>
