@@ -1,10 +1,47 @@
 {
-  "last_updated": "2026-10-16T09:00:10+08:00",
+  "last_updated": "2026-10-17T09:15:15+08:00",
   "window_days": 7,
   "recent_records": [
     {
-      "date": "2026-10-14",
-      "time": "2026-10-14 13:03:10",
+      "date": "2026-10-16",
+      "time": "2026-10-16 18:20:41",
+      "slug": "article_sitemap_test_20261016",
+      "title": "sitemap 自动化测试文章（临时）",
+      "platforms": [
+        "website"
+      ],
+      "success": true,
+      "summary": "1/1 成功"
+    },
+    {
+      "date": "2026-10-16",
+      "time": "2026-10-16 18:19:17",
+      "slug": "article_case_charger_melt_zhihu",
+      "title": "充电器外壳总是发软变形，是什么原因？",
+      "platforms": [
+        "website",
+        "baidu",
+        "buffer"
+      ],
+      "success": false,
+      "summary": "3/4 成功"
+    },
+    {
+      "date": "2026-10-16",
+      "time": "2026-10-16 16:28:25",
+      "slug": "article_aed_defibrillator_resistor",
+      "title": "AED除颤器里的『隐形守护者』：无感绕线电阻为何如此关键",
+      "platforms": [
+        "website",
+        "baidu",
+        "buffer"
+      ],
+      "success": false,
+      "summary": "3/4 成功"
+    },
+    {
+      "date": "2026-10-16",
+      "time": "2026-10-16 10:00:39",
       "slug": "article_oscilloscope_emi_verify",
       "title": "如何用示波器验证点火系统 EMI 抑制效果？CISPR 25 实测方法",
       "platforms": [
@@ -56,71 +93,28 @@
       ],
       "success": true,
       "summary": "5/5 成功"
-    },
-    {
-      "date": "2026-10-09",
-      "time": "2026-10-09 20:10:07",
-      "slug": "article_charger_thermal_fuse_troubleshoot",
-      "title": "充电器空载发热、待机功耗异常？RXF 温度保险电阻排查指南",
-      "platforms": [
-        "website",
-        "baidu",
-        "zhihu",
-        "buffer",
-        "supabase"
-      ],
-      "success": true,
-      "summary": "5/5 成功"
-    },
-    {
-      "date": "2026-10-09",
-      "time": "2026-10-09 18:36:34",
-      "slug": "article_ignition_resistor_lifespan",
-      "title": "摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准",
-      "platforms": [
-        "website",
-        "baidu",
-        "zhihu",
-        "buffer",
-        "supabase"
-      ],
-      "success": true,
-      "summary": "5/5 成功"
-    },
-    {
-      "date": "2026-10-09",
-      "time": "2026-10-09 13:29:12",
-      "slug": "article_pv_storage_bleeder",
-      "title": "光伏逆变器与储能系统高压泄放电阻选型指南 - HXO Resistor",
-      "platforms": [
-        "baidu",
-        "buffer",
-        "supabase"
-      ],
-      "success": false,
-      "summary": "3/5 成功"
     }
   ],
   "platform_cumulative": [
     {
       "key": "website",
       "name": "官网",
-      "count": 40
+      "count": 41
     },
     {
       "key": "baidu",
       "name": "百度",
-      "count": 10
+      "count": 12
     },
     {
       "key": "zhihu",
       "name": "知乎",
-      "count": 12
+      "count": 14
     },
     {
       "key": "buffer",
       "name": "LinkedIn+X",
-      "count": 10
+      "count": 12
     },
     {
       "key": "supabase",
@@ -129,57 +123,37 @@
     }
   ],
   "last_task": {
-    "time": "2026-10-14 13:03:10",
-    "slug": "article_oscilloscope_emi_verify",
-    "title": "如何用示波器验证点火系统 EMI 抑制效果？CISPR 25 实测方法",
+    "time": "2026-10-16 18:20:41",
+    "slug": "article_sitemap_test_20261016",
+    "title": "sitemap 自动化测试文章（临时）",
     "success": true,
-    "ok_count": 5,
-    "total": 5,
+    "ok_count": 1,
+    "total": 1,
     "actions": [
       {
         "key": "website",
         "status": "成功",
-        "duration": 0.2
-      },
-      {
-        "key": "baidu",
-        "status": "成功",
-        "duration": 0.7
-      },
-      {
-        "key": "zhihu",
-        "status": "成功",
-        "duration": 78.0
-      },
-      {
-        "key": "buffer",
-        "status": "成功",
-        "duration": 0.7
-      },
-      {
-        "key": "supabase",
-        "status": "成功",
-        "duration": 0.6
+        "duration": 8.5
       }
     ]
   },
   "topic_pool": {
-    "remaining": 15,
+    "remaining": 14,
     "counts": {
-      "待写": 15,
-      "已完成": 5,
+      "待写": 14,
+      "已完成": 6,
       "暂停": 0
     },
     "total": 20,
-    "next": "如何用示波器验证点火系统 EMI 抑制效果？CISPR 25 实测方法"
+    "next": "充电桩大功率泄放电阻的散热设计：铝壳 vs 陶瓷管 vs 水泥电阻对比"
   },
   "supabase": {
     "available": true,
-    "count": 34
+    "count": 36
   },
   "totals": {
-    "runs_logged": 20,
-    "published_manifest": 7,
-    "official_articles": 40
+    "runs_logged": 31,
+    "published_manifest": 10,
+    "official_articles": 41
   }
 }

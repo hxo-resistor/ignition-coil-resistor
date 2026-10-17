@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-16T09:00:10+08:00",
+  "last_updated": "2026-10-17T09:15:15+08:00",
   "published": [
     {
       "date": "2026-10-08",
@@ -72,6 +72,30 @@
       "platform": "多平台",
       "title": "如何用示波器验证点火系统 EMI 抑制效果？CISPR 25 实测方法",
       "url": "https://www.hxo-lcr.cn/article_oscilloscope_emi_verify.html"
+    },
+    {
+      "date": "2026-10-16",
+      "platform": "多平台",
+      "title": "如何用示波器验证点火系统 EMI 抑制效果？CISPR 25 实测方法",
+      "url": "https://www.hxo-lcr.cn/article_oscilloscope_emi_verify.html"
+    },
+    {
+      "date": "2026-10-16",
+      "platform": "部分失败",
+      "title": "AED除颤器里的『隐形守护者』：无感绕线电阻为何如此关键",
+      "url": "https://www.hxo-lcr.cn/article_aed_defibrillator_resistor.html"
+    },
+    {
+      "date": "2026-10-16",
+      "platform": "部分失败",
+      "title": "充电器外壳总是发软变形，是什么原因？",
+      "url": "https://www.hxo-lcr.cn/article_case_charger_melt_zhihu.html"
+    },
+    {
+      "date": "2026-10-16",
+      "platform": "多平台",
+      "title": "sitemap 自动化测试文章（临时）",
+      "url": "https://www.hxo-lcr.cn/article_sitemap_test_20261016.html"
     }
   ]
 }
