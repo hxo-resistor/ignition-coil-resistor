@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-17T09:15:15+08:00",
+  "last_updated": "2026-10-20T10:39:46+08:00",
   "published": [
     {
       "date": "2026-10-08",
@@ -96,6 +96,12 @@
       "platform": "多平台",
       "title": "sitemap 自动化测试文章（临时）",
       "url": "https://www.hxo-lcr.cn/article_sitemap_test_20261016.html"
+    },
+    {
+      "date": "2026-10-19",
+      "platform": "多平台",
+      "title": "充电桩大功率泄放电阻散热设计：铝壳 vs 陶瓷管 vs 水泥电阻对比",
+      "url": "https://www.hxo-lcr.cn/article_bleeder_heat_dissipation.html"
     }
   ]
 }
