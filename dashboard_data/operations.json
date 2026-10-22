@@ -1,7 +1,21 @@
 {
-  "last_updated": "2026-10-21T09:00:06+08:00",
+  "last_updated": "2026-10-22T09:00:19+08:00",
   "window_days": 7,
   "recent_records": [
+    {
+      "date": "2026-10-21",
+      "time": "2026-10-21 10:00:08",
+      "slug": "article_led_driver_thermal_protection",
+      "title": "LED 驱动器过温保护：RXF 温度保险电阻替代普通保险丝的优势",
+      "platforms": [
+        "website",
+        "baidu",
+        "buffer",
+        "supabase"
+      ],
+      "success": true,
+      "summary": "4/4 成功"
+    },
     {
       "date": "2026-10-19",
       "time": "2026-10-19 10:00:16",
@@ -67,32 +81,18 @@
       ],
       "success": true,
       "summary": "5/5 成功"
-    },
-    {
-      "date": "2026-10-14",
-      "time": "2026-10-14 12:58:31",
-      "slug": "article_resistance_tolerance",
-      "title": "点火线圈抑制电阻阻值公差 ±5% / ±10% / ±20% 对点火系统的影响",
-      "platforms": [
-        "baidu",
-        "zhihu",
-        "buffer",
-        "supabase"
-      ],
-      "success": true,
-      "summary": "4/4 成功"
     }
   ],
   "platform_cumulative": [
     {
       "key": "website",
       "name": "官网",
-      "count": 42
+      "count": 43
     },
     {
       "key": "baidu",
       "name": "百度",
-      "count": 13
+      "count": 14
     },
     {
       "key": "zhihu",
@@ -102,18 +102,18 @@
     {
       "key": "buffer",
       "name": "LinkedIn+X",
-      "count": 13
+      "count": 14
     },
     {
       "key": "supabase",
       "name": "Supabase",
-      "count": 11
+      "count": 12
     }
   ],
   "last_task": {
-    "time": "2026-10-19 10:00:16",
-    "slug": "article_bleeder_heat_dissipation",
-    "title": "充电桩大功率泄放电阻散热设计：铝壳 vs 陶瓷管 vs 水泥电阻对比",
+    "time": "2026-10-21 10:00:08",
+    "slug": "article_led_driver_thermal_protection",
+    "title": "LED 驱动器过温保护：RXF 温度保险电阻替代普通保险丝的优势",
     "success": true,
     "ok_count": 4,
     "total": 4,
@@ -121,42 +121,42 @@
       {
         "key": "website",
         "status": "成功",
-        "duration": 13.4
+        "duration": 23.4
       },
       {
         "key": "baidu",
         "status": "成功",
-        "duration": 2.3
+        "duration": 1.9
       },
       {
         "key": "buffer",
         "status": "成功",
-        "duration": 3.9
+        "duration": 2.8
       },
       {
         "key": "supabase",
         "status": "成功",
-        "duration": 4.1
+        "duration": 3.8
       }
     ]
   },
   "topic_pool": {
-    "remaining": 13,
+    "remaining": 12,
     "counts": {
-      "待写": 13,
-      "已完成": 7,
+      "待写": 12,
+      "已完成": 8,
       "暂停": 0
     },
     "total": 20,
-    "next": "LED 驱动器过温保护：RXF 温度保险电阻替代普通保险丝的优势"
+    "next": "航空/军工级点火电阻要求有哪些？IG-S 无感陶瓷实心方案解析"
   },
   "supabase": {
     "available": true,
-    "count": 37
+    "count": 38
   },
   "totals": {
-    "runs_logged": 32,
-    "published_manifest": 11,
-    "official_articles": 42
+    "runs_logged": 33,
+    "published_manifest": 12,
+    "official_articles": 43
   }
 }
