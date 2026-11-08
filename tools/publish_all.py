@@ -49,7 +49,7 @@ ACTIONS = [
     ("website", "官网发布 (git push)", "n1_website.py", lambda s, t: []),
     ("baidu", "百度推送", "n2_baidu.py", lambda s, t: ["--slugs", s]),
     ("zhihu", "知乎发布", "n3_zhihu.py", lambda s, t: ["--slug", s]),
-    ("buffer", "Buffer 发布 (LinkedIn+X)", "n4_buffer.py", lambda s, t: ["--title", t, "--slug", s]),
+    ("buffer", "Buffer 发布 (LinkedIn+X)", "n4_buffer.py", lambda s, t: ["--title", t]),
     ("supabase", "Supabase 同步", "n5_supabase.py", lambda s, t: ["--slug", s]),
     ("dashboard", "看板刷新", "n6_dashboard.py", lambda s, t: []),
 ]
