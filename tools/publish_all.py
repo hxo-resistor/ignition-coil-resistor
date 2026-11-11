@@ -79,6 +79,8 @@ CN_ACTIONS = [
     ("website", "官网发布 (git push)", "n1_website.py", lambda s, t: []),
     ("baidu", "百度推送", "n2_baidu.py", lambda s, t: ["--slugs", s]),
     ("zhihu", "知乎发布", "n3_zhihu.py", lambda s, t: ["--slug", s]),
+    ("wechat", "微信公众号草稿", "n9_wechat.py", lambda s, t: ["--slug", s]),
+    ("xiaohongshu", "小红书笔记", "n10_xiaohongshu.py", lambda s, t: ["--slug", s]),
     ("supabase", "Supabase 同步", "n5_supabase.py", lambda s, t: ["--slug", s]),
     ("dashboard", "看板刷新", "n6_dashboard.py", lambda s, t: []),
 ]
@@ -86,6 +88,7 @@ CN_ACTIONS = [
 INTL_ACTIONS = [
     ("linkedin", "LinkedIn 发布", "n4_buffer.py", lambda s, t: _intl_args(s, "linkedin")),
     ("x", "X (Twitter) 发布", "n4_buffer.py", lambda s, t: _intl_args(s, "x")),
+    ("medium", "Medium 发布", "n8_medium.py", lambda s, t: ["--slug", s]),
 ]
 
 

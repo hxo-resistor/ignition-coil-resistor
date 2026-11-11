@@ -574,6 +574,28 @@ def build_xiaohongshu(spec):
 {tags} #干货 #工程师日常"""
 
 
+def build_wechat(spec):
+    """国内微信公众号：草稿用 HTML 长文（标题 + 摘要 + 正文）。"""
+    cta = PRODUCT_CTA[_cta_key(spec["product"])]
+    pain = "".join(f"<li>{p}</li>" for p in spec["pain"])
+    params = "".join(f"<li><b>{a}</b>：{b}（{c}）</li>" for a, b, c in spec["params"])
+    myths = "".join(f"<li>{m}</li>" for m in spec["myths"])
+    content = (
+        f"<h2>{spec['hook']}</h2>"
+        f"<p>{spec['desc']}</p>"
+        f"<h3>核心结论</h3><ul>{pain}</ul>"
+        f"<h3>关键参数</h3><ul>{params}</ul>"
+        f"<h3>计算方法</h3><p>{spec['formula']}</p>"
+        f"<h3>常见误区</h3><ul>{myths}</ul>"
+        f"<p>{cta['cn'][1]}｜官网：{SITE}/{spec['slug']}.html</p>"
+    )
+    return {
+        "title": spec["title"],
+        "digest": spec["desc"][:120],
+        "content": content,
+    }
+
+
 # ---------------------------------------------------------------------------
 # 统一社交内容导出
 # ---------------------------------------------------------------------------
@@ -604,6 +626,7 @@ def build_social(spec):
         "title_en": s["title_en"],
         "zhihu": build_zhihu(spec),
         "xiaohongshu": build_xiaohongshu(spec),
+        "wechat": build_wechat(spec),
         "linkedin": build_en_linkedin(s),
         "x": build_en_x(s),
         "medium": build_en_medium(s),
