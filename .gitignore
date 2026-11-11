@@ -14,3 +14,7 @@ logs/
 work/social/
 work/metrics/
 work/last_published_slug.txt
+
+# 自我进化机制运行时状态（自调优权重 / 防封日志）
+work/optimization_state.json
+work/anti_ban.log

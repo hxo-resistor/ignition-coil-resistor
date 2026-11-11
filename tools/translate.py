@@ -57,30 +57,49 @@ def _model() -> str:
     return os.environ.get("HXO_LLM_MODEL") or os.environ.get("DEEPSEEK_MODEL") or DEFAULT_MODEL
 
 
-def translate(text: str, target: str = "en") -> str:
-    """翻译一段中文为英文。未配置 key 时抛出明确错误。"""
-    if not text or not text.strip():
-        return text
+def chat(system: str, user: str, temperature: float = 0.3) -> str:
+    """通用 DeepSeek 对话（翻译/审查/改写/复盘复用同一入口）。"""
     key = _api_key()
     if not key:
-        raise RuntimeError(
-            "未配置 DEEPSEEK_API_KEY。请到 https://platform.deepseek.com 申请，"
-            "然后用 `setx DEEPSEEK_API_KEY \"sk-...\"` 设置。"
-        )
+        raise RuntimeError("未配置 DEEPSEEK_API_KEY")
     url = _base_url().rstrip("/") + "/chat/completions"
     payload = {
         "model": _model(),
         "messages": [
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": text},
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
         ],
-        "temperature": 0.3,
+        "temperature": temperature,
     }
     r = requests.post(url, json=payload, timeout=120,
                       headers={"Authorization": f"Bearer {key}"})
     r.raise_for_status()
     data = r.json()
     return data["choices"][0]["message"]["content"].strip()
+
+
+def _effective_system_prompt() -> str:
+    """翻译提示词 + 自升级模块的调优 hint（若有）。"""
+    try:
+        import self_optimize  # noqa: E402
+        hint = self_optimize.prompt_profile()
+    except Exception:
+        hint = ""
+    if hint:
+        return SYSTEM_PROMPT + "\n\nAdditional style guidance: " + hint
+    return SYSTEM_PROMPT
+
+
+def translate(text: str, target: str = "en") -> str:
+    """翻译一段中文为英文。未配置 key 时抛出明确错误。"""
+    if not text or not text.strip():
+        return text
+    if not is_configured():
+        raise RuntimeError(
+            "未配置 DEEPSEEK_API_KEY。请到 https://platform.deepseek.com 申请，"
+            "然后用 `setx DEEPSEEK_API_KEY \"sk-...\"` 设置。"
+        )
+    return chat(_effective_system_prompt(), text, temperature=0.3)
 
 
 def main():

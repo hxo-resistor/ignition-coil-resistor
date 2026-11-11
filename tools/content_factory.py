@@ -807,17 +807,26 @@ def _en_bundle(spec):
     }
 
 
-def build_social(spec):
+def build_social(spec, review=True):
     s = dict(spec)
     s.update(_en_bundle(spec))
+    linkedin = build_en_linkedin(s)
+    x = build_en_x(s)
+    if review:
+        try:
+            import self_review  # noqa: E402
+            linkedin, _, _ = self_review.self_reflect(linkedin, "linkedin")
+            x, _, _ = self_review.self_reflect(x, "x")
+        except Exception:
+            pass
     return {
         "slug": s["slug"],
         "title_cn": spec["title"],
         "title_en": s["title_en"],
         "zhihu": build_zhihu(spec),
         "wechat": build_wechat(spec),
-        "linkedin": build_en_linkedin(s),
-        "x": build_en_x(s),
+        "linkedin": linkedin,
+        "x": x,
         "hashtags_en": gen_hashtags(s, "en", 5),
         "hashtags_cn": spec.get("tags_cn", []),
     }
