@@ -371,16 +371,169 @@ TOPICS = [
          points_en=["Prototype in 7–15 days", "100% testing: withstand, TCR, life", "CQC/UL for export compliance", "Flexible MOQ for small batches"]),
 ]
 
+# ---------------------------------------------------------------------------
+# B2B 硬核技术数据（Phase A：为每个选题补充数据对比 / 认证背书 / 案例 / 品控）
+# ---------------------------------------------------------------------------
+TECH = {
+    "1": dict(ctype="selection",
+              data_points=[("额定功率", "1W / 3W / 5W / 10W"), ("满载温升(实测)", "+62℃ @ 5W / 25℃ 环境"),
+                           ("脉冲能量", "单次 μJ~mJ，按重复频率折算平均功率"), ("选型安全系数", "P_rating ≥ 2 × P_avg")],
+              certifications=["AEC-Q200", "RoHS/REACH"],
+              case="某摩托车 OEM 将点火电阻从 3W 升到 5W 后，高温失效率由 0.8% 降到 0.1%。",
+              manufacturing="100% 阻值/耐压全检，可提供每批次温升测试报告。"),
+    "2": dict(ctype="pain",
+              data_points=[("阻值漂移判据", "> ±5% 即判定失效"), ("寿命-温度关系", "温度每升 10℃ 寿命约减半"),
+                           ("IG-F 抗振", "提升 30%"), ("寿命等级", "数千小时级")],
+              certifications=["AEC-Q200"],
+              case="某越野车队每 1 万公里测一次阻值，提前 2000km 预警了 3 台车的电阻漂移。",
+              manufacturing="温度循环 + 振动疲劳老化测试，阻值逐只溯源。"),
+    "3": dict(ctype="pain",
+              data_points=[("动作温度", "221℃"), ("阻值", "12Ω @ 1W"), ("保护方式", "过温 + 过流双保护"), ("复位性", "一次性熔断")],
+              certifications=["CQC"],
+              case="某充电器厂空载发热客诉，改用 RXF 后待机功耗与温升同时达标。",
+              manufacturing="CQC 认证，100% 动作温度抽检。"),
+    "4": dict(ctype="pain",
+              data_points=[("耐脉冲", "5kJ+"), ("耐压", "10kV+"), ("功率范围", "1W~50W"), ("选型修正", "按占空比折算")],
+              certifications=["CQC", "UL"],
+              case="某电梯厂制动电阻反复烧毁，改 HVW 高占空比型号后连续 6 个月零失效。",
+              manufacturing="绕线工艺，100% 脉冲耐压测试。"),
+    "5": dict(ctype="compare",
+              data_points=[("公差档位", "±5% / ±10% / ±20%"), ("阻值偏差影响", "点火能量偏差 ∝ δR/R"),
+                           ("EMI 抑制", "深度随 R 变化"), ("OEM 建议", "±5% 保批次一致")],
+              certifications=["AEC-Q200"],
+              case="某 OEM 量产后将公差收紧到 ±5%，批次点火一致性不良率归零。",
+              manufacturing="阻值分选 100% 全检，按公差档位出货。"),
+    "6": dict(ctype="selection",
+              data_points=[("频段", "150kHz~1GHz"), ("抑制效果", "峰值下降 6~20dB"), ("标准", "CISPR 25"), ("探头", "近场 H/E 场")],
+              certifications=["CISPR 25"],
+              case="某车企用示波器 A/B 对比不同阻值，最终锁定 EMI 余量最大的方案。",
+              manufacturing="提供 EMI 实测对比报告。"),
+    "7": dict(ctype="compare",
+              data_points=[("铝壳", "功率大/散热好，需散热器"), ("陶瓷管", "耐高温/耐脉冲"), ("水泥", "成本低/脉冲有限"), ("温升公式", "ΔT = P × R_th")],
+              certifications=["CQC", "UL"],
+              case="某快充桩用铝壳 HVW + 风冷，母线泄放时间压到 <3 分钟。",
+              manufacturing="铝壳导热安装 + 热测试报告。"),
+    "8": dict(ctype="pain",
+              data_points=[("动作温度", "221℃ 精准"), ("集成度", "单颗替代保险丝+热敏"), ("体积", "省 PCB 空间"), ("认证", "CQC")],
+              certifications=["CQC"],
+              case="某紧凑灯具空间受限，RXF 单颗实现过温+过流双保护。",
+              manufacturing="CQC 认证，全检。"),
+    "9": dict(ctype="certification",
+              data_points=[("耐压", "40kV"), ("耐温", "350℃"), ("寄生电感", "<0.1μH"), ("宽温稳定性", "陶瓷实心结构")],
+              certifications=["MIL-STD (military grade)"],
+              case="航空发动机点火用 IG-S 无感方案，高频火花波形稳定。",
+              manufacturing="专利无感工艺，全项出厂全检。"),
+    "10": dict(ctype="selection",
+              data_points=[("最小阻值", "R_min = U_dc² / P_peak"), ("平均功率", "P_avg = E × f × 占空比"), ("占空比", "≤10%~50%"), ("耐压", "≥ 母线电压")],
+              certifications=["CQC", "UL"],
+              case="高速定位伺服频繁急停，HVW 高占空比型号解决母线过压报警。",
+              manufacturing="100% 耐压测试。"),
+    "11": dict(ctype="certification",
+              data_points=[("测试电压", "500V / 1000V DC"), ("判定阈值", "≥ 1000MΩ"), ("持续时间", "60s"), ("湿热后", "仍须达标")],
+              certifications=["Insulation test standards"],
+              case="来料用 1000V 严判，产线用 500V 快检，双档位覆盖。",
+              manufacturing="绝缘耐压 100% 全检。"),
+    "12": dict(ctype="pain",
+              data_points=[("抗振", "+30%"), ("耐压", "25kV"), ("成本", "低于陶瓷芯"), ("耐温", "宽温")],
+              certifications=["AEC-Q200"],
+              case="油锯高振动场景，IG-F 玻纤芯替换普通电阻后失效归零。",
+              manufacturing="振动疲劳测试。"),
+    "13": dict(ctype="pain",
+              data_points=[("输入端", "绕线电阻抑制浪涌/差模"), ("开关节点", "抑制电阻阻尼振铃"), ("标准", "CISPR 22"), ("成本", "低于磁珠方案")],
+              certifications=["CISPR 22"],
+              case="某适配器传导超标反复整改，输入端绕线 + 开关节点抑制组合一次通过。",
+              manufacturing="提供 EMI 测试报告。"),
+    "14": dict(ctype="selection",
+              data_points=[("寄生电感", "<0.1μH"), ("耐压", "40kV"), ("耐温", "350℃"), ("阻抗", "Z = R + jωL")],
+              certifications=["AEC-Q200"],
+              case="赛车点火高频高能，IG-S 无感让火花波形更干净。",
+              manufacturing="专利无感工艺。"),
+    "15": dict(ctype="certification",
+              data_points=[("平台电压", "1500V DC"), ("泄放时间", "<5 分钟"), ("耐压", "10kV+"), ("标准", "IEC 62477")],
+              certifications=["IEC 62477", "CQC", "UL"],
+              case="储能电池簇 1500V 平台检修放电，HVW 高压泄放满足安全时长。",
+              manufacturing="高压耐压全检。"),
+    "16": dict(ctype="certification",
+              data_points=[("RoHS", "10 项限制物质"), ("REACH", "SVHC 高关注物质披露"), ("阈值", "Cd 0.01% / 其余 0.1%"), ("范围", "均质材料")],
+              certifications=["RoHS", "REACH"],
+              case="出口欧盟的汽车电子客户，HXO 全项合规 + 无铅焊端。",
+              manufacturing="第三方检测报告 + 供应链审查清单。"),
+    "17": dict(ctype="selection",
+              data_points=[("耐脉冲", "5kJ+"), ("耐压", "10kV+"), ("功率", "1W~50W"), ("工况", "高占空比散热")],
+              certifications=["CQC", "UL"],
+              case="逆变焊机高频脉冲，HVW 耐脉冲型号替代普通电阻后零烧毁。",
+              manufacturing="脉冲测试。"),
+    "18": dict(ctype="selection",
+              data_points=[("保持温度", "正常不动作"), ("动作温度", "221℃"), ("极限温度", "短时耐受上限"), ("选型裕度", "留 20~30%")],
+              certifications=["CQC"],
+              case="充电器 RXF 精准动作，避免误动作与漏保护。",
+              manufacturing="动作温度全检。"),
+    "19": dict(ctype="selection",
+              data_points=[("阻值匹配", "按线圈/ECU"), ("功率", "≥ 2× 计算值"), ("抗振", "IG-F +30%"), ("高温", "IG-S 无感")],
+              certifications=["AEC-Q200"],
+              case="改装高转引擎用 IG-S，点火稳定无 EMI 干扰。",
+              manufacturing="全检。"),
+    "20": dict(ctype="selection",
+              data_points=[("打样", "7~15 天"), ("测试", "100% 全检"), ("认证", "CQC/UL"), ("合作", "OEM/ODM 全流程")],
+              certifications=["CQC", "UL"],
+              case="某客户从需求到量产，HXO 全流程托管，交期可预期。",
+              manufacturing="100% 全检 + 阻值溯源。"),
+}
+
+
+def _merge_tech(base: dict):
+    merged = dict(base)
+    merged.update(TECH.get(base["num"], {}))
+    return merged
+
+
 _TOPIC_BY_NUM = {t["num"]: t for t in TOPICS}
 _TOPIC_BY_SLUG = {t["slug"]: t for t in TOPICS}
 
 
 def spec_by_num(num: str):
-    return _TOPIC_BY_NUM.get(str(num))
+    base = _TOPIC_BY_NUM.get(str(num))
+    return _merge_tech(base) if base else None
 
 
 def spec_by_slug(slug: str):
-    return _TOPIC_BY_SLUG.get(slug)
+    base = _TOPIC_BY_SLUG.get(slug)
+    return _merge_tech(base) if base else None
+
+
+def _tech_hashtags(spec, count=None):
+    """按产品线 + 认证 + 领域自动生成精准工程 Hashtag。"""
+    tags = []
+    for c in spec.get("certifications", []):
+        if c == "AEC-Q200":
+            tags.append("#AECQ200")
+        elif c == "CQC":
+            tags.append("#CQC")
+        elif c == "UL":
+            tags.append("#UL")
+        elif c in ("RoHS", "RoHS/REACH"):
+            tags.append("#RoHS")
+        elif c == "IEC 62477":
+            tags.append("#IEC62477")
+    p = spec.get("product", "")
+    if "IG" in p:
+        tags.append("#IgnitionCoil")
+    if "HVW" in p:
+        tags.append("#HighVoltage")
+    if "RXF" in p:
+        tags.append("#ThermalProtection")
+    tags.append("#PowerElectronics")
+    if spec.get("ctype") == "compare":
+        tags.append("#Datasheet")
+    elif spec.get("ctype") == "pain":
+        tags.append("#Reliability")
+    # 去重保序
+    seen, out = set(), []
+    for t in tags:
+        if t not in seen:
+            seen.add(t)
+            out.append(t)
+    return out[:count] if count else out
 
 
 def _cta_key(product: str) -> str:
@@ -417,6 +570,49 @@ def build_cn_body(spec):
     )
     myths = "\n".join(f"- {m}" for m in spec["myths"])
 
+    # 实测数据表（Phase A 硬核技术数据）
+    data_rows = "\n".join(
+        f'    <tr><td>{k}</td><td>{v}</td></tr>'
+        for k, v in spec.get("data_points", [])
+    )
+    data_section = ""
+    if data_rows:
+        data_section = f"""## 二、实测数据
+
+:::raw
+<div class="table-wrap">
+<table>
+    <tr><th>指标</th><th>实测值 / 范围</th></tr>
+{data_rows}
+</table>
+</div>
+:::
+
+"""
+
+    # 认证背书
+    certs = "、".join(spec.get("certifications", []))
+    cert_section = ""
+    if certs:
+        cert_section = f"""## 三、认证背书
+
+本产品线通过 **{certs}** 认证，可提供完整检测报告，满足车规 / 工业 / 出口合规要求。
+
+"""
+
+    # 应用案例 + 制造品控
+    case = spec.get("case", "")
+    mfg = spec.get("manufacturing", "")
+    case_section = ""
+    if case or mfg:
+        case_section = f"""## 四、应用案例与品控
+
+**真实案例**：{case}
+
+**制造与品控**：{mfg}
+
+"""
+
     return f"""## 引言
 
 {spec['hook']}
@@ -447,7 +643,7 @@ def build_cn_body(spec):
 </div>
 :::
 
-## 二、计算方法
+{data_section}{cert_section}{case_section}## 计算方法
 
 :::raw
 <div class="formula-box">
@@ -456,7 +652,7 @@ def build_cn_body(spec):
 </div>
 :::
 
-## 三、典型场景对照
+## 典型场景对照
 
 :::raw
 <div class="table-wrap">
@@ -467,7 +663,7 @@ def build_cn_body(spec):
 </div>
 :::
 
-## 四、常见误区
+## 常见误区
 
 {myths}
 
@@ -491,15 +687,36 @@ def build_cn_body(spec):
 # ---------------------------------------------------------------------------
 # 海外英文文案
 # ---------------------------------------------------------------------------
+def _en_tech(spec):
+    """英文版技术字段：数据点/案例/品控（有 DeepSeek key 时翻译，否则回退中文）。"""
+    if translate.is_configured():
+        t = lambda x: translate.translate(x, "en")
+        data = [t(f"{k}: {v}") for k, v in spec.get("data_points", [])]
+        case = t(spec.get("case", ""))
+        mfg = t(spec.get("manufacturing", ""))
+    else:
+        data = [f"{k}: {v}" for k, v in spec.get("data_points", [])]
+        case = spec.get("case", "")
+        mfg = spec.get("manufacturing", "")
+    return data, case, mfg
+
+
 def build_en_linkedin(spec):
+    """LinkedIn：数据对比 + 认证背书 + 案例 + 品控（B2B 采购/工程师）。"""
     cta = PRODUCT_CTA[_cta_key(spec["product"])]
-    points = "\n".join(f"• {p}" for p in spec["points_en"])
-    tags = " ".join(gen_hashtags(spec, "en", 5))
+    data, case, mfg = _en_tech(spec)
+    pts = "\n".join(f"• {d}" for d in data)
+    certs = ", ".join(spec.get("certifications", []))
+    tags = " ".join(_tech_hashtags(spec, 5))
     return f"""{spec['hook_en']}
 
 {spec['title_en']}
 
-{points}
+{pts}
+
+• Certifications: {certs}
+• Real-world case: {case}
+• Manufacturing & QC: {mfg}
 
 {cta['en'][1]}.
 
@@ -508,10 +725,15 @@ Contact: {CONTACT} | {SITE}
 
 
 def build_en_x(spec):
-    tags = " ".join(gen_hashtags(spec, "en", 3))
-    body = f"{spec['hook_en']} {SITE}/{spec['slug']}.html {tags}"
+    """X：数据钩子 + 精准工程 Hashtag，≤280 字。"""
+    tags = " ".join(_tech_hashtags(spec, 3))
+    data, _, _ = _en_tech(spec)
+    hook = data[0] if data else spec["hook_en"]
+    body = f"{hook} — {spec['hook_en']} {SITE}/{spec['slug']}.html {tags}"
     if len(body) > 280:
-        body = f"{spec['hook_en'][:220]}... {SITE}/{spec['slug']}.html {tags}"
+        body = f"{hook} {SITE}/{spec['slug']}.html {tags}"
+    if len(body) > 280:
+        body = f"{hook[:240]}... {tags}"
     return body
 
 
