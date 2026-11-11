@@ -28,7 +28,7 @@ except Exception:
 REPO = Path(__file__).resolve().parent.parent
 STATE = REPO / "work" / "cost_state.json"
 
-DAILY_BUDGET_YUAN = float(os.environ.get("HXO_DAILY_BUDGET", "1.0"))
+DAILY_BUDGET_YUAN = float(os.environ.get("HXO_DAILY_BUDGET", "10.0"))
 PRICE_INPUT_1K = float(os.environ.get("HXO_PRICE_INPUT_1K", "0.002"))
 PRICE_OUTPUT_1K = float(os.environ.get("HXO_PRICE_OUTPUT_1K", "0.008"))
 

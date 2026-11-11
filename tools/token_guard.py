@@ -20,8 +20,8 @@ except Exception:
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import cost_guard  # noqa: E402
 
-SINGLE_LIMIT_YUAN = float(os.environ.get("HXO_SINGLE_LIMIT", "0.1"))
-DAILY_HARD_LIMIT_YUAN = float(os.environ.get("HXO_HARD_DAILY_LIMIT", "1.0"))
+SINGLE_LIMIT_YUAN = float(os.environ.get("HXO_SINGLE_LIMIT", "0.5"))
+DAILY_HARD_LIMIT_YUAN = float(os.environ.get("HXO_HARD_DAILY_LIMIT", "10.0"))
 
 
 def estimate_tokens(text: str) -> int:
