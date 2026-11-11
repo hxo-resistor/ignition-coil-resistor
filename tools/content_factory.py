@@ -15,6 +15,7 @@
 import argparse
 import datetime as dt
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -23,6 +24,9 @@ try:
     sys.stdout.reconfigure(encoding="utf-8")
 except Exception:
     pass
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import translate  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 WORK = REPO / "work"
@@ -573,17 +577,38 @@ def build_xiaohongshu(spec):
 # ---------------------------------------------------------------------------
 # 统一社交内容导出
 # ---------------------------------------------------------------------------
-def build_social(spec):
+def _en_bundle(spec):
+    """英文文案来源：配好 LLM key 或显式 mock 时走翻译，否则用手写英文字段。"""
+    use_llm = translate.is_configured() or os.environ.get("HXO_LLM_MOCK") == "1"
+    if use_llm:
+        t = lambda x: translate.translate(x, "en")
+        return {
+            "title_en": t(spec["title"]),
+            "hook_en": t(spec["hook"]),
+            "desc_en": t(spec["desc"]),
+            "points_en": [t(p) for p in spec["pain"]],
+        }
     return {
-        "slug": spec["slug"],
+        "title_en": spec.get("title_en", spec["title"]),
+        "hook_en": spec.get("hook_en", spec["hook"]),
+        "desc_en": spec.get("desc_en", spec.get("desc", "")),
+        "points_en": spec.get("points_en", [p for p in spec["pain"]]),
+    }
+
+
+def build_social(spec):
+    s = dict(spec)
+    s.update(_en_bundle(spec))
+    return {
+        "slug": s["slug"],
         "title_cn": spec["title"],
-        "title_en": spec["title_en"],
+        "title_en": s["title_en"],
         "zhihu": build_zhihu(spec),
         "xiaohongshu": build_xiaohongshu(spec),
-        "linkedin": build_en_linkedin(spec),
-        "x": build_en_x(spec),
-        "medium": build_en_medium(spec),
-        "hashtags_en": gen_hashtags(spec, "en", 5),
+        "linkedin": build_en_linkedin(s),
+        "x": build_en_x(s),
+        "medium": build_en_medium(s),
+        "hashtags_en": gen_hashtags(s, "en", 5),
         "hashtags_cn": spec.get("tags_cn", []),
     }
 
