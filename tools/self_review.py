@@ -115,14 +115,24 @@ def rewrite(text: str, feedback: str) -> str:
         return text
 
 
-def self_reflect(text: str, platform: str = "linkedin", max_rounds: int = 3):
-    """返回 (final_text, last_score, rounds)。不达标打回重写，直到通过或耗尽轮数。"""
-    for rnd in range(1, max_rounds + 1):
-        r = score(text, platform)
+def self_reflect(text: str, platform: str = "linkedin", max_rewrites: int = 1):
+    """返回 (final_text, last_score, rounds)。
+
+    硬限制：最多重写 1 次（即最多 2 次评分 + 1 次改写）。不再无限循环。
+    若仍不达标，放弃重写并写日志，直接返回当前文案（不阻塞发帖）。
+    """
+    r = score(text, platform)
+    rounds = 1
+    for _ in range(max_rewrites):
         if _passes(r, platform):
-            return text, r, rnd
+            break
         text = rewrite(text, r.get("feedback", ""))
-    return text, score(text, platform), max_rounds
+        r = score(text, platform)
+        rounds += 1
+    if not _passes(r, platform):
+        print(f"[self_review] {platform} 审查 {rounds} 轮仍未通过，放弃重写（写日志），保留当前文案。",
+              file=sys.stderr, flush=True)
+    return text, r, rounds
 
 
 if __name__ == "__main__":

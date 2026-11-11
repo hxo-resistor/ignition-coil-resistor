@@ -1,20 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""pull_metrics.py — 发布后数据回拉 + 喂给 self_optimize 形成终极闭环
+"""pull_metrics.py — 发布后数据回拉（Buffer GraphQL 为主）+ 喂给 self_optimize 形成闭环
 
-发布后：
-    1. record_publish()  记录 post_id / 平台 / 状态 → work/published_links.json
-    2. pull_*()          拉取真实点赞/阅读/互动
-       * Buffer：公开 API 不暴露互动数据，只记录 post_id 与状态
-       * X：需 X_BEARER_TOKEN（X API v2，免费 Basic 档可查单帖指标）
-       * LinkedIn：需 LINKEDIN_TOKEN（组织管理 API）
-    3. feed_self_optimize()  把归一化效果分喂给 self_optimize，动态调权 + 提示词自调优
+数据源：Buffer GraphQL API（api.buffer.com/graphql，复用已活的 BUFFER_TOKEN）
+    可拿到真实指标：Impressions(阅读/曝光) / Reactions(点赞) / Comments / Reposts / Clicks / Eng.Rate
 
-无凭证时优雅跳过，不阻塞。
+链路：
+    1. account { organizations { id } }    → 取 orgId
+    2. posts(input:{organizationId})       → 列帖子（含 sent 帖及 metrics）
+    3. 归一化效果分 → self_optimize.record_result() → 动态调权 + 提示词自调优
+
+兼容：仍保留 X_BEARER_TOKEN / LINKEDIN_TOKEN 增强项（有则补更细数据），无则不影响 Buffer 主链路。
 """
 import datetime as dt
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -27,8 +28,75 @@ try:
 except Exception:
     pass
 
+try:
+    import requests
+except ImportError:
+    requests = None
+
 REPO = Path(__file__).resolve().parent.parent
 LINKS = REPO / "work" / "published_links.json"
+GRAPHQL = "https://api.buffer.com/graphql"
+TOKEN = os.environ.get("BUFFER_TOKEN", "34cyqxAOzZHdZwFrBFy6Ou89lwONFsuihkJ2RCOGAZm")
+PROXY = os.environ.get("HXO_PROXY", "http://127.0.0.1:7897")
+
+
+def _gql(query, variables=None):
+    if requests is None:
+        raise RuntimeError("缺少 requests 库")
+    r = requests.post(GRAPHQL, json={"query": query, "variables": variables or {}},
+                      headers={"Authorization": f"Bearer {TOKEN}"},
+                      proxies={"http": PROXY, "https": PROXY}, timeout=40)
+    r.raise_for_status()
+    data = r.json()
+    if "errors" in data:
+        raise RuntimeError(data["errors"][0].get("message", str(data["errors"])))
+    return data["data"]
+
+
+def get_org_id():
+    d = _gql("{ account { organizations { id } } }")
+    orgs = d["account"].get("organizations", [])
+    if not orgs:
+        raise RuntimeError("未找到 organization")
+    return orgs[0]["id"]
+
+
+def list_posts():
+    """列出帖子及其 metrics（status + text + metrics）。"""
+    org = get_org_id()
+    d = _gql('{ posts(input: { organizationId: "%s" }) { edges { node { id status text metrics { name value } } } } }' % org)
+    out = []
+    for e in d["posts"]["edges"]:
+        n = e["node"]
+        out.append({
+            "id": n["id"], "status": n["status"], "text": n.get("text", ""),
+            "metrics": {m["name"]: m["value"] for m in n.get("metrics", [])},
+        })
+    return out
+
+
+def get_post_metrics(post_id):
+    d = _gql('{ post(input: { id: "%s" }) { id status metrics { name value } } }' % post_id)
+    p = d["post"]
+    return {"id": p["id"], "status": p["status"], "metrics": {m["name"]: m["value"] for m in p.get("metrics", [])}}
+
+
+def _slug_from_text(text):
+    m = re.search(r"(article_[a-z0-9_]+)", text)
+    return m.group(1) if m else None
+
+
+def normalize(metrics) -> float:
+    """互动指标 → 0~1 效果分（对数压缩防单帖刷分）。"""
+    impressions = metrics.get("Impressions", 0) or 0
+    reactions = metrics.get("Reactions", 0) or 0
+    comments = metrics.get("Comments", 0) or 0
+    reposts = metrics.get("Reposts", 0) or 0
+    clicks = metrics.get("Clicks", 0) or 0
+    engagement = reactions * 3 + comments * 5 + reposts * 4 + clicks * 2
+    raw = impressions * 0.1 + engagement
+    import math
+    return round(min(1.0, math.log1p(raw) / 5.0), 3)
 
 
 def record_publish(slug, platform, post_id, status):
@@ -38,73 +106,41 @@ def record_publish(slug, platform, post_id, status):
             data = json.loads(LINKS.read_text(encoding="utf-8"))
         except Exception:
             data = []
-    data.append({
-        "ts": dt.datetime.now().isoformat(timespec="seconds"),
-        "slug": slug, "platform": platform, "post_id": post_id, "status": status,
-    })
+    data.append({"ts": dt.datetime.now().isoformat(timespec="seconds"),
+                 "slug": slug, "platform": platform, "post_id": post_id, "status": status})
     LINKS.parent.mkdir(parents=True, exist_ok=True)
     LINKS.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    return data
 
 
-def pull_x_metrics(post_id):
-    """X 单帖指标（需 X_BEARER_TOKEN，X API v2）。无 token 返回 None。"""
-    token = os.environ.get("X_BEARER_TOKEN", "")
-    if not token:
-        return None
-    import requests
-    r = requests.get(f"https://api.x.com/2/tweets/{post_id}",
-                     params={"tweet.fields": "public_metrics"},
-                     headers={"Authorization": f"Bearer {token}"}, timeout=30)
-    r.raise_for_status()
-    m = r.json().get("data", {}).get("public_metrics", {})
-    return {"likes": m.get("like_count", 0), "retweets": m.get("retweet_count", 0),
-            "replies": m.get("reply_count", 0), "impressions": m.get("impression_count", 0)}
-
-
-def pull_linkedin_metrics(post_id):
-    """LinkedIn 帖子指标（需 LINKEDIN_TOKEN，组织 API）。无 token 返回 None。"""
-    token = os.environ.get("LINKEDIN_TOKEN", "")
-    if not token:
-        return None
-    return {"note": "LinkedIn 组织 API 需 urn 与权限，接入后补全"}
-
-
-def normalize(metrics) -> float:
-    """把互动指标归一化到 0~1 效果分（简单对数压缩，避免单帖刷分）。"""
-    if not metrics:
-        return 0.5
-    likes = metrics.get("likes", 0)
-    views = metrics.get("impressions", metrics.get("views", 0))
-    score = (likes * 1.0 + (views / 100.0)) 
-    return round(min(1.0, max(0.0, score / 10.0)), 3)
-
-
-def feed_self_optimize(slug, platform, metrics=None):
-    spec = content_factory.spec_by_slug(slug)
-    ctype = spec.get("ctype", "selection") if spec else "selection"
-    outcome = normalize(metrics)
-    self_optimize.record_result(ctype, outcome)
-    return ctype, outcome
+def pull_and_feed():
+    """从 Buffer 拉取真实数据，喂给 self_optimize，返回报告。"""
+    posts = list_posts()
+    sent = [p for p in posts if p["status"] == "sent"]
+    lines = [f"Buffer 共 {len(posts)} 条帖子，其中已发 {len(sent)} 条。"]
+    fed = 0
+    for p in sent:
+        slug = _slug_from_text(p["text"])
+        if not slug:
+            continue
+        spec = content_factory.spec_by_slug(slug)
+        ctype = spec.get("ctype", "selection") if spec else "selection"
+        score = normalize(p["metrics"])
+        self_optimize.record_result(ctype, score)
+        fed += 1
+        imp = p["metrics"].get("Impressions", 0)
+        rea = p["metrics"].get("Reactions", 0)
+        com = p["metrics"].get("Comments", 0)
+        lines.append(f"  [{ctype:<12}] {slug}  曝光={imp} 点赞={rea} 评论={com} → 效果分={score}")
+    lines.append(f"已回喂 {fed} 条真实数据到 self_optimize。")
+    return "\n".join(lines)
 
 
 def main():
-    # 回拉最近发布的帖子，尝试取互动，喂给 self_optimize
-    if not LINKS.exists():
-        print("暂无发布记录。先跑发布再回拉。")
-        return
-    posts = json.loads(LINKS.read_text(encoding="utf-8"))
-    print(f"共 {len(posts)} 条发布记录，逐条回拉：")
-    for p in posts:
-        metrics = None
-        if p["platform"] == "x":
-            metrics = pull_x_metrics(p["post_id"])
-        elif p["platform"] == "linkedin":
-            metrics = pull_linkedin_metrics(p["post_id"])
-        ctype, outcome = feed_self_optimize(p["slug"], p["platform"], metrics)
-        src = "真实互动" if metrics else "无凭证，用占位分"
-        print(f"  [{p['platform']}] {p['slug']} → ctype={ctype} outcome={outcome} ({src})")
-    print("\n" + self_optimize.daily_review())
+    try:
+        print(pull_and_feed())
+        print("\n" + self_optimize.daily_review())
+    except Exception as e:
+        print(f"[拉取失败] {e}")
 
 
 if __name__ == "__main__":

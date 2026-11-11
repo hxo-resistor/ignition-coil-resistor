@@ -25,7 +25,10 @@ except Exception:
     pass
 
 DEFAULT_BASE_URL = "https://api.deepseek.com/v1"
-DEFAULT_MODEL = "deepseek-chat"
+# 模型降级：默认一律用便宜档 deepseek-chat；核心长文才允许 PRO（deepseek-reasoner）
+MODEL_CHEAP = "deepseek-chat"
+DEFAULT_MODEL = MODEL_CHEAP
+MODEL_PRO = os.environ.get("HXO_PRO_MODEL", "deepseek-reasoner")
 
 # 强调：硬核 B2B 技术营销，工程师对工程师，专业严谨、数据说话、展示制造与品控实力
 SYSTEM_PROMPT = (
@@ -57,22 +60,25 @@ def _model() -> str:
     return os.environ.get("HXO_LLM_MODEL") or os.environ.get("DEEPSEEK_MODEL") or DEFAULT_MODEL
 
 
-def chat(system: str, user: str, temperature: float = 0.3) -> str:
-    """通用 DeepSeek 对话（翻译/审查/改写/复盘复用同一入口），带成本护栏。"""
+def chat(system: str, user: str, temperature: float = 0.3, model: str = None) -> str:
+    """通用 DeepSeek 对话（默认便宜模型，带 token_guard 硬闸 + cost_guard 护栏）。
+
+    不携带任何历史记录：每次只发送「系统提示词 + 当前文本」。
+    """
     key = _api_key()
     if not key:
         raise RuntimeError("未配置 DEEPSEEK_API_KEY")
+    # 硬闸：发请求前估算成本，超限直接 sys.exit（绝不后台循环）
     try:
-        import cost_guard  # noqa: E402
-        if cost_guard.over_budget():
-            raise cost_guard.BudgetExceeded(cost_guard.summary())
-    except cost_guard.BudgetExceeded:
+        import token_guard  # noqa: E402
+        token_guard.guard(system + user)
+    except SystemExit:
         raise
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"[token_guard] 拦截异常: {e}", file=sys.stderr, flush=True)
     url = _base_url().rstrip("/") + "/chat/completions"
     payload = {
-        "model": _model(),
+        "model": model or MODEL_CHEAP,
         "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": user},
@@ -90,6 +96,11 @@ def chat(system: str, user: str, temperature: float = 0.3) -> str:
     except Exception:
         pass
     return data["choices"][0]["message"]["content"].strip()
+
+
+def chat_pro(system: str, user: str, temperature: float = 0.3) -> str:
+    """核心长文推理专用（更贵的 PRO 模型）。仅在明确标记的核心链路调用。"""
+    return chat(system, user, temperature, model=MODEL_PRO)
 
 
 def _effective_system_prompt() -> str:

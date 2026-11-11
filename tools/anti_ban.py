@@ -92,11 +92,11 @@ def is_ban(err) -> bool:
     return any(k in s for k in _BAN_KEYWORDS)
 
 
-def with_retry(fn, *, attempts: int = 3, base_backoff: float = 60.0,
+def with_retry(fn, *, attempts: int = 2, base_backoff: float = 60.0,
                max_backoff: float = 6 * 3600, proxies=None):
-    """执行 fn()，遇封禁/限流自动休眠切 IP 重试，绝不抛异常。
+    """执行 fn()，遇封禁/限流自动休眠切 IP 重试。
 
-    返回 (ok: bool, result)。失败时优雅降级并写日志。
+    硬限制：最多 attempts 次（默认 2）。超过后写日志并优雅降级，绝不无限循环。
     """
     pool = proxies if proxies is not None else ProxyPool()
     for i in range(attempts):
@@ -122,5 +122,5 @@ if __name__ == "__main__":
     # 演示：模拟连续封禁，最终优雅降级
     def _boom():
         raise RuntimeError("429 Too Many Requests")
-    ok, result = with_retry(_boom, attempts=3, base_backoff=0.05)
+    ok, result = with_retry(_boom, attempts=2, base_backoff=0.05)
     print("with_retry 结果：", ok, result, "（未崩溃）")
