@@ -578,9 +578,8 @@ def build_xiaohongshu(spec):
 # 统一社交内容导出
 # ---------------------------------------------------------------------------
 def _en_bundle(spec):
-    """英文文案来源：配好 LLM key 或显式 mock 时走翻译，否则用手写英文字段。"""
-    use_llm = translate.is_configured() or os.environ.get("HXO_LLM_MOCK") == "1"
-    if use_llm:
+    """英文文案来源：配好 DeepSeek key 时走翻译，否则回退手写英文字段。"""
+    if translate.is_configured():
         t = lambda x: translate.translate(x, "en")
         return {
             "title_en": t(spec["title"]),
