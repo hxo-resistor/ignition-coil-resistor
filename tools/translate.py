@@ -103,6 +103,33 @@ def chat_pro(system: str, user: str, temperature: float = 0.3) -> str:
     return chat(system, user, temperature, model=MODEL_PRO)
 
 
+BATCH_SEP = "<<<SEP>>>"
+
+
+def translate_batch(texts: list, target: str = "en"):
+    """一次请求批量翻译多段文本，返回同序列表；失败返回 None（由调用方回退）。
+
+    用于把 12 次碎片化调用合并成 1 次，砍掉重复系统提示词计费（约省 80%）。
+    """
+    if not texts or not is_configured():
+        return None
+    joined = f"\n{BATCH_SEP}\n".join(texts)
+    system = (
+        "You are a senior technical translator for B2B electronics content. "
+        f"Translate each of the following {len(texts)} segments into English, keeping the exact same order. "
+        f"Separate the translations with exactly this delimiter on its own line: {BATCH_SEP}. "
+        "Output only the translations — no numbering, no quotes, no extra text, no explanations."
+    )
+    try:
+        out = chat(system, joined, temperature=0.3)
+    except Exception:
+        return None
+    parts = [p.strip() for p in out.split(BATCH_SEP)]
+    if len(parts) != len(texts):
+        return None
+    return parts
+
+
 def _effective_system_prompt() -> str:
     """翻译提示词 + 自升级模块的调优 hint（若有）。"""
     try:

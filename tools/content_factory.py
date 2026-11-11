@@ -687,25 +687,52 @@ def build_cn_body(spec):
 # ---------------------------------------------------------------------------
 # 海外英文文案
 # ---------------------------------------------------------------------------
-def _en_tech(spec):
-    """英文版技术字段：数据点/案例/品控（有 DeepSeek key 时翻译，否则回退中文）。"""
-    if translate.is_configured():
-        t = lambda x: translate.translate(x, "en")
-        data = [t(f"{k}: {v}") for k, v in spec.get("data_points", [])]
-        case = t(spec.get("case", ""))
-        mfg = t(spec.get("manufacturing", ""))
-    else:
-        data = [f"{k}: {v}" for k, v in spec.get("data_points", [])]
-        case = spec.get("case", "")
-        mfg = spec.get("manufacturing", "")
-    return data, case, mfg
+def _en_fields(spec):
+    """一次性批量翻译所有英文字段（1 次请求）。失败或无 key 时回退手写英文字段。"""
+    fallback = {
+        "title_en": spec.get("title_en", spec["title"]),
+        "hook_en": spec.get("hook_en", spec["hook"]),
+        "desc_en": spec.get("desc_en", spec.get("desc", "")),
+        "points_en": spec.get("points_en", list(spec["pain"])),
+        "data_en": [f"{k}: {v}" for k, v in spec.get("data_points", [])],
+        "case_en": spec.get("case", ""),
+        "mfg_en": spec.get("manufacturing", ""),
+    }
+    if not translate.is_configured():
+        return fallback
+
+    n_pain = len(spec["pain"])
+    data_items = [f"{k}: {v}" for k, v in spec.get("data_points", [])]
+    n_data = len(data_items)
+
+    texts = [spec["title"], spec["hook"], spec["desc"]]
+    texts += spec["pain"]
+    texts += data_items
+    texts += [spec.get("case", ""), spec.get("manufacturing", "")]
+
+    out = translate.translate_batch(texts)
+    if out is None or len(out) != len(texts):
+        return fallback
+
+    idx = 0
+    title_en = out[idx]; idx += 1
+    hook_en = out[idx]; idx += 1
+    desc_en = out[idx]; idx += 1
+    points_en = out[idx:idx + n_pain]; idx += n_pain
+    data_en = out[idx:idx + n_data]; idx += n_data
+    case_en = out[idx]; idx += 1
+    mfg_en = out[idx]; idx += 1
+    return {
+        "title_en": title_en, "hook_en": hook_en, "desc_en": desc_en,
+        "points_en": points_en, "data_en": data_en,
+        "case_en": case_en, "mfg_en": mfg_en,
+    }
 
 
 def build_en_linkedin(spec):
     """LinkedIn：数据对比 + 认证背书 + 案例 + 品控（B2B 采购/工程师）。"""
     cta = PRODUCT_CTA[_cta_key(spec["product"])]
-    data, case, mfg = _en_tech(spec)
-    pts = "\n".join(f"• {d}" for d in data)
+    pts = "\n".join(f"• {d}" for d in spec.get("data_en", []))
     certs = ", ".join(spec.get("certifications", []))
     tags = " ".join(_tech_hashtags(spec, 5))
     return f"""{spec['hook_en']}
@@ -715,8 +742,8 @@ def build_en_linkedin(spec):
 {pts}
 
 • Certifications: {certs}
-• Real-world case: {case}
-• Manufacturing & QC: {mfg}
+• Real-world case: {spec.get('case_en', '')}
+• Manufacturing & QC: {spec.get('mfg_en', '')}
 
 {cta['en'][1]}.
 
@@ -727,7 +754,7 @@ Contact: {CONTACT} | {SITE}
 def build_en_x(spec):
     """X：数据钩子 + 精准工程 Hashtag，≤280 字。"""
     tags = " ".join(_tech_hashtags(spec, 3))
-    data, _, _ = _en_tech(spec)
+    data = spec.get("data_en", [])
     hook = data[0] if data else spec["hook_en"]
     body = f"{hook} — {spec['hook_en']} {SITE}/{spec['slug']}.html {tags}"
     if len(body) > 280:
@@ -789,43 +816,9 @@ def build_wechat(spec):
 # ---------------------------------------------------------------------------
 # 统一社交内容导出
 # ---------------------------------------------------------------------------
-def _en_bundle(spec):
-    """英文文案来源：配好 DeepSeek key 时走翻译，否则回退手写英文字段。"""
-    if translate.is_configured():
-        def t(x):
-            try:
-                return translate.translate(x, "en")
-            except Exception:
-                return None
-        title_en = t(spec["title"])
-        hook_en = t(spec["hook"])
-        desc_en = t(spec["desc"])
-        points_en = [t(p) for p in spec["pain"]]
-        # 成本超预算或翻译异常时，回退手写英文字段，保证发帖链路不中断
-        if title_en is None or hook_en is None:
-            return {
-                "title_en": spec.get("title_en", spec["title"]),
-                "hook_en": spec.get("hook_en", spec["hook"]),
-                "desc_en": spec.get("desc_en", spec.get("desc", "")),
-                "points_en": spec.get("points_en", [p for p in spec["pain"]]),
-            }
-        return {
-            "title_en": title_en,
-            "hook_en": hook_en,
-            "desc_en": desc_en,
-            "points_en": [p for p in points_en if p],
-        }
-    return {
-        "title_en": spec.get("title_en", spec["title"]),
-        "hook_en": spec.get("hook_en", spec["hook"]),
-        "desc_en": spec.get("desc_en", spec.get("desc", "")),
-        "points_en": spec.get("points_en", [p for p in spec["pain"]]),
-    }
-
-
 def build_social(spec, review=True):
     s = dict(spec)
-    s.update(_en_bundle(spec))
+    s.update(_en_fields(spec))
     linkedin = build_en_linkedin(s)
     x = build_en_x(s)
     if review:
