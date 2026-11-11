@@ -82,8 +82,18 @@ def get_post_metrics(post_id):
 
 
 def _slug_from_text(text):
+    """从帖子文本反查 slug：先查 URL 里的 slug，再按中文标题匹配（旧帖无 slug 只有标题）。"""
+    if not text:
+        return None
     m = re.search(r"(article_[a-z0-9_]+)", text)
-    return m.group(1) if m else None
+    if m:
+        return m.group(1)
+    # 按中文标题匹配（标题作为子串，或取标题前 12 字做模糊匹配）
+    for t in content_factory.TOPICS:
+        title = t.get("title", "")
+        if title and (title in text or (len(title) >= 8 and title[:12] in text)):
+            return t["slug"]
+    return None
 
 
 def normalize(metrics) -> float:
@@ -106,6 +116,14 @@ def record_publish(slug, platform, post_id, status):
             data = json.loads(LINKS.read_text(encoding="utf-8"))
         except Exception:
             data = []
+    # 去重：同 post_id 已存在则只更新状态，不重复追加
+    for d in data:
+        if d.get("post_id") == post_id:
+            d["status"] = status
+            d["ts"] = dt.datetime.now().isoformat(timespec="seconds")
+            LINKS.parent.mkdir(parents=True, exist_ok=True)
+            LINKS.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+            return
     data.append({"ts": dt.datetime.now().isoformat(timespec="seconds"),
                  "slug": slug, "platform": platform, "post_id": post_id, "status": status})
     LINKS.parent.mkdir(parents=True, exist_ok=True)
@@ -113,10 +131,23 @@ def record_publish(slug, platform, post_id, status):
 
 
 def pull_and_feed():
-    """从 Buffer 拉取真实数据，喂给 self_optimize，返回报告。"""
+    """从 Buffer 拉取真实数据：登记排队帖，回喂已发帖数据给 self_optimize。"""
     posts = list_posts()
     sent = [p for p in posts if p["status"] == "sent"]
-    lines = [f"Buffer 共 {len(posts)} 条帖子，其中已发 {len(sent)} 条。"]
+    scheduled = [p for p in posts if p["status"] == "scheduled"]
+    lines = [f"Buffer 共 {len(posts)} 条帖子：已发 {len(sent)}，排队中 {len(scheduled)}。"]
+
+    # 登记排队中的帖子（post_id 入库，等发出后下次自动回填真实数据）
+    registered = 0
+    for p in scheduled:
+        slug = _slug_from_text(p["text"])
+        if slug:
+            record_publish(slug, "buffer", p["id"], "scheduled")
+            registered += 1
+            lines.append(f"  [登记] {slug}  排队中 post_id={p['id']}")
+    if registered:
+        lines.append(f"已登记 {registered} 条排队帖到 published_links.json，发出后自动回填。")
+
     fed = 0
     for p in sent:
         slug = _slug_from_text(p["text"])
