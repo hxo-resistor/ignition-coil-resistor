@@ -18,3 +18,7 @@ work/last_published_slug.txt
 # 自我进化机制运行时状态（自调优权重 / 防封日志）
 work/optimization_state.json
 work/anti_ban.log
+
+# 成本护栏 / 发布链接回拉运行时状态
+work/cost_state.json
+work/published_links.json

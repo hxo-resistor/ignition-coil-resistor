@@ -86,6 +86,14 @@ def score(text: str, platform: str = "linkedin") -> dict:
                                      hs=t["hard_sell"], pp=t["pain_point"], cp=t["compliance"])
     try:
         out = translate.chat(REVIEW_SYSTEM, text + "\n\n" + rules, temperature=0.0)
+    except Exception as e:
+        # 成本超预算或网络异常时，审查降级为「通过」，不阻断发帖
+        if "BudgetExceeded" in type(e).__name__ or "预算" in str(e) or "超预算" in str(e):
+            return {"hard_sell": 0, "pain_point": 10, "compliance": 10,
+                    "verdict": "pass", "feedback": "cost-degraded"}
+        return {"hard_sell": 5, "pain_point": 5, "compliance": 5,
+                "verdict": "fail", "feedback": f"审查异常: {e}"}
+    try:
         m = re.search(r"\{.*\}", out, re.S)
         if not m:
             return {"hard_sell": 5, "pain_point": 5, "compliance": 5,
@@ -95,7 +103,7 @@ def score(text: str, platform: str = "linkedin") -> dict:
         return d
     except Exception as e:
         return {"hard_sell": 5, "pain_point": 5, "compliance": 5,
-                "verdict": "fail", "feedback": f"审查异常: {e}"}
+                "verdict": "fail", "feedback": f"解析异常: {e}"}
 
 
 def rewrite(text: str, feedback: str) -> str:

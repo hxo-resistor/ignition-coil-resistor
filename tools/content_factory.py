@@ -792,12 +792,28 @@ def build_wechat(spec):
 def _en_bundle(spec):
     """英文文案来源：配好 DeepSeek key 时走翻译，否则回退手写英文字段。"""
     if translate.is_configured():
-        t = lambda x: translate.translate(x, "en")
+        def t(x):
+            try:
+                return translate.translate(x, "en")
+            except Exception:
+                return None
+        title_en = t(spec["title"])
+        hook_en = t(spec["hook"])
+        desc_en = t(spec["desc"])
+        points_en = [t(p) for p in spec["pain"]]
+        # 成本超预算或翻译异常时，回退手写英文字段，保证发帖链路不中断
+        if title_en is None or hook_en is None:
+            return {
+                "title_en": spec.get("title_en", spec["title"]),
+                "hook_en": spec.get("hook_en", spec["hook"]),
+                "desc_en": spec.get("desc_en", spec.get("desc", "")),
+                "points_en": spec.get("points_en", [p for p in spec["pain"]]),
+            }
         return {
-            "title_en": t(spec["title"]),
-            "hook_en": t(spec["hook"]),
-            "desc_en": t(spec["desc"]),
-            "points_en": [t(p) for p in spec["pain"]],
+            "title_en": title_en,
+            "hook_en": hook_en,
+            "desc_en": desc_en,
+            "points_en": [p for p in points_en if p],
         }
     return {
         "title_en": spec.get("title_en", spec["title"]),
@@ -815,8 +831,8 @@ def build_social(spec, review=True):
     if review:
         try:
             import self_review  # noqa: E402
+            # 只审查 LinkedIn 长文；X 是短链接分享，审查重写易超长/加 Markdown，跳过
             linkedin, _, _ = self_review.self_reflect(linkedin, "linkedin")
-            x, _, _ = self_review.self_reflect(x, "x")
         except Exception:
             pass
     return {

@@ -58,10 +58,18 @@ def _model() -> str:
 
 
 def chat(system: str, user: str, temperature: float = 0.3) -> str:
-    """通用 DeepSeek 对话（翻译/审查/改写/复盘复用同一入口）。"""
+    """通用 DeepSeek 对话（翻译/审查/改写/复盘复用同一入口），带成本护栏。"""
     key = _api_key()
     if not key:
         raise RuntimeError("未配置 DEEPSEEK_API_KEY")
+    try:
+        import cost_guard  # noqa: E402
+        if cost_guard.over_budget():
+            raise cost_guard.BudgetExceeded(cost_guard.summary())
+    except cost_guard.BudgetExceeded:
+        raise
+    except Exception:
+        pass
     url = _base_url().rstrip("/") + "/chat/completions"
     payload = {
         "model": _model(),
@@ -75,6 +83,12 @@ def chat(system: str, user: str, temperature: float = 0.3) -> str:
                       headers={"Authorization": f"Bearer {key}"})
     r.raise_for_status()
     data = r.json()
+    try:
+        import cost_guard  # noqa: E402
+        usage = data.get("usage", {})
+        cost_guard.record(usage.get("prompt_tokens", 0), usage.get("completion_tokens", 0))
+    except Exception:
+        pass
     return data["choices"][0]["message"]["content"].strip()
 
 
