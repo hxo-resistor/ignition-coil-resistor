@@ -515,25 +515,6 @@ def build_en_x(spec):
     return body
 
 
-def build_en_medium(spec):
-    cta = PRODUCT_CTA[_cta_key(spec["product"])]
-    points = "\n".join(f"- {p}" for p in spec["points_en"])
-    tags = " ".join(gen_hashtags(spec, "en", 5))
-    return f"""# {spec['title_en']}
-
-{spec['desc_en'] if 'desc_en' in spec else spec['hook_en']}
-
-{spec['hook_en']}
-
-{points}
-
-{cta['en'][1]}.
-
-Contact: {CONTACT} | {SITE}
-
-{tags}"""
-
-
 def build_zhihu(spec):
     """国内知乎：长文、工程师视角、去硬广、保留技术结论。"""
     pain_items = "\n".join(f"- {p}" for p in spec["pain"])
@@ -559,19 +540,6 @@ def build_zhihu(spec):
 {myths}
 
 （本文基于 HXO 电阻产品线的工程实测整理，欢迎交流。）"""
-
-
-def build_xiaohongshu(spec):
-    """国内小红书：图文笔记。标题钩子 + 干货正文 + #话题标签。"""
-    tags = " ".join(f"#{t}" for t in spec.get("tags_cn", [])[:5])
-    points = "\n".join(f"{i}. {p}" for i, p in enumerate(spec["pain"], 1))
-    return f"""{spec['hook']}
-
-{points}
-
-一句话记住：{spec['formula']}
-
-{tags} #干货 #工程师日常"""
 
 
 def build_wechat(spec):
@@ -625,11 +593,9 @@ def build_social(spec):
         "title_cn": spec["title"],
         "title_en": s["title_en"],
         "zhihu": build_zhihu(spec),
-        "xiaohongshu": build_xiaohongshu(spec),
         "wechat": build_wechat(spec),
         "linkedin": build_en_linkedin(s),
         "x": build_en_x(s),
-        "medium": build_en_medium(s),
         "hashtags_en": gen_hashtags(s, "en", 5),
         "hashtags_cn": spec.get("tags_cn", []),
     }
