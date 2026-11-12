@@ -46,6 +46,11 @@ def guard(text: str) -> float:
         print(f"[token_guard] 单次请求预估 {cost:.4f} 元，超过单次上限 {SINGLE_LIMIT_YUAN} 元，终止！",
               file=sys.stderr, flush=True)
         sys.exit(1)
+    month = cost_guard.month_cost()
+    if month + cost > cost_guard.MONTHLY_BUDGET_YUAN:
+        print(f"[token_guard] 本月累计 {month:.4f} 元 + 本次 {cost:.4f} 元，"
+              f"超过月预算 {cost_guard.MONTHLY_BUDGET_YUAN} 元，终止！", file=sys.stderr, flush=True)
+        sys.exit(1)
     today = cost_guard.today_cost()
     if today + cost > DAILY_HARD_LIMIT_YUAN:
         print(f"[token_guard] 今日累计 {today:.4f} 元 + 本次 {cost:.4f} 元，"

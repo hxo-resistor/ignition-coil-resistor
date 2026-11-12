@@ -5,14 +5,15 @@
 统计每日 Token 消耗，超过阈值自动降级，防止 API 被刷爆。
 
 价格（元/千 token，可按 DeepSeek 实际价调整）：
-    HXO_DAILY_BUDGET      每日预算上限，默认 2.0 元
+    HXO_DAILY_BUDGET      每日预算上限，默认 10.0 元
+    HXO_MONTHLY_BUDGET    每月预算上限，默认 100.0 元
     HXO_PRICE_INPUT_1K    输入价，默认 0.002 元/千 token（deepseek-chat ≈ ¥2/M）
     HXO_PRICE_OUTPUT_1K   输出价，默认 0.008 元/千 token（deepseek-chat ≈ ¥8/M）
 
 状态落盘 work/cost_state.json（gitignored）。
 
 用法：
-    from cost_guard import record, today_cost, over_budget, summary
+    from cost_guard import record, today_cost, month_cost, over_budget, summary
 """
 import datetime as dt
 import json
@@ -29,6 +30,7 @@ REPO = Path(__file__).resolve().parent.parent
 STATE = REPO / "work" / "cost_state.json"
 
 DAILY_BUDGET_YUAN = float(os.environ.get("HXO_DAILY_BUDGET", "10.0"))
+MONTHLY_BUDGET_YUAN = float(os.environ.get("HXO_MONTHLY_BUDGET", "100.0"))
 PRICE_INPUT_1K = float(os.environ.get("HXO_PRICE_INPUT_1K", "0.002"))
 PRICE_OUTPUT_1K = float(os.environ.get("HXO_PRICE_OUTPUT_1K", "0.008"))
 
@@ -52,8 +54,8 @@ def load() -> dict:
 
 def save(s: dict):
     STATE.parent.mkdir(parents=True, exist_ok=True)
-    # 只保留最近 30 天
-    s["days"] = dict(sorted(s["days"].items())[-30:])
+    # 只保留最近 45 天（覆盖一个完整月份，供月度统计）
+    s["days"] = dict(sorted(s["days"].items())[-45:])
     STATE.write_text(json.dumps(s, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
@@ -85,11 +87,23 @@ def over_budget() -> bool:
     return today_cost() >= DAILY_BUDGET_YUAN
 
 
+def month_cost() -> float:
+    """本月累计成本（元）。"""
+    month = dt.date.today().strftime("%Y-%m")
+    s = load()
+    return round(sum(d.get("cost", 0.0) for k, d in s["days"].items() if k.startswith(month)), 4)
+
+
+def over_month_budget() -> bool:
+    return month_cost() >= MONTHLY_BUDGET_YUAN
+
+
 def summary() -> str:
     d = today_stats()
-    return (f"今日消耗：{d['cost']:.4f} 元 / 预算 {DAILY_BUDGET_YUAN} 元  "
+    return (f"今日消耗：{d['cost']:.4f} 元 / 日预算 {DAILY_BUDGET_YUAN} 元  "
+            f"本月累计：{month_cost():.4f} 元 / 月预算 {MONTHLY_BUDGET_YUAN} 元  "
             f"（{d['calls']} 次调用，输入 {d['prompt_tokens']} tok，输出 {d['completion_tokens']} tok）"
-            f"{'  ⚠️ 已超预算，降级运行' if over_budget() else ''}")
+            f"{'  ⚠️ 已超预算，降级运行' if (over_budget() or over_month_budget()) else ''}")
 
 
 def reset():
