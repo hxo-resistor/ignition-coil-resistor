@@ -25,10 +25,11 @@ except Exception:
     pass
 
 DEFAULT_BASE_URL = "https://api.deepseek.com/v1"
-# 模型降级：默认一律用便宜档 deepseek-chat；核心长文才允许 PRO（deepseek-reasoner）
+# 模型降级：默认一律用便宜档 deepseek-chat。
+# 用户指令：绝对禁止调用 deepseek-reasoner（V4 Pro）。故 PRO 也强制降级为 cheap。
 MODEL_CHEAP = "deepseek-chat"
 DEFAULT_MODEL = MODEL_CHEAP
-MODEL_PRO = os.environ.get("HXO_PRO_MODEL", "deepseek-reasoner")
+MODEL_PRO = MODEL_CHEAP  # 禁止 reasoner：任何"核心"路径也只用 cheap
 
 # 强调：硬核 B2B 技术营销，工程师对工程师，专业严谨、数据说话、展示制造与品控实力
 SYSTEM_PROMPT = (
