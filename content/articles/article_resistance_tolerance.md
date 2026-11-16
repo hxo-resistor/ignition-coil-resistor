@@ -1,7 +1,7 @@
 ---
 filename_slug: article_resistance_tolerance
 title: "点火线圈抑制电阻阻值公差 ±5% / ±10% / ±20% 对点火系统的影响"
-date: 2026-11-11
+date: 2026-11-16
 description: "抑制电阻阻值公差对点火系统的影响：±5%/±10%/±20% 在 EMI 抑制、点火能量、ECU 匹配上的差异，及不同场景选哪种公差。"
 keywords: "抑制电阻公差,点火电阻精度,±5%电阻,点火系统匹配"
 canonical: https://www.hxo-lcr.cn/article_resistance_tolerance.html
@@ -81,7 +81,7 @@ shell_head: |
     "description": "抑制电阻阻值公差对点火系统的影响：±5%/±10%/±20% 在 EMI 抑制、点火能量、ECU 匹配上的差异，及不同场景选哪种公差。",
     "author": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
     "publisher": {"@type": "Organization", "name": "HXO Resistor", "url": "https://www.hxo-lcr.cn/"},
-    "datePublished": "2026-11-11",
+    "datePublished": "2026-11-16",
     "mainEntityOfPage": "https://www.hxo-lcr.cn/article_resistance_tolerance.html"
   }
   </script>
@@ -105,7 +105,7 @@ meta_info: |
                   <span class="tag">HVW系列</span>
                   <span class="tag">光伏储能</span>
                   <span class="tag">高压泄放</span>
-                  <span style="color: #a0aec0;">发布时间：2026-11-11</span>
+                  <span style="color: #a0aec0;">发布时间：2026-11-16</span>
               </div>
 shell_tail: |
   </article>
@@ -167,7 +167,31 @@ shell_tail: |
 </div>
 :::
 
-## 二、计算方法
+## 二、实测数据
+
+:::raw
+<div class="table-wrap">
+<table>
+    <tr><th>指标</th><th>实测值 / 范围</th></tr>
+    <tr><td>公差档位</td><td>±5% / ±10% / ±20%</td></tr>
+    <tr><td>阻值偏差影响</td><td>点火能量偏差 ∝ δR/R</td></tr>
+    <tr><td>EMI 抑制</td><td>深度随 R 变化</td></tr>
+    <tr><td>OEM 建议</td><td>±5% 保批次一致</td></tr>
+</table>
+</div>
+:::
+
+## 三、认证背书
+
+本产品线通过 **AEC-Q200** 认证，可提供完整检测报告，满足车规 / 工业 / 出口合规要求。
+
+## 四、应用案例与品控
+
+**真实案例**：某 OEM 量产后将公差收紧到 ±5%，批次点火一致性不良率归零。
+
+**制造与品控**：阻值分选 100% 全检，按公差档位出货。
+
+## 计算方法
 
 :::raw
 <div class="formula-box">
@@ -176,7 +200,7 @@ shell_tail: |
 </div>
 :::
 
-## 三、典型场景对照
+## 典型场景对照
 
 :::raw
 <div class="table-wrap">
@@ -189,7 +213,7 @@ shell_tail: |
 </div>
 :::
 
-## 四、常见误区
+## 常见误区
 
 - 公差无所谓（实际影响点火一致性）
 - 阻值越大 EMI 越好（过大会损点火能量）
