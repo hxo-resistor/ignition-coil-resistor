@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IG-C Ceramic Core Wirewound — Datasheet</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  max-width: 920px; margin: 0 auto; padding: 40px 24px; color: #2d3748;
+  line-height: 1.75; background: #fff;
+}
+h1 { color: #1a365d; font-size: 26px; margin: 10px 0 4px; }
+h2 {
+  color: #1a365d; font-size: 20px; margin: 34px 0 12px; padding: 8px 0 8px 14px;
+  border-left: 5px solid #e94560; background: #f7fafc; border-radius: 0 4px 4px 0;
+}
+h3 { color: #2c5282; font-size: 16px; margin: 22px 0 10px; }
+p { margin: 10px 0; }
+ul, ol { margin: 10px 0 10px 24px; }
+li { margin: 5px 0; }
+strong { color: #e94560; }
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 28px 0; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13.5px; }
+th { background: #1a365d; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+td { padding: 9px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f7fafc; }
+tr:hover td { background: #ebf8ff; }
+a { color: #2c5282; }
+.brandbar {
+  background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+  color: #fff; padding: 22px 24px; border-radius: 8px; margin-bottom: 8px;
+}
+.brandbar .brand { font-size: 18px; font-weight: 700; }
+.brandbar .sub { opacity: 0.9; font-size: 13px; margin-top: 4px; }
+.footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid #e2e8f0; font-size: 12px; color: #718096; }
+</style>
+</head>
+<body>
+<div class="brandbar">
+  <div class="brand">HXO Resistor / 华星欧电子</div>
+  <div class="sub">Ignition Coil Suppression Resistor — IG-C Series Datasheet</div>
+</div>
+<h1>IG-C Ceramic Core Wirewound — Datasheet</h1>
+<h2>HXO Resistor / 华星欧电子</h2>
+<h3>Ignition Coil Suppression Resistor</h3>
+<p><strong>Series:</strong> IG-C (Ceramic Core Wirewound)
+<strong>Rev:</strong> v1.0 | <strong>Date:</strong> 2026-07-22</p>
+<hr />
+<h2>1. Electrical Specifications</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resistance Range</td>
+<td>1kΩ ~ 20kΩ</td>
+<td>E-series standard values</td>
+</tr>
+<tr>
+<td>Common Values</td>
+<td>4.7kΩ, 5.1kΩ, 10kΩ</td>
+<td>Motorcycle/Japanese/EFI</td>
+</tr>
+<tr>
+<td>Rated Power</td>
+<td>1W ~ 15W</td>
+<td>@25°C ambient</td>
+</tr>
+<tr>
+<td>Pulse Withstand Voltage</td>
+<td>30kV peak</td>
+<td>1.2/50μs waveform</td>
+</tr>
+<tr>
+<td>Continuous Working Voltage</td>
+<td>28kV max</td>
+<td>AC/DC</td>
+</tr>
+<tr>
+<td>Tolerance</td>
+<td>J: ±5%, K: ±10%, M: ±20%</td>
+<td>K-grade recommended</td>
+</tr>
+<tr>
+<td>Temperature Coefficient</td>
+<td>±100 ~ ±300 ppm/°C</td>
+<td>25°C ~ +125°C</td>
+</tr>
+<tr>
+<td>Insulation Resistance</td>
+<td>≥1000 MΩ</td>
+<td>@500V DC</td>
+</tr>
+<tr>
+<td>Operating Temperature</td>
+<td>-55°C ~ +275°C</td>
+<td>Storage: -55°C ~ +300°C</td>
+</tr>
+<tr>
+<td>Dielectric Strength</td>
+<td>1.5× rated voltage, 1s</td>
+<td>No flashover/breakdown</td>
+</tr>
+<tr>
+<td>Parasitic Inductance</td>
+<td>1~5 μH</td>
+<td>Winding structure inherent</td>
+</tr>
+</tbody>
+</table>
+<h2>2. Power Derating Curve</h2>
+<table>
+<thead>
+<tr>
+<th>Ambient Temp</th>
+<th>Allowed Power</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25°C</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>100°C</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>150°C</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>200°C</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>250°C</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>275°C</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table>
+<h2>3. Physical Specifications</h2>
+<table>
+<thead>
+<tr>
+<th>Power Rating</th>
+<th>Dimensions (D×L)</th>
+<th>Lead Dia.</th>
+<th>Package Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1W~3W</td>
+<td>8×25mm ~ 10×35mm</td>
+<td>1.0~1.5mm</td>
+<td>IG-A (Cylindrical)</td>
+</tr>
+<tr>
+<td>5W~7W</td>
+<td>10×35mm ~ 12×45mm</td>
+<td>1.5~2.0mm</td>
+<td>IG-A / IG-B (Cap)</td>
+</tr>
+<tr>
+<td>10W~15W</td>
+<td>12×45mm ~ 14×55mm</td>
+<td>2.0mm</td>
+<td>IG-A / IG-B / Custom</td>
+</tr>
+</tbody>
+</table>
+<h2>4. Materials</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Material</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core</td>
+<td>High-purity Alumina (Al₂O₃)</td>
+<td>≥96%, sintered at 1600-1700°C</td>
+</tr>
+<tr>
+<td>Resistance Wire</td>
+<td>NiCr 80/20 or FeCrAl</td>
+<td>Precision wound</td>
+</tr>
+<tr>
+<td>End Caps</td>
+<td>Brass, Ni-plated / Stainless Steel</td>
+<td>Pull force ≥50N</td>
+</tr>
+<tr>
+<td>Coating</td>
+<td>Flame-retardant Epoxy</td>
+<td>UL 94 V-0, 275°C rated</td>
+</tr>
+</tbody>
+</table>
+<h2>5. Environmental &amp; Compliance</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Standard</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RoHS</td>
+<td>EU 2011/65/EU + 2015/863</td>
+<td>✅ Compliant</td>
+</tr>
+<tr>
+<td>REACH</td>
+<td>EC 1907/2006</td>
+<td>✅ Compliant</td>
+</tr>
+<tr>
+<td>Flammability</td>
+<td>UL 94 V-0</td>
+<td>✅ Compliant</td>
+</tr>
+<tr>
+<td>Patent</td>
+<td>CN 113016042 A</td>
+<td>✅ Granted</td>
+</tr>
+</tbody>
+</table>
+<h2>6. Ordering Information</h2>
+<p><strong>Part Number Format:</strong> IG-C-[Power]W-[Resistance]R-[Tolerance]</p>
+<p>Examples:
+- IG-C-3W-4K7-J → 3W, 4.7kΩ, ±5%
+- IG-C-5W-10K-K → 5W, 10kΩ, ±10%
+- IG-C-10W-5K1-K → 10W, 5.1kΩ, ±10%</p>
+<hr />
+<p><strong>HXO Resistor / 华星欧电子</strong>
+Email: resistor@hxo-lcr.cn
+Tel: +86 135 1020 0650
+Web: www.hxo-lcr.cn</p>
+<div class="footer">HXO Resistor · resistor@hxo-lcr.cn · +86 135 1020 0650 · www.hxo-lcr.cn</div>
+</body>
+</html>

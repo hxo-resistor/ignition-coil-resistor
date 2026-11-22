@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IG-S Series — Datasheet</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  max-width: 920px; margin: 0 auto; padding: 40px 24px; color: #2d3748;
+  line-height: 1.75; background: #fff;
+}
+h1 { color: #1a365d; font-size: 26px; margin: 10px 0 4px; }
+h2 {
+  color: #1a365d; font-size: 20px; margin: 34px 0 12px; padding: 8px 0 8px 14px;
+  border-left: 5px solid #e94560; background: #f7fafc; border-radius: 0 4px 4px 0;
+}
+h3 { color: #2c5282; font-size: 16px; margin: 22px 0 10px; }
+p { margin: 10px 0; }
+ul, ol { margin: 10px 0 10px 24px; }
+li { margin: 5px 0; }
+strong { color: #e94560; }
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 28px 0; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13.5px; }
+th { background: #1a365d; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+td { padding: 9px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tr:nth-child(even) td { background: #f7fafc; }
+tr:hover td { background: #ebf8ff; }
+a { color: #2c5282; }
+.brandbar {
+  background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+  color: #fff; padding: 22px 24px; border-radius: 8px; margin-bottom: 8px;
+}
+.brandbar .brand { font-size: 18px; font-weight: 700; }
+.brandbar .sub { opacity: 0.9; font-size: 13px; margin-top: 4px; }
+.footer { margin-top: 36px; padding-top: 16px; border-top: 1px solid #e2e8f0; font-size: 12px; color: #718096; }
+</style>
+</head>
+<body>
+<div class="brandbar">
+  <div class="brand">HXO Resistor / 华星欧电子</div>
+  <div class="sub">Ignition Coil Suppression Resistor — IG-S Series Datasheet</div>
+</div>
+<h1>IG-S Series — Datasheet</h1>
+<h2>Ceramic Solid Type Suppression Resistor</h2>
+<p><strong>HXO Resistor / 华星欧电子</strong>
+<strong>Ignition Coil Suppression Resistor — Flagship Series</strong>
+<strong>Patent: CN 113016042 A — Ceramic Zone Conduction Technology</strong>
+<strong>Rev:</strong> v1.0 | <strong>Date:</strong> 2026-07-22</p>
+<hr />
+<h2>1. Product Overview</h2>
+<p>The IG-S series is HXO Resistor's flagship ignition coil suppression resistor, featuring a ceramic solid non-inductive construction with patented Ceramic Zone Conduction Technology (CN 113016042 A). It delivers the highest pulse withstand voltage (40kV), extreme temperature tolerance (350°C), and virtually zero parasitic inductance (&lt;0.1μH).</p>
+<p>Key advantages:
+- <strong>Pulse Withstand Voltage</strong>: 40kV (Peak) — Industry Highest
+- <strong>Operating Temperature</strong>: -55°C ~ +350°C
+- <strong>Parasitic Inductance</strong>: &lt;0.1 μH (Non-Inductive)
+- <strong>Failure Mode</strong>: gradual resistance drift (not sudden open-circuit) → superior early warning</p>
+<p>Target: high-performance motorcycles, turbocharged engines, racing, military/aerospace, industrial extreme environments.</p>
+<hr />
+<h2>2. Patented Ceramic Zone Conduction Technology</h2>
+<p><strong>Patent CN 113016042 A — "Peeling Area Conduction Technology"</strong>: Through a specialized sintering process, conductive zones and insulating zones are precisely distributed within the ceramic body. Unlike traditional ceramic solid resistors (uniform conductive phase → electric field concentration → breakdown at high voltage), HXO's patented technology creates multiple parallel conductive paths with a "peeling" distribution pattern.</p>
+<h3>Key Advantages</h3>
+<table>
+<thead>
+<tr>
+<th>Advantage</th>
+<th>Description</th>
+<th>Benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Field Uniformity</td>
+<td>Eliminates local electric field concentration</td>
+<td>30% higher withstand voltage</td>
+</tr>
+<tr>
+<td>Redundant Paths</td>
+<td>Multiple parallel conductive paths</td>
+<td>Graceful failure mode</td>
+</tr>
+<tr>
+<td>Self-Healing</td>
+<td>Minor local breakdowns are non-catastrophic</td>
+<td>Higher reliability</td>
+</tr>
+<tr>
+<td>Non-Inductive</td>
+<td>Current flows uniformly through bulk ceramic</td>
+<td>&lt;0.1μH inductance</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. Detailed Specifications</h2>
+<h3>3.1 Power Rating</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rated Power Range</td>
+<td>2W ~ 10W (at 25°C ambient)</td>
+</tr>
+<tr>
+<td>Common Power Grades</td>
+<td>3W (motorcycle), 5W (auto), 7~10W (racing/industrial)</td>
+</tr>
+<tr>
+<td>Derating Recommendation</td>
+<td>Actual power ≤ 70% of rated power</td>
+</tr>
+<tr>
+<td>Short-term Overload</td>
+<td>1.5× rated power for 10s, ΔR ≤ ±1%</td>
+</tr>
+<tr>
+<td>Note</td>
+<td>Ceramic solid has higher thermal capacity than wirewound</td>
+</tr>
+</tbody>
+</table>
+<h3>3.2 Resistance Range</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nominal Range</td>
+<td>1kΩ ~ 20kΩ</td>
+</tr>
+<tr>
+<td>E-Series Standard Values</td>
+<td>1k, 2.2k, 3.3k, 4.7k, 5.1k, 5.6k, 6.8k, 10k, 15k, 20k</td>
+</tr>
+<tr>
+<td>Most Common Values</td>
+<td>5kΩ~10kΩ (high perf), 10kΩ~15kΩ (industrial)</td>
+</tr>
+<tr>
+<td>Custom Values</td>
+<td>Available upon request within range</td>
+</tr>
+</tbody>
+</table>
+<h3>3.3 Pulse Withstand Voltage</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max Pulse Withstand Voltage</td>
+<td>40kV (peak) — Industry Highest</td>
+</tr>
+<tr>
+<td>Test Waveform</td>
+<td>1.2/50μs standard lightning impulse</td>
+</tr>
+<tr>
+<td>Continuous Working Voltage</td>
+<td>Up to 28kV (AC/DC)</td>
+</tr>
+<tr>
+<td>Safety Margin</td>
+<td>System peak voltage ≤ 80% of rating (≤32kV)</td>
+</tr>
+<tr>
+<td>Test Standard</td>
+<td>IEC 60060-1</td>
+</tr>
+</tbody>
+</table>
+<h3>3.4 Voltage Withstand Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>IG-C (Ceramic Wirewound)</th>
+<th>IG-F (Fiberglass)</th>
+<th>IG-S (Ceramic Solid)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max Pulse Voltage</td>
+<td>30kV</td>
+<td>25kV</td>
+<td>40kV</td>
+</tr>
+<tr>
+<td>Recommended System</td>
+<td>≤24kV</td>
+<td>≤20kV</td>
+<td>≤32kV</td>
+</tr>
+<tr>
+<td>Application</td>
+<td>Standard auto/moto</td>
+<td>Economy</td>
+<td>High perf / extreme</td>
+</tr>
+</tbody>
+</table>
+<h3>3.5 Temperature Characteristics</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operating Temperature Range</td>
+<td>-55°C ~ +350°C</td>
+</tr>
+<tr>
+<td>Storage Temperature Range</td>
+<td>-55°C ~ +400°C</td>
+</tr>
+<tr>
+<td>Temperature Coefficient (TCR)</td>
+<td>-900 ± 300 ppm/°C (NTC)</td>
+</tr>
+<tr>
+<td>TCR Test Condition</td>
+<td>25°C ~ +125°C</td>
+</tr>
+<tr>
+<td>High Temp Load Life</td>
+<td>350°C, 1000h, ΔR ≤ ±3%</td>
+</tr>
+</tbody>
+</table>
+<h3>3.6 NTC Characteristics (10kΩ @ 25°C Example)</h3>
+<table>
+<thead>
+<tr>
+<th>Temperature</th>
+<th>Resistance Value</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-55°C</td>
+<td>~16.5kΩ</td>
+<td>+65%</td>
+</tr>
+<tr>
+<td>25°C</td>
+<td>10.0kΩ (Reference)</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>125°C</td>
+<td>~9.1kΩ</td>
+<td>-9%</td>
+</tr>
+<tr>
+<td>200°C</td>
+<td>~8.4kΩ</td>
+<td>-16%</td>
+</tr>
+<tr>
+<td>300°C</td>
+<td>~7.5kΩ</td>
+<td>-25%</td>
+</tr>
+<tr>
+<td>350°C</td>
+<td>~7.0kΩ</td>
+<td>-30%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NTC Benefit</strong>: Higher resistance at cold start provides better EMI suppression; lower resistance at operating temperature compensates for ignition energy loss, ensuring reliable ignition in extreme heat.</p>
+<h3>3.7 Tolerance &amp; Insulation</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tolerance</td>
+<td>K(±10%) / M(±20%) — J(±5%) available by screening</td>
+</tr>
+<tr>
+<td>Insulation Resistance (Standard)</td>
+<td>≥1,000 MΩ (500V DC)</td>
+</tr>
+<tr>
+<td>Insulation Resistance (After High Temp)</td>
+<td>≥500 MΩ (350°C, 1hr)</td>
+</tr>
+<tr>
+<td>Insulation Resistance (After Humidity)</td>
+<td>≥100 MΩ (40°C/95%RH/48h)</td>
+</tr>
+<tr>
+<td>Dielectric Strength</td>
+<td>1.5× rated voltage for 1s, no breakdown</td>
+</tr>
+</tbody>
+</table>
+<h3>3.8 Inductance &amp; Frequency Characteristics</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>IG-S (Ceramic Solid)</th>
+<th>IG-C (Wirewound)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parasitic Inductance</td>
+<td>&lt;0.1 μH (Non-Inductive)</td>
+<td>1~5 μH</td>
+</tr>
+<tr>
+<td>Frequency Range</td>
+<td>DC ~ 100MHz</td>
+<td>DC ~ 1MHz</td>
+</tr>
+<tr>
+<td>Impedance at 10MHz (10kΩ)</td>
+<td>~10.5kΩ</td>
+<td>~16kΩ</td>
+</tr>
+<tr>
+<td>Impedance at 50MHz (10kΩ)</td>
+<td>~12kΩ</td>
+<td>~35kΩ</td>
+</tr>
+<tr>
+<td>High Freq Behavior</td>
+<td>Purely resistive</td>
+<td>Inductive dominant</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>4. Physical Structure</h2>
+<h3>4.1 Structure Components</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Material</th>
+<th>Function</th>
+<th>Key Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ceramic Body</td>
+<td>SiC-based conductive ceramic</td>
+<td>Resistance element, dual-phase distribution</td>
+<td>Uniform microstructure</td>
+</tr>
+<tr>
+<td>End Metallization</td>
+<td>Ag-Pd alloy (Silver-Palladium)</td>
+<td>Ohmic contact with electrode</td>
+<td>Low contact resistance, high temp stable</td>
+</tr>
+<tr>
+<td>Metal Electrode</td>
+<td>Cu/Ni-plated or Stainless Steel</td>
+<td>Electrical lead-out, mechanical connection</td>
+<td>Pull force ≥60N, corrosion resistant</td>
+</tr>
+</tbody>
+</table>
+<h3>4.2 Dimensions</h3>
+<table>
+<thead>
+<tr>
+<th>Power Rating</th>
+<th>Typical Size (D×L)</th>
+<th>Lead Diameter</th>
+<th>Package Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2W~3W</td>
+<td>8×25mm ~ 10×35mm</td>
+<td>1.0~1.5mm</td>
+<td>IG-A (Cylindrical plug)</td>
+</tr>
+<tr>
+<td>5W~7W</td>
+<td>10×35mm ~ 12×45mm</td>
+<td>1.5~2.0mm</td>
+<td>IG-A / IG-B (Cap type)</td>
+</tr>
+<tr>
+<td>10W</td>
+<td>12×45mm ~ 14×50mm</td>
+<td>2.0mm</td>
+<td>IG-A / IG-B / Custom</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>5. Process Characteristics</h2>
+<h3>5.1 Ceramic Sintering Process</h3>
+<ol>
+<li>Raw material mixing: SiC powder (0.5~5μm) + ceramic matrix powder at precise ratio</li>
+<li>Spray granulation + isostatic pressing (≥300MPa)</li>
+<li>High temp sintering at 1600°C~1800°C for 2~4 hours</li>
+<li>End metallization: screen printing Ag-Pd paste, 800°C sintering</li>
+<li>Electrode installation: welding or brazing</li>
+<li>Sorting: resistance grading</li>
+</ol>
+<h3>5.2 Quality Control Key Points</h3>
+<table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Control Parameter</th>
+<th>Inspection Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raw material ratio</td>
+<td>Conductive phase content ±0.5%</td>
+<td>Weighing + ICP analysis</td>
+</tr>
+<tr>
+<td>Sintering temperature</td>
+<td>±5°C</td>
+<td>Thermocouple real-time monitoring</td>
+</tr>
+<tr>
+<td>Sintering atmosphere</td>
+<td>N₂ protection</td>
+<td>O₂ content &lt;100ppm</td>
+</tr>
+<tr>
+<td>End face bonding</td>
+<td>Contact resistance &lt;10mΩ</td>
+<td>4-wire measurement</td>
+</tr>
+<tr>
+<td>Final screening</td>
+<td>100% resistance + HV test</td>
+<td>Auto sorting machine</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. Performance Curves</h2>
+<h3>6.1 Power Derating Curve</h3>
+<table>
+<thead>
+<tr>
+<th>Ambient Temperature</th>
+<th>Allowable Power Ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25°C</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>100°C</td>
+<td>85%</td>
+</tr>
+<tr>
+<td>150°C</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>200°C</td>
+<td>55%</td>
+</tr>
+<tr>
+<td>250°C</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>300°C</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>350°C</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<h3>6.2 Pulse Life Curve</h3>
+<table>
+<thead>
+<tr>
+<th>Pulse Voltage</th>
+<th>Expected Life (Cycles)</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25kV</td>
+<td>&gt;2,000,000</td>
+<td>Typical, very long life</td>
+</tr>
+<tr>
+<td>30kV</td>
+<td>&gt;1,000,000</td>
+<td>High performance</td>
+</tr>
+<tr>
+<td>35kV</td>
+<td>&gt;500,000</td>
+<td>Extreme conditions</td>
+</tr>
+<tr>
+<td>40kV</td>
+<td>&gt;100,000</td>
+<td>Maximum rating</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>7. Lifetime Estimation</h2>
+<h3>7.1 Expected Lifetime by Application</h3>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Estimated Life</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High perf motorcycle</td>
+<td>50,000~80,000 km</td>
+<td>~5-8 years</td>
+</tr>
+<tr>
+<td>Turbocharged car</td>
+<td>8-10yrs / 120,000~150,000 km</td>
+<td>Extreme heat reliable</td>
+</tr>
+<tr>
+<td>Racing</td>
+<td>50-100 races</td>
+<td>Inspect per event</td>
+</tr>
+<tr>
+<td>Industrial ignition (continuous)</td>
+<td>30,000~50,000 hours</td>
+<td>Continuous high load</td>
+</tr>
+<tr>
+<td>Military / Aerospace</td>
+<td>Per military spec</td>
+<td>Extreme reliability</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 Failure Mode Analysis</h3>
+<table>
+<thead>
+<tr>
+<th>Failure Mode</th>
+<th>Probability</th>
+<th>Cause</th>
+<th>Prevention</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gradual resistance drift</td>
+<td>50%</td>
+<td>Microstructure change at high temp</td>
+<td>Periodic monitoring</td>
+</tr>
+<tr>
+<td>End electrode aging</td>
+<td>25%</td>
+<td>High temp oxidation</td>
+<td>Choose stainless steel</td>
+</tr>
+<tr>
+<td>Thermal stress cracking</td>
+<td>15%</td>
+<td>Extreme thermal shock</td>
+<td>Control ramp rate</td>
+</tr>
+<tr>
+<td>Insulation degradation</td>
+<td>10%</td>
+<td>Surface contamination at high temp</td>
+<td>Keep clean</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Difference from Wirewound</strong>: IG-S failures are gradual (drift), not sudden open-circuit, providing superior early warning in safety-critical applications.</p>
+<hr />
+<h2>8. Selection Guide</h2>
+<h3>8.1 Quick Selection</h3>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Recommended Model</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High perf motorcycle</td>
+<td>IG-S-A-5W-5K6-K</td>
+<td>Non-inductive + high voltage</td>
+</tr>
+<tr>
+<td>Turbocharged car</td>
+<td>IG-S-A-7W-10K-K</td>
+<td>300°C+ temp rating</td>
+</tr>
+<tr>
+<td>Racing</td>
+<td>IG-S-A-10W-5K6-K</td>
+<td>Extreme conditions</td>
+</tr>
+<tr>
+<td>Industrial ignition</td>
+<td>IG-S-A-10W-15K-K</td>
+<td>Continuous operation</td>
+</tr>
+<tr>
+<td>High frequency multi-spark</td>
+<td>IG-S-A-5W-10K-K</td>
+<td>Must be non-inductive</td>
+</tr>
+<tr>
+<td>Extreme temp environment</td>
+<td>IG-S-A-5W-10K-K</td>
+<td>-55°C~+350°C coverage</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 Ordering Information</h3>
+<p><strong>Part Number Format:</strong> IG-S-A-5W-10K-K
+- IG = Ignition Series
+- S = Ceramic Solid
+- A = Package Type
+- 5W = Power Rating
+- 10K = 10kΩ Resistance
+- K = ±10% Tolerance</p>
+<hr />
+<p><strong>HXO Resistor / 华星欧电子</strong>
+Email: resistor@hxo-lcr.cn | Tel: +86 135 1020 0650 | Web: www.hxo-lcr.cn</p>
+<div class="footer">HXO Resistor · resistor@hxo-lcr.cn · +86 135 1020 0650 · www.hxo-lcr.cn</div>
+</body>
+</html>
