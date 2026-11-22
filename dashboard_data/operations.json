@@ -1,162 +1,94 @@
 {
-  "last_updated": "2026-10-22T09:00:19+08:00",
+  "last_updated": "2026-11-22T16:48:52+08:00",
   "window_days": 7,
   "recent_records": [
     {
-      "date": "2026-10-21",
-      "time": "2026-10-21 10:00:08",
-      "slug": "article_led_driver_thermal_protection",
-      "title": "LED 驱动器过温保护：RXF 温度保险电阻替代普通保险丝的优势",
+      "date": "2026-11-16",
+      "time": "2026-11-16 10:00:09",
+      "slug": "article_resistance_tolerance",
+      "title": "点火线圈抑制电阻阻值公差 ±5% / ±10% / ±20% 对点火系统的影响  区域=cn",
       "platforms": [
         "website",
-        "baidu",
-        "buffer",
-        "supabase"
-      ],
-      "success": true,
-      "summary": "4/4 成功"
-    },
-    {
-      "date": "2026-10-19",
-      "time": "2026-10-19 10:00:16",
-      "slug": "article_bleeder_heat_dissipation",
-      "title": "充电桩大功率泄放电阻散热设计：铝壳 vs 陶瓷管 vs 水泥电阻对比",
-      "platforms": [
-        "website",
-        "baidu",
-        "buffer",
-        "supabase"
-      ],
-      "success": true,
-      "summary": "4/4 成功"
-    },
-    {
-      "date": "2026-10-16",
-      "time": "2026-10-16 18:20:41",
-      "slug": "article_sitemap_test_20261016",
-      "title": "sitemap 自动化测试文章（临时）",
-      "platforms": [
-        "website"
-      ],
-      "success": true,
-      "summary": "1/1 成功"
-    },
-    {
-      "date": "2026-10-16",
-      "time": "2026-10-16 18:19:17",
-      "slug": "article_case_charger_melt_zhihu",
-      "title": "充电器外壳总是发软变形，是什么原因？",
-      "platforms": [
-        "website",
-        "baidu",
-        "buffer"
+        "baidu"
       ],
       "success": false,
       "summary": "3/4 成功"
-    },
-    {
-      "date": "2026-10-16",
-      "time": "2026-10-16 16:28:25",
-      "slug": "article_aed_defibrillator_resistor",
-      "title": "AED除颤器里的『隐形守护者』：无感绕线电阻为何如此关键",
-      "platforms": [
-        "website",
-        "baidu",
-        "buffer"
-      ],
-      "success": false,
-      "summary": "3/4 成功"
-    },
-    {
-      "date": "2026-10-16",
-      "time": "2026-10-16 10:00:39",
-      "slug": "article_oscilloscope_emi_verify",
-      "title": "如何用示波器验证点火系统 EMI 抑制效果？CISPR 25 实测方法",
-      "platforms": [
-        "website",
-        "baidu",
-        "zhihu",
-        "buffer",
-        "supabase"
-      ],
-      "success": true,
-      "summary": "5/5 成功"
     }
   ],
   "platform_cumulative": [
     {
       "key": "website",
       "name": "官网",
-      "count": 43
+      "count": 40
     },
     {
       "key": "baidu",
       "name": "百度",
-      "count": 14
+      "count": 9
     },
     {
       "key": "zhihu",
       "name": "知乎",
-      "count": 14
+      "count": 11
     },
     {
       "key": "buffer",
       "name": "LinkedIn+X",
-      "count": 14
+      "count": 8
     },
     {
       "key": "supabase",
       "name": "Supabase",
-      "count": 12
+      "count": 8
     }
   ],
   "last_task": {
-    "time": "2026-10-21 10:00:08",
-    "slug": "article_led_driver_thermal_protection",
-    "title": "LED 驱动器过温保护：RXF 温度保险电阻替代普通保险丝的优势",
-    "success": true,
-    "ok_count": 4,
+    "time": "2026-11-16 10:00:09",
+    "slug": "article_resistance_tolerance",
+    "title": "点火线圈抑制电阻阻值公差 ±5% / ±10% / ±20% 对点火系统的影响  区域=cn",
+    "success": false,
+    "ok_count": 3,
     "total": 4,
     "actions": [
       {
         "key": "website",
         "status": "成功",
-        "duration": 23.4
+        "duration": 11.2
       },
       {
         "key": "baidu",
         "status": "成功",
-        "duration": 1.9
+        "duration": 0.9
       },
       {
-        "key": "buffer",
+        "key": "wechat",
         "status": "成功",
-        "duration": 2.8
+        "duration": 0.5
       },
       {
         "key": "supabase",
-        "status": "成功",
-        "duration": 3.8
+        "status": "失败",
+        "duration": 1.8
       }
     ]
   },
   "topic_pool": {
-    "remaining": 12,
+    "remaining": 15,
     "counts": {
-      "待写": 12,
-      "已完成": 8,
+      "待写": 15,
+      "已完成": 5,
       "暂停": 0
     },
     "total": 20,
-    "next": "航空/军工级点火电阻要求有哪些？IG-S 无感陶瓷实心方案解析"
+    "next": "如何用示波器验证点火系统 EMI 抑制效果？CISPR 25 实测方法"
   },
   "supabase": {
-    "available": true,
-    "count": 38
+    "available": false,
+    "count": null
   },
   "totals": {
-    "runs_logged": 33,
-    "published_manifest": 12,
-    "official_articles": 43
+    "runs_logged": 19,
+    "published_manifest": 6,
+    "official_articles": 40
   }
 }

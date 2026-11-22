@@ -1,113 +1,11 @@
 {
-  "last_updated": "2026-10-22T09:00:19+08:00",
+  "last_updated": "2026-11-22T16:48:52+08:00",
   "published": [
     {
-      "date": "2026-10-08",
-      "platform": "多平台",
-      "title": "点火线圈抑制电阻烧毁原因深度分析：4种失效模式与预防 | HXO Resistor",
-      "url": "https://www.hxo-lcr.cn/article_burn_causes.html"
-    },
-    {
-      "date": "2026-10-08",
-      "platform": "多平台",
-      "title": "IG-C 陶瓷芯点火线圈抑制电阻 — HXO Resistor",
-      "url": "https://www.hxo-lcr.cn/article_ig_c_ceramic.html"
-    },
-    {
-      "date": "2026-10-08",
-      "platform": "多平台",
-      "title": "新能源汽车充电桩泄放电阻选型：从4kV到25kV的全面指南与实测 - HXO点火线圈",
-      "url": "https://www.hxo-lcr.cn/article_ev_pile_bleeder.html"
-    },
-    {
-      "date": "2026-10-09",
+      "date": "2026-11-16",
       "platform": "部分失败",
-      "title": "光伏逆变器与储能系统高压泄放电阻选型指南 - HXO Resistor",
-      "url": "https://www.hxo-lcr.cn/article_pv_storage_bleeder.html"
-    },
-    {
-      "date": "2026-10-09",
-      "platform": "多平台",
-      "title": "点火线圈抑制电阻额定功率怎么选？1W/3W/5W/10W 选型陷阱与实测温升",
-      "url": "https://www.hxo-lcr.cn/article_power_rating_selection.html"
-    },
-    {
-      "date": "2026-10-09",
-      "platform": "多平台",
-      "title": "摩托车点火线圈抑制电阻多久换一次？寿命估算与更换判断标准",
-      "url": "https://www.hxo-lcr.cn/article_ignition_resistor_lifespan.html"
-    },
-    {
-      "date": "2026-10-09",
-      "platform": "多平台",
-      "title": "充电器空载发热、待机功耗异常？RXF 温度保险电阻排查指南",
-      "url": "https://www.hxo-lcr.cn/article_charger_thermal_fuse_troubleshoot.html"
-    },
-    {
-      "date": "2026-10-12",
-      "platform": "部分失败",
-      "title": "变频器制动电阻为什么老是烧？5 种根因与 HVW 选型对策",
-      "url": "https://www.hxo-lcr.cn/article_braking_resistor_burn.html"
-    },
-    {
-      "date": "2026-10-13",
-      "platform": "多平台",
-      "title": "变频器制动电阻为什么老是烧？5 种根因与 HVW 选型对策",
-      "url": "https://www.hxo-lcr.cn/article_braking_resistor_burn.html"
-    },
-    {
-      "date": "2026-10-13",
-      "platform": "多平台",
-      "title": "点火线圈抑制电阻额定功率怎么选？1W/3W/5W/10W 选型陷阱与实测温升",
-      "url": "https://www.hxo-lcr.cn/article_power_rating_selection.html"
-    },
-    {
-      "date": "2026-10-14",
-      "platform": "多平台",
-      "title": "点火线圈抑制电阻阻值公差 ±5% / ±10% / ±20% 对点火系统的影响",
+      "title": "点火线圈抑制电阻阻值公差 ±5% / ±10% / ±20% 对点火系统的影响  区域=cn",
       "url": "https://www.hxo-lcr.cn/article_resistance_tolerance.html"
-    },
-    {
-      "date": "2026-10-14",
-      "platform": "多平台",
-      "title": "如何用示波器验证点火系统 EMI 抑制效果？CISPR 25 实测方法",
-      "url": "https://www.hxo-lcr.cn/article_oscilloscope_emi_verify.html"
-    },
-    {
-      "date": "2026-10-16",
-      "platform": "多平台",
-      "title": "如何用示波器验证点火系统 EMI 抑制效果？CISPR 25 实测方法",
-      "url": "https://www.hxo-lcr.cn/article_oscilloscope_emi_verify.html"
-    },
-    {
-      "date": "2026-10-16",
-      "platform": "部分失败",
-      "title": "AED除颤器里的『隐形守护者』：无感绕线电阻为何如此关键",
-      "url": "https://www.hxo-lcr.cn/article_aed_defibrillator_resistor.html"
-    },
-    {
-      "date": "2026-10-16",
-      "platform": "部分失败",
-      "title": "充电器外壳总是发软变形，是什么原因？",
-      "url": "https://www.hxo-lcr.cn/article_case_charger_melt_zhihu.html"
-    },
-    {
-      "date": "2026-10-16",
-      "platform": "多平台",
-      "title": "sitemap 自动化测试文章（临时）",
-      "url": "https://www.hxo-lcr.cn/article_sitemap_test_20261016.html"
-    },
-    {
-      "date": "2026-10-19",
-      "platform": "多平台",
-      "title": "充电桩大功率泄放电阻散热设计：铝壳 vs 陶瓷管 vs 水泥电阻对比",
-      "url": "https://www.hxo-lcr.cn/article_bleeder_heat_dissipation.html"
-    },
-    {
-      "date": "2026-10-21",
-      "platform": "多平台",
-      "title": "LED 驱动器过温保护：RXF 温度保险电阻替代普通保险丝的优势",
-      "url": "https://www.hxo-lcr.cn/article_led_driver_thermal_protection.html"
     }
   ]
 }
