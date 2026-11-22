@@ -17,6 +17,7 @@ import datetime as dt
 import os
 import re
 import sys
+import time
 from pathlib import Path
 
 import requests
@@ -93,6 +94,42 @@ def find_html(slug):
     return None
 
 
+PENDING_LOG = REPO / "work" / "supabase_pending.log"
+
+
+def _record_pending(slug, error):
+    """把同步失败的 slug 记入待补发清单，待网络恢复后可重跑补发。"""
+    try:
+        PENDING_LOG.parent.mkdir(parents=True, exist_ok=True)
+        ts = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        with PENDING_LOG.open("a", encoding="utf-8") as fh:
+            fh.write(f"{ts} {slug} {error}\n")
+    except Exception:
+        pass
+
+
+def _request(method, url, **kwargs):
+    """先走代理、再走直连，各重试 2 次；全部失败抛出最后的网络异常。"""
+    last = None
+    for proxies in ({"http": PROXY, "https": PROXY}, None):
+        for _ in range(2):
+            try:
+                return requests.request(method, url, proxies=proxies, **kwargs)
+            except requests.exceptions.RequestException as e:
+                last = e
+                time.sleep(2)
+    raise last
+
+
+def _skip_unreachable(a, product_id, stage, exc):
+    """Supabase 网络不可达时软跳过：不阻断流水线，slug 进待补发清单。"""
+    print(f"[warn] Supabase 网络不可达（{stage}）：{exc}", file=sys.stderr)
+    _record_pending(a.slug, f"unreachable:{type(exc).__name__}")
+    emit({"ok": True, "action": "supabase", "skipped": True,
+          "reason": "supabase_unreachable", "slug": a.slug,
+          "product_id": product_id, "error": str(exc)})
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--slug", required=True)
@@ -122,19 +159,24 @@ def main():
 
     # idempotency: skip if this slug already exists (one row per article)
     try:
-        q = requests.get(ENDPOINT, params={"slug": "eq." + a.slug, "select": "id"},
-                         headers=HEADERS, proxies={"http": PROXY, "https": PROXY}, timeout=30)
+        q = _request("get", ENDPOINT, params={"slug": "eq." + a.slug, "select": "id"},
+                     headers=HEADERS, timeout=30)
         if q.status_code == 200 and q.json():
             emit({"ok": True, "action": "supabase", "skipped": True,
                   "reason": "row exists", "slug": a.slug, "product_id": product_id})
             return
+    except requests.exceptions.RequestException as e:
+        _skip_unreachable(a, product_id, "existence check", e)
+        return
     except Exception as e:
         print(f"[warn] existence check failed: {e}", file=sys.stderr)
 
     try:
-        r = requests.post(ENDPOINT, json=payload,
-                          headers=dict(HEADERS, Prefer="return=minimal"),
-                          proxies={"http": PROXY, "https": PROXY}, timeout=60)
+        r = _request("post", ENDPOINT, json=payload,
+                     headers=dict(HEADERS, Prefer="return=minimal"), timeout=60)
+    except requests.exceptions.RequestException as e:
+        _skip_unreachable(a, product_id, "post", e)
+        return
     except Exception as e:
         fail("supabase", f"request failed: {e}")
 

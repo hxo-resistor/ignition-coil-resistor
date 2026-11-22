@@ -746,3 +746,37 @@
 [2026-10-13 19:49:40] ======================================================================
 [2026-10-13 19:49:40] 已写入 work\published_manifest.json
 [2026-10-13 19:49:40] 全部动作成功。
+[2026-11-16 10:00:09] ======================================================================
+[2026-11-16 10:00:09] publish_all.py  文章=article_resistance_tolerance  标题=点火线圈抑制电阻阻值公差 ±5% / ±10% / ±20% 对点火系统的影响  区域=cn
+[2026-11-16 10:00:09] 模式=REAL  only=全部  skip=['dashboard', 'zhihu']
+[2026-11-16 10:00:09] ======================================================================
+[2026-11-16 10:00:09] [索引] 索引已存在该文章，无需更新
+[2026-11-16 10:00:09] [sitemap] sitemap 已存在该文章，无需更新
+[2026-11-16 10:00:09] --- 动作 [website] 官网发布 (git push) 开始 ---
+[2026-11-16 10:00:09]     cmd: C:\Users\fwen8\AppData\Local\Programs\Python\Python315\python.exe C:\HXO_Workspace\ignition-coil-resistor\work\n8n\n1_website.py
+[2026-11-16 10:00:20]     | {"ok": true, "action": "website", "commit": "d5dea5597f8e9f0c13e01902edf3a0778ee33429", "pushed": true}
+[2026-11-16 10:00:20] --- 动作 [website] 官网发布 (git push) 结束: 成功 (11.2s) {"action": "website", "commit": "d5dea5597f8e9f0c13e01902edf3a0778ee33429", "pushed": true} ---
+[2026-11-16 10:00:23] --- 动作 [baidu] 百度推送 开始 ---
+[2026-11-16 10:00:23]     cmd: C:\Users\fwen8\AppData\Local\Programs\Python\Python315\python.exe C:\HXO_Workspace\ignition-coil-resistor\work\n8n\n2_baidu.py --slugs article_resistance_tolerance
+[2026-11-16 10:00:24]     | {"ok": true, "action": "baidu", "success": 2, "remain": 8, "not_same_site": [], "raw": {"remain": 8, "success": 2}, "http": 200}
+[2026-11-16 10:00:24] --- 动作 [baidu] 百度推送 结束: 成功 (0.9s) {"action": "baidu", "success": 2, "remain": 8, "not_same_site": [], "http": 200} ---
+[2026-11-16 10:00:27] --- 动作 [wechat] 微信公众号草稿 开始 ---
+[2026-11-16 10:00:27]     cmd: C:\Users\fwen8\AppData\Local\Programs\Python\Python315\python.exe C:\HXO_Workspace\ignition-coil-resistor\work\n8n\n9_wechat.py --slug article_resistance_tolerance
+[2026-11-16 10:00:28]     | {"ok": true, "action": "wechat", "skipped": true, "reason": "WECHAT_APPID/SECRET 未配置"}
+[2026-11-16 10:00:28] --- 动作 [wechat] 微信公众号草稿 结束: 成功 (0.5s) {"action": "wechat", "skipped": true, "reason": "WECHAT_APPID/SECRET 未配置"} ---
+[2026-11-16 10:00:31] --- 动作 [supabase] Supabase 同步 开始 ---
+[2026-11-16 10:00:31]     cmd: C:\Users\fwen8\AppData\Local\Programs\Python\Python315\python.exe C:\HXO_Workspace\ignition-coil-resistor\work\n8n\n5_supabase.py --slug article_resistance_tolerance
+[2026-11-16 10:00:32]     | {"ok": false, "action": "supabase", "error": "request failed: HTTPSConnectionPool(host='whnmtkrmvqayfhpmrdiq.supabase.co', port=443): Max retries exceeded with url: /rest/v1/content_packages (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1147)')))"}
+[2026-11-16 10:00:32]     ! [warn] existence check failed: HTTPSConnectionPool(host='whnmtkrmvqayfhpmrdiq.supabase.co', port=443): Max retries exceeded with url: /rest/v1/content_packages?slug=eq.article_resistance_tolerance&select=id (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1147)')))
+[2026-11-16 10:00:32] --- 动作 [supabase] Supabase 同步 结束: 失败 (1.8s) {"action": "supabase", "error": "request failed: HTTPSConnectionPool(host='whnmtkrmvqayfhpmrdiq.supabase.co', port=443): Max retries exceeded with url: /rest/v1/content_packages (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1147)')))"} ---
+[2026-11-16 10:00:33] 
+[2026-11-16 10:00:33] ======================================================================
+[2026-11-16 10:00:33] 汇总报告
+[2026-11-16 10:00:33] ======================================================================
+[2026-11-16 10:00:33]   [OK  ] website      11.2s  {"action": "website", "commit": "d5dea5597f8e9f0c13e01902edf3a0778ee33429", "pushed": true}
+[2026-11-16 10:00:33]   [OK  ] baidu         0.9s  {"action": "baidu", "success": 2, "remain": 8, "not_same_site": [], "http": 200}
+[2026-11-16 10:00:33]   [OK  ] wechat        0.5s  {"action": "wechat", "skipped": true, "reason": "WECHAT_APPID/SECRET 未配置"}
+[2026-11-16 10:00:33]   [FAIL] supabase      1.8s  {"action": "supabase", "error": "request failed: HTTPSConnectionPool(host='whnmtkrmvqayfhpmrdiq.supabase.co', port=443): Max retries exceeded with url: /rest/v1/content_packages (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1147)')))"}
+[2026-11-16 10:00:33]   合计: 3/4 成功
+[2026-11-16 10:00:33] ======================================================================
+[2026-11-16 10:00:33] 存在失败动作，未写 manifest（可修复后重跑，幂等）。
