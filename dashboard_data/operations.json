@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-22T16:48:52+08:00",
+  "last_updated": "2026-11-23T09:00:29+08:00",
   "window_days": 7,
   "recent_records": [
     {
@@ -73,14 +73,14 @@
     ]
   },
   "topic_pool": {
-    "remaining": 15,
+    "remaining": 12,
     "counts": {
-      "待写": 15,
-      "已完成": 5,
+      "待写": 12,
+      "已完成": 8,
       "暂停": 0
     },
     "total": 20,
-    "next": "如何用示波器验证点火系统 EMI 抑制效果？CISPR 25 实测方法"
+    "next": "航空/军工级点火电阻要求有哪些？IG-S 无感陶瓷实心方案解析"
   },
   "supabase": {
     "available": false,
