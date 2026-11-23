@@ -125,6 +125,19 @@ def publish_intl(dry_run):
     sys.exit(0 if ok or dry_run else 1)
 
 
+def _backfill_supabase():
+    """补发待补发清单里的 Supabase 记录（自愈：网络恢复后自动回填）。"""
+    try:
+        rc, out, err = run(f'"{PY}" work/n8n/n5_supabase.py --backfill', timeout=600)
+        if out.strip():
+            last = out.strip().splitlines()[-1]
+            log(f"[Supabase补发] {last}")
+        if err.strip():
+            print(err, file=sys.stderr)
+    except Exception as e:
+        log(f"[Supabase补发] 异常（忽略）：{e}")
+
+
 # ---------------------------------------------------------------------------
 # 国内发布（含生成 + 构建）
 # ---------------------------------------------------------------------------
@@ -188,7 +201,10 @@ def publish_cn(dry_run, also_intl=False):
     log(f"[标记] 选题 #{topic['num']} 已改为「已完成」")
     log(f"[完成] 文章URL: https://www.hxo-lcr.cn/{slug}.html")
 
-    # 4) 可选：接着发海外
+    # 4) 自愈补发：网络恢复后回填之前跳过的 Supabase 记录（尽力而为，失败不阻断）
+    _backfill_supabase()
+
+    # 5) 可选：接着发海外
     if also_intl:
         publish_intl(dry_run)
     return 0

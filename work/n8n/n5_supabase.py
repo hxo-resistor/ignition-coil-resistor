@@ -101,7 +101,7 @@ def _record_pending(slug, error):
     """把同步失败的 slug 记入待补发清单，待网络恢复后可重跑补发。"""
     try:
         PENDING_LOG.parent.mkdir(parents=True, exist_ok=True)
-        ts = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        ts = dt.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
         with PENDING_LOG.open("a", encoding="utf-8") as fh:
             fh.write(f"{ts} {slug} {error}\n")
     except Exception:
@@ -130,12 +130,97 @@ def _skip_unreachable(a, product_id, stage, exc):
           "product_id": product_id, "error": str(exc)})
 
 
+def _pending_slugs():
+    """从待补发清单读取去重后的 slug（保持首次出现顺序）。"""
+    if not PENDING_LOG.exists():
+        return []
+    slugs, seen = [], set()
+    for ln in PENDING_LOG.read_text(encoding="utf-8").splitlines():
+        parts = ln.split()
+        if len(parts) >= 2 and parts[1] not in seen:
+            seen.add(parts[1])
+            slugs.append(parts[1])
+    return slugs
+
+
+def _clear_pending(slugs):
+    """把已成功补发的 slug 从待补发清单移除。"""
+    if not PENDING_LOG.exists():
+        return
+    done = set(slugs)
+    remaining = []
+    for ln in PENDING_LOG.read_text(encoding="utf-8").splitlines():
+        parts = ln.split()
+        if len(parts) >= 2 and parts[1] in done:
+            continue
+        remaining.append(ln)
+    PENDING_LOG.write_text("\n".join(remaining) + ("\n" if remaining else ""),
+                           encoding="utf-8")
+
+
+def _sync_one(slug):
+    """同步单篇（补发用）。返回 (ok, reason)。网络异常向上抛出。"""
+    html_path = find_html(slug)
+    if not html_path:
+        return False, "html not found"
+    content = html_path.read_text(encoding="utf-8", errors="ignore")
+    m = re.search(r"<title>(.*?)</title>", content, re.S)
+    title = m.group(1).strip() if m else slug
+    product_id = guess_product_id(slug, title)
+    payload = {"date": dt.date.today().isoformat(), "product_id": product_id,
+               "title": title, "slug": slug, "content_md": content,
+               "source": "n8n_workflow", "status": "published",
+               "sync_status": "synced"}
+    q = _request("get", ENDPOINT, params={"slug": "eq." + slug, "select": "id"},
+                 headers=HEADERS, timeout=30)
+    if q.status_code == 200 and q.json():
+        return True, "row exists"
+    r = _request("post", ENDPOINT, json=payload,
+                 headers=dict(HEADERS, Prefer="return=minimal"), timeout=60)
+    if r.status_code in (200, 201, 204):
+        return True, "synced"
+    return False, f"http {r.status_code}"
+
+
+def backfill():
+    """补发待补发清单：逐条同步，网络恢复即逐步清空；网络异常则停止保留剩余。"""
+    slugs = _pending_slugs()
+    if not slugs:
+        emit({"ok": True, "action": "supabase_backfill", "pending": 0,
+              "note": "no pending"})
+        return
+    done, failed = [], []
+    for s in slugs:
+        try:
+            ok, reason = _sync_one(s)
+        except requests.exceptions.RequestException as e:
+            print(f"[backfill] 网络仍不可达，停止补发：{e}", file=sys.stderr)
+            break
+        if ok:
+            done.append(s)
+            print(f"[backfill] {s}: {reason}")
+        else:
+            failed.append({"slug": s, "reason": reason})
+    if done:
+        _clear_pending(done)
+    emit({"ok": True, "action": "supabase_backfill", "done": done,
+          "failed": failed, "remaining": len(_pending_slugs())})
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--slug", required=True)
+    ap.add_argument("--slug", default="")
     ap.add_argument("--product-id", default="")
     ap.add_argument("--date", default="")
+    ap.add_argument("--backfill", action="store_true", help="补发待补发清单中的 slug")
     a = ap.parse_args()
+
+    if a.backfill:
+        backfill()
+        return
+
+    if not a.slug:
+        fail("supabase", "--slug required (或使用 --backfill)")
 
     html_path = find_html(a.slug)
     if not html_path:
