@@ -487,8 +487,23 @@ def _merge_tech(base: dict):
     return merged
 
 
+def _load_generated_topics():
+    """加载 LLM 自动生成的选题（work/generated_topics.json，gitignored 本地状态）。"""
+    path = WORK / "generated_topics.json"
+    if not path.exists():
+        return []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return [t for t in data if isinstance(t, dict) and t.get("slug") and t.get("title")]
+    except Exception:
+        return []
+
+
 _TOPIC_BY_NUM = {t["num"]: t for t in TOPICS}
 _TOPIC_BY_SLUG = {t["slug"]: t for t in TOPICS}
+for _t in _load_generated_topics():
+    _TOPIC_BY_NUM[str(_t["num"])] = _t
+    _TOPIC_BY_SLUG[_t["slug"]] = _t
 
 
 def spec_by_num(num: str):

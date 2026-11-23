@@ -71,6 +71,17 @@ def prompt_profile() -> str:
     return load().get("prompt_hint", "")
 
 
+def best_ctype(min_n=1):
+    """返回当前表现最好的内容类型（样本数 ≥ min_n 才计入）；无数据返回 None。"""
+    w = load().get("weights", {})
+    if not w:
+        return None
+    eligible = {k: v.get("score", 0.5) for k, v in w.items() if v.get("n", 0) >= min_n}
+    if not eligible:
+        return None
+    return max(eligible, key=eligible.get)
+
+
 def daily_review() -> str:
     """每日复盘：按权重排序输出设计模式分析（供日志/看板）。"""
     s = load()

@@ -23,7 +23,7 @@ from pathlib import Path
 import requests
 
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
-from _common import REPO, emit, fail  # noqa: E402
+from _common import REPO, emit, fail, request_with_fallback  # noqa: E402
 
 SUPA_URL = os.environ.get("SUPABASE_URL", "https://whnmtkrmvqayfhpmrdiq.supabase.co")
 SUPA_KEY = os.environ.get("SUPABASE_KEY",
@@ -109,16 +109,8 @@ def _record_pending(slug, error):
 
 
 def _request(method, url, **kwargs):
-    """先走代理、再走直连，各重试 2 次；全部失败抛出最后的网络异常。"""
-    last = None
-    for proxies in ({"http": PROXY, "https": PROXY}, None):
-        for _ in range(2):
-            try:
-                return requests.request(method, url, proxies=proxies, **kwargs)
-            except requests.exceptions.RequestException as e:
-                last = e
-                time.sleep(2)
-    raise last
+    """代理池轮换 + 直连兜底（代理自愈），全部失败抛出最后的网络异常。"""
+    return request_with_fallback(method, url, **kwargs)
 
 
 def _skip_unreachable(a, product_id, stage, exc):

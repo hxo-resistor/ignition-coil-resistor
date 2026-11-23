@@ -28,6 +28,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import content_factory  # noqa: E402
+import self_optimize  # noqa: E402
 import tz  # noqa: E402
 
 try:
@@ -71,10 +72,20 @@ def parse_pool():
 
 
 def next_topic(rows):
-    for r in rows:
-        if r["status"] == "待写":
-            return r
-    return None
+    pending = [r for r in rows if r["status"] == "待写"]
+    if not pending:
+        return None
+    # 效果反馈闭环：样本足够时优先选「表现最好」的内容类型（如数据对比型），其余仍按顺序
+    try:
+        best = self_optimize.best_ctype(min_n=2)
+    except Exception:
+        best = None
+    if best:
+        for r in pending:
+            spec = content_factory.spec_by_num(r["num"])
+            if spec and spec.get("ctype") == best:
+                return r
+    return pending[0]
 
 
 def mark_done(topic):
@@ -122,6 +133,8 @@ def publish_intl(dry_run):
         print(err, file=sys.stderr)
     ok = (rc == 0) and ("全部动作成功" in out)
     log("[海外] 完成" if ok else f"[错误] 海外发布未全部成功（rc={rc}）")
+    if ok and not dry_run:
+        _pull_metrics()
     sys.exit(0 if ok or dry_run else 1)
 
 
@@ -138,6 +151,39 @@ def _backfill_supabase():
         log(f"[Supabase补发] 异常（忽略）：{e}")
 
 
+def _pull_metrics():
+    """发布后拉取 Buffer 实际阅读量，喂给 self_optimize 形成效果反馈闭环。"""
+    try:
+        rc, out, err = run(f'"{PY}" tools/pull_metrics.py', timeout=600)
+        if out.strip():
+            last = out.strip().splitlines()[-1]
+            log(f"[效果反馈] {last}")
+        if err.strip():
+            print(err, file=sys.stderr)
+    except Exception as e:
+        log(f"[效果反馈] 异常（忽略）：{e}")
+
+
+def _replenish_pool(rows, dry_run):
+    """内容自进化：待写选题不足（<3）时，让 LLM 挖掘热点生成新选题入库。"""
+    pending = [r for r in rows if r["status"] == "待写"]
+    if len(pending) >= 3:
+        return
+    if dry_run:
+        log(f"[内容自进化] dry-run：待写 {len(pending)} < 3，将生成新选题（未执行）")
+        return
+    log(f"[内容自进化] 待写 {len(pending)} < 3，让 LLM 挖掘热点生成新选题...")
+    try:
+        rc, out, err = run(f'"{PY}" tools/brainstorm.py --n 5', timeout=600)
+        if out.strip():
+            for ln in out.strip().splitlines():
+                log(f"  {ln}")
+        if err.strip():
+            print(err, file=sys.stderr)
+    except Exception as e:
+        log(f"[内容自进化] 异常（忽略）：{e}")
+
+
 # ---------------------------------------------------------------------------
 # 国内发布（含生成 + 构建）
 # ---------------------------------------------------------------------------
@@ -145,6 +191,8 @@ def publish_cn(dry_run, also_intl=False):
     if not POOL.exists():
         log(f"[错误] 选题池不存在: {POOL}")
         sys.exit(2)
+    _, rows = parse_pool()
+    _replenish_pool(rows, dry_run)
     _, rows = parse_pool()
     topic = next_topic(rows)
     if not topic:

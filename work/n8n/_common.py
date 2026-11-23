@@ -5,6 +5,7 @@ Contract: every wrapper prints a single JSON object on the last line:
 so n8n can parse the result with a Code node (or just pass through).
 """
 import json
+import os
 import subprocess
 import sys
 import time
@@ -16,6 +17,54 @@ ARTICLES = REPO / "content" / "articles"
 MANIFEST = WORK / "published_manifest.json"
 
 PY = sys.executable
+
+
+# ---------------------------------------------------------------------------
+# 代理自愈：HXO_PROXY_POOL（逗号分隔）轮换 + 直连兜底 + 粘性记住可用代理。
+# 网络失败（TLS 重置/超时）时自动切备用代理重试，直到成功，而不是默默放弃。
+# ---------------------------------------------------------------------------
+def _proxy_pool():
+    env = os.environ.get("HXO_PROXY_POOL", "").strip()
+    pool = [p.strip() for p in env.split(",") if p.strip()] if env else []
+    if not pool:
+        pool = ["http://127.0.0.1:7897", "http://127.0.0.1:7891"]
+    return pool
+
+
+_LAST_GOOD_PROXY = None
+
+
+def request_with_fallback(method, url, retries=2, **kwargs):
+    """按「最近可用代理 → 代理池 → 直连」顺序轮换请求，直到成功。
+
+    返回 requests.Response；全部失败抛最后一个网络异常。
+    kwargs（timeout/headers/json/params 等）原样透传给 requests.request。
+    """
+    global _LAST_GOOD_PROXY
+    import requests
+
+    order = []
+    if _LAST_GOOD_PROXY:
+        order.append(_LAST_GOOD_PROXY)
+    for p in _proxy_pool():
+        if p not in order:
+            order.append(p)
+    order.append(None)  # 直连兜底
+
+    last = None
+    for proxy in order:
+        proxies = {"http": proxy, "https": proxy} if proxy else None
+        for _ in range(retries):
+            try:
+                r = requests.request(method, url, proxies=proxies, **kwargs)
+                if proxy:
+                    _LAST_GOOD_PROXY = proxy
+                return r
+            except requests.exceptions.RequestException as e:
+                last = e
+                time.sleep(1)
+    _LAST_GOOD_PROXY = None
+    raise last
 
 
 def emit(payload):
