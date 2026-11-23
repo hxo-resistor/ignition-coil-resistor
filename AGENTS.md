@@ -74,5 +74,13 @@ Treat these as reference only. Never commit new secrets; the repo already leaks 
 - Legacy rows (pre-slug) carry non-semantic `legacy-<id>` slugs; normalizing them is a separate future task.
 - **网络自愈（2026-11-23）**：`supabase.co` 在当前代理节点上常被 TLS 重置（`SSLError UNEXPECTED_EOF`，直连同样失败）。`n5_supabase.py` 先走代理再直连、各重试 2 次；仍失败则**软跳过**（`ok:true, skipped:supabase_unreachable`）不阻断流水线，slug 写入 `work/supabase_pending.log`（gitignored）。`tools/daily_publish.py` 每次发布成功后自动调用 `n5_supabase.py --backfill` 补发待补发清单——网络恢复即自动回填，无需人工干预。
 
+## 高阶智能化（三大自愈/自进化机制）
+
+1. **代理自愈**：`work/n8n/_common.py` 的 `request_with_fallback()` 按「最近可用代理 → `HXO_PROXY_POOL`（逗号分隔）→ 直连」轮换请求、各重试 2 次，直到成功并记住可用代理（粘性）。`n5_supabase.py` 已接入；其它脚本可复用同一函数。默认池 `http://127.0.0.1:7897,http://127.0.0.1:7891`。注意：若池内都是同一 Clash 实例（同节点），换端口无法绕开「节点被 TLS 重置」，真正有效需切 Clash 节点（external-controller API，当前禁用）。
+2. **内容自进化**：`tools/brainstorm.py` 让 DeepSeek 按最近主题挖掘热点痛点，生成 N 个新选题的完整规格（JSON），校验后写入 `work/generated_topics.json`（gitignored，`content_factory.py` 启动时自动加载合并进选题表），并追加到 `work/topic_pool.md`（状态「待写」）。`daily_publish.py` 每次发布前若「待写」< 3 会自动调用 `brainstorm.py --n 5` 补题。可选联网搜索：设 `HXO_TAVILY_API_KEY` 后把实时热点注入提示词；未配置则用 LLM 知识模拟。
+3. **效果反馈闭环**：`tools/pull_metrics.py` 拉取 Buffer 实际阅读量 → `self_optimize.record_result()` 累积各内容类型（ctype）的加权效果分 → `daily_publish.py` 选题时优先选「表现最好」的 ctype（样本 ≥2 才生效）；`translate.py` 翻译时也会注入最优 ctype 的风格 hint。海外发布成功后自动 `_pull_metrics()`。
+
+> **依赖**：以上机制都依赖 `DEEPSEEK_API_KEY`（`translate.chat`）。该 key 失效（HTTP 401）时：选题自进化返回空、翻译/self_review 回退到硬编码字段，但**主发布流水线仍照常运行**（模板填充 + 硬编码英文兜底）。key 需在 DeepSeek 控制台续费/更换。
+
 ## TODO (not yet done, by design)
-- Move core automation scripts (`n5_supabase.py`, `publish_all.py`, `daily_publish.py`) out of untracked `work/` into tracked `tools/`. Deferred to keep changes minimal.
+- Move core automation scripts (`n5_supabase.py`, `publish_all.py`, `daily_publish.py`) out of untracked `work/` into tracked `tools/`. Deferred to keep changes minimal. (`brainstorm.py` / `pull_metrics.py` / `self_optimize.py` 已在 `tools/`。)
