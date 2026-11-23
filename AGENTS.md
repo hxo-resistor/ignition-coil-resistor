@@ -42,12 +42,20 @@ Treat these as reference only. Never commit new secrets; the repo already leaks 
 - Errors append to `logs/dashboard_errors.log`; `logs/dashboard_alert_state.json` tracks consecutive failures (alert at 3).
 
 ## Windows 计划任务（Task Scheduler）
-- `HXO_Auto_Publish` — 每天 **10:00**（周一/三/五）跑 `tools/daily_publish.py` 全链路发布（官网→百度→知乎→Buffer→Supabase）。这是**唯一**该触发发布的计划任务。
-- **已禁用（2026-10-14）**：`HXO_UpdateWebsite` 与 `HXO_Buffer_AutoPublish`。
-  - 禁用原因：这两个遗留任务在**同一个 `website-repo`** 里运行（`update_website.py` 执行 `git add .` + `git checkout -b master` + `git push --force origin master`；`buffer_auto.py` 发旧 `content-packages`），与 `HXO_Auto_Publish` 在 10:00 **抢 `.git/index.lock`**，导致 `n1_website.py` 的 git add 失败或提交错位，**发布下游（百度/知乎/Buffer/Supabase）中断**（10-12、10-14 均复现）。
-  - 恢复方式：如需恢复，**必须先确保不与 `HXO_Auto_Publish` 同一时间运行**（错开触发时间/日期），否则会再次抢锁中断发布。命令：`Enable-ScheduledTask -TaskName "<名字>"`。
-  - 查验：`Get-ScheduledTask -TaskName HXO_UpdateWebsite,HXO_Buffer_AutoPublish | Select TaskName,State`。
+
+四个自动化任务（当前用户 fwen8；Python = `C:\Users\fwen8\AppData\Local\Programs\Python\Python315\python.exe`）：
+
+| 任务 | 触发 | 命令 |
+|------|------|------|
+| `HXO_Dashboard_Refresh` | 每天 09:00 | `tools\run_dashboard_task.bat` → `tools\update_dashboard.py` |
+| `HXO_Auto_Publish` | 周一/三/五 10:00 | `tools\daily_publish.py --region cn`（国内全链路：官网→百度→微信→Supabase→看板） |
+| `HXO_Auto_Publish_INTL` | 周一~五 20:00（每 30min 重试，最多 3h） | `tools\daily_publish.py --region intl`（海外 LinkedIn/X，走 Buffer） |
+| `HXO_Website_Backup` | 周日 22:00 | `tools\backup_website.py`（打包到 `backups/`，已 gitignore） |
+
+- **登录模式 = InteractiveToken**（仅用户登录时运行）。机器注销/锁屏时任务会被拒（上次结果 `0x800710E0`）。已为所有任务加 `StartWhenAvailable`（错过时间后登录即补跑）+ `RestartOnFailure`（失败按间隔重试）缓解；要彻底「无论是否登录都运行」需**管理员权限 + 账号密码**（S4U/Password 注册均被拒）。
+- **已删除**：`HXO_UpdateWebsite`、`HXO_Buffer_AutoPublish`（2026-10-14 起与 `HXO_Auto_Publish` 抢 `.git/index.lock` 导致发布中断，先禁用后删除）。
 - 相关加固（2026-10-14）：`tools/publish_all.py` 的 `log()` 写日志失败会打印到 stderr（不再静默）；`work/n8n/n1_website.py` 在 git 操作前等 `.git/index.lock` 释放（最多 3×5s，仍失败则报错）；`tools/daily_publish.py` 失败/标记失败均返回非 0 退出码，避免「失败却显示成功」。
+- 查验：`Get-ScheduledTask | Where-Object TaskName -like "HXO*" | Select TaskName,State`。
 
 ## 知乎发布暂停（2026-10-16 起）
 - **知乎账号因「AI 批量生成」被禁言，至 2026-10-19 结束。** 期间**暂停知乎发布**，10-19 后**人工评估**是否恢复（复评前不要自动重开）。
@@ -64,6 +72,7 @@ Treat these as reference only. Never commit new secrets; the repo already leaks 
 - `work/n8n/n5_supabase.py` syncs one article per row; idempotent on **`slug`** (UNIQUE), not `(date, product_id)`.
 - `product_id` is derived from slug+title via `PRODUCT_MAP` (`rxf-otp-1w` / `ig-c-ceramic` / `ig-f-glassfiber` / `ig-s-ceramic` / `hv-wirewound`); unmatched → `unknown` (never guesses `av`).
 - Legacy rows (pre-slug) carry non-semantic `legacy-<id>` slugs; normalizing them is a separate future task.
+- **网络自愈（2026-11-23）**：`supabase.co` 在当前代理节点上常被 TLS 重置（`SSLError UNEXPECTED_EOF`，直连同样失败）。`n5_supabase.py` 先走代理再直连、各重试 2 次；仍失败则**软跳过**（`ok:true, skipped:supabase_unreachable`）不阻断流水线，slug 写入 `work/supabase_pending.log`（gitignored）。`tools/daily_publish.py` 每次发布成功后自动调用 `n5_supabase.py --backfill` 补发待补发清单——网络恢复即自动回填，无需人工干预。
 
 ## TODO (not yet done, by design)
 - Move core automation scripts (`n5_supabase.py`, `publish_all.py`, `daily_publish.py`) out of untracked `work/` into tracked `tools/`. Deferred to keep changes minimal.
