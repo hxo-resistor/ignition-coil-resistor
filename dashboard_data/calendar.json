@@ -1,11 +1,17 @@
 {
-  "last_updated": "2026-11-23T09:00:29+08:00",
+  "last_updated": "2026-11-27T17:14:00+08:00",
   "published": [
     {
       "date": "2026-11-16",
       "platform": "部分失败",
       "title": "点火线圈抑制电阻阻值公差 ±5% / ±10% / ±20% 对点火系统的影响  区域=cn",
       "url": "https://www.hxo-lcr.cn/article_resistance_tolerance.html"
+    },
+    {
+      "date": "2026-11-23",
+      "platform": "多平台",
+      "title": "航空/军工级点火电阻要求有哪些？IG-S 无感陶瓷实心方案解析  区域=cn",
+      "url": "https://www.hxo-lcr.cn/article_aerospace_ignition_resistor.html"
     }
   ]
 }
