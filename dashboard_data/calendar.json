@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-27T17:14:00+08:00",
+  "last_updated": "2026-11-28T09:00:22+08:00",
   "published": [
     {
       "date": "2026-11-16",
@@ -12,6 +12,12 @@
       "platform": "多平台",
       "title": "航空/军工级点火电阻要求有哪些？IG-S 无感陶瓷实心方案解析  区域=cn",
       "url": "https://www.hxo-lcr.cn/article_aerospace_ignition_resistor.html"
+    },
+    {
+      "date": "2026-11-27",
+      "platform": "部分失败",
+      "title": "伺服驱动器制动电阻选型：功率、阻值、占空比的完整计算方法  区域=intl",
+      "url": "https://www.hxo-lcr.cn/article_servo_braking_resistor_selection.html"
     }
   ]
 }

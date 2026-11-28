@@ -1,7 +1,16 @@
 {
-  "last_updated": "2026-11-27T17:14:00+08:00",
+  "last_updated": "2026-11-28T09:00:22+08:00",
   "window_days": 7,
   "recent_records": [
+    {
+      "date": "2026-11-27",
+      "time": "2026-11-27 23:00:02",
+      "slug": "article_servo_braking_resistor_selection",
+      "title": "伺服驱动器制动电阻选型：功率、阻值、占空比的完整计算方法  区域=intl",
+      "platforms": [],
+      "success": false,
+      "summary": "0/2 成功"
+    },
     {
       "date": "2026-11-23",
       "time": "2026-11-23 10:00:32",
@@ -20,7 +29,7 @@
     {
       "key": "website",
       "name": "官网",
-      "count": 41
+      "count": 42
     },
     {
       "key": "baidu",
@@ -40,36 +49,26 @@
     {
       "key": "supabase",
       "name": "Supabase",
-      "count": 9
+      "count": 10
     }
   ],
   "last_task": {
-    "time": "2026-11-23 10:00:32",
-    "slug": "article_aerospace_ignition_resistor",
-    "title": "航空/军工级点火电阻要求有哪些？IG-S 无感陶瓷实心方案解析  区域=cn",
-    "success": true,
-    "ok_count": 4,
-    "total": 4,
+    "time": "2026-11-27 23:00:02",
+    "slug": "article_servo_braking_resistor_selection",
+    "title": "伺服驱动器制动电阻选型：功率、阻值、占空比的完整计算方法  区域=intl",
+    "success": false,
+    "ok_count": 0,
+    "total": 2,
     "actions": [
       {
-        "key": "website",
-        "status": "成功",
-        "duration": 10.2
+        "key": "linkedin",
+        "status": "失败",
+        "duration": 2.8
       },
       {
-        "key": "baidu",
-        "status": "成功",
-        "duration": 2.0
-      },
-      {
-        "key": "wechat",
-        "status": "成功",
-        "duration": 0.5
-      },
-      {
-        "key": "supabase",
-        "status": "成功",
-        "duration": 26.9
+        "key": "x",
+        "status": "失败",
+        "duration": 3.6
       }
     ]
   },
@@ -88,8 +87,8 @@
     "count": null
   },
   "totals": {
-    "runs_logged": 20,
+    "runs_logged": 24,
     "published_manifest": 7,
-    "official_articles": 41
+    "official_articles": 42
   }
 }
